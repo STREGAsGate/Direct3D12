@@ -1,0 +1,16 @@
+
+#Swift
+/.build
+/package.resolved
+
+#Apple
+.DS_Store
+
+#Xcode
+/.swiftpm 
+
+#Visual Studio
+/.vs
+
+#Visual Studio Code
+/.vscode
