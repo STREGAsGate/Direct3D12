@@ -5,7 +5,6 @@ import _d3d12
 extension Error {
     public enum Kind {
         case unknownError
-        case pUnkFailed
         case hresult(HRESULT)
         case text(String)
     }
@@ -26,8 +25,6 @@ extension Error: CustomStringConvertible {
             return SwiftCOM.COMError(hr: hr).description
         case let .text(text):
             return text
-        case .pUnkFailed:
-            return "Unable to retrieve a pointer from COM."
         default:
             return "\(kind)"
         }

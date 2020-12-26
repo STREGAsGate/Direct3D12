@@ -3,24 +3,34 @@
 
 import PackageDescription
 
+//TODO: Change swift version to the correct version when released
+
+#if os(Windows) && swift(>=5.3)
 let package = Package(
-    name: "D3d12",
+    name: "Direct3D12",
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "D3d12",
-            targets: ["D3d12"]),
+            name: "Direct3D12",
+            targets: ["Direct3D12"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
         .package(name: "SwiftCOM", url: "https://github.com/compnerd/swift-com.git", .branch("master")),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .systemLibrary(name: "_d3d12"),
         .target(
-            name: "D3d12",
+            name: "Direct3D12",
             dependencies: ["SwiftCOM", "_d3d12"]),
     ]
 )
+#else
+#if !os(Windows)
+#warning("Direct3D12 is only available on the Windows platform.")
+#endif
+
+#if !swift(>=5.3)
+#warning("Direct3D12 requires Swift 5.3.3 or later.")
+#endif
+
+let package = Package(name: "Direct3D12")
+#endif
