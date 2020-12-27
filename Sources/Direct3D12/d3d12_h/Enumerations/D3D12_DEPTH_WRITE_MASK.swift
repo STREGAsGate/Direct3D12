@@ -24,7 +24,7 @@ public enum DepthWriteMask {
 @available(*, deprecated, renamed: "DepthWriteMask")
 public typealias D3D12_DEPTH_WRITE_MASK = DepthWriteMask
 
-public extension DepthWriteMask  {
+public extension DepthWriteMask {
     @available(*, deprecated, renamed: "zero")
     static let D3D12_DEPTH_WRITE_MASK_ZERO = Self.zero
 

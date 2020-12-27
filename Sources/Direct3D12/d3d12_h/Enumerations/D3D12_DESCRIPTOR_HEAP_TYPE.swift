@@ -36,7 +36,7 @@ public enum DescriptorHeapType {
 @available(*, deprecated, renamed: "DescriptorHeapType")
 public typealias D3D12_DESCRIPTOR_HEAP_TYPE = DescriptorHeapType
 
-public extension DescriptorHeapType  {
+public extension DescriptorHeapType {
     @available(*, deprecated, renamed: "constantBufferShaderResourceAndUnordererAccess")
     static let D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV = Self.constantBufferShaderResourceAndUnordererAccess
 

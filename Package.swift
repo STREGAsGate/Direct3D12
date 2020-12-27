@@ -4,6 +4,7 @@
 import PackageDescription
 
 //TODO: Change swift version to the correct version when released
+//TODO: Remove all of _d3d12, and replace all references with WinSDK.D3D12
 
 #if os(Windows) && swift(>=5.3)
 let package = Package(

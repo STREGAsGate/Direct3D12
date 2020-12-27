@@ -34,7 +34,7 @@ public struct DescriptorHeapFlags: OptionSet {
 @available(*, deprecated, renamed: "DescriptorHeapFlags")
 public typealias D3D12_DESCRIPTOR_HEAP_FLAGS = DescriptorHeapFlags
 
-public extension DescriptorHeapFlags  {
+public extension DescriptorHeapFlags {
     @available(*, deprecated, message: "Use [] to represent none in Swift.")
     static let D3D12_DESCRIPTOR_HEAP_FLAG_NONE: DescriptorHeapFlags = []
 

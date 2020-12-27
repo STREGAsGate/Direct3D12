@@ -41,7 +41,7 @@ extension SwiftCOM.IUnknown {
     /// This is boiler plate for implimentations
     /// - Parameter type: The WinSDK Type
     /// - Returns: A com pointer for `type`
-    final internal func getThisPointer<T>(_ type: T.Type) throws -> UnsafeMutablePointer<T> {
+    final internal func pointerToThis<T>(_ type: T.Type) throws -> UnsafeMutablePointer<T> {
         return try self.performComOperation(type) { (this, pThis) in
             return pThis
         }
