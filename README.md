@@ -1,15 +1,15 @@
-# Direct3D12
+# Direct3D12 for Swift
 
-Exposes Direct X 12's low level interface to Swift.
+This package exposes the Direct X 12 low level API to Swift.
 
 This package is under heavy development. Feedback is welcome.
 
-The package is partitioned to mirror the orignal API locations and naming. 
+Source files are partitioned and named to mirror the orignal API locations and naming. 
 This makes everything easier to locate based on the offical documentation.
 
 Notes:
-* being written by hand, may contain typos or copy/paste errors.
-* this package will not include the "DirectX 11 on DirectX 12" APIs.
-* this package will skip the implimentation of offically deprecated API.
+* Being written by hand, may contain typos or copy/paste errors.
+* Will not include the "DirectX 11 on DirectX 12" APIs.
+* Will not include any offically deprecated, redundant or "not intended for use" API.
 
-There's a trello board [here](https://trello.com/b/tQoyHBVv/swift-direct3d-12) if you want to follow along.
+There's a Trello board [here](https://trello.com/b/tQoyHBVv/swift-direct3d-12) if you want to follow along.
