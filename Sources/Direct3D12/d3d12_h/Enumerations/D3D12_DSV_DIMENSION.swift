@@ -47,6 +47,7 @@ public enum DsvDimension {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DsvDimension")
 public typealias D3D12_DSV_DIMENSION  = DsvDimension
@@ -73,3 +74,5 @@ public extension DsvDimension  {
     @available(*, deprecated, renamed: "texture2DMuiliSamplingArray")
     static let D3D12_DSV_DIMENSION_TEXTURE2DMSARRAY = Self.texture2DMuiliSamplingArray
 }
+
+#endif

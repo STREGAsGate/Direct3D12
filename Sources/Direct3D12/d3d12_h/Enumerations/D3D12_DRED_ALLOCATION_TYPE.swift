@@ -100,6 +100,7 @@ public enum DredAllocationType {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DredAllocationType")
 public typealias D3D12_DRED_ALLOCATION_TYPE = DredAllocationType
@@ -186,3 +187,5 @@ public extension DredAllocationType {
     @available(*, deprecated, renamed: "invalid")
     static let D3D12_DRED_ALLOCATION_TYPE_INVALID = Self.invalid
 }
+
+#endif

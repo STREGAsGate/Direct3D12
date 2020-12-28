@@ -31,6 +31,7 @@ public enum CullMode {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "CullMode")
 public typealias D3D12_CULL_MODE = CullMode
@@ -45,3 +46,5 @@ public extension CullMode  {
     @available(*, deprecated, renamed: "back")
     static let D3D12_CULL_MODE_BACK = Self.back
 }
+
+#endif

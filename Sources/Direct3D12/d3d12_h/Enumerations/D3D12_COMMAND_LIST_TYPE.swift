@@ -47,6 +47,7 @@ public enum CommandListType {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "CommandListType")
 public typealias D3D12_COMMAND_LIST_TYPE = CommandListType
@@ -73,3 +74,5 @@ public extension CommandListType  {
     @available(*, deprecated, renamed: "videoEncode")
     static let D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE = Self.videoEncode
 }
+
+#endif

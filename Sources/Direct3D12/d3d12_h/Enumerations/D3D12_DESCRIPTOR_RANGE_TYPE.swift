@@ -36,6 +36,7 @@ public enum DescriptorRangeType {
   
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DescriptorRangeType")
 public typealias D3D12_DESCRIPTOR_RANGE_TYPE  = DescriptorRangeType
@@ -53,3 +54,5 @@ public extension DescriptorRangeType {
     @available(*, deprecated, renamed: "sampler")
     static let D3D12_DESCRIPTOR_RANGE_TYPE_SAMPLER = Self.sampler
 }
+
+#endif

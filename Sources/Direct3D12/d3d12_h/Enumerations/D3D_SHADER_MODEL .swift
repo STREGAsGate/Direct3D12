@@ -43,6 +43,7 @@ public enum ShaderModel {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "ShaderModel")
 public typealias D3D_SHADER_MODEL = ShaderModel
@@ -66,3 +67,5 @@ public extension ShaderModel {
     @available(*, deprecated, renamed: "v6_4")
     static let D3D_SHADER_MODEL_6_4 = Self.v6_4
 }
+
+#endif

@@ -35,6 +35,7 @@ public struct FenceFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "FenceFlags")
 public typealias D3D12_FENCE_FLAGS = FenceFlags
@@ -52,3 +53,5 @@ public extension FenceFlags {
     @available(*, deprecated, renamed: "nonMonitored")
     static let D3D12_FENCE_FLAG_NON_MONITORED = Self.nonMonitored
 }
+
+#endif

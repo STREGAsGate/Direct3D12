@@ -29,6 +29,7 @@ public struct CommandQueueFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "CommandQueueFlags")
 public typealias D3D12_COMMAND_QUEUE_FLAGS = CommandQueueFlags
@@ -40,3 +41,5 @@ public extension CommandQueueFlags {
     @available(*, deprecated, renamed: "disableGpuTimeout")
     static let D3D12_COMMAND_QUEUE_FLAG_DISABLE_GPU_TIMEOUT = Self.disableGpuTimeout
 }
+
+#endif

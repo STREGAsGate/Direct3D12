@@ -37,6 +37,7 @@ public struct DescriptorHeapFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DescriptorHeapFlags")
 public typealias D3D12_DESCRIPTOR_HEAP_FLAGS = DescriptorHeapFlags
@@ -48,3 +49,5 @@ public extension DescriptorHeapFlags {
     @available(*, deprecated, renamed: "shaderVisible")
     static let D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE = Self.shaderVisible
 }
+
+#endif

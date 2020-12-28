@@ -33,6 +33,7 @@ public struct DebugFeature: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DebugFeature")
 public typealias D3D12_DEBUG_FEATURE = DebugFeature
@@ -50,3 +51,5 @@ public extension DebugFeature {
     @available(*, deprecated, renamed: "disablesVirtualizedBundlesValidation")
     static let D3D12_DEBUG_FEATURE_DISABLE_VIRTUALIZED_BUNDLES_VALIDATION = Self.disablesVirtualizedBundlesValidation
 }
+
+#endif

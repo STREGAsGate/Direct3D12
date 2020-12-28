@@ -30,6 +30,7 @@ public struct BufferUavFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "BufferUavFlags")
 public typealias D3D12_BUFFER_UAV_FLAG = BufferUavFlags
@@ -41,3 +42,5 @@ public extension BufferUavFlags {
     @available(*, deprecated, renamed: "raw")
     static let D3D12_BUFFER_UAV_FLAG_RAW = Self.raw
 }
+
+#endif

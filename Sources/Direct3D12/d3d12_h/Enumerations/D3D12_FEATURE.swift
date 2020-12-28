@@ -122,6 +122,7 @@ public enum Feature {
   
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "Feature")
 public typealias D3D12_FEATURE = Feature
@@ -205,3 +206,5 @@ public extension Feature  {
     @available(*, deprecated, renamed: "protectedResourceSessionTypes")
     static let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPES = Self.protectedResourceSessionTypes
 }
+
+#endif

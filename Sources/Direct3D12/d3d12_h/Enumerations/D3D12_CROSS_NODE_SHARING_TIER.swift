@@ -57,6 +57,7 @@ public enum CrossNodeSharing {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "CrossNodeSharing")
 public typealias D3D12_CROSS_NODE_SHARING_TIER = CrossNodeSharing
@@ -77,3 +78,5 @@ public extension CrossNodeSharing  {
     @available(*, deprecated, renamed: "tier3")
     static let D3D12_CROSS_NODE_SHARING_TIER_3 = Self.tier3
 }
+
+#endif

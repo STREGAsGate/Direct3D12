@@ -35,6 +35,7 @@ public enum ConservativeRasterization {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "ConservativeRasterization")
 public typealias D3D12_CONSERVATIVE_RASTERIZATION_TIER = ConservativeRasterization
@@ -52,3 +53,5 @@ public extension ConservativeRasterization  {
     @available(*, deprecated, renamed: "tier3")
     static let D3D12_CONSERVATIVE_RASTERIZATION_TIER_3 = Self.tier3
 }
+
+#endif

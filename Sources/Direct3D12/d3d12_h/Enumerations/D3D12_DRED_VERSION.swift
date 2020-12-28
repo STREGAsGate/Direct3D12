@@ -31,6 +31,7 @@ public enum DredVersion {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DredVersion")
 public typealias D3D12_DRED_VERSION = DredVersion
@@ -45,3 +46,5 @@ public extension DredVersion {
     @available(*, deprecated, renamed: "v1_2")
     static let D3D12_DRED_VERSION_1_2 = Self.v1_2
 }
+
+#endif

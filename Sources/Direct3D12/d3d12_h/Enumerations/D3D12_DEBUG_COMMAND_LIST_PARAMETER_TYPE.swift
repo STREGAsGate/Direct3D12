@@ -23,6 +23,7 @@ public enum DebugCommandListParameterType {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DebugCommandListParameterType")
 public typealias D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE = DebugCommandListParameterType
@@ -31,3 +32,5 @@ public extension DebugCommandListParameterType  {
     @available(*, deprecated, renamed: "gpuBasedValidationSettings")
     static let D3D12_DEBUG_COMMAND_LIST_PARAMETER_GPU_BASED_VALIDATION_SETTINGS = Self.gpuBasedValidationSettings
 }
+
+#endif

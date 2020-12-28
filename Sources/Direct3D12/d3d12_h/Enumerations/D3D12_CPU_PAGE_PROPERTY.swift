@@ -35,6 +35,7 @@ public enum CpuPageProperty {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "CpuPageProperty")
 public typealias D3D12_CPU_PAGE_PROPERTY = CpuPageProperty
@@ -52,3 +53,5 @@ public extension CpuPageProperty  {
     @available(*, deprecated, renamed: "writeBack")
     static let D3D12_CPU_PAGE_PROPERTY_WRITE_BACK = Self.writeBack
 }
+
+#endif

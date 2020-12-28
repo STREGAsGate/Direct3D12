@@ -27,6 +27,7 @@ public enum ConservativeRasterizationMode {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "ConservativeRasterizationMode")
 public typealias D3D12_CONSERVATIVE_RASTERIZATION_MODE = ConservativeRasterizationMode
@@ -38,3 +39,5 @@ public extension ConservativeRasterizationMode  {
     @available(*, deprecated, renamed: "on")
     static let D3D12_CONSERVATIVE_RASTERIZATION_MODE_ON = Self.on
 }
+
+#endif

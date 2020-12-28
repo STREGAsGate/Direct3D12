@@ -20,7 +20,8 @@ let package = Package(
         .systemLibrary(name: "_d3d12"),
         .target(
             name: "Direct3D12",
-            dependencies: ["SwiftCOM", "_d3d12"]),
+            dependencies: ["SwiftCOM", "_d3d12"],
+            swiftSettings: [.define("Direct3D12ExcludeOriginalStyleAPI", .when(configuration: .release))]),
     ]
 )
 #else

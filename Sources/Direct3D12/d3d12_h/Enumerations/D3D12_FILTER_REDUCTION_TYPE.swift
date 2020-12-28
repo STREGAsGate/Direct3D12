@@ -35,6 +35,7 @@ public enum FilterReductionType {
   
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "FilterReductionType")
 public typealias D3D12_FILTER_REDUCTION_TYPE = FilterReductionType
@@ -52,3 +53,5 @@ public extension FilterReductionType  {
     @available(*, deprecated, renamed: "maximum")
     static let D3D12_FILTER_REDUCTION_TYPE_MAXIMUM = Self.maximum
 }
+
+#endif

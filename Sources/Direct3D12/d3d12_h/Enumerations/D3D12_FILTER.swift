@@ -96,6 +96,7 @@ public struct Filter: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "Filter")
 public typealias D3D12_FILTER  = Filter
@@ -209,3 +210,5 @@ public extension Filter {
     @available(*, deprecated, renamed: "maximumAnisotropic")
     static let D3D12_FILTER_MAXIMUM_ANISOTROPIC = Self.maximumAnisotropic
 }
+
+#endif

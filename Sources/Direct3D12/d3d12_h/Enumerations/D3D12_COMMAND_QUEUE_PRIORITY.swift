@@ -31,6 +31,7 @@ public enum CommandQueuePriority {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "CommandQueuePriority")
 public typealias D3D12_COMMAND_QUEUE_PRIORITY = CommandQueuePriority
@@ -45,3 +46,5 @@ public extension CommandQueuePriority  {
     @available(*, deprecated, renamed: "globalRealtime")
     static let D3D12_COMMAND_QUEUE_PRIORITY_GLOBAL_REALTIME = Self.globalRealtime
 }
+
+#endif

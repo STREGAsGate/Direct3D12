@@ -87,6 +87,7 @@ public enum BlendFactor {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "BlendFactor")
 public typealias D3D12_BLEND = BlendFactor
@@ -143,3 +144,5 @@ public extension BlendFactor {
     @available(*, deprecated, renamed: "inverseSource1Alpha")
     static let D3D12_BLEND_INV_SRC1_ALPHA = Self.inverseSource1Alpha
 }
+
+#endif

@@ -26,6 +26,7 @@ public struct CommandListFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "CommandListFlags")
 public typealias D3D12_COMMAND_LIST_FLAGS = CommandListFlags
@@ -34,3 +35,5 @@ public extension ColorWriteEnable {
     @available(*, deprecated, message: "Use [] to represent none in Swift.")
     static let D3D12_COMMAND_LIST_FLAG_NONE: CommandListFlags = []
 }
+
+#endif

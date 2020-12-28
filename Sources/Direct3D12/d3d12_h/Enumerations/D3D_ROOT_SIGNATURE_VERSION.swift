@@ -27,6 +27,7 @@ public enum RootSignatureVersion {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "RootSignatureVersion")
 public typealias D3D_ROOT_SIGNATURE_VERSION = RootSignatureVersion
@@ -38,3 +39,5 @@ public extension RootSignatureVersion  {
     @available(*, deprecated, renamed: "v1_1")
     static let D3D_ROOT_SIGNATURE_VERSION_1_1 = Self.v1_1
 }
+
+#endif

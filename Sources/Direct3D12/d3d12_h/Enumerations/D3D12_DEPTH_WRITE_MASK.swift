@@ -27,6 +27,7 @@ public enum DepthWriteMask {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DepthWriteMask")
 public typealias D3D12_DEPTH_WRITE_MASK = DepthWriteMask
@@ -38,3 +39,5 @@ public extension DepthWriteMask {
     @available(*, deprecated, renamed: "all")
     static let D3D12_DEPTH_WRITE_MASK_ALL = Self.all
 }
+
+#endif

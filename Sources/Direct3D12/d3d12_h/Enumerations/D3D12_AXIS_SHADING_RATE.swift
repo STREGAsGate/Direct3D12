@@ -32,6 +32,7 @@ public enum AxisShadingRate {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "AxisShadingRate")
 public typealias D3D12_AXIS_SHADING_RATE = AxisShadingRate
@@ -46,3 +47,5 @@ public extension AxisShadingRate {
     @available(*, deprecated, renamed: "x4")
     static let D3D12_AXIS_SHADING_RATE_4X = Self.x4
 }
+
+#endif

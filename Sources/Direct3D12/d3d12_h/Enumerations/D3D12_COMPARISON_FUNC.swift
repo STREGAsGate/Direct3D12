@@ -51,6 +51,7 @@ public enum ComparisonFunction {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "ComparisonFunction")
 public typealias D3D12_COMPARISON_FUNC = ComparisonFunction
@@ -80,3 +81,5 @@ public extension ComparisonFunction  {
     @available(*, deprecated, renamed: "alwaysSuccees")
     static let D3D12_COMPARISON_FUNC_ALWAYS = Self.alwaysSuccees
 }
+
+#endif

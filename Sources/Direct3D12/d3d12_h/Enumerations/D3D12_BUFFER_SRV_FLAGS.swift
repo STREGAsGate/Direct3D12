@@ -29,6 +29,7 @@ public struct BufferSrvFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "BufferSrvFlags")
 public typealias D3D12_BUFFER_SRV_FLAG = BufferSrvFlags
@@ -40,3 +41,5 @@ public extension BufferSrvFlags {
     @available(*, deprecated, renamed: "raw")
     static let D3D12_BUFFER_SRV_FLAG_RAW = Self.raw
 }
+
+#endif

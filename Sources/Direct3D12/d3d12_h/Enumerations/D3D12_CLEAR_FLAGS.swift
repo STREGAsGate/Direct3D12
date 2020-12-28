@@ -28,6 +28,7 @@ public struct ClearFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "ClearFlags")
 public typealias D3D12_CLEAR_FLAGS = ClearFlags
@@ -39,3 +40,5 @@ public extension ClearFlags {
     @available(*, deprecated, renamed: "stencil")
     static let D3D12_CLEAR_FLAG_STENCIL = Self.stencil
 }
+
+#endif

@@ -48,6 +48,7 @@ public struct CommandListSupportFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "CommandListSupportFlags")
 public typealias D3D12_COMMAND_LIST_SUPPORT_FLAGS = CommandListSupportFlags
@@ -77,3 +78,5 @@ public extension CommandListSupportFlags {
     @available(*, deprecated, renamed: "videoEncode")
     static let D3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_ENCODE = Self.videoEncode
 }
+
+#endif

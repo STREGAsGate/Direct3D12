@@ -35,6 +35,7 @@ public enum BackgrounProcessingMode {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "BackgrounProcessingMode")
 public typealias D3D12_BACKGROUND_PROCESSING_MODE = BackgrounProcessingMode
@@ -52,3 +53,5 @@ public extension BackgrounProcessingMode {
     @available(*, deprecated, renamed: "disableProfilingBySystem")
     static let D3D12_BACKGROUND_PROCESSING_MODE_DISABLE_PROFILING_BY_SYSTEM = Self.disableProfilingBySystem
 }
+
+#endif

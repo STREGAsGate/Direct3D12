@@ -31,6 +31,7 @@ public enum DebugDeviceParameterType {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DebugDeviceParameterType")
 public typealias D3D12_DEBUG_DEVICE_PARAMETER_TYPE = DebugDeviceParameterType
@@ -45,3 +46,5 @@ public extension DebugDeviceParameterType  {
     @available(*, deprecated, renamed: "gpuSlowdownPerformanceFactor")
     static let D3D12_DEBUG_DEVICE_PARAMETER_GPU_SLOWDOWN_PERFORMANCE_FACTOR = Self.gpuSlowdownPerformanceFactor
 }
+
+#endif

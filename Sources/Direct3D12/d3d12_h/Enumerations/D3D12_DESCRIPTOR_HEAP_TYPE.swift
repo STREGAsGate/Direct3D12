@@ -39,6 +39,7 @@ public enum DescriptorHeapType {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DescriptorHeapType")
 public typealias D3D12_DESCRIPTOR_HEAP_TYPE = DescriptorHeapType
@@ -59,3 +60,5 @@ public extension DescriptorHeapType {
     @available(*, deprecated, renamed: "numberOfTypes")
     static let D3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES = Self.numberOfTypes
 }
+
+#endif

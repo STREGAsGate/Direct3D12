@@ -37,6 +37,7 @@ public struct ColorWriteEnable: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "ColorWriteEnable")
 public typealias D3D12_COLOR_WRITE_ENABLE = ColorWriteEnable
@@ -57,3 +58,5 @@ public extension ColorWriteEnable {
     @available(*, deprecated, renamed: "all")
     static let D3D12_COLOR_WRITE_ENABLE_ALL = Self.all
 }
+
+#endif

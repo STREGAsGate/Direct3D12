@@ -39,6 +39,7 @@ public enum BlendOperation {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "BlendOperation")
 public typealias D3D12_BLEND_OP = BlendOperation
@@ -59,3 +60,5 @@ public extension BlendOperation {
     @available(*, deprecated, renamed: "maximum")
     static let D3D12_BLEND_OP_MAX = Self.maximum
 }
+
+#endif

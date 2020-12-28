@@ -27,6 +27,7 @@ public enum FilterType {
   
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "FilterType")
 public typealias D3D12_FILTER_TYPE = FilterType
@@ -38,3 +39,5 @@ public extension FilterType  {
     @available(*, deprecated, renamed: "linear")
     static let D3D12_FILTER_TYPE_LINEAR = Self.linear
 }
+
+#endif

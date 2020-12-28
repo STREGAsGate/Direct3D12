@@ -32,6 +32,7 @@ public struct DepthStencilViewFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DepthStencilViewFlags")
 public typealias D3D12_DSV_FLAGS = DepthStencilViewFlags
@@ -46,3 +47,5 @@ public extension DepthStencilViewFlags {
     @available(*, deprecated, renamed: "readOnlyStencil")
     static let D3D12_DSV_FLAG_READ_ONLY_STENCIL = Self.readOnlyStencil
 }
+
+#endif

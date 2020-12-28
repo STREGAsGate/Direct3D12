@@ -15,42 +15,54 @@ fileprivate var E_INVALIDARG: HRESULT {
     HRESULT(bitPattern: 0x80070057)
 }
 
-extension SwiftCOM.IUnknown {
-    /// Exposes the COM pointer and WinSDK Type through a closure.
-    /// This is boiler plate for implimentations
-    /// -Parameter type: The WinSDK Type
-    final internal func performComOperation<T, ReturnType>(_ type: T.Type, _ operation: (_ this: T, _ pThis: UnsafeMutablePointer<T>) throws -> ReturnType) throws -> ReturnType {
-        guard let pUnk = UnsafeMutableRawPointer(self.pUnk) else {
-            throw COMError(hr: E_INVALIDARG)
+public typealias IUnknown = SwiftCOM.IUnknown
+
+public extension IUnknown {
+    struct ComManager<WinSDKType> {
+        public let pThis: UnsafeMutablePointer<WinSDKType>
+        public var this: WinSDKType {
+            return pThis.pointee
         }
-        let pThis = pUnk.bindMemory(to: type, capacity: 1)
-        return try operation(pThis.pointee, pThis)
+
+        fileprivate init(comObject: IUnknown, sdkType: WinSDKType.Type) throws {
+            guard let pUnk = UnsafeMutableRawPointer(comObject.pUnk) else {
+                throw COMError(hr: E_INVALIDARG)
+            }
+            pThis = pUnk.bindMemory(to: sdkType, capacity: 1)
+        }
+
+        public func pointer<T>(to comObject: IUnknown, as pType: T.Type) throws -> UnsafeMutablePointer<T> {
+            guard let pUnk = UnsafeMutableRawPointer(comObject.pUnk) else {
+                throw COMError(hr: E_INVALIDARG)
+            }
+            return pUnk.bindMemory(to: pType, capacity: 1)
+        }
+
+        public func checkResult(isMemberOf passable: Set<HRESULT>, _ body: @autoclosure () -> HRESULT) throws {
+            let hr: HRESULT = body()
+            guard passable.contains(hr) else { throw COMError(hr: hr) }
+        }
+        public func checkResult(is passable: HRESULT = S_OK, _ body: @autoclosure () -> HRESULT) throws {
+            let hr: HRESULT = body()
+            guard hr == passable else { throw COMError(hr: hr) }
+        }
     }
 
-    /// Exposes the COM pointer and WinSDK Type through a closure.
-    /// Automatically throws `hresult` when != S_OK
-    /// This is boiler plate for implimentations
-    /// -Parameter type: The WinSDK Type
-    final internal func performComOperation<T, ReturnType>(_ type: T.Type, _ operation: (_ this: T, _ pThis: UnsafeMutablePointer<T>, _ hresult: inout HRESULT?) throws -> ReturnType) throws -> ReturnType {
-        guard let pUnk = UnsafeMutableRawPointer(self.pUnk) else {
-            throw COMError(hr: E_INVALIDARG)
-        }
-        let pThis = pUnk.bindMemory(to: type, capacity: 1)
-        var hr: HRESULT? = nil
-        let val = try operation(pThis.pointee, pThis, &hr)
-        if let hr = hr, hr != S_OK {
-            throw COMError(hr: hr)
-        }
-        return val
+    func perform<Type, ResultType>(as type: Type.Type, _ body: (_ com: ComManager<Type>) throws -> ResultType) throws -> ResultType {
+        let com = try ComManager(comObject: self, sdkType: type)
+        return try body(com)
     }
 
-    /// Returns the COM pointer for the WinSDK Type provided.
-    /// This is boiler plate for implimentations
-    /// - Parameter type: The WinSDK Type
-    /// - Returns: A com pointer for `type`
-    final internal func pointerToThis<T>(_ type: T.Type) throws -> UnsafeMutablePointer<T> {
-        return try self.performComOperation(type) { (this, pThis) in
-            return pThis
+    func performFatally<Type, ResultType>(as type: Type.Type, _ body: (_ com: ComManager<Type>) throws -> ResultType) -> ResultType {
+        do {
+            let com = try ComManager(comObject: self, sdkType: type)
+            return try body(com)
+        }catch let error as SwiftCOM.COMError {
+            fatalError(error.description)
+        }catch let error as Error {
+            fatalError(error.description)
+        }catch{
+            fatalError("\(error)")
         }
     }
 }

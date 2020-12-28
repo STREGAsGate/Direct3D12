@@ -39,6 +39,7 @@ public enum DriverMatchingIdentifierStatus {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DriverMatchingIdentifierStatus")
 public typealias D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS = DriverMatchingIdentifierStatus
@@ -59,3 +60,5 @@ public extension DriverMatchingIdentifierStatus  {
     @available(*, deprecated, renamed: "incompatibleType")
     static let D3D12_DRIVER_MATCHING_IDENTIFIER_INCOMPATIBLE_TYPE = Self.incompatibleType
 }
+
+#endif

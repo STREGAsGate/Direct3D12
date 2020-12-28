@@ -27,6 +27,7 @@ public enum ElementsLayout  {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "ElementsLayout")
 public typealias D3D12_ELEMENTS_LAYOUT = ElementsLayout
@@ -38,3 +39,5 @@ public extension ElementsLayout {
     @available(*, deprecated, renamed: "arrayOfPointers")
     static let D3D12_ELEMENTS_LAYOUT_ARRAY_OF_POINTERS = Self.arrayOfPointers
 }
+
+#endif

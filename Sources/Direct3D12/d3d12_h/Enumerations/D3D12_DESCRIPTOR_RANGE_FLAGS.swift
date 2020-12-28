@@ -45,6 +45,7 @@ public struct DescriptorRangeFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DescriptorRangeFlags")
 public typealias D3D12_DESCRIPTOR_RANGE_FLAGS = DescriptorRangeFlags
@@ -68,3 +69,5 @@ public extension DescriptorRangeFlags {
     @available(*, deprecated, renamed: "staticKeepingBufferBoundsChecks")
     static let D3D12_DESCRIPTOR_RANGE_FLAG_DESCRIPTORS_STATIC_KEEPING_BUFFER_BOUNDS_CHECKS = Self.staticKeepingBufferBoundsChecks
 }
+
+#endif

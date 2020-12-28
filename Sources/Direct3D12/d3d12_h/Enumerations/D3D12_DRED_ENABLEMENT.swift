@@ -31,6 +31,7 @@ public enum DredEnablement {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "DredEnablement")
 public typealias D3D12_DRED_ENABLEMENT = DredEnablement
@@ -45,3 +46,5 @@ public extension DredEnablement {
     @available(*, deprecated, renamed: "forcedOn")
     static let D3D12_DRED_ENABLEMENT_FORCED_ON = Self.forcedOn
 }
+
+#endif

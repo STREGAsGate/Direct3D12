@@ -25,6 +25,7 @@ public struct ExportFlags: OptionSet {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "ExportFlags")
 public typealias D3D12_EXPORT_FLAGS = ExportFlags
@@ -33,3 +34,5 @@ public extension ExportFlags {
     @available(*, deprecated, message: "Use [] to represent none in Swift.")
     static let D3D12_EXPORT_FLAG_NONE: ExportFlags = []
 }
+
+#endif

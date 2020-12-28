@@ -27,6 +27,7 @@ public enum FillMode {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "FillMode")
 public typealias D3D12_FILL_MODE = FillMode
@@ -38,3 +39,5 @@ public extension FillMode  {
     @available(*, deprecated, renamed: "solid")
     static let D3D12_FILL_MODE_SOLID = Self.solid
 }
+
+#endif

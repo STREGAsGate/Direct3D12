@@ -148,6 +148,7 @@ public enum AutoBreadcrumbOP {
 
 
 //MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "AutoBreadcrumbOP")
 public typealias D3D12_AUTO_BREADCRUMB_OP = AutoBreadcrumbOP
@@ -282,3 +283,5 @@ public extension AutoBreadcrumbOP {
     @available(*, deprecated, renamed: "dispatchMesh")
     static let D3D12_AUTO_BREADCRUMB_OP_DISPATCHMESH = Self.dispatchMesh
 }
+
+#endif
