@@ -21,6 +21,8 @@ let package = Package(
         .target(
             name: "Direct3D12",
             dependencies: ["SwiftCOM", "_d3d12"],
+            exclude: ["d3d12_h/Enumerations/TEMPLATE_D3D12_ENUM.swift",
+                      "d3d12_h/Enumerations/TEMPLATE_D3D12_FLAGS.swift"],
             swiftSettings: [.define("Direct3D12ExcludeOriginalStyleAPI", .when(configuration: .release))]),
     ]
 )

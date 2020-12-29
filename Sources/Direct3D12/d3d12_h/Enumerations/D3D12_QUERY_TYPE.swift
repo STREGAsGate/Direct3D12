@@ -1,0 +1,102 @@
+/**
+ * Copyright (c) 2020 Dustin Collins (Strega's Gate)
+ * All Rights Reserved.
+ * Licensed under Apache License v2.0
+ * 
+ * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
+ */
+
+import _d3d12
+
+/// Specifies the type of query.
+public enum QueryType {
+    ///	Indicates the query is for depth/stencil occlusion counts.
+    case occlusion
+    ///	Indicates the query is for a binary depth/stencil occlusion statistics.
+    /// 
+    /// This new query type acts like D3D12_QUERY_TYPE_OCCLUSION except that it returns simply a binary 0/1 result: 0 indicates that no samples passed depth and stencil testing, 1 indicates that at least one sample passed depth and stencil testing. This enables occlusion queries to not interfere with any GPU performance optimization associated with depth/stencil testing.
+    case binaryOcclusion
+    ///	Indicates the query is for high definition GPU and CPU timestamps.
+    case timestamp
+    ///	Indicates the query type is for graphics pipeline statistics, refer to D3D12_QUERY_DATA_PIPELINE_STATISTICS.
+    case pipelineStatistics
+    ///	Stream 0 output statistics. In Direct3D 12 there is no single stream output (SO) overflow query for all the output streams. Apps need to issue multiple single-stream queries, and then correlate the results. Stream output is the ability of the GPU to write vertices to a buffer. The stream output counters monitor progress.
+    case streamOutput0Statistics
+    ///	Stream 1 output statistics.
+    case streamOutput1Statistics
+    ///	Stream 2 output statistics.
+    case streamOutput2Statistics
+    ///	Stream 3 output statistics.
+    case streamOutput3Statistics
+    /**
+    Video decode statistics. Refer to D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS.
+
+    Use this query type to determine if a video was successfully decoded. If decoding fails due to insufficient BitRate or FrameRate parameters set during creation of the decode heap, then the status field of the query is set to D3D12_VIDEO_DECODE_STATUS_RATE_EXCEEDED and the query also contains new BitRate and FrameRate values that would succeed.
+
+    This query type can only be performed on video decode command lists (D3D12_COMMAND_LIST_TYPE_VIDEO_DECODE). This query type does not use ID3D12VideoDecodeCommandList::BeginQuery, only ID3D12VideoDecodeCommandList::EndQuery. Statistics are recorded only for the most recent ID3D12VideoDecodeCommandList::DecodeFrame call in the same command list.
+
+    Decode status structures are defined by the codec specification.
+    */
+    case videoDecodeStatistics
+
+    internal var rawValue: _d3d12.D3D12_QUERY_TYPE {
+        switch self {
+        case .occlusion:
+            return _d3d12.D3D12_QUERY_TYPE_OCCLUSION
+        case .binaryOcclusion:
+            return _d3d12.D3D12_QUERY_TYPE_BINARY_OCCLUSION
+        case .timestamp:
+            return _d3d12.D3D12_QUERY_TYPE_TIMESTAMP
+        case .pipelineStatistics:
+            return _d3d12.D3D12_QUERY_TYPE_PIPELINE_STATISTICS
+        case .streamOutput0Statistics:
+            return _d3d12.D3D12_QUERY_TYPE_SO_STATISTICS_STREAM0
+        case .streamOutput1Statistics:
+            return _d3d12.D3D12_QUERY_TYPE_SO_STATISTICS_STREAM1
+        case .streamOutput2Statistics:
+            return _d3d12.D3D12_QUERY_TYPE_SO_STATISTICS_STREAM2
+        case .streamOutput3Statistics:
+            return _d3d12.D3D12_QUERY_TYPE_SO_STATISTICS_STREAM3
+        case .videoDecodeStatistics:
+            return _d3d12.D3D12_QUERY_TYPE_VIDEO_DECODE_STATISTICS
+        }
+    }
+}
+  
+
+//MARK: - Original Style API
+#if !Direct3D12ExcludeOriginalStyleAPI
+
+@available(*, deprecated, renamed: "QueryType")
+public typealias D3D12_QUERY_TYPE = QueryType
+
+public extension QueryType  {
+    @available(*, deprecated, renamed: "occlusion")
+    static let D3D12_QUERY_TYPE_OCCLUSION = Self.occlusion
+
+    @available(*, deprecated, renamed: "binaryOcclusion")
+    static let D3D12_QUERY_TYPE_BINARY_OCCLUSION = Self.binaryOcclusion
+
+    @available(*, deprecated, renamed: "timestamp")
+    static let D3D12_QUERY_TYPE_TIMESTAMP = Self.timestamp
+
+    @available(*, deprecated, renamed: "pipelineStatistics")
+    static let D3D12_QUERY_TYPE_PIPELINE_STATISTICS = Self.pipelineStatistics
+
+    @available(*, deprecated, renamed: "streamOutput0Statistics")
+    static let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM0 = Self.streamOutput0Statistics
+ 
+    @available(*, deprecated, renamed: "streamOutput1Statistics")
+    static let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM1 = Self.streamOutput1Statistics
+ 
+    @available(*, deprecated, renamed: "streamOutput2Statistics")
+    static let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM2 = Self.streamOutput2Statistics
+ 
+    @available(*, deprecated, renamed: "streamOutput3Statistics")
+    static let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM3 = Self.streamOutput3Statistics
+ 
+    @available(*, deprecated, renamed: "videoDecodeStatistics")
+    static let D3D12_QUERY_TYPE_VIDEO_DECODE_STATISTICS = Self.videoDecodeStatistics
+}
+
+#endif
