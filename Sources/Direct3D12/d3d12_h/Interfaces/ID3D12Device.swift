@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2020 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import _d3d12
+import WinSDK.DirectX.Direct3D12
 
 public class Device: Object {
     

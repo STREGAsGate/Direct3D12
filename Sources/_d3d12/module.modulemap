@@ -1,4 +1,4 @@
-module _d3d12 [system] {
+module WinSDK [system] {
     header "shim.h"
     link "d3d12"
     export *

@@ -4,13 +4,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "_d3d12",
+    name: "WinSDK",
     products: [
         .library(
-            name: "_d3d12",
-            targets: ["_d3d12"]),
+            name: "WinSDK",
+            targets: ["WinSDK"]),
     ],
     targets: [
-        .target(name: "_d3d12"),
+        .target(name: "WinSDK",
+        swiftSettings: [.withUnsafeFlags("-Xswiftc -Xfrontend -Xswiftc -serialize-debugging-options")]),
     ]
 )

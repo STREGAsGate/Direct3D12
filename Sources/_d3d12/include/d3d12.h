@@ -34,8 +34,8 @@
 #include <ole2.h>
 #endif /*COM_NO_WINDOWS_H*/
 
-#ifndef __d3d12_h__
-#define __d3d12_h__
+#ifndef _WinSDK_h__
+#define _WinSDK_h__
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
@@ -419,14 +419,14 @@ extern "C"{
 #endif 
 
 
-/* interface __MIDL_itf_d3d12_0000_0000 */
+/* interface __MIDL_itfWinSDK_0000_0000 */
 /* [local] */ 
 
 #include <winapifamily.h>
 #pragma region App Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)
-#ifndef _D3D12_CONSTANTS
-#define _D3D12_CONSTANTS
+#ifndef WinSDK_CONSTANTS
+#define WinSDK_CONSTANTS
 #define	D3D12_16BIT_INDEX_STRIP_CUT_VALUE	( 0xffff )
 
 #define	D3D12_32BIT_INDEX_STRIP_CUT_VALUE	( 0xffffffff )
@@ -1511,8 +1511,8 @@ typedef struct D3D12_RASTERIZER_DESC
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0000_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0000_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0000_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0000_v0_0_s_ifspec;
 
 #ifndef __ID3D12Object_INTERFACE_DEFINED__
 #define __ID3D12Object_INTERFACE_DEFINED__
@@ -1860,7 +1860,7 @@ EXTERN_C const IID IID_ID3D12RootSignature;
 #endif 	/* __ID3D12RootSignature_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0001 */
+/* interface __MIDL_itfWinSDK_0000_0001 */
 /* [local] */ 
 
 typedef struct D3D12_SHADER_BYTECODE
@@ -1985,7 +1985,7 @@ enum D3D12_PIPELINE_STATE_SUBOBJECT_TYPE
 typedef 
 enum D3D12_FEATURE
     {
-        D3D12_FEATURE_D3D12_OPTIONS	= 0,
+        D3D12_FEATUREWinSDK_OPTIONS	= 0,
         D3D12_FEATURE_ARCHITECTURE	= 1,
         D3D12_FEATURE_FEATURE_LEVELS	= 2,
         D3D12_FEATURE_FORMAT_SUPPORT	= 3,
@@ -1993,22 +1993,22 @@ enum D3D12_FEATURE
         D3D12_FEATURE_FORMAT_INFO	= 5,
         D3D12_FEATURE_GPU_VIRTUAL_ADDRESS_SUPPORT	= 6,
         D3D12_FEATURE_SHADER_MODEL	= 7,
-        D3D12_FEATURE_D3D12_OPTIONS1	= 8,
+        D3D12_FEATUREWinSDK_OPTIONS1	= 8,
         D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_SUPPORT	= 10,
         D3D12_FEATURE_ROOT_SIGNATURE	= 12,
         D3D12_FEATURE_ARCHITECTURE1	= 16,
-        D3D12_FEATURE_D3D12_OPTIONS2	= 18,
+        D3D12_FEATUREWinSDK_OPTIONS2	= 18,
         D3D12_FEATURE_SHADER_CACHE	= 19,
         D3D12_FEATURE_COMMAND_QUEUE_PRIORITY	= 20,
-        D3D12_FEATURE_D3D12_OPTIONS3	= 21,
+        D3D12_FEATUREWinSDK_OPTIONS3	= 21,
         D3D12_FEATURE_EXISTING_HEAPS	= 22,
-        D3D12_FEATURE_D3D12_OPTIONS4	= 23,
+        D3D12_FEATUREWinSDK_OPTIONS4	= 23,
         D3D12_FEATURE_SERIALIZATION	= 24,
         D3D12_FEATURE_CROSS_NODE	= 25,
-        D3D12_FEATURE_D3D12_OPTIONS5	= 27,
-        D3D12_FEATURE_D3D12_OPTIONS6	= 30,
+        D3D12_FEATUREWinSDK_OPTIONS5	= 27,
+        D3D12_FEATUREWinSDK_OPTIONS6	= 30,
         D3D12_FEATURE_QUERY_META_COMMAND	= 31,
-        D3D12_FEATURE_D3D12_OPTIONS7	= 32,
+        D3D12_FEATUREWinSDK_OPTIONS7	= 32,
         D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPE_COUNT	= 33,
         D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPES	= 34
     } 	D3D12_FEATURE;
@@ -2146,7 +2146,7 @@ enum D3D12_VIEW_INSTANCING_TIER
         D3D12_VIEW_INSTANCING_TIER_3	= 3
     } 	D3D12_VIEW_INSTANCING_TIER;
 
-typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS
+typedef struct D3D12_FEATURE_DATAWinSDK_OPTIONS
     {
     _Out_  BOOL DoublePrecisionFloatShaderOps;
     _Out_  BOOL OutputMergerLogicOp;
@@ -2163,9 +2163,9 @@ typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS
     _Out_  BOOL CrossAdapterRowMajorTextureSupported;
     _Out_  BOOL VPAndRTArrayIndexFromAnyShaderFeedingRasterizerSupportedWithoutGSEmulation;
     _Out_  D3D12_RESOURCE_HEAP_TIER ResourceHeapTier;
-    } 	D3D12_FEATURE_DATA_D3D12_OPTIONS;
+    } 	D3D12_FEATURE_DATAWinSDK_OPTIONS;
 
-typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS1
+typedef struct D3D12_FEATURE_DATAWinSDK_OPTIONS1
     {
     _Out_  BOOL WaveOps;
     _Out_  UINT WaveLaneCountMin;
@@ -2173,13 +2173,13 @@ typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS1
     _Out_  UINT TotalLaneCount;
     _Out_  BOOL ExpandedComputeResourceStates;
     _Out_  BOOL Int64ShaderOps;
-    } 	D3D12_FEATURE_DATA_D3D12_OPTIONS1;
+    } 	D3D12_FEATURE_DATAWinSDK_OPTIONS1;
 
-typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS2
+typedef struct D3D12_FEATURE_DATAWinSDK_OPTIONS2
     {
     _Out_  BOOL DepthBoundsTestSupported;
     _Out_  D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER ProgrammableSamplePositionsTier;
-    } 	D3D12_FEATURE_DATA_D3D12_OPTIONS2;
+    } 	D3D12_FEATURE_DATAWinSDK_OPTIONS2;
 
 typedef 
 enum D3D_ROOT_SIGNATURE_VERSION
@@ -2300,14 +2300,14 @@ enum D3D12_COMMAND_LIST_SUPPORT_FLAGS
     } 	D3D12_COMMAND_LIST_SUPPORT_FLAGS;
 
 DEFINE_ENUM_FLAG_OPERATORS( D3D12_COMMAND_LIST_SUPPORT_FLAGS );
-typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS3
+typedef struct D3D12_FEATURE_DATAWinSDK_OPTIONS3
     {
     _Out_  BOOL CopyQueueTimestampQueriesSupported;
     _Out_  BOOL CastingFullyTypedFormatSupported;
     _Out_  D3D12_COMMAND_LIST_SUPPORT_FLAGS WriteBufferImmediateSupportFlags;
     _Out_  D3D12_VIEW_INSTANCING_TIER ViewInstancingTier;
     _Out_  BOOL BarycentricsSupported;
-    } 	D3D12_FEATURE_DATA_D3D12_OPTIONS3;
+    } 	D3D12_FEATURE_DATAWinSDK_OPTIONS3;
 
 typedef struct D3D12_FEATURE_DATA_EXISTING_HEAPS
     {
@@ -2322,12 +2322,12 @@ enum D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER
         D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER_2	= ( D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER_1 + 1 ) 
     } 	D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER;
 
-typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS4
+typedef struct D3D12_FEATURE_DATAWinSDK_OPTIONS4
     {
     _Out_  BOOL MSAA64KBAlignedTextureSupported;
     _Out_  D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER SharedResourceCompatibilityTier;
     _Out_  BOOL Native16BitShaderOpsSupported;
-    } 	D3D12_FEATURE_DATA_D3D12_OPTIONS4;
+    } 	D3D12_FEATURE_DATAWinSDK_OPTIONS4;
 
 typedef 
 enum D3D12_HEAP_SERIALIZATION_TIER
@@ -2364,12 +2364,12 @@ enum D3D12_RAYTRACING_TIER
         D3D12_RAYTRACING_TIER_1_1	= 11
     } 	D3D12_RAYTRACING_TIER;
 
-typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS5
+typedef struct D3D12_FEATURE_DATAWinSDK_OPTIONS5
     {
     _Out_  BOOL SRVOnlyTiledResourceTier3;
     _Out_  D3D12_RENDER_PASS_TIER RenderPassesTier;
     _Out_  D3D12_RAYTRACING_TIER RaytracingTier;
-    } 	D3D12_FEATURE_DATA_D3D12_OPTIONS5;
+    } 	D3D12_FEATURE_DATAWinSDK_OPTIONS5;
 
 typedef 
 enum D3D12_VARIABLE_SHADING_RATE_TIER
@@ -2379,14 +2379,14 @@ enum D3D12_VARIABLE_SHADING_RATE_TIER
         D3D12_VARIABLE_SHADING_RATE_TIER_2	= 2
     } 	D3D12_VARIABLE_SHADING_RATE_TIER;
 
-typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS6
+typedef struct D3D12_FEATURE_DATAWinSDK_OPTIONS6
     {
     _Out_  BOOL AdditionalShadingRatesSupported;
     _Out_  BOOL PerPrimitiveShadingRateSupportedWithViewportIndexing;
     _Out_  D3D12_VARIABLE_SHADING_RATE_TIER VariableShadingRateTier;
     _Out_  UINT ShadingRateImageTileSize;
     _Out_  BOOL BackgroundProcessingSupported;
-    } 	D3D12_FEATURE_DATA_D3D12_OPTIONS6;
+    } 	D3D12_FEATURE_DATAWinSDK_OPTIONS6;
 
 typedef 
 enum D3D12_MESH_SHADER_TIER
@@ -2403,11 +2403,11 @@ enum D3D12_SAMPLER_FEEDBACK_TIER
         D3D12_SAMPLER_FEEDBACK_TIER_1_0	= 100
     } 	D3D12_SAMPLER_FEEDBACK_TIER;
 
-typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS7
+typedef struct D3D12_FEATURE_DATAWinSDK_OPTIONS7
     {
     _Out_  D3D12_MESH_SHADER_TIER MeshShaderTier;
     _Out_  D3D12_SAMPLER_FEEDBACK_TIER SamplerFeedbackTier;
-    } 	D3D12_FEATURE_DATA_D3D12_OPTIONS7;
+    } 	D3D12_FEATURE_DATAWinSDK_OPTIONS7;
 
 typedef struct D3D12_FEATURE_DATA_QUERY_META_COMMAND
     {
@@ -3582,8 +3582,8 @@ typedef struct D3D12_VERSIONED_ROOT_SIGNATURE_DESC
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0001_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0001_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0001_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0001_v0_0_s_ifspec;
 
 #ifndef __ID3D12RootSignatureDeserializer_INTERFACE_DEFINED__
 #define __ID3D12RootSignatureDeserializer_INTERFACE_DEFINED__
@@ -3751,10 +3751,10 @@ EXTERN_C const IID IID_ID3D12VersionedRootSignatureDeserializer;
 #endif 	/* __ID3D12VersionedRootSignatureDeserializer_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0003 */
+/* interface __MIDL_itfWinSDK_0000_0003 */
 /* [local] */ 
 
-typedef HRESULT (WINAPI* PFN_D3D12_SERIALIZE_ROOT_SIGNATURE)(
+typedef HRESULT (WINAPI* PFNWinSDK_SERIALIZE_ROOT_SIGNATURE)(
                             _In_ const D3D12_ROOT_SIGNATURE_DESC* pRootSignature,
                             _In_ D3D_ROOT_SIGNATURE_VERSION Version,
                             _Out_ ID3DBlob** ppBlob,
@@ -3766,7 +3766,7 @@ HRESULT WINAPI D3D12SerializeRootSignature(
                             _Out_ ID3DBlob** ppBlob,
                             _Always_(_Outptr_opt_result_maybenull_) ID3DBlob** ppErrorBlob);
 
-typedef HRESULT (WINAPI* PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER)(
+typedef HRESULT (WINAPI* PFNWinSDK_CREATE_ROOT_SIGNATURE_DESERIALIZER)(
                                      _In_reads_bytes_(SrcDataSizeInBytes) LPCVOID pSrcData,
                                      _In_ SIZE_T SrcDataSizeInBytes,
                                      _In_ REFIID pRootSignatureDeserializerInterface,
@@ -3778,7 +3778,7 @@ HRESULT WINAPI D3D12CreateRootSignatureDeserializer(
                                      _In_ REFIID pRootSignatureDeserializerInterface,
                                      _Out_ void** ppRootSignatureDeserializer);
 
-typedef HRESULT (WINAPI* PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE)(
+typedef HRESULT (WINAPI* PFNWinSDK_SERIALIZE_VERSIONED_ROOT_SIGNATURE)(
                             _In_ const D3D12_VERSIONED_ROOT_SIGNATURE_DESC* pRootSignature,
                             _Out_ ID3DBlob** ppBlob,
                             _Always_(_Outptr_opt_result_maybenull_) ID3DBlob** ppErrorBlob);
@@ -3788,7 +3788,7 @@ HRESULT WINAPI D3D12SerializeVersionedRootSignature(
                             _Out_ ID3DBlob** ppBlob,
                             _Always_(_Outptr_opt_result_maybenull_) ID3DBlob** ppErrorBlob);
 
-typedef HRESULT (WINAPI* PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER)(
+typedef HRESULT (WINAPI* PFNWinSDK_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER)(
                                      _In_reads_bytes_(SrcDataSizeInBytes) LPCVOID pSrcData,
                                      _In_ SIZE_T SrcDataSizeInBytes,
                                      _In_ REFIID pRootSignatureDeserializerInterface,
@@ -3982,8 +3982,8 @@ typedef struct D3D12_COMMAND_SIGNATURE_DESC
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0003_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0003_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0003_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0003_v0_0_s_ifspec;
 
 #ifndef __ID3D12Pageable_INTERFACE_DEFINED__
 #define __ID3D12Pageable_INTERFACE_DEFINED__
@@ -6951,7 +6951,7 @@ EXTERN_C const IID IID_ID3D12GraphicsCommandList1;
 #endif 	/* __ID3D12GraphicsCommandList1_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0018 */
+/* interface __MIDL_itfWinSDK_0000_0018 */
 /* [local] */ 
 
 typedef struct D3D12_WRITEBUFFERIMMEDIATE_PARAMETER
@@ -6970,8 +6970,8 @@ enum D3D12_WRITEBUFFERIMMEDIATE_MODE
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0018_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0018_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0018_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0018_v0_0_s_ifspec;
 
 #ifndef __ID3D12GraphicsCommandList2_INTERFACE_DEFINED__
 #define __ID3D12GraphicsCommandList2_INTERFACE_DEFINED__
@@ -7892,7 +7892,7 @@ EXTERN_C const IID IID_ID3D12CommandQueue;
 #endif 	/* __ID3D12CommandQueue_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0020 */
+/* interface __MIDL_itfWinSDK_0000_0020 */
 /* [local] */ 
 
 #ifdef __midl
@@ -7910,8 +7910,8 @@ typedef struct __LUID *PLUID;
 #endif
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0020_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0020_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0020_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0020_v0_0_s_ifspec;
 
 #ifndef __ID3D12Device_INTERFACE_DEFINED__
 #define __ID3D12Device_INTERFACE_DEFINED__
@@ -8928,7 +8928,7 @@ EXTERN_C const IID IID_ID3D12PipelineLibrary1;
 #endif 	/* __ID3D12PipelineLibrary1_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0023 */
+/* interface __MIDL_itfWinSDK_0000_0023 */
 /* [local] */ 
 
 typedef 
@@ -8952,8 +8952,8 @@ enum D3D12_RESIDENCY_PRIORITY
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0023_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0023_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0023_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0023_v0_0_s_ifspec;
 
 #ifndef __ID3D12Device1_INTERFACE_DEFINED__
 #define __ID3D12Device1_INTERFACE_DEFINED__
@@ -9956,7 +9956,7 @@ EXTERN_C const IID IID_ID3D12Device2;
 #endif 	/* __ID3D12Device2_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0025 */
+/* interface __MIDL_itfWinSDK_0000_0025 */
 /* [local] */ 
 
 typedef 
@@ -9969,8 +9969,8 @@ enum D3D12_RESIDENCY_FLAGS
 DEFINE_ENUM_FLAG_OPERATORS( D3D12_RESIDENCY_FLAGS );
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0025_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0025_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0025_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0025_v0_0_s_ifspec;
 
 #ifndef __ID3D12Device3_INTERFACE_DEFINED__
 #define __ID3D12Device3_INTERFACE_DEFINED__
@@ -10513,7 +10513,7 @@ EXTERN_C const IID IID_ID3D12Device3;
 #endif 	/* __ID3D12Device3_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0026 */
+/* interface __MIDL_itfWinSDK_0000_0026 */
 /* [local] */ 
 
 typedef 
@@ -10546,8 +10546,8 @@ enum D3D12_PROTECTED_SESSION_STATUS
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0026_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0026_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0026_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0026_v0_0_s_ifspec;
 
 #ifndef __ID3D12ProtectedSession_INTERFACE_DEFINED__
 #define __ID3D12ProtectedSession_INTERFACE_DEFINED__
@@ -10681,7 +10681,7 @@ EXTERN_C const IID IID_ID3D12ProtectedSession;
 #endif 	/* __ID3D12ProtectedSession_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0027 */
+/* interface __MIDL_itfWinSDK_0000_0027 */
 /* [local] */ 
 
 typedef 
@@ -10713,8 +10713,8 @@ typedef struct D3D12_PROTECTED_RESOURCE_SESSION_DESC
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0027_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0027_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0027_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0027_v0_0_s_ifspec;
 
 #ifndef __ID3D12ProtectedResourceSession_INTERFACE_DEFINED__
 #define __ID3D12ProtectedResourceSession_INTERFACE_DEFINED__
@@ -11492,7 +11492,7 @@ EXTERN_C const IID IID_ID3D12Device4;
 #endif 	/* __ID3D12Device4_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0029 */
+/* interface __MIDL_itfWinSDK_0000_0029 */
 /* [local] */ 
 
 typedef 
@@ -11505,8 +11505,8 @@ enum D3D12_LIFETIME_STATE
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0029_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0029_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0029_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0029_v0_0_s_ifspec;
 
 #ifndef __ID3D12LifetimeOwner_INTERFACE_DEFINED__
 #define __ID3D12LifetimeOwner_INTERFACE_DEFINED__
@@ -11826,7 +11826,7 @@ EXTERN_C const IID IID_ID3D12LifetimeTracker;
 #endif 	/* __ID3D12LifetimeTracker_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0032 */
+/* interface __MIDL_itfWinSDK_0000_0032 */
 /* [local] */ 
 
 typedef 
@@ -11898,8 +11898,8 @@ typedef struct D3D12_META_COMMAND_DESC
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0032_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0032_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0032_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0032_v0_0_s_ifspec;
 
 #ifndef __ID3D12StateObject_INTERFACE_DEFINED__
 #define __ID3D12StateObject_INTERFACE_DEFINED__
@@ -12121,7 +12121,7 @@ EXTERN_C const IID IID_ID3D12StateObjectProperties;
 #endif 	/* __ID3D12StateObjectProperties_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0034 */
+/* interface __MIDL_itfWinSDK_0000_0034 */
 /* [local] */ 
 
 typedef 
@@ -12540,8 +12540,8 @@ enum D3D12_HIT_KIND
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0034_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0034_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0034_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0034_v0_0_s_ifspec;
 
 #ifndef __ID3D12Device5_INTERFACE_DEFINED__
 #define __ID3D12Device5_INTERFACE_DEFINED__
@@ -13245,7 +13245,7 @@ EXTERN_C const IID IID_ID3D12Device5;
 #endif 	/* __ID3D12Device5_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0035 */
+/* interface __MIDL_itfWinSDK_0000_0035 */
 /* [local] */ 
 
 typedef 
@@ -13463,8 +13463,8 @@ typedef struct D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0035_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0035_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0035_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0035_v0_0_s_ifspec;
 
 #ifndef __ID3D12DeviceRemovedExtendedDataSettings_INTERFACE_DEFINED__
 #define __ID3D12DeviceRemovedExtendedDataSettings_INTERFACE_DEFINED__
@@ -13859,7 +13859,7 @@ EXTERN_C const IID IID_ID3D12DeviceRemovedExtendedData1;
 #endif 	/* __ID3D12DeviceRemovedExtendedData1_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0039 */
+/* interface __MIDL_itfWinSDK_0000_0039 */
 /* [local] */ 
 
 typedef 
@@ -13882,8 +13882,8 @@ enum D3D12_MEASUREMENTS_ACTION
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0039_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0039_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0039_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0039_v0_0_s_ifspec;
 
 #ifndef __ID3D12Device6_INTERFACE_DEFINED__
 #define __ID3D12Device6_INTERFACE_DEFINED__
@@ -14565,7 +14565,7 @@ EXTERN_C const IID IID_ID3D12Device6;
 #endif 	/* __ID3D12Device6_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0040 */
+/* interface __MIDL_itfWinSDK_0000_0040 */
 /* [local] */ 
 
 DEFINE_GUID(D3D12_PROTECTED_RESOURCES_SESSION_HARDWARE_PROTECTED,                           0x62B0084E, 0xC70E, 0x4DAA, 0xA1, 0x09, 0x30, 0xFF, 0x8D, 0x5A, 0x04, 0x82); 
@@ -14591,8 +14591,8 @@ typedef struct D3D12_PROTECTED_RESOURCE_SESSION_DESC1
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0040_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0040_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0040_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0040_v0_0_s_ifspec;
 
 #ifndef __ID3D12ProtectedResourceSession1_INTERFACE_DEFINED__
 #define __ID3D12ProtectedResourceSession1_INTERFACE_DEFINED__
@@ -17413,7 +17413,7 @@ EXTERN_C const IID IID_ID3D12GraphicsCommandList3;
 #endif 	/* __ID3D12GraphicsCommandList3_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0047 */
+/* interface __MIDL_itfWinSDK_0000_0047 */
 /* [local] */ 
 
 typedef 
@@ -17505,8 +17505,8 @@ enum D3D12_RENDER_PASS_FLAGS
 DEFINE_ENUM_FLAG_OPERATORS( D3D12_RENDER_PASS_FLAGS );
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0047_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0047_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0047_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0047_v0_0_s_ifspec;
 
 #ifndef __ID3D12MetaCommand_INTERFACE_DEFINED__
 #define __ID3D12MetaCommand_INTERFACE_DEFINED__
@@ -17633,7 +17633,7 @@ EXTERN_C const IID IID_ID3D12MetaCommand;
 #endif 	/* __ID3D12MetaCommand_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0048 */
+/* interface __MIDL_itfWinSDK_0000_0048 */
 /* [local] */ 
 
 typedef struct D3D12_DISPATCH_RAYS_DESC
@@ -17649,8 +17649,8 @@ typedef struct D3D12_DISPATCH_RAYS_DESC
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0048_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0048_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0048_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0048_v0_0_s_ifspec;
 
 #ifndef __ID3D12GraphicsCommandList4_INTERFACE_DEFINED__
 #define __ID3D12GraphicsCommandList4_INTERFACE_DEFINED__
@@ -18509,7 +18509,7 @@ EXTERN_C const IID IID_ID3D12Tools;
 #endif 	/* __ID3D12Tools_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0050 */
+/* interface __MIDL_itfWinSDK_0000_0050 */
 /* [local] */ 
 
 typedef struct D3D12_SUBRESOURCE_DATA
@@ -18551,7 +18551,7 @@ typedef struct D3D12_MEMCPY_DEST
 //          D3D12CreateDevice
 //
 ///////////////////////////////////////////////////////////////////////////
-typedef HRESULT (WINAPI* PFN_D3D12_CREATE_DEVICE)( _In_opt_ IUnknown*, 
+typedef HRESULT (WINAPI* PFNWinSDK_CREATE_DEVICE)( _In_opt_ IUnknown*, 
     D3D_FEATURE_LEVEL, 
     _In_ REFIID, _COM_Outptr_opt_ void** );
 
@@ -18562,7 +18562,7 @@ HRESULT WINAPI D3D12CreateDevice(
     _COM_Outptr_opt_ void** ppDevice );
 
 
-typedef HRESULT (WINAPI* PFN_D3D12_GET_DEBUG_INTERFACE)( _In_ REFIID, _COM_Outptr_opt_ void** );
+typedef HRESULT (WINAPI* PFNWinSDK_GET_DEBUG_INTERFACE)( _In_ REFIID, _COM_Outptr_opt_ void** );
 
 HRESULT WINAPI D3D12GetDebugInterface( _In_ REFIID riid, _COM_Outptr_opt_ void** ppvDebug );
 
@@ -18677,8 +18677,8 @@ enum D3D12_SHADING_RATE_COMBINER
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0050_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0050_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0050_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0050_v0_0_s_ifspec;
 
 #ifndef __ID3D12GraphicsCommandList5_INTERFACE_DEFINED__
 #define __ID3D12GraphicsCommandList5_INTERFACE_DEFINED__
@@ -19434,7 +19434,7 @@ EXTERN_C const IID IID_ID3D12GraphicsCommandList5;
 #endif 	/* __ID3D12GraphicsCommandList5_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0051 */
+/* interface __MIDL_itfWinSDK_0000_0051 */
 /* [local] */ 
 
 typedef struct D3D12_DISPATCH_MESH_ARGUMENTS
@@ -19446,8 +19446,8 @@ typedef struct D3D12_DISPATCH_MESH_ARGUMENTS
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0051_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0051_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0051_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0051_v0_0_s_ifspec;
 
 #ifndef __ID3D12GraphicsCommandList6_INTERFACE_DEFINED__
 #define __ID3D12GraphicsCommandList6_INTERFACE_DEFINED__
@@ -20211,7 +20211,7 @@ EXTERN_C const IID IID_ID3D12GraphicsCommandList6;
 #endif 	/* __ID3D12GraphicsCommandList6_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0052 */
+/* interface __MIDL_itfWinSDK_0000_0052 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
@@ -20270,8 +20270,8 @@ DEFINE_GUID(IID_ID3D12GraphicsCommandList5,0x55050859,0x4024,0x474c,0x87,0xf5,0x
 DEFINE_GUID(IID_ID3D12GraphicsCommandList6,0xc3827890,0xe548,0x4cfa,0x96,0xcf,0x56,0x89,0xa9,0x37,0x0f,0x80);
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0052_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0052_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0052_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itfWinSDK_0000_0052_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 
