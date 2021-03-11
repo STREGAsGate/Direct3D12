@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.4
 
 import PackageDescription
 
@@ -14,7 +14,7 @@ let package = Package(
             targets: ["Direct3D12"]),
     ],
     dependencies: [
-        .package(name: "SwiftCOM", url: "https://github.com/compnerd/swift-com.git", .branch("master")),
+        .package(name: "SwiftCOM", url: "https://github.com/compnerd/swift-com.git", .branch("main")),
         .package(name: "Direct3D12_Enumerations", path: "Sources/Direct3D12_Enumerations"),
     ],
     targets: [
@@ -23,12 +23,8 @@ let package = Package(
             dependencies: ["SwiftCOM", "Direct3D12_Enumerations"],
             swiftSettings: [
                 .define("Direct3D12ExcludeOriginalStyleAPI", .when(configuration: .release)),
-                .unsafeFlags(["-parse-as-library"]),
-            ],
-            linkerSettings: [
-                .linkedLibrary("User32"),
-                .linkedLibrary("Ole32"),
-            ]),
+            ]
+        ),
     ]
 )
 #else

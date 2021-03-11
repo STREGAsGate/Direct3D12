@@ -7,7 +7,7 @@
  */
 
 import SwiftCOM
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 extension Error {
     public enum Kind {

@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 import SwiftCOM
 
 //TODO: Replace these with the equivalent implimentation from SwiftCOM
@@ -18,6 +18,7 @@ fileprivate var E_INVALIDARG: HRESULT {
 public typealias IUnknown = SwiftCOM.IUnknown
 
 public extension IUnknown {
+
     struct ComManager<WinSDKType> {
         public let pThis: UnsafeMutablePointer<WinSDKType>
         public var this: WinSDKType {

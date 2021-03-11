@@ -9,10 +9,10 @@
 import WinSDK.DirectX.Direct3D12
 
 public struct FeatureDataD3d12Options2 {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATAWinSDK_OPTIONS2
+    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_D3D12_OPTIONS2
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATAWinSDK_OPTIONS2) {
+    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_D3D12_OPTIONS2) {
         self.rawValue = rawValue
     }
 }

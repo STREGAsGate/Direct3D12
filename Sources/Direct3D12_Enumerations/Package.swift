@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.4
 
 import PackageDescription
 
@@ -19,11 +19,7 @@ let package = Package(
                       "d3d12_h/Enumerations/TEMPLATE_D3D12_FLAGS.swift"],
             swiftSettings: [
                 .define("Direct3D12ExcludeOriginalStyleAPI", .when(configuration: .release)),
-                .unsafeFlags([ "-parse-as-library"]),
-            ],
-            linkerSettings: [
-                .linkedLibrary("User32"),
-                .linkedLibrary("Ole32"),
-            ]),
+            ]
+        ),
     ]
 )
