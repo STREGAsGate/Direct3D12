@@ -1,4 +1,5 @@
-# Direct3D12 for Swift
+[![Windows CI](https://github.com/STREGAsGate/Direct3D12/actions/workflows/Windows%20CI.yml/badge.svg)](https://github.com/STREGAsGate/Direct3D12/actions/workflows/Windows%20CI.yml)
+# Direct3D12 for Swift 
 
 This package exposes the Direct X 12 low level API to Swift.
 
