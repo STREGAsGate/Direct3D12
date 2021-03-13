@@ -10,7 +10,7 @@ let package = Package(
             targets: ["Direct3D12_Enumerations"]),
     ],
     dependencies: [
-        //.package(name: "WinSDK", path: "../WinSDK"),
+        
     ],
     targets: [
         .target(
