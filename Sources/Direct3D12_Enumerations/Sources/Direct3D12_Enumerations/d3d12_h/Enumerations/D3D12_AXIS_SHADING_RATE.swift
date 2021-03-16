@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
 
 /// Defines constants that specify the shading rate (for variable-rate shading, or VRS) along a horizontal or vertical axis. 
 /// For more info, see [Variable-rate shading (VRS)](https://docs.microsoft.com/en-us/windows/desktop/direct3d12/vrs).

@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
 
 /// Defines constants that specify a level of dynamic optimization to apply to GPU work that's subsequently submitted.
 public enum BackgrounProcessingMode {

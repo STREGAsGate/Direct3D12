@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
 
 /// Specifies blend factors, which modulate values for the pixel shader and render target.
 public enum BlendFactor {

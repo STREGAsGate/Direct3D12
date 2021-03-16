@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
 
 /// Specifies RGB or alpha blending operations.
 public enum BlendOperation {

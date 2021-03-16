@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
 
 /// Specifies a shader model.
 public enum ShaderModel {
