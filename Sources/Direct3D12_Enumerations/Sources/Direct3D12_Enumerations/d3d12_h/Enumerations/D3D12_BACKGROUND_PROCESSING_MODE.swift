@@ -40,18 +40,17 @@ public enum BackgrounProcessingMode {
 @available(*, deprecated, renamed: "BackgrounProcessingMode")
 public typealias D3D12_BACKGROUND_PROCESSING_MODE = BackgrounProcessingMode
 
-public extension BackgrounProcessingMode {
-    @available(*, deprecated, renamed: "allowed")
-    static let D3D12_BACKGROUND_PROCESSING_MODE_ALLOWED = Self.allowed
 
-    @available(*, deprecated, renamed: "allowIntrusiveMeasurements")
-    static let D3D12_BACKGROUND_PROCESSING_MODE_ALLOW_INTRUSIVE_MEASUREMENTS = Self.allowIntrusiveMeasurements
-  
-    @available(*, deprecated, renamed: "disableBackgroundWork")
-    static let D3D12_BACKGROUND_PROCESSING_MODE_DISABLE_BACKGROUND_WORK = Self.disableBackgroundWork
+@available(*, deprecated, renamed: "allowed")
+let D3D12_BACKGROUND_PROCESSING_MODE_ALLOWED: BackgrounProcessingMode = .allowed
 
-    @available(*, deprecated, renamed: "disableProfilingBySystem")
-    static let D3D12_BACKGROUND_PROCESSING_MODE_DISABLE_PROFILING_BY_SYSTEM = Self.disableProfilingBySystem
-}
+@available(*, deprecated, renamed: "allowIntrusiveMeasurements")
+let D3D12_BACKGROUND_PROCESSING_MODE_ALLOW_INTRUSIVE_MEASUREMENTS: BackgrounProcessingMode = .allowIntrusiveMeasurements
+
+@available(*, deprecated, renamed: "disableBackgroundWork")
+let D3D12_BACKGROUND_PROCESSING_MODE_DISABLE_BACKGROUND_WORK: BackgrounProcessingMode = .disableBackgroundWork
+
+@available(*, deprecated, renamed: "disableProfilingBySystem")
+let D3D12_BACKGROUND_PROCESSING_MODE_DISABLE_PROFILING_BY_SYSTEM: BackgrounProcessingMode = .disableProfilingBySystem
 
 #endif

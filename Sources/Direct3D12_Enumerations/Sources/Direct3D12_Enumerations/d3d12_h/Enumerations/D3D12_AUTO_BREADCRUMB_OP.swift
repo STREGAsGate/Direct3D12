@@ -253,135 +253,134 @@ extension AutoBreadcrumbOP: RawRepresentable {
 @available(*, deprecated, renamed: "AutoBreadcrumbOP")
 public typealias D3D12_AUTO_BREADCRUMB_OP = AutoBreadcrumbOP
 
-public extension AutoBreadcrumbOP {
-    @available(*, deprecated, renamed: "setMarker")
-    static let D3D12_AUTO_BREADCRUMB_OP_SETMARKER = Self.setMarker
 
-    @available(*, deprecated, renamed: "beginEvent")
-    static let D3D12_AUTO_BREADCRUMB_OP_BEGINEVENT = Self.beginEvent
+@available(*, deprecated, renamed: "setMarker")
+let D3D12_AUTO_BREADCRUMB_OP_SETMARKER: AutoBreadcrumbOP = .setMarker
 
-    @available(*, deprecated, renamed: "endEvent")
-    static let D3D12_AUTO_BREADCRUMB_OP_ENDEVENT = Self.endEvent
+@available(*, deprecated, renamed: "beginEvent")
+let D3D12_AUTO_BREADCRUMB_OP_BEGINEVENT: AutoBreadcrumbOP = .beginEvent
 
-    @available(*, deprecated, renamed: "drawDrawIstanced")
-    static let D3D12_AUTO_BREADCRUMB_OP_DRAWINSTANCED = Self.drawDrawIstanced
+@available(*, deprecated, renamed: "endEvent")
+let D3D12_AUTO_BREADCRUMB_OP_ENDEVENT: AutoBreadcrumbOP = .endEvent
 
-    @available(*, deprecated, renamed: "drawIndexedInstanced")
-    static let D3D12_AUTO_BREADCRUMB_OP_DRAWINDEXEDINSTANCED = Self.drawIndexedInstanced
+@available(*, deprecated, renamed: "drawDrawIstanced")
+let D3D12_AUTO_BREADCRUMB_OP_DRAWINSTANCED: AutoBreadcrumbOP = .drawDrawIstanced
 
-    @available(*, deprecated, renamed: "executeIndirect")
-    static let D3D12_AUTO_BREADCRUMB_OP_EXECUTEINDIRECT = Self.executeIndirect
+@available(*, deprecated, renamed: "drawIndexedInstanced")
+let D3D12_AUTO_BREADCRUMB_OP_DRAWINDEXEDINSTANCED: AutoBreadcrumbOP = .drawIndexedInstanced
 
-    @available(*, deprecated, renamed: "dispatch")
-    static let D3D12_AUTO_BREADCRUMB_OP_DISPATCH = Self.dispatch
+@available(*, deprecated, renamed: "executeIndirect")
+let D3D12_AUTO_BREADCRUMB_OP_EXECUTEINDIRECT: AutoBreadcrumbOP = .executeIndirect
 
-    @available(*, deprecated, renamed: "copyBufferRegion")
-    static let D3D12_AUTO_BREADCRUMB_OP_COPYBUFFERREGION = Self.copyBufferRegion
+@available(*, deprecated, renamed: "dispatch")
+let D3D12_AUTO_BREADCRUMB_OP_DISPATCH: AutoBreadcrumbOP = .dispatch
 
-    @available(*, deprecated, renamed: "copyTextureRegion")
-    static let D3D12_AUTO_BREADCRUMB_OP_COPYTEXTUREREGION = Self.copyTextureRegion
+@available(*, deprecated, renamed: "copyBufferRegion")
+let D3D12_AUTO_BREADCRUMB_OP_COPYBUFFERREGION: AutoBreadcrumbOP = .copyBufferRegion
 
-    @available(*, deprecated, renamed: "copyResource")
-    static let D3D12_AUTO_BREADCRUMB_OP_COPYRESOURCE = Self.copyResource
+@available(*, deprecated, renamed: "copyTextureRegion")
+let D3D12_AUTO_BREADCRUMB_OP_COPYTEXTUREREGION: AutoBreadcrumbOP = .copyTextureRegion
 
-    @available(*, deprecated, renamed: "copyTiles")
-    static let D3D12_AUTO_BREADCRUMB_OP_COPYTILES = Self.copyTiles
+@available(*, deprecated, renamed: "copyResource")
+let D3D12_AUTO_BREADCRUMB_OP_COPYRESOURCE: AutoBreadcrumbOP = .copyResource
 
-    @available(*, deprecated, renamed: "resolveSubResource")
-    static let D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCE = Self.resolveSubResource
+@available(*, deprecated, renamed: "copyTiles")
+let D3D12_AUTO_BREADCRUMB_OP_COPYTILES: AutoBreadcrumbOP = .copyTiles
 
-    @available(*, deprecated, renamed: "clearRenderTargetView")
-    static let D3D12_AUTO_BREADCRUMB_OP_CLEARRENDERTARGETVIEW = Self.clearRenderTargetView
+@available(*, deprecated, renamed: "resolveSubResource")
+let D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCE: AutoBreadcrumbOP = .resolveSubResource
 
-    @available(*, deprecated, renamed: "clearUnorderedAccessView")
-    static let D3D12_AUTO_BREADCRUMB_OP_CLEARUNORDEREDACCESSVIEW = Self.clearUnorderedAccessView
+@available(*, deprecated, renamed: "clearRenderTargetView")
+let D3D12_AUTO_BREADCRUMB_OP_CLEARRENDERTARGETVIEW: AutoBreadcrumbOP = .clearRenderTargetView
 
-    @available(*, deprecated, renamed: "clearDepthStencilView")
-    static let D3D12_AUTO_BREADCRUMB_OP_CLEARDEPTHSTENCILVIEW = Self.clearDepthStencilView
+@available(*, deprecated, renamed: "clearUnorderedAccessView")
+let D3D12_AUTO_BREADCRUMB_OP_CLEARUNORDEREDACCESSVIEW: AutoBreadcrumbOP = .clearUnorderedAccessView
 
-    @available(*, deprecated, renamed: "resourceBarrier")
-    static let D3D12_AUTO_BREADCRUMB_OP_RESOURCEBARRIER = Self.resourceBarrier
+@available(*, deprecated, renamed: "clearDepthStencilView")
+let D3D12_AUTO_BREADCRUMB_OP_CLEARDEPTHSTENCILVIEW: AutoBreadcrumbOP = .clearDepthStencilView
 
-    @available(*, deprecated, renamed: "executeBundle")
-    static let D3D12_AUTO_BREADCRUMB_OP_EXECUTEBUNDLE = Self.executeBundle
+@available(*, deprecated, renamed: "resourceBarrier")
+let D3D12_AUTO_BREADCRUMB_OP_RESOURCEBARRIER: AutoBreadcrumbOP = .resourceBarrier
 
-    @available(*, deprecated, renamed: "present")
-    static let D3D12_AUTO_BREADCRUMB_OP_PRESENT = Self.present
+@available(*, deprecated, renamed: "executeBundle")
+let D3D12_AUTO_BREADCRUMB_OP_EXECUTEBUNDLE: AutoBreadcrumbOP = .executeBundle
 
-    @available(*, deprecated, renamed: "resolveQueryData")
-    static let D3D12_AUTO_BREADCRUMB_OP_RESOLVEQUERYDATA = Self.resolveQueryData
+@available(*, deprecated, renamed: "present")
+let D3D12_AUTO_BREADCRUMB_OP_PRESENT: AutoBreadcrumbOP = .present
 
-    @available(*, deprecated, renamed: "beginSubmission")
-    static let D3D12_AUTO_BREADCRUMB_OP_BEGINSUBMISSION = Self.beginSubmission
+@available(*, deprecated, renamed: "resolveQueryData")
+let D3D12_AUTO_BREADCRUMB_OP_RESOLVEQUERYDATA: AutoBreadcrumbOP = .resolveQueryData
 
-    @available(*, deprecated, renamed: "endSubmission")
-    static let D3D12_AUTO_BREADCRUMB_OP_ENDSUBMISSION = Self.endSubmission
+@available(*, deprecated, renamed: "beginSubmission")
+let D3D12_AUTO_BREADCRUMB_OP_BEGINSUBMISSION: AutoBreadcrumbOP = .beginSubmission
 
-    @available(*, deprecated, renamed: "decodeFrame")
-    static let D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME = Self.decodeFrame
+@available(*, deprecated, renamed: "endSubmission")
+let D3D12_AUTO_BREADCRUMB_OP_ENDSUBMISSION: AutoBreadcrumbOP = .endSubmission
 
-    @available(*, deprecated, renamed: "processFrames")
-    static let D3D12_AUTO_BREADCRUMB_OP_PROCESSFRAMES = Self.processFrames
+@available(*, deprecated, renamed: "decodeFrame")
+let D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME: AutoBreadcrumbOP = .decodeFrame
 
-    @available(*, deprecated, renamed: "automicCopyBufferUINT")
-    static let D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT = Self.automicCopyBufferUINT
+@available(*, deprecated, renamed: "processFrames")
+let D3D12_AUTO_BREADCRUMB_OP_PROCESSFRAMES: AutoBreadcrumbOP = .processFrames
 
-    @available(*, deprecated, renamed: "automicCopyBufferINT64")
-    static let D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT64 = Self.automicCopyBufferINT64
+@available(*, deprecated, renamed: "automicCopyBufferUINT")
+let D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT: AutoBreadcrumbOP = .automicCopyBufferUINT
 
-    @available(*, deprecated, renamed: "resolveSubResourceRegion")
-    static let D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCEREGION = Self.resolveSubResourceRegion
+@available(*, deprecated, renamed: "automicCopyBufferINT64")
+let D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT64: AutoBreadcrumbOP = .automicCopyBufferINT64
 
-    @available(*, deprecated, renamed: "writeBufferImmediate")
-    static let D3D12_AUTO_BREADCRUMB_OP_WRITEBUFFERIMMEDIATE = Self.writeBufferImmediate
+@available(*, deprecated, renamed: "resolveSubResourceRegion")
+let D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCEREGION: AutoBreadcrumbOP = .resolveSubResourceRegion
 
-    @available(*, deprecated, renamed: "decodeFrame1")
-    static let D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME1 = Self.decodeFrame1
+@available(*, deprecated, renamed: "writeBufferImmediate")
+let D3D12_AUTO_BREADCRUMB_OP_WRITEBUFFERIMMEDIATE: AutoBreadcrumbOP = .writeBufferImmediate
 
-    @available(*, deprecated, renamed: "setProtectedResourceSession")
-    static let D3D12_AUTO_BREADCRUMB_OP_SETPROTECTEDRESOURCESESSION = Self.setProtectedResourceSession
+@available(*, deprecated, renamed: "decodeFrame1")
+let D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME1: AutoBreadcrumbOP = .decodeFrame1
 
-    @available(*, deprecated, renamed: "decodeFrame2")
-    static let D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME2 = Self.decodeFrame2
+@available(*, deprecated, renamed: "setProtectedResourceSession")
+let D3D12_AUTO_BREADCRUMB_OP_SETPROTECTEDRESOURCESESSION: AutoBreadcrumbOP = .setProtectedResourceSession
 
-    @available(*, deprecated, renamed: "processFrames1")
-    static let D3D12_AUTO_BREADCRUMB_OP_PROCESSFRAMES1 = Self.processFrames1
+@available(*, deprecated, renamed: "decodeFrame2")
+let D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME2: AutoBreadcrumbOP = .decodeFrame2
 
-    @available(*, deprecated, renamed: "buildRayTracingAccelerationStructure")
-    static let D3D12_AUTO_BREADCRUMB_OP_BUILDRAYTRACINGACCELERATIONSTRUCTURE = Self.buildRayTracingAccelerationStructure
+@available(*, deprecated, renamed: "processFrames1")
+let D3D12_AUTO_BREADCRUMB_OP_PROCESSFRAMES1: AutoBreadcrumbOP = .processFrames1
 
-    @available(*, deprecated, renamed: "emitRayTracingAccelerationStructurePostBuildInfo")
-    static let D3D12_AUTO_BREADCRUMB_OP_EMITRAYTRACINGACCELERATIONSTRUCTUREPOSTBUILDINFO = Self.emitRayTracingAccelerationStructurePostBuildInfo
+@available(*, deprecated, renamed: "buildRayTracingAccelerationStructure")
+let D3D12_AUTO_BREADCRUMB_OP_BUILDRAYTRACINGACCELERATIONSTRUCTURE: AutoBreadcrumbOP = .buildRayTracingAccelerationStructure
 
-    @available(*, deprecated, renamed: "copyRayTracingAccelerationStructure")
-    static let D3D12_AUTO_BREADCRUMB_OP_COPYRAYTRACINGACCELERATIONSTRUCTURE = Self.copyRayTracingAccelerationStructure
-   
-    @available(*, deprecated, renamed: "dispatchRays")
-    static let D3D12_AUTO_BREADCRUMB_OP_DISPATCHRAYS = Self.dispatchRays
+@available(*, deprecated, renamed: "emitRayTracingAccelerationStructurePostBuildInfo")
+let D3D12_AUTO_BREADCRUMB_OP_EMITRAYTRACINGACCELERATIONSTRUCTUREPOSTBUILDINFO: AutoBreadcrumbOP = .emitRayTracingAccelerationStructurePostBuildInfo
 
-    @available(*, deprecated, renamed: "initializeMetaCommand")
-    static let D3D12_AUTO_BREADCRUMB_OP_INITIALIZEMETACOMMAND = Self.initializeMetaCommand
+@available(*, deprecated, renamed: "copyRayTracingAccelerationStructure")
+let D3D12_AUTO_BREADCRUMB_OP_COPYRAYTRACINGACCELERATIONSTRUCTURE: AutoBreadcrumbOP = .copyRayTracingAccelerationStructure
 
-    @available(*, deprecated, renamed: "initializeMetaCommand")
-    static let D3D12_AUTO_BREADCRUMB_OP_EXECUTEMETACOMMAND = Self.executeMetaCommand
+@available(*, deprecated, renamed: "dispatchRays")
+let D3D12_AUTO_BREADCRUMB_OP_DISPATCHRAYS: AutoBreadcrumbOP = .dispatchRays
 
-    @available(*, deprecated, renamed: "estimateMotion")
-    static let D3D12_AUTO_BREADCRUMB_OP_ESTIMATEMOTION = Self.estimateMotion
+@available(*, deprecated, renamed: "initializeMetaCommand")
+let D3D12_AUTO_BREADCRUMB_OP_INITIALIZEMETACOMMAND: AutoBreadcrumbOP = .initializeMetaCommand
 
-    @available(*, deprecated, renamed: "resolveMotionVectorHeap")
-    static let D3D12_AUTO_BREADCRUMB_OP_RESOLVEMOTIONVECTORHEAP = Self.resolveMotionVectorHeap
+@available(*, deprecated, renamed: "initializeMetaCommand")
+let D3D12_AUTO_BREADCRUMB_OP_EXECUTEMETACOMMAND: AutoBreadcrumbOP = .executeMetaCommand
 
-    @available(*, deprecated, renamed: "setPipelineState1")
-    static let D3D12_AUTO_BREADCRUMB_OP_SETPIPELINESTATE1 = Self.setPipelineState1
+@available(*, deprecated, renamed: "estimateMotion")
+let D3D12_AUTO_BREADCRUMB_OP_ESTIMATEMOTION: AutoBreadcrumbOP = .estimateMotion
 
-    @available(*, deprecated, renamed: "initializeExtensionCommand")
-    static let D3D12_AUTO_BREADCRUMB_OP_INITIALIZEEXTENSIONCOMMAND = Self.initializeExtensionCommand
+@available(*, deprecated, renamed: "resolveMotionVectorHeap")
+let D3D12_AUTO_BREADCRUMB_OP_RESOLVEMOTIONVECTORHEAP: AutoBreadcrumbOP = .resolveMotionVectorHeap
 
-    @available(*, deprecated, renamed: "executeExtensionCommand")
-    static let D3D12_AUTO_BREADCRUMB_OP_EXECUTEEXTENSIONCOMMAND = Self.executeExtensionCommand
+@available(*, deprecated, renamed: "setPipelineState1")
+let D3D12_AUTO_BREADCRUMB_OP_SETPIPELINESTATE1: AutoBreadcrumbOP = .setPipelineState1
 
-    @available(*, deprecated, renamed: "dispatchMesh")
-    static let D3D12_AUTO_BREADCRUMB_OP_DISPATCHMESH = Self.dispatchMesh
-}
+@available(*, deprecated, renamed: "initializeExtensionCommand")
+let D3D12_AUTO_BREADCRUMB_OP_INITIALIZEEXTENSIONCOMMAND: AutoBreadcrumbOP = .initializeExtensionCommand
+
+@available(*, deprecated, renamed: "executeExtensionCommand")
+let D3D12_AUTO_BREADCRUMB_OP_EXECUTEEXTENSIONCOMMAND: AutoBreadcrumbOP = .executeExtensionCommand
+
+@available(*, deprecated, renamed: "dispatchMesh")
+let D3D12_AUTO_BREADCRUMB_OP_DISPATCHMESH: AutoBreadcrumbOP = .dispatchMesh
 
 #endif

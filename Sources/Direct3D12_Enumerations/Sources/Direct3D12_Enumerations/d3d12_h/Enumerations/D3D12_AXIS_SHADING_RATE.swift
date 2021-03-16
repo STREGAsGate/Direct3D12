@@ -37,15 +37,13 @@ public enum AxisShadingRate {
 @available(*, deprecated, renamed: "AxisShadingRate")
 public typealias D3D12_AXIS_SHADING_RATE = AxisShadingRate
 
-public extension AxisShadingRate {
-    @available(*, deprecated, renamed: "x1")
-    static let D3D12_AXIS_SHADING_RATE_1X = Self.x1
+@available(*, deprecated, renamed: "x1")
+let D3D12_AXIS_SHADING_RATE_1X: AxisShadingRate = .x1
 
-    @available(*, deprecated, renamed: "x2")
-    static let D3D12_AXIS_SHADING_RATE_2X = Self.x2
+@available(*, deprecated, renamed: "x2")
+let D3D12_AXIS_SHADING_RATE_2X: AxisShadingRate = .x2
 
-    @available(*, deprecated, renamed: "x4")
-    static let D3D12_AXIS_SHADING_RATE_4X = Self.x4
-}
+@available(*, deprecated, renamed: "x4")
+let D3D12_AXIS_SHADING_RATE_4X: AxisShadingRate = .x4
 
 #endif

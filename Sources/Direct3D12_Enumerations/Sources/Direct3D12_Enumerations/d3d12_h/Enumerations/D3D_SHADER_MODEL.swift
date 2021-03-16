@@ -48,24 +48,23 @@ public enum ShaderModel {
 @available(*, deprecated, renamed: "ShaderModel")
 public typealias D3D_SHADER_MODEL = ShaderModel
 
-public extension ShaderModel {
-    @available(*, deprecated, renamed: "v5_1")
-    static let D3D_SHADER_MODEL_5_1 = Self.v5_1
 
-    @available(*, deprecated, renamed: "v6_0")
-    static let D3D_SHADER_MODEL_6_0 = Self.v6_0
+@available(*, deprecated, renamed: "v5_1")
+let D3D_SHADER_MODEL_5_1: ShaderModel = .v5_1
 
-    @available(*, deprecated, renamed: "v6_1")
-    static let D3D_SHADER_MODEL_6_1 = Self.v6_1
+@available(*, deprecated, renamed: "v6_0")
+let D3D_SHADER_MODEL_6_0: ShaderModel = .v6_0
 
-    @available(*, deprecated, renamed: "v6_2")
-    static let D3D_SHADER_MODEL_6_2 = Self.v6_2
+@available(*, deprecated, renamed: "v6_1")
+let D3D_SHADER_MODEL_6_1: ShaderModel = .v6_1
 
-    @available(*, deprecated, renamed: "v6_3")
-    static let D3D_SHADER_MODEL_6_3 = Self.v6_3
-    
-    @available(*, deprecated, renamed: "v6_4")
-    static let D3D_SHADER_MODEL_6_4 = Self.v6_4
-}
+@available(*, deprecated, renamed: "v6_2")
+let D3D_SHADER_MODEL_6_2: ShaderModel = .v6_2
+
+@available(*, deprecated, renamed: "v6_3")
+let D3D_SHADER_MODEL_6_3: ShaderModel = .v6_3
+
+@available(*, deprecated, renamed: "v6_4")
+let D3D_SHADER_MODEL_6_4: ShaderModel = .v6_4
 
 #endif
