@@ -10,6 +10,7 @@ import WinSDK
 
 /// Specifies a range of tile mappings.
 public struct TileRangeFlags: OptionSet {
+    public typealias RawType = WinSDK.D3D12_TILE_RANGE_FLAGS
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No tile-mapping flags are specified.

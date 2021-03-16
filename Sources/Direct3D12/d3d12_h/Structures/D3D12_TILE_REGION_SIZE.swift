@@ -13,7 +13,7 @@ public struct TileRegionSize {
     var rawValue: RawValue
 
 
-    init(_ rawValue: RawValue) {
+    init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

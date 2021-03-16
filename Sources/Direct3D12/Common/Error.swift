@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import WinSDK.DirectX
 
 extension Error {
     public enum Kind {
@@ -50,9 +51,50 @@ extension Error: CustomDebugStringConvertible {
     }
 }
 
+public extension HRESULT {
+    // Common
+    static let ok = WinSDK.S_OK
+    static let fail = HRESULT(bitPattern: 0x80004005)
+    static let invalidArgument = HRESULT(bitPattern: 0x80070057)
+    static let outOfMemory = HRESULT(bitPattern: 0x8007000E)
+    static let notImplemented = HRESULT(bitPattern: 0x80004001)
+    static let `false` = WinSDK.S_FALSE
+
+    // D3d12
+    static let adapterNotFound = HRESULT(bitPattern: 0x887E0001) 
+    static let driverVersionMismatch = HRESULT(bitPattern: 0x887E0002)
+
+    // DXGI https://docs.microsoft.com/en-us/windows/win32/direct3ddxgi/dxgi-error
+    static let invalidCall = HRESULT(dxgiCode: 0x887A0001)
+    static let wasStillDrawing = HRESULT(dxgiCode: 0x887A000A)
+}
+
 internal extension HRESULT {
-    static let S_OK = WinSDK.S_OK
-    static let E_INVALIDARG = HRESULT(bitPattern: 0x80070057)
+    init(severity: UInt32, facility: UInt32, code: UInt32) {
+        self.init(bitPattern:(((severity<<31) | (facility<<16) | ((code)))))
+    }
+    init(dxgiCode: UInt32) {
+        let dxgiFacility: UInt32 = 0x87a
+        self.init(severity: 1, facility: dxgiFacility, code: dxgiCode)
+    }
+}
+
+public extension HRESULT {
+    // https://docs.microsoft.com/en-us/windows/win32/api/winerror/nf-winerror-succeeded
+    var isSuccess: Bool {
+        return self >= 0 
+    }
+    // https://docs.microsoft.com/en-us/windows/win32/api/winerror/nf-winerror-failed
+    var isFailure: Bool {
+        return self < 0 
+    }
+
+    /// Throws Error(self) if isFailure is true
+    func checkResult() throws {
+        if isFailure {
+            throw Error(self)
+        }
+    }
 }
 
 fileprivate extension HRESULT {

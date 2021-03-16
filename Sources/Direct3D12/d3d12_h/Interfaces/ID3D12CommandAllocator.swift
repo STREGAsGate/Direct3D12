@@ -12,9 +12,11 @@ import WinSDK
 public class CommandAllocator: Pageable {
     
     /// This method returns E_FAIL if there is an actively recording command list referencing the command allocator. The debug layer will also issue an error in this case.
-    public func reset() throws {return try perform(as: RawValue.self) {(pThis) in
-        try checkResult(pThis.pointee.lpVtbl.pointee.Reset(pThis))
-    }}
+    public func reset() throws {
+        return try perform(as: RawValue.self) {(pThis) in
+            try pThis.pointee.lpVtbl.pointee.Reset(pThis).checkResult()
+        }
+    }
     
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
@@ -37,7 +39,7 @@ public typealias ID3D12CommandAllocator = CommandAllocator
 
 public extension CommandAllocator {
     @available(*, unavailable, renamed: "reset")
-    func Reset() -> HRESULT {fatalError("This API is here to make migration easier. There is no implimnetation.")}
+    func Reset() -> HRESULT {fatalError("This API is here to make migration easier. There is no implementation.")}
 }
 
 #endif

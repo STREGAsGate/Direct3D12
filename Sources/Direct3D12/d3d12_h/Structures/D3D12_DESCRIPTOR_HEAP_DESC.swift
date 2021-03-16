@@ -11,7 +11,6 @@ import WinSDK.DirectX.Direct3D12
 public struct DescriptorHeapDescription {
     internal var rawValue: WinSDK.D3D12_DESCRIPTOR_HEAP_DESC
 
-
     internal init(_ rawValue: WinSDK.D3D12_DESCRIPTOR_HEAP_DESC) {
         self.rawValue = rawValue
     }
