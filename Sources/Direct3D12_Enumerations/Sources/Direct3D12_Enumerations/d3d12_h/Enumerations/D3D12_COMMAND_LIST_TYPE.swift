@@ -24,8 +24,14 @@ public enum CommandListType {
     case videoProcess
     ///	Specifies a command buffer for video encoding.
     case videoEncode
+    /// This only occurse if there was no implementation for the wrapped rawValue.
+    /// This can happen if d3d12 is expanded but this Swift package is not yet updated.
+    case undefined(_ rawValue: WinSDK.D3D12_COMMAND_LIST_TYPE)
+}
 
-    internal var rawValue: WinSDK.D3D12_COMMAND_LIST_TYPE {
+extension CommandListType: RawRepresentable {
+    public typealias RawValue = WinSDK.D3D12_COMMAND_LIST_TYPE
+    public var rawValue: WinSDK.D3D12_COMMAND_LIST_TYPE {
         switch self {
         case .direct:
             return WinSDK.D3D12_COMMAND_LIST_TYPE_DIRECT
@@ -41,6 +47,28 @@ public enum CommandListType {
             return WinSDK.D3D12_COMMAND_LIST_TYPE_VIDEO_PROCESS
         case .videoEncode:
             return WinSDK.D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE
+        case let .undefined(rawValue):
+            return rawValue
+        }
+    }
+    public init(rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.D3D12_COMMAND_LIST_TYPE_DIRECT:
+            self = .direct
+        case WinSDK.D3D12_COMMAND_LIST_TYPE_BUNDLE:
+            self = .bundle
+        case WinSDK.D3D12_COMMAND_LIST_TYPE_COMPUTE:
+            self = .compute
+        case WinSDK.D3D12_COMMAND_LIST_TYPE_COPY:
+            self = .copy
+        case WinSDK.D3D12_COMMAND_LIST_TYPE_VIDEO_DECODE:
+            self = .videoDecode
+        case WinSDK.D3D12_COMMAND_LIST_TYPE_VIDEO_PROCESS:
+            self = .videoProcess
+        case WinSDK.D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE:
+            self = .videoEncode
+        default:
+            self = .undefined(rawValue)
         }
     }
 }

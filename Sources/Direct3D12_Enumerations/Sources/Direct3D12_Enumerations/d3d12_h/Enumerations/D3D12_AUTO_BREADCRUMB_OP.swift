@@ -52,8 +52,14 @@ public enum AutoBreadcrumbOP {
     case initializeExtensionCommand
     case executeExtensionCommand
     case dispatchMesh
+    /// This only occurse if there was no implementation for the wrapped rawValue.
+    /// This can happen if d3d12 is expanded but this Swift package is not yet updated.
+    case undefined(_ rawValue: RawValue)
+}
 
-    internal var rawValue: WinSDK.D3D12_AUTO_BREADCRUMB_OP {
+extension AutoBreadcrumbOP: RawRepresentable {
+    public typealias RawValue = WinSDK.D3D12_AUTO_BREADCRUMB_OP
+    public var rawValue: RawValue {
         switch self {
         case .setMarker: 
             return WinSDK.D3D12_AUTO_BREADCRUMB_OP_SETMARKER
@@ -141,6 +147,100 @@ public enum AutoBreadcrumbOP {
             return WinSDK.D3D12_AUTO_BREADCRUMB_OP_EXECUTEEXTENSIONCOMMAND
         case .dispatchMesh:
             return WinSDK.D3D12_AUTO_BREADCRUMB_OP_DISPATCHMESH
+        case let .undefined(rawValue):
+            return rawValue
+        }
+    }
+    public init(rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_SETMARKER: 
+            self = .setMarker
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_BEGINEVENT:
+            self = .beginEvent 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_ENDEVENT:
+            self = .endEvent 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_DRAWINSTANCED:
+            self = .drawDrawIstanced 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_DRAWINDEXEDINSTANCED:
+            self = .drawIndexedInstanced 
+        case  WinSDK.D3D12_AUTO_BREADCRUMB_OP_EXECUTEINDIRECT:
+            self = .executeIndirect
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_DISPATCH:
+            self = .dispatch 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_COPYBUFFERREGION:
+            self = .copyBufferRegion 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_COPYTEXTUREREGION:
+            self = .copyTextureRegion 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_COPYRESOURCE:
+            self = .copyResource 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_COPYTILES:
+            self = .copyTiles 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCE:
+            self = .resolveSubResource 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_CLEARRENDERTARGETVIEW:
+            self = .clearRenderTargetView 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_CLEARUNORDEREDACCESSVIEW:
+            self = .clearUnorderedAccessView 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_CLEARDEPTHSTENCILVIEW:
+            self = .clearDepthStencilView 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_RESOURCEBARRIER:
+            self = .resourceBarrier 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_EXECUTEBUNDLE:
+            self = .executeBundle 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_PRESENT:
+            self = .present 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_RESOLVEQUERYDATA:
+            self = .resolveQueryData 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_BEGINSUBMISSION:
+            self = .beginSubmission 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_ENDSUBMISSION:
+            self = .endSubmission 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME:
+            self = .decodeFrame 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_PROCESSFRAMES:
+            self = .processFrames 
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT:
+            self = .automicCopyBufferUINT
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT64:
+            self = .automicCopyBufferINT64
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCEREGION:
+            self = .resolveSubResourceRegion
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_WRITEBUFFERIMMEDIATE:
+            self = .writeBufferImmediate
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME1:
+            self = .decodeFrame1
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_SETPROTECTEDRESOURCESESSION:
+            self = .setProtectedResourceSession
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME2:
+            self = .decodeFrame2
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_PROCESSFRAMES1:
+            self = .processFrames1
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_BUILDRAYTRACINGACCELERATIONSTRUCTURE:
+            self = .buildRayTracingAccelerationStructure
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_EMITRAYTRACINGACCELERATIONSTRUCTUREPOSTBUILDINFO:
+            self = .emitRayTracingAccelerationStructurePostBuildInfo
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_COPYRAYTRACINGACCELERATIONSTRUCTURE:
+            self = .copyRayTracingAccelerationStructure
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_DISPATCHRAYS:
+            self = .dispatchRays
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_INITIALIZEMETACOMMAND:
+            self = .initializeMetaCommand
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_EXECUTEMETACOMMAND:
+            self = .executeMetaCommand
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_ESTIMATEMOTION:
+            self = .estimateMotion
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_RESOLVEMOTIONVECTORHEAP:
+            self = .resolveMotionVectorHeap
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_SETPIPELINESTATE1:
+            self = .setPipelineState1
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_INITIALIZEEXTENSIONCOMMAND:
+            self = .initializeExtensionCommand
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_EXECUTEEXTENSIONCOMMAND:
+            self = .executeExtensionCommand
+        case WinSDK.D3D12_AUTO_BREADCRUMB_OP_DISPATCHMESH:
+            self = .dispatchMesh
+        default:
+            self = .undefined(rawValue)
         }
     }
 }

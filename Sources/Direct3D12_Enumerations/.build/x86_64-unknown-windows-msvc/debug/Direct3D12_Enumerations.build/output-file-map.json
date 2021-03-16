@@ -1,0 +1,761 @@
+{
+  "": {
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\master.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_AUTO_BREADCRUMB_OP.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_AUTO_BREADCRUMB_OP.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_AUTO_BREADCRUMB_OP.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_AUTO_BREADCRUMB_OP~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_AUTO_BREADCRUMB_OP.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_AXIS_SHADING_RATE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_AXIS_SHADING_RATE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_AXIS_SHADING_RATE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_AXIS_SHADING_RATE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_AXIS_SHADING_RATE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_BACKGROUND_PROCESSING_MODE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BACKGROUND_PROCESSING_MODE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BACKGROUND_PROCESSING_MODE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BACKGROUND_PROCESSING_MODE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BACKGROUND_PROCESSING_MODE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_BLEND.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BLEND.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BLEND.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BLEND~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BLEND.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_BLEND_OP.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BLEND_OP.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BLEND_OP.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BLEND_OP~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BLEND_OP.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_BUFFER_SRV_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BUFFER_SRV_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BUFFER_SRV_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BUFFER_SRV_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BUFFER_SRV_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_BUFFER_UAV_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BUFFER_UAV_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BUFFER_UAV_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BUFFER_UAV_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_BUFFER_UAV_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_CLEAR_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CLEAR_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CLEAR_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CLEAR_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CLEAR_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_COLOR_WRITE_ENABLE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COLOR_WRITE_ENABLE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COLOR_WRITE_ENABLE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COLOR_WRITE_ENABLE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COLOR_WRITE_ENABLE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_SUPPORT_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_SUPPORT_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_SUPPORT_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_SUPPORT_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_SUPPORT_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_LIST_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_COMMAND_QUEUE_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_QUEUE_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_QUEUE_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_QUEUE_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_QUEUE_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_COMMAND_QUEUE_PRIORITY.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_QUEUE_PRIORITY.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_QUEUE_PRIORITY.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_QUEUE_PRIORITY~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMMAND_QUEUE_PRIORITY.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_COMPARISON_FUNC.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMPARISON_FUNC.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMPARISON_FUNC.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMPARISON_FUNC~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_COMPARISON_FUNC.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_CONSERVATIVE_RASTERIZATION_MODE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CONSERVATIVE_RASTERIZATION_MODE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CONSERVATIVE_RASTERIZATION_MODE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CONSERVATIVE_RASTERIZATION_MODE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CONSERVATIVE_RASTERIZATION_MODE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_CONSERVATIVE_RASTERIZATION_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CONSERVATIVE_RASTERIZATION_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CONSERVATIVE_RASTERIZATION_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CONSERVATIVE_RASTERIZATION_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CONSERVATIVE_RASTERIZATION_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_CPU_PAGE_PROPERTY.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CPU_PAGE_PROPERTY.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CPU_PAGE_PROPERTY.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CPU_PAGE_PROPERTY~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CPU_PAGE_PROPERTY.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_CROSS_NODE_SHARING_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CROSS_NODE_SHARING_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CROSS_NODE_SHARING_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CROSS_NODE_SHARING_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CROSS_NODE_SHARING_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_CULL_MODE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CULL_MODE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CULL_MODE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CULL_MODE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_CULL_MODE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DEBUG_DEVICE_PARAMETER_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_DEVICE_PARAMETER_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_DEVICE_PARAMETER_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_DEVICE_PARAMETER_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_DEVICE_PARAMETER_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DEBUG_FEATURE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_FEATURE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_FEATURE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_FEATURE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEBUG_FEATURE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DEPTH_WRITE_MASK.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEPTH_WRITE_MASK.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEPTH_WRITE_MASK.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEPTH_WRITE_MASK~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DEPTH_WRITE_MASK.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_HEAP_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_HEAP_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_HEAP_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_HEAP_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_HEAP_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_HEAP_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_HEAP_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_HEAP_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_HEAP_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_HEAP_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_RANGE_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_RANGE_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_RANGE_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_RANGE_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_RANGE_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_RANGE_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_RANGE_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_RANGE_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_RANGE_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DESCRIPTOR_RANGE_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DRED_ALLOCATION_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_ALLOCATION_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_ALLOCATION_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_ALLOCATION_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_ALLOCATION_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DRED_ENABLEMENT.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_ENABLEMENT.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_ENABLEMENT.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_ENABLEMENT~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_ENABLEMENT.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DRED_VERSION.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_VERSION.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_VERSION.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_VERSION~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRED_VERSION.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DSV_DIMENSION.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DSV_DIMENSION.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DSV_DIMENSION.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DSV_DIMENSION~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DSV_DIMENSION.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_DSV_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DSV_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DSV_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DSV_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_DSV_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_ELEMENTS_LAYOUT.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ELEMENTS_LAYOUT.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ELEMENTS_LAYOUT.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ELEMENTS_LAYOUT~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ELEMENTS_LAYOUT.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_EXPORT_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_EXPORT_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_EXPORT_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_EXPORT_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_EXPORT_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_FEATURE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FEATURE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FEATURE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FEATURE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FEATURE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_FENCE_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FENCE_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FENCE_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FENCE_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FENCE_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_FILL_MODE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILL_MODE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILL_MODE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILL_MODE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILL_MODE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_FILTER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_FILTER_REDUCTION_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER_REDUCTION_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER_REDUCTION_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER_REDUCTION_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER_REDUCTION_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_FILTER_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FILTER_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_FORMAT_SUPPORT1.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FORMAT_SUPPORT1.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FORMAT_SUPPORT1.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FORMAT_SUPPORT1~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FORMAT_SUPPORT1.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_FORMAT_SUPPORT2.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FORMAT_SUPPORT2.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FORMAT_SUPPORT2.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FORMAT_SUPPORT2~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_FORMAT_SUPPORT2.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_GRAPHICS_STATES.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_GRAPHICS_STATES.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_GRAPHICS_STATES.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_GRAPHICS_STATES~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_GRAPHICS_STATES.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_HEAP_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_HEAP_SERIALIZATION_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_SERIALIZATION_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_SERIALIZATION_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_SERIALIZATION_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_SERIALIZATION_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_HEAP_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HEAP_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_HIT_GROUP_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HIT_GROUP_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HIT_GROUP_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HIT_GROUP_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_HIT_GROUP_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_INDEX_BUFFER_STRIP_CUT_VALUE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INDEX_BUFFER_STRIP_CUT_VALUE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INDEX_BUFFER_STRIP_CUT_VALUE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INDEX_BUFFER_STRIP_CUT_VALUE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INDEX_BUFFER_STRIP_CUT_VALUE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_INDIRECT_ARGUMENT_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INDIRECT_ARGUMENT_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INDIRECT_ARGUMENT_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INDIRECT_ARGUMENT_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INDIRECT_ARGUMENT_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_INPUT_CLASSIFICATION.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INPUT_CLASSIFICATION.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INPUT_CLASSIFICATION.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INPUT_CLASSIFICATION~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_INPUT_CLASSIFICATION.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_LIFETIME_STATE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_LIFETIME_STATE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_LIFETIME_STATE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_LIFETIME_STATE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_LIFETIME_STATE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_LOGIC_OP.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_LOGIC_OP.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_LOGIC_OP.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_LOGIC_OP~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_LOGIC_OP.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_MEASUREMENTS_ACTION.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MEASUREMENTS_ACTION.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MEASUREMENTS_ACTION.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MEASUREMENTS_ACTION~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MEASUREMENTS_ACTION.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_MEMORY_POOL.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MEMORY_POOL.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MEMORY_POOL.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MEMORY_POOL~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MEMORY_POOL.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_STAGE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_STAGE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_STAGE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_STAGE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_STAGE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_META_COMMAND_PARAMETER_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_MULTIPLE_FENCE_WAIT_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MULTIPLE_FENCE_WAIT_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MULTIPLE_FENCE_WAIT_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MULTIPLE_FENCE_WAIT_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MULTIPLE_FENCE_WAIT_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_PIPELINE_STATE_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PIPELINE_STATE_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PIPELINE_STATE_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PIPELINE_STATE_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PIPELINE_STATE_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_PIPELINE_STATE_SUBOBJECT_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PIPELINE_STATE_SUBOBJECT_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PIPELINE_STATE_SUBOBJECT_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PIPELINE_STATE_SUBOBJECT_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PIPELINE_STATE_SUBOBJECT_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_PREDICATION_OP.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PREDICATION_OP.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PREDICATION_OP.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PREDICATION_OP~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PREDICATION_OP.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_PRIMITIVE_TOPOLOGY_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PRIMITIVE_TOPOLOGY_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PRIMITIVE_TOPOLOGY_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PRIMITIVE_TOPOLOGY_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PRIMITIVE_TOPOLOGY_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_PROTECTED_RESOURCE_SESSION_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_RESOURCE_SESSION_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_RESOURCE_SESSION_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_RESOURCE_SESSION_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_RESOURCE_SESSION_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_PROTECTED_SESSION_STATUS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_SESSION_STATUS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_SESSION_STATUS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_SESSION_STATUS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_PROTECTED_SESSION_STATUS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_QUERY_HEAP_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_QUERY_HEAP_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_QUERY_HEAP_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_QUERY_HEAP_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_QUERY_HEAP_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_QUERY_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_QUERY_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_QUERY_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_QUERY_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_QUERY_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_GEOMETRY_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_GEOMETRY_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_GEOMETRY_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_GEOMETRY_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_GEOMETRY_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_GEOMETRY_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_GEOMETRY_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_GEOMETRY_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_GEOMETRY_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_GEOMETRY_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_INSTANCE_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_INSTANCE_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_INSTANCE_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_INSTANCE_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_INSTANCE_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAYTRACING_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RAY_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAY_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAY_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAY_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RAY_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_ENDING_ACCESS_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_ENDING_ACCESS_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_ENDING_ACCESS_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_ENDING_ACCESS_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_ENDING_ACCESS_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RENDER_PASS_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RESIDENCY_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESIDENCY_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESIDENCY_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESIDENCY_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESIDENCY_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RESIDENCY_PRIORITY.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESIDENCY_PRIORITY.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESIDENCY_PRIORITY.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESIDENCY_PRIORITY~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESIDENCY_PRIORITY.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RESOLVE_MODE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOLVE_MODE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOLVE_MODE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOLVE_MODE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOLVE_MODE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BARRIER_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BARRIER_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BARRIER_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BARRIER_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BARRIER_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BARRIER_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BARRIER_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BARRIER_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BARRIER_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BARRIER_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BINDING_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BINDING_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BINDING_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BINDING_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_BINDING_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RESOURCE_DIMENSION.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_DIMENSION.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_DIMENSION.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_DIMENSION~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_DIMENSION.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RESOURCE_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RESOURCE_HEAP_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_HEAP_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_HEAP_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_HEAP_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_HEAP_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RESOURCE_STATES.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_STATES.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_STATES.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_STATES~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RESOURCE_STATES.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_ROOT_DESCRIPTOR_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_DESCRIPTOR_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_DESCRIPTOR_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_DESCRIPTOR_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_DESCRIPTOR_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_ROOT_PARAMETER_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_PARAMETER_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_PARAMETER_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_PARAMETER_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_PARAMETER_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_ROOT_SIGNATURE_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_SIGNATURE_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_SIGNATURE_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_SIGNATURE_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_ROOT_SIGNATURE_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_RTV_DIMENSION.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RTV_DIMENSION.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RTV_DIMENSION.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RTV_DIMENSION~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_RTV_DIMENSION.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_SERIALIZED_DATA_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SERIALIZED_DATA_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SERIALIZED_DATA_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SERIALIZED_DATA_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SERIALIZED_DATA_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_SHADER_CACHE_SUPPORT_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_CACHE_SUPPORT_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_CACHE_SUPPORT_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_CACHE_SUPPORT_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_CACHE_SUPPORT_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_SHADER_COMPONENT_MAPPING.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_COMPONENT_MAPPING.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_COMPONENT_MAPPING.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_COMPONENT_MAPPING~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_COMPONENT_MAPPING.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_SHADER_MIN_PRECISION_SUPPORT.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_MIN_PRECISION_SUPPORT.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_MIN_PRECISION_SUPPORT.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_MIN_PRECISION_SUPPORT~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_MIN_PRECISION_SUPPORT.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_SHADER_VISIBILITY.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_VISIBILITY.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_VISIBILITY.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_VISIBILITY~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADER_VISIBILITY.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_SHADING_RATE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADING_RATE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADING_RATE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADING_RATE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADING_RATE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_SHADING_RATE_COMBINER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADING_RATE_COMBINER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADING_RATE_COMBINER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADING_RATE_COMBINER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHADING_RATE_COMBINER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_SRV_DIMENSION.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SRV_DIMENSION.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SRV_DIMENSION.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SRV_DIMENSION~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_SRV_DIMENSION.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_STATE_OBJECT_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_OBJECT_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_OBJECT_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_OBJECT_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_OBJECT_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_STATE_OBJECT_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_OBJECT_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_OBJECT_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_OBJECT_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_OBJECT_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_STATE_SUBOBJECT_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_SUBOBJECT_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_SUBOBJECT_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_SUBOBJECT_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATE_SUBOBJECT_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_STATIC_BORDER_COLOR.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATIC_BORDER_COLOR.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATIC_BORDER_COLOR.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATIC_BORDER_COLOR~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STATIC_BORDER_COLOR.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_STENCIL_OP.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STENCIL_OP.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STENCIL_OP.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STENCIL_OP~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_STENCIL_OP.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_TEXTURE_ADDRESS_MODE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_ADDRESS_MODE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_ADDRESS_MODE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_ADDRESS_MODE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_ADDRESS_MODE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_TEXTURE_COPY_TYPE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_COPY_TYPE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_COPY_TYPE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_COPY_TYPE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_COPY_TYPE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_TEXTURE_LAYOUT.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_LAYOUT.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_LAYOUT.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_LAYOUT~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TEXTURE_LAYOUT.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_TILED_RESOURCES_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILED_RESOURCES_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILED_RESOURCES_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILED_RESOURCES_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILED_RESOURCES_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_TILE_COPY_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_COPY_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_COPY_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_COPY_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_COPY_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_TILE_MAPPING_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_MAPPING_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_MAPPING_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_MAPPING_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_MAPPING_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_TILE_RANGE_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_RANGE_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_RANGE_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_RANGE_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_TILE_RANGE_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_UAV_DIMENSION.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_UAV_DIMENSION.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_UAV_DIMENSION.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_UAV_DIMENSION~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_UAV_DIMENSION.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_VARIABLE_SHADING_RATE_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VARIABLE_SHADING_RATE_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VARIABLE_SHADING_RATE_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VARIABLE_SHADING_RATE_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VARIABLE_SHADING_RATE_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_VIEW_INSTANCING_FLAGS.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VIEW_INSTANCING_FLAGS.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VIEW_INSTANCING_FLAGS.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VIEW_INSTANCING_FLAGS~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VIEW_INSTANCING_FLAGS.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_VIEW_INSTANCING_TIER.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VIEW_INSTANCING_TIER.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VIEW_INSTANCING_TIER.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VIEW_INSTANCING_TIER~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_VIEW_INSTANCING_TIER.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D12_WRITEBUFFERIMMEDIATE_MODE.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_WRITEBUFFERIMMEDIATE_MODE.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_WRITEBUFFERIMMEDIATE_MODE.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_WRITEBUFFERIMMEDIATE_MODE~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D12_WRITEBUFFERIMMEDIATE_MODE.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D_ROOT_SIGNATURE_VERSION.swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D_ROOT_SIGNATURE_VERSION.d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D_ROOT_SIGNATURE_VERSION.swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D_ROOT_SIGNATURE_VERSION~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D_ROOT_SIGNATURE_VERSION.swiftdeps"
+  },
+  "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\Sources\\Direct3D12_Enumerations\\d3d12_h\\Enumerations\\D3D_SHADER_MODEL .swift": {
+    "dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D_SHADER_MODEL .d",
+    "object": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D_SHADER_MODEL .swift.o",
+    "swiftmodule": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D_SHADER_MODEL ~partial.swiftmodule",
+    "swift-dependencies": "C:\\Users\\dustb\\Documents\\GitHub\\Direct3D12\\Sources\\Direct3D12_Enumerations\\.build\\x86_64-unknown-windows-msvc\\debug\\Direct3D12_Enumerations.build\\d3d12_h\\Enumerations\\D3D_SHADER_MODEL .swiftdeps"
+  }
+}

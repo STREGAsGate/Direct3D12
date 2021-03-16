@@ -10,13 +10,14 @@ import WinSDK.DirectX.Direct3D12
 
 /// Specifies how to perform a tile-mapping operation.
 public struct TileMappingFlags: OptionSet {
+    public typealias RawType = WinSDK.D3D12_TILE_MAPPING_FLAGS
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No tile-mapping flags are specified.
     //static let none = TileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NONE.rawValue)
 
     /// Unsupported, do not use.
-    @available(*, deprecated, message: "Unsupported, do not use.")
+    @available(*, unavailable, message: "Unsupported, do not use.")
     static let noHazard = TileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NO_HAZARD.rawValue)
 
     public init(rawValue: Int32) {
@@ -39,7 +40,7 @@ public extension TileMappingFlags {
     static let D3D12_TILE_MAPPING_FLAG_NONE: TileMappingFlags = []
 
     @available(*, deprecated, renamed: "noHazard")
-    static let D3D12_TILE_MAPPING_FLAG_NO_HAZARD = Self.noHazard
+    static let D3D12_TILE_MAPPING_FLAG_NO_HAZARD = TileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NO_HAZARD.rawValue)
 }
 
 #endif

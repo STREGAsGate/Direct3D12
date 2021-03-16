@@ -1,4 +1,11 @@
 // swift-tools-version:5.4
+/**
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
+ * All Rights Reserved.
+ * Licensed under Apache License v2.0
+ * 
+ * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
+ */
 
 import PackageDescription
 
@@ -19,6 +26,11 @@ let package = Package(
             dependencies: ["Direct3D12_Enumerations"],
             swiftSettings: [
                 .define("Direct3D12ExcludeOriginalStyleAPI", .when(configuration: .release)),
+                .unsafeFlags(["-parse-as-library"])
+            ],
+            linkerSettings: [
+                .linkedLibrary("User32"),
+                .linkedLibrary("Ole32"),
             ]
         ),
     ]

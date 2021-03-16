@@ -51,6 +51,7 @@ extension Error: CustomDebugStringConvertible {
 }
 
 internal extension HRESULT {
+    static let S_OK = WinSDK.S_OK
     static let E_INVALIDARG = HRESULT(bitPattern: 0x80070057)
 }
 

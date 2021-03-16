@@ -6,16 +6,27 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 public class DeviceChild: Object {
-    
+
+    override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
+}
+
+extension DeviceChild {
+    typealias RawValue = WinSDK.ID3D12DeviceChild
+    convenience init(_ rawValue: inout RawValue) {
+        self.init(win32Pointer: &rawValue)
+    }
+}
+extension DeviceChild.RawValue {
+    static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12DeviceChild}
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DeviceChild")
+@available(*, unavailable, renamed: "DeviceChild")
 public typealias ID3D12DeviceChild = DeviceChild 
 
 #endif
