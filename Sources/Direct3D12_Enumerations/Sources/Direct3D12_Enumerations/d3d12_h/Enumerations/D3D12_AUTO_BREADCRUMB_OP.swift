@@ -6,7 +6,6 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 import WinSDK
-import WinSDK.DirectX
 
 /// Defines constants that specify render/compute GPU operations.
 public enum AutoBreadcrumbOP {
