@@ -1,16 +1,16 @@
 
 #Swift
-/.build
-/package.resolved
+.build
+package.resolved
 
 #Apple
 .DS_Store
 
 #Xcode
-/.swiftpm 
+.swiftpm 
 
 #Visual Studio
-/.vs
+.vs
 
 #Visual Studio Code
-/.vscode
+.vscode
