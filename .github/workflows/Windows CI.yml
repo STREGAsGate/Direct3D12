@@ -1,24 +1,24 @@
-name: Windows CI
+
+name: windows
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
-  build-Windows:
+  build:
+
     runs-on: windows-latest
-    env:
-        SNAPSHOT: "https://swift.org/builds/swift-5.4-branch/windows10/swift-5.4-DEVELOPMENT-SNAPSHOT-2021-03-03-a/swift-5.4-DEVELOPMENT-SNAPSHOT-2021-03-03-a-windows10.exe"
+
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - uses: seanmiddleditch/gha-setup-vsdevenv@master
-      with: 
-        components: 'Microsoft.VisualStudio.Component.VC.Tools.x86.x64;Microsoft.VisualStudio.Component.Windows10SDK;Microsoft.VisualStudio.Component.Windows10SDK.19041;'
-    - name: Install Swift
+
+    - name: Install swift-DEVELOPMENT-SNAPSHOT-2021-02-18-a
       run: |
-          Install-Binary -Url "${env:SNAPSHOT}" -Name "installer.exe" -ArgumentList ("-q")
+        Install-Binary -Url "https://swift.org/builds/development/windows10/swift-DEVELOPMENT-SNAPSHOT-2021-02-18-a/swift-DEVELOPMENT-SNAPSHOT-2021-02-18-a-windows10.exe" -Name "installer.exe" -ArgumentList ("-q")
     - name: Set Environment Variables
       run: |
         echo "SDKROOT=C:\Library\Developer\Platforms\Windows.platform\Developer\SDKs\Windows.sdk" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
@@ -34,4 +34,6 @@ jobs:
         Copy-Item "$env:SDKROOT\usr\share\visualc.apinotes" -destination "$env:VCToolsInstallDir\include\visualc.apinotes"
         Copy-Item "$env:SDKROOT\usr\share\winsdk.modulemap" -destination "$env:UniversalCRTSdkDir\Include\$env:UCRTVersion\um\module.modulemap"
     - name: Build
-      run: swift build
+      run: swift build -v
+    # - name: Run tests
+    #  run: swift test -v
