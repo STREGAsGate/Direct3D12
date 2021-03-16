@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Congruent with, and numerically equivalent to, [3D12DDI_HANDLETYPE](https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/d3d12umddi/ne-d3d12umddi-d3d12ddi_handletype) enumeration values.
 public enum DredAllocationType {

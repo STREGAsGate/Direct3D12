@@ -6,7 +6,8 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
+import WinSDK.DirectX
 
 /// Specifies blend factors, which modulate values for the pixel shader and render target.
 public enum BlendFactor {

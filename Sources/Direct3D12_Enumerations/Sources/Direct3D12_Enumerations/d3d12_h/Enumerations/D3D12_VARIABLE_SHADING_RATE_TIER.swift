@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Defines constants that specify a shading rate tier (for variable-rate shading, or VRS). For more info, see Variable-rate shading (VRS).
 public enum VariableShadingRateTier {

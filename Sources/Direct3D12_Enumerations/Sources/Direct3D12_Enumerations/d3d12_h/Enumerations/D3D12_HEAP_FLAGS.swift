@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Specifies heap options, such as whether the heap can contain textures, and whether resources are shared across adapters.
 public struct HeapFlags: OptionSet {

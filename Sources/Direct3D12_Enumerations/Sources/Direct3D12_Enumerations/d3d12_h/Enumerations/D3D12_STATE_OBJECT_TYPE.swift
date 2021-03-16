@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Specifies the type of a state object. Use with D3D12_STATE_OBJECT_DESC.
 public enum StateObjectType {

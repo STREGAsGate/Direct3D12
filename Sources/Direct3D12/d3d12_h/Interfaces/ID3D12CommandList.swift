@@ -13,7 +13,7 @@ public class CommandList: DeviceChild {
     /// Gets the type of the command list, such as direct, bundle, compute, or copy.
     public var commandListType: CommandListType {
         performFatally(as: RawValue.self) {
-            CommandListType(rawValue: $0.this.lpVtbl.pointee.GetType($0.pThis))
+            CommandListType(rawValue: $0.pointee.lpVtbl.pointee.GetType($0))
         }
     }
 
@@ -22,7 +22,6 @@ public class CommandList: DeviceChild {
 
 extension CommandList {
     typealias RawValue = WinSDK.ID3D12CommandList
-    private var rawValue: RawValue {self.performFatally(as: RawValue.self, {$0.this})}
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }

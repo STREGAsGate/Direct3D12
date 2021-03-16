@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Specifies flags for raytracing geometry in a D3D12_RAYTRACING_GEOMETRY_DESC structure.
 public struct RaytracingGeometryFlags: OptionSet {

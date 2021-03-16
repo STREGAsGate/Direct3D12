@@ -6,7 +6,8 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
+import WinSDK.DirectX
 
 /// Defines constants that specify a level of dynamic optimization to apply to GPU work that's subsequently submitted.
 public enum BackgrounProcessingMode {

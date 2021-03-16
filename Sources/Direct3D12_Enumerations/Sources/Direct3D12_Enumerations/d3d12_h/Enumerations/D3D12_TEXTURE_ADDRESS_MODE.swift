@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Identifies a technique for resolving texture coordinates that are outside of the boundaries of a texture.
 public enum TextureAddressMode {

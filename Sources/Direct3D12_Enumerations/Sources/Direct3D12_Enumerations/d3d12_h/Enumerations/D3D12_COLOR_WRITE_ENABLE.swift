@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Identifies which components of each pixel of a render target are writable during blending.
 public struct ColorWriteEnable: OptionSet {

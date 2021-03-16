@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Specifies the data type of the memory pointed to by the pData parameter of [ID3D12DebugDevice1::SetDebugParameter](https://docs.microsoft.com/en-us/windows/desktop/api/d3d12sdklayers/nf-d3d12sdklayers-id3d12debugdevice1-setdebugparameter) and [ID3D12DebugDevice1::GetDebugParameter](https://docs.microsoft.com/en-us/windows/desktop/api/d3d12sdklayers/nf-d3d12sdklayers-id3d12debugdevice1-getdebugparameter).
 public enum DebugDeviceParameterType {

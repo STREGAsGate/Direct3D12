@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Defines constants that specify a cross-API sharing support tier.
 /// The resource data formats mentioned are members of the DXGI_FORMAT enumeration.

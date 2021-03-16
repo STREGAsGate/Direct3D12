@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Specifies the nature of the render pass; for example, whether it is a suspending or a resuming render pass.
 public struct RenderPassFlags: OptionSet {

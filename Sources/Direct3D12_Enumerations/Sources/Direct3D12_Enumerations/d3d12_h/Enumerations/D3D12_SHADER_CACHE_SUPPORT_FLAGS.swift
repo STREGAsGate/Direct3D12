@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Describes the level of support for shader caching in the current graphics driver.
 public struct ShaderCacheSupportFlags: OptionSet {

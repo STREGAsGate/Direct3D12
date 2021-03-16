@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Used to determine which kinds of command lists are capable of supporting various operations. For example, whether a command list supports immediate writes.
 public struct CommandListSupportFlags: OptionSet {

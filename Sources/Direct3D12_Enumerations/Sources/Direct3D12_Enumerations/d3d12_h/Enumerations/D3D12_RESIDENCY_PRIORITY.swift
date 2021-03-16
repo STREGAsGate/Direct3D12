@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Specifies broad residency priority buckets useful for quickly establishing an application priority scheme.
 /// Applications can assign priority values other than the five values present in this enumeration.

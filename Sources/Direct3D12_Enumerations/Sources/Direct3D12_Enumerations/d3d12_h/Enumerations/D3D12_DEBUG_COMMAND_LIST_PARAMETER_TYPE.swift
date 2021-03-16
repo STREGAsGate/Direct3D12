@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Indicates the debug parameter type used by [ID3D12DebugCommandList1::SetDebugParameter](https://docs.microsoft.com/en-us/windows/desktop/api/d3d12sdklayers/nf-d3d12sdklayers-id3d12debugcommandlist1-setdebugparameter) and [ID3D12DebugCommandList1::GetDebugParameter](https://docs.microsoft.com/en-us/windows/desktop/api/d3d12sdklayers/nf-d3d12sdklayers-id3d12debugcommandlist1-getdebugparameter).
 public enum DebugCommandListParameterType {

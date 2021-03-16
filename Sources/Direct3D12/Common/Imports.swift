@@ -7,4 +7,4 @@
  */
 
 
-// @_exported import Direct3D12_Enumerations
+@_exported import Direct3D12_Enumerations

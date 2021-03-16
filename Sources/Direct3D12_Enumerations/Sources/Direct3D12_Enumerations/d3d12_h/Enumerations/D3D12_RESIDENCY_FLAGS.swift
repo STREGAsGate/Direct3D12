@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Used with the EnqueuMakeResident function to choose how residency operations proceed when the memory budget is exceeded.
 public struct ResidencyFlags: OptionSet {

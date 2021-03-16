@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Defines constants that specify the flags for a parameter to a meta command. Values can be bitwise OR'd together.
 public struct MetaCommandParameterFlags: OptionSet {

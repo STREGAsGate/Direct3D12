@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK
+import WinSDK.DirectX
 import Direct3D12_Enumerations
 
 public class CommandQueue: Pageable {
@@ -23,14 +23,14 @@ public class CommandQueue: Pageable {
     public func copyTileMappings(from srcResource: Resource, sourceStartCoord: TiledResourceCoordinate, 
                                  to dstResource: Resource, destinationStartCoord: TiledResourceCoordinate, 
                                  regionSize: TileRegionSize, flags: TileMappingFlags) throws {
-        try self.perform(as: RawValue.self) {(com) in
-            let dstResource = try dstResource.perform(as: Resource.RawValue.self) {$0.pThis}
+        try perform(as: RawValue.self) {
+            let dstResource = try dstResource.perform(as: Resource.RawValue.self) {$0}
             var dstCoord = destinationStartCoord.rawValue
-            let srcResource = try srcResource.perform(as: Resource.RawValue.self) {$0.pThis}
+            let srcResource = try srcResource.perform(as: Resource.RawValue.self) {$0}
             var srcCoord = sourceStartCoord.rawValue
             var regionSize = regionSize.rawValue
             let flags = TileMappingFlags.RawType(rawValue: flags.rawValue)
-            com.this.lpVtbl.pointee.CopyTileMappings(com.pThis, dstResource, &dstCoord, srcResource, &srcCoord, &regionSize,  flags)
+            $0.pointee.lpVtbl.pointee.CopyTileMappings($0, dstResource, &dstCoord, srcResource, &srcCoord, &regionSize,  flags)
         }
     }
 
@@ -54,7 +54,7 @@ extension CommandQueue.RawValue {
 public typealias ID3D12CommandQueue = CommandQueue 
 
 public extension CommandQueue {
-    @available(*, unavailable, message: "Not intended to be called directly.  Use the PIX event runtime to insert events into a command queue.")
+    @available(*, unavailable, message: "Not intended to be called directly. Use the PIX event runtime to insert events into a command queue.")
     func BeginEvent(_ metadata: UInt32, _ pData: UnsafeRawPointer?, _ size: UInt32) {fatalError("This API is here to make migration easier. There is no implimnetation.")}
 
     @available(*, unavailable, renamed: "copyTileMappings")

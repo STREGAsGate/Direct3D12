@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// The flags to apply when exporting symbols from a state subobject.
 public struct ExportFlags: OptionSet {

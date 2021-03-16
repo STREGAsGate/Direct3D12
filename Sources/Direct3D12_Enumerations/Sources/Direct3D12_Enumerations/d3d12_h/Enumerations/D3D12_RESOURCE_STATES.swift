@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Defines constants that specify the state of a resource regarding how the resource is being used.
 public struct ResourceStates: OptionSet {

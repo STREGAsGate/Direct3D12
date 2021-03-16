@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Defines flags that specify states related to a graphics command list. Values can be bitwise OR'd together.
 public struct GraphicsStates: OptionSet {

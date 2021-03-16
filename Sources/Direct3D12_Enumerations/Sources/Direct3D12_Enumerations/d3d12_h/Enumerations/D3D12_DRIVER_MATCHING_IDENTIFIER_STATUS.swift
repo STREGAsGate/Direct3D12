@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Specifies the result of a call to [ID3D12Device5::CheckDriverMatchingIdentifier](https://docs.microsoft.com/en-us/windows/desktop/api/d3d12/nf-d3d12-id3d12device5-checkdrivermatchingidentifier) which queries whether serialized data is compatible with the current device and driver version.
 public enum DriverMatchingIdentifierStatus {

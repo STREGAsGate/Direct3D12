@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Defines constants that specify a version of Device Removed Extended Data (DRED), as used by the [D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA structure](https://docs.microsoft.com/en-us/windows/win32/api/d3d12/ns-d3d12-d3d12_versioned_device_removed_extended_data).
 public enum DredVersion {

@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Specifies the type of access that an application is given to the specified resource(s) at the transition into a render pass.
 public enum RenderPassBeginningAccessType {

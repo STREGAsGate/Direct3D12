@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Flags passed to the TraceRay function to override transparency, culling, and early-out behavior.
 public struct RayFlags: OptionSet {

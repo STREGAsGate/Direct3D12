@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Defines constants that specify protected resource session flags. These flags can be bitwise OR'd together to specify multiple flags at once.
 public struct ProtectedResourceSessionFlags: OptionSet {

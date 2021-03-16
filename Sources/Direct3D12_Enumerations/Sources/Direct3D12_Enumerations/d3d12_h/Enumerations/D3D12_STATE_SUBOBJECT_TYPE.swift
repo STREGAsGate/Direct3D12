@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// The type of a state subobject. Use with D3D12_STATE_SUBOBJECT.
 public enum StateSubobjectType {

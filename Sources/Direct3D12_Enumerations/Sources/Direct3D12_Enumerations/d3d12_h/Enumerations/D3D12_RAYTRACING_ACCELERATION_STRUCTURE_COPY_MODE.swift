@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Specifies the type of copy operation performed when calling CopyRaytracingAccelerationStructure.
 public enum RaytracingAccelerationStructureCopyMode {

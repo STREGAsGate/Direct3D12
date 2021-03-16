@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// Specifies the type of heap. When resident, heaps reside in a particular physical memory pool with certain CPU cache properties.
 public enum HeapType {
