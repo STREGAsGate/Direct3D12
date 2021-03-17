@@ -12,8 +12,8 @@ import Direct3D12_Enumerations
 public class CommandList: DeviceChild {
     /// Gets the type of the command list, such as direct, bundle, compute, or copy.
     public var commandListType: CommandListType {
-        performFatally(as: RawValue.self) {
-            CommandListType(rawValue: $0.pointee.lpVtbl.pointee.GetType($0))
+        return performFatally(as: RawValue.self) {
+            return CommandListType(rawValue: $0.pointee.lpVtbl.pointee.GetType($0))
         }
     }
 
@@ -38,7 +38,9 @@ public typealias ID3D12CommandList = CommandList
 
 public extension CommandList {
     @available(*, unavailable, renamed: "commandListType")
-    func GetType() -> CommandListType.RawValue {fatalError("This API is here to make migration easier. There is no implementation.")}
+    func GetType() -> CommandListType.RawValue {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
 }
 
 #endif

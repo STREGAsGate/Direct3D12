@@ -10,6 +10,7 @@ import WinSDK
 
 /// Specifies heap options, such as whether the heap can contain textures, and whether resources are shared across adapters.
 public struct HeapFlags: OptionSet {
+    public typealias RawType = WinSDK.D3D12_HEAP_FLAGS
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No options are specified.

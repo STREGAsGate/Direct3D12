@@ -12,24 +12,24 @@ import WinSDK
 public class DescriptorHeap: Pageable {
 
     /// Gets the CPU descriptor handle that represents the start of the heap.
-    func cpuDescriptorHandleForHeapStart() throws -> CPUDescriptorHandle {
-        try perform(as: RawValue.self) {pThis in
+    public var cpuDescriptorHandleForHeapStart: CPUDescriptorHandle {
+        return performFatally(as: RawValue.self) {pThis in
             let v = pThis.pointee.lpVtbl.pointee.GetCPUDescriptorHandleForHeapStart(pThis)
             return CPUDescriptorHandle(v)
         }
     }
 
     /// Gets the descriptor heap description.
-    public func descriptorHeapDescription() throws -> DescriptorHeapDescription {
-        return try perform(as: RawValue.self) {pThis in
+    public var descriptorHeapDescription: DescriptorHeapDescription {
+        return performFatally(as: RawValue.self) {pThis in
             let v = pThis.pointee.lpVtbl.pointee.GetDesc(pThis)
             return DescriptorHeapDescription(v)
         }
     }
 
     /// Gets the GPU descriptor handle that represents the start of the heap.
-    func gpuDescriptorHandleForHeapStart() throws -> GPUDescriptorHandle {
-        try perform(as: RawValue.self) {pThis in
+    public var gpuDescriptorHandleForHeapStart: GPUDescriptorHandle {
+        return performFatally(as: RawValue.self) {pThis in
             let v = pThis.pointee.lpVtbl.pointee.GetGPUDescriptorHandleForHeapStart(pThis)
             return GPUDescriptorHandle(v)
         }

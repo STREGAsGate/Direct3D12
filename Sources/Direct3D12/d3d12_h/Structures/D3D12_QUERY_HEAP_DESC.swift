@@ -6,13 +6,13 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
-public struct HeapProperties {
-    internal var rawValue: WinSDK.D3D12_HEAP_PROPERTIES
+public struct QueryHeapDescription {
+    internal var rawValue: WinSDK.D3D12_QUERY_HEAP_DESC
 
 
-    internal init(_ rawValue: WinSDK.D3D12_HEAP_PROPERTIES) {
+    internal init(_ rawValue: WinSDK.D3D12_QUERY_HEAP_DESC) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +21,7 @@ public struct HeapProperties {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "HeapProperties")
-public typealias D3D12_HEAP_PROPERTIES = HeapProperties
+@available(*, deprecated, renamed: "QueryHeapDescription")
+public typealias D3D12_QUERY_HEAP_DESC = QueryHeapDescription
 
 #endif

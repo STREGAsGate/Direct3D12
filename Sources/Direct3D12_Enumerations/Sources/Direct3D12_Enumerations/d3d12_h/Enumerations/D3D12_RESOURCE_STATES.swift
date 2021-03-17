@@ -10,6 +10,7 @@ import WinSDK
 
 /// Defines constants that specify the state of a resource regarding how the resource is being used.
 public struct ResourceStates: OptionSet {
+    public typealias RawType = WinSDK.D3D12_RESOURCE_STATES
     public let rawValue: Int32
 
     /**

@@ -21,7 +21,7 @@ public enum DescriptorHeapType {
     ///	The number of types of descriptor heaps.
     case numberOfTypes
 
-    internal var rawValue: WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE {
+    public var rawValue: WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE {
         switch self {
         case .constantBufferShaderResourceAndUnordererAccess:
             return WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV

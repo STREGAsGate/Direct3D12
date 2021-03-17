@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 /// A command signature object enables apps to specify indirect drawing, including the buffer format, command type and resource bindings to be used.
 public class CommandSignature: Pageable {

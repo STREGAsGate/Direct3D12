@@ -6,10 +6,21 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 public class RootSignature: DeviceChild {
     
+    override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
+}
+
+extension RootSignature {
+    public typealias RawValue = WinSDK.ID3D12RootSignature
+    convenience init(_ rawValue: inout RawValue) {
+        self.init(win32Pointer: &rawValue)
+    }
+}
+extension RootSignature.RawValue {
+    static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12RootSignature}
 }
 
 //MARK: - Original Style API

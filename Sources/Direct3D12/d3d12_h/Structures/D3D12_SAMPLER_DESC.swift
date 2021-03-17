@@ -6,9 +6,9 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
-public struct SamplerDescriptor {
+public struct SamplerDescription {
     internal var rawValue: WinSDK.D3D12_SAMPLER_DESC
 
 
@@ -21,7 +21,7 @@ public struct SamplerDescriptor {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "SamplerDescriptor")
-public typealias D3D12_SAMPLER_DESC = RenderTargetFormatArray
+@available(*, deprecated, renamed: "SamplerDescription")
+public typealias D3D12_SAMPLER_DESC = SamplerDescription
 
 #endif

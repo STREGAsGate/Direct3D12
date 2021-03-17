@@ -16,7 +16,7 @@ public enum RootSignatureVersion {
     ///	Version 1.1 of root signature layout.
     case v1_1
 
-    internal var rawValue: WinSDK.D3D_ROOT_SIGNATURE_VERSION {
+    public var rawValue: WinSDK.D3D_ROOT_SIGNATURE_VERSION {
         switch self {
             case .v1_0:
                 return WinSDK.D3D_ROOT_SIGNATURE_VERSION_1_0

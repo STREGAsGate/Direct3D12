@@ -10,6 +10,7 @@ import WinSDK
 
 /// Specifies fence options.
 public struct FenceFlags: OptionSet {
+    public typealias RawType = WinSDK.D3D12_FENCE_FLAGS
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// 	No options are specified.

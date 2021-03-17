@@ -6,10 +6,21 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 public class PipelineState: Pageable {
     
+    override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
+}
+
+extension PipelineState {
+    typealias RawValue = WinSDK.ID3D12PipelineState
+    convenience init(_ rawValue: inout RawValue) {
+        self.init(win32Pointer: &rawValue)
+    }
+}
+extension PipelineState.RawValue {
+    static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12PipelineState}
 }
 
 //MARK: - Original Style API

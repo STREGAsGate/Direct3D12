@@ -21,11 +21,11 @@ public class CommandQueue: Pageable {
     */
     public func copyTileMappings(from srcResource: Resource, sourceRegionStartCoord: TiledResourceCoordinate, 
                                  to dstResource: Resource, destinationRegionStartCoord: TiledResourceCoordinate, 
-                                 regionSize: TileRegionSize, flags: TileMappingFlags = []) throws {
-        try self.perform(as: RawValue.self) {pThis in
-            let dstResource = try dstResource.perform(as: Resource.RawValue.self) {$0}
+                                 regionSize: TileRegionSize, flags: TileMappingFlags = []) {
+        performFatally(as: RawValue.self) {pThis in
+            let dstResource = dstResource.performFatally(as: Resource.RawValue.self) {$0}
             var dstCoord = destinationRegionStartCoord.rawValue
-            let srcResource = try srcResource.perform(as: Resource.RawValue.self) {$0}
+            let srcResource = srcResource.performFatally(as: Resource.RawValue.self) {$0}
             var srcCoord = sourceRegionStartCoord.rawValue
             var regionSize = regionSize.rawValue
             let flags = TileMappingFlags.RawType(rawValue: flags.rawValue)
@@ -36,16 +36,16 @@ public class CommandQueue: Pageable {
     /** Submits an array of command lists for execution.
     - parameter commandLists: The array of ID3D12CommandList command lists to be executed.
     */
-    public func executeCommandLists(_ commandLists: [CommandList]) throws {
-        try perform(as: RawValue.self) {pThis in
-            let pCommandLists = try commandLists.map({try $0.perform(as: CommandList.RawValue.self){Optional($0)}})
+    public func executeCommandLists(_ commandLists: [CommandList]) {
+        performFatally(as: RawValue.self) {pThis in
+            let pCommandLists = commandLists.map({$0.performFatally(as: CommandList.RawValue.self){Optional($0)}})
             pThis.pointee.lpVtbl.pointee.ExecuteCommandLists(pThis, UInt32(commandLists.count), pCommandLists)
         }
     }
 
     /// This method samples the CPU and GPU timestamp counters at the same moment in time.
     public func clockCalibration() throws -> (cpuTimestampCount: UInt64, gpuTimestampCount: UInt64) {
-        try perform(as: RawValue.self) {pThis in
+        return try perform(as: RawValue.self) {pThis in
             var gpuTimestamp: UInt64 = 0
             var cpuTimestamp: UInt64 = 0
             try pThis.pointee.lpVtbl.pointee.GetClockCalibration(pThis, &gpuTimestamp, &cpuTimestamp).checkResult()
@@ -54,8 +54,8 @@ public class CommandQueue: Pageable {
     }
 
     /// Gets the description of the command queue.
-    public func commandQueueDescription() throws -> CommandQueueDescription {
-        return try perform(as: RawValue.self) {pThis in
+    public var commandQueueDescription: CommandQueueDescription {
+        return performFatally(as: RawValue.self) {pThis in
             let v = pThis.pointee.lpVtbl.pointee.GetDesc(pThis)
             return CommandQueueDescription(v)
         }
@@ -98,13 +98,13 @@ public class CommandQueue: Pageable {
                                    rangeFlags: [TileRangeFlags]?,
                                    heapRangeStartOffsets: [UInt32]?,
                                    rangeTileCounts: [UInt32]?,
-                                   flags: TileMappingFlags = []) throws {
-        try self.perform(as: RawValue.self) {pThis in
-            let resource = try resource.perform(as: Resource.RawValue.self) {$0}
+                                   flags: TileMappingFlags = []) {
+        performFatally(as: RawValue.self) {pThis in
+            let resource = resource.performFatally(as: Resource.RawValue.self) {$0}
             let numResourceRegions = UInt32(resourceRegionStartCoordinates?.count ?? resourceRegionSizes?.count ?? 0)
             let pResourceRegionStartCoordinates = resourceRegionStartCoordinates?.map({$0.rawValue})
             let pResourceRegionSizes = resourceRegionSizes?.map({$0.rawValue})
-            let pHeap = try heap.perform(as: Heap.RawValue.self) {$0}
+            let pHeap = heap.performFatally(as: Heap.RawValue.self) {$0}
             let numRanges = UInt32(rangeFlags?.count ?? rangeTileCounts?.count ?? heapRangeStartOffsets?.count ?? 0)
             let pRangeFlags = rangeFlags?.map({TileRangeFlags.RawType($0.rawValue)})
             let pHeapRangeStartOffsets = heapRangeStartOffsets

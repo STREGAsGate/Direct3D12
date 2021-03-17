@@ -6,9 +6,9 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
-public struct ShaderResourceViewDescriptor {
+public struct ShaderResourceViewDescription {
     internal var rawValue: WinSDK.D3D12_SHADER_RESOURCE_VIEW_DESC
 
 
@@ -21,7 +21,7 @@ public struct ShaderResourceViewDescriptor {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ShaderResourceViewDescriptor")
-public typealias D3D12_SHADER_RESOURCE_VIEW_DESC = RenderTargetFormatArray
+@available(*, deprecated, renamed: "ShaderResourceViewDescription")
+public typealias D3D12_SHADER_RESOURCE_VIEW_DESC = ShaderResourceViewDescription
 
 #endif

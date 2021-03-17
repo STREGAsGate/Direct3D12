@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 public struct GraphicsPipelineStateDescription {
     internal var rawValue: WinSDK.D3D12_GRAPHICS_PIPELINE_STATE_DESC

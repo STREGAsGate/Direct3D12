@@ -13,7 +13,7 @@ public class CommandAllocator: Pageable {
     
     /// This method returns E_FAIL if there is an actively recording command list referencing the command allocator. The debug layer will also issue an error in this case.
     public func reset() throws {
-        return try perform(as: RawValue.self) {(pThis) in
+        try perform(as: RawValue.self) {(pThis) in
             try pThis.pointee.lpVtbl.pointee.Reset(pThis).checkResult()
         }
     }

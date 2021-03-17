@@ -6,9 +6,9 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
-public struct CommandQueueSignatureDescription {
+public struct CommandSignatureDescription {
     internal var rawValue: WinSDK.D3D12_COMMAND_SIGNATURE_DESC
 
 
@@ -21,7 +21,7 @@ public struct CommandQueueSignatureDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "CommandQueueSignatureDescription")
-public typealias D3D12_COMMAND_SIGNATURE_DESC = CommandQueueSignatureDescription 
+@available(*, deprecated, renamed: "CommandSignatureDescription")
+public typealias D3D12_COMMAND_SIGNATURE_DESC = CommandSignatureDescription 
 
 #endif
