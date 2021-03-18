@@ -14,6 +14,7 @@ public enum Feature {
     case options
     ///Indicates a query for the adapter's architectural details, so that your application can better optimize for certain adapter properties. The corresponding data structure for this value is D3D12_FEATURE_DATA_ARCHITECTURE.
     ///- Note: This value has been superseded by the D3D_FEATURE_DATA_ARCHITECTURE1 value. If your application targets Windows 10, version 1703 (Creators' Update) or higher, then use the D3D_FEATURE_DATA_ARCHITECTURE1 value instead.
+    @available(Windows, deprecated: 10.0.15063, renamed: "architecture1")
     case architecture
     ///	Indicates a query for info about the feature levels supported. The corresponding data structure for this value is D3D12_FEATURE_DATA_FEATURE_LEVELS.
     case featureLevels
@@ -35,33 +36,46 @@ public enum Feature {
     case rootSignature
     ///Indicates a query for each adapter's architectural details, so that your application can better optimize for certain adapter properties. The corresponding data structure for this value is D3D12_FEATURE_DATA_ARCHITECTURE1.
     ///- Note: This value supersedes the D3D_FEATURE_DATA_ARCHITECTURE value. If your application targets Windows 10, version 1703 (Creators' Update) or higher, then use D3D_FEATURE_DATA_ARCHITECTURE1.
+    @available(Windows, introduced: 10.0.15063)
     case architecture1
     ///	Indicates a query for the level of support for depth-bounds tests and programmable sample positions. The corresponding data structure for this value is D3D12_FEATURE_DATA_D3D12_OPTIONS2.
+    @available(Windows, introduced: 10.0.16299)//Possibly available earlier
     case options2
     ///	Indicates a query for the level of support for shader caching. The corresponding data structure for this value is D3D12_FEATURE_DATA_SHADER_CACHE.
+    @available(Windows, introduced: 10.0.16299)//Possibly available earlier
     case shaderCache
     ///	Indicates a query for the adapter's support for prioritization of different command queue types. The corresponding data structure for this value is D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY.
+    @available(Windows, introduced: 10.0.16299)//Possibly available earlier
     case commandQueuePriority
     ///	Indicates a query for the level of support for timestamp queries, format-casting, immediate write, view instancing, and barycentrics. The corresponding data structure for this value is D3D12_FEATURE_DATA_D3D12_OPTIONS3.
+    @available(Windows, introduced: 10.0.16299)
     case options3
     ///	Indicates a query for whether or not the adapter supports creating heaps from existing system memory. The corresponding data structure for this value is D3D12_FEATURE_DATA_EXISTING_HEAPS.
+    @available(Windows, introduced: 10.0.16299)
     case existingHeaps
     ///	Indicates a query for the level of support for 64KB-aligned MSAA textures, cross-API sharing, and native 16-bit shader operations. The corresponding data structure for this value is D3D12_FEATURE_DATA_D3D12_OPTIONS4.
+    @available(Windows, introduced: 10.0.17763)//Possibly available earlier
     case options4
     ///	Indicates a query for the level of support for heap serialization. The corresponding data structure for this value is D3D12_FEATURE_DATA_SERIALIZATION.
+    @available(Windows, introduced: 10.0.17763)//Possibly available earlier
     case serialization
     ///	Indicates a query for the level of support for the sharing of resources between different adapters—for example, multiple GPUs. The corresponding data structure for this value is D3D12_FEATURE_DATA_CROSS_NODE.
+    @available(Windows, introduced: 10.0.17763)//Possibly available earlier
     case crossNode
     ///	Starting with Windows 10, version 1809 (10.0; Build 17763), indicates a query for the level of support for render passes, ray tracing, and shader-resource view tier 3 tiled resources. The corresponding data structure for this value is D3D12_FEATURE_DATA_D3D12_OPTIONS5.
-    @available(Windows 10.0.17763, *)
+    @available(Windows, introduced: 10.0.17763)
     case options5
     ///	Starting with Windows 10, version 1903 (10.0; Build 18362), indicates a query for the level of support for variable-rate shading (VRS), and indicates whether or not background processing is supported. For more info, see Variable-rate shading (VRS), and the Direct3D 12 background processing spec.
-    @available(Windows 10.0.18362, *)
+    @available(Windows, introduced: 10.0.18362)
     case options6
     ///	Indicates a query for the level of support for metacommands. The corresponding data structure for this value is D3D12_FEATURE_DATA_QUERY_META_COMMAND.
+    @available(Windows, introduced: 10.0.19041)//Possibly available earlier
     case queryMetaCommand
+    @available(Windows, introduced: 10.0.19041)//Possibly available earlier
     case options7
+    @available(Windows, introduced: 10.0.19041)//Possibly available earlier
     case protectedResourceSessionTypeCount
+    @available(Windows, introduced: 10.0.19041)//Possibly available earlier
     case protectedResourceSessionTypes
 
     public var rawValue: WinSDK.D3D12_FEATURE {
@@ -163,50 +177,63 @@ public extension Feature  {
     @available(*, deprecated, renamed: "rootSignature")
     static let D3D12_FEATURE_ROOT_SIGNATURE = Self.rootSignature
     
+    @available(Windows, introduced: 10.0.15063)
     @available(*, deprecated, renamed: "architecture1")
     static let D3D12_FEATURE_ARCHITECTURE1 = Self.architecture1
     
+    @available(Windows, introduced: 10.0.16299)
     @available(*, deprecated, renamed: "options2")
     static let D3D12_FEATURE_D3D12_OPTIONS2 = Self.options2
     
+    @available(Windows, introduced: 10.0.16299)
     @available(*, deprecated, renamed: "shaderCache")
     static let D3D12_FEATURE_SHADER_CACHE = Self.shaderCache
-    
+
+    @available(Windows, introduced: 10.0.16299)
     @available(*, deprecated, renamed: "commandQueuePriority")
     static let D3D12_FEATURE_COMMAND_QUEUE_PRIORITY = Self.commandQueuePriority
     
+    @available(Windows, introduced: 10.0.16299)
     @available(*, deprecated, renamed: "options3")
     static let D3D12_FEATURE_D3D12_OPTIONS3 = Self.options3
     
+    @available(Windows, introduced: 10.0.16299)
     @available(*, deprecated, renamed: "existingHeaps")
     static let D3D12_FEATURE_EXISTING_HEAPS = Self.existingHeaps
     
+    @available(Windows, introduced: 10.0.17763)
     @available(*, deprecated, renamed: "options4")
     static let D3D12_FEATURE_D3D12_OPTIONS4 = Self.options4
     
+    @available(Windows, introduced: 10.0.17763)
     @available(*, deprecated, renamed: "serialization")
     static let D3D12_FEATURE_SERIALIZATION = Self.serialization
     
+    @available(Windows, introduced: 10.0.17763)
     @available(*, deprecated, renamed: "crossNode")
     static let D3D12_FEATURE_CROSS_NODE = Self.crossNode
     
-    @available(Windows 10.0.17763, *)
+    @available(Windows, introduced: 10.0.17763)
     @available(*, deprecated, renamed: "options5")
     static let D3D12_FEATURE_D3D12_OPTIONS5 = Self.options5
     
-    @available(Windows 10.0.18362, *)
+    @available(Windows, introduced: 10.0.18362)
     @available(*, deprecated, renamed: "options6")
     static let D3D12_FEATURE_D3D12_OPTIONS6 = Self.options6
     
+    @available(Windows, introduced: 10.0.19041)
     @available(*, deprecated, renamed: "queryMetaCommand")
     static let D3D12_FEATURE_QUERY_META_COMMAND = Self.queryMetaCommand
       
+    @available(Windows, introduced: 10.0.19041)
     @available(*, deprecated, renamed: "options7")
     static let D3D12_FEATURE_D3D12_OPTIONS7 = Self.options7
       
+    @available(Windows, introduced: 10.0.19041)
     @available(*, deprecated, renamed: "protectedResourceSessionTypeCount")
     static let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPE_COUNT = Self.protectedResourceSessionTypeCount
       
+    @available(Windows, introduced: 10.0.19041)
     @available(*, deprecated, renamed: "protectedResourceSessionTypes")
     static let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPES = Self.protectedResourceSessionTypes
 }

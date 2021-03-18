@@ -10,6 +10,7 @@ import WinSDK
 
 /// Specifies multiple wait flags for multiple fences.
 public struct MultipleFenceWaitFlags: OptionSet {
+    public typealias RawType = WinSDK.D3D12_MULTIPLE_FENCE_WAIT_FLAGS
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No flags.

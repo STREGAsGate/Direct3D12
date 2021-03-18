@@ -6,9 +6,9 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
-public struct ResourceAlocationInfo {
+public struct ResourceAllocationInfo {
     internal var rawValue: WinSDK.D3D12_RESOURCE_ALLOCATION_INFO
 
 
@@ -21,7 +21,7 @@ public struct ResourceAlocationInfo {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ResourceAlocationInfo")
-public typealias D3D12_RESOURCE_ALLOCATION_INFO = ResourceAlocationInfo
+@available(*, deprecated, renamed: "ResourceAllocationInfo")
+public typealias D3D12_RESOURCE_ALLOCATION_INFO = ResourceAllocationInfo
 
 #endif

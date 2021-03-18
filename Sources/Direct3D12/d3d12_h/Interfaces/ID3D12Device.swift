@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -380,7 +380,161 @@ public class Device: Object {
         }
     }
 
-    override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
+    //TODO: Add SECURITY_ATTRIBUTES
+    /** Creates a shared handle to an heap, resource, or fence object.
+    - parameter object: A pointer to the ID3D12DeviceChild interface that represents the heap, resource, or fence object to create for sharing. The following interfaces (derived from ID3D12DeviceChild) are supported:
+    - parameter name: A NULL-terminated UNICODE string that contains the name to associate with the shared heap. The name is limited to MAX_PATH characters. Name comparison is case-sensitive. If Name matches the name of an existing resource, CreateSharedHandle fails with DXGI_ERROR_NAME_ALREADY_EXISTS. This occurs because these objects share the same namespace. The name can have a "Global" or "Local" prefix to explicitly create the object in the global or session namespace. The remainder of the name can contain any character except the backslash character (\). For more information, see Kernel Object Namespaces. Fast user switching is implemented using Terminal Services sessions. Kernel object names must follow the guidelines outlined for Terminal Services so that applications can support multiple users.
+    */
+    public func createSharedHandle(object: DeviceChild, name: String) throws -> UnsafeMutableRawPointer {
+        return try perform(as: RawValue.self) {pThis in
+            let pObject = try object.perform(as: DeviceChild.RawValue.self) {$0}
+            let pAttributes: UnsafeMutablePointer<SECURITY_ATTRIBUTES>? = nil
+            let ACCESS = DWORD(WinSDK.GENERIC_ALL)
+            let Name = name.lpcwstr
+            var handle: UnsafeMutableRawPointer?
+            try pThis.pointee.lpVtbl.pointee.CreateSharedHandle(pThis, pObject, pAttributes, ACCESS, Name, &handle).checkResult()
+            guard let handle = handle else {throw Error(.invalidArgument)}
+            return handle
+        }
+    }
+
+    /** Creates a view for unordered accessing.
+    - parameter resource: A pointer to the ID3D12Resource object that represents the unordered access.
+    - parameter counter: The ID3D12Resource for the counter (if any) associated with the UAV. If pCounterResource is not specified, then the CounterOffsetInBytes member of the D3D12_BUFFER_UAV structure must be 0.
+    - parameter description: A pointer to a D3D12_UNORDERED_ACCESS_VIEW_DESC structure that describes the unordered-access view.
+    - parameter destination: Describes the CPU descriptor handle that represents the start of the heap that holds the unordered-access view.
+    */
+    public func createUnorderedAccessView(resource: Resource, counter: Resource, description: UnorderedAccessViewDescription, destination: CPUDescriptorHandle) {
+        performFatally(as: RawValue.self) {pThis in
+            let pResource = resource.performFatally(as: Resource.RawValue.self) {$0}
+            let pCounterResource = counter.performFatally(as: Resource.RawValue.self) {$0}
+            var pDesc = description.rawValue
+            pThis.pointee.lpVtbl.pointee.CreateUnorderedAccessView(pThis, pResource, pCounterResource, &pDesc, destination.rawValue)
+        }
+    }
+
+    /** Enables the page-out of data, which precludes GPU access of that data.
+    - parameter objects: A pointer to a memory block that contains an array of ID3D12Pageable interface pointers for the objects. Even though most D3D12 objects inherit from ID3D12Pageable, residency changes are only supported on the following objects: Descriptor Heaps, Heaps, Committed Resources, and Query Heaps
+    */
+    public func evict(_ objects: [Pageable]) throws {
+        try perform(as: RawValue.self) {pThis in 
+            let NumObjects = UInt32(objects.count)
+            var ppObjects = try objects.map({try $0.perform(as: Pageable.RawValue.self) {Optional($0)}})
+            try pThis.pointee.lpVtbl.pointee.Evict(pThis, NumObjects, &ppObjects).checkResult()
+        }
+    }
+
+    /** Gets the size and alignment of memory required for a collection of resources on this adapter.
+    - parameter multipleAdapterNodeMask: For single-GPU operation, set this to zero. If there are multiple GPU nodes, then set bits to identify the nodes (the device's physical adapters). Each bit in the mask corresponds to a single node. Also see Multi-adapter systems.
+    - parameter descriptors: An array of D3D12_RESOURCE_DESC structures that described the resources to get info about.
+    */
+    public func resourceAllocationInfo(multipleAdapterNodeMask: UInt32 = 0, 
+                                       descriptors: [ResourceDescription]) -> ResourceAllocationInfo {
+        return performFatally(as: RawValue.self) {pThis in
+            let visibleMask = multipleAdapterNodeMask
+            let numResourceDescs = UInt32(descriptors.count)
+            let pResourceDescs = descriptors.map({$0.rawValue})
+            let v = pThis.pointee.lpVtbl.pointee.GetResourceAllocationInfo(pThis, visibleMask, numResourceDescs, pResourceDescs)
+            return ResourceAllocationInfo(v)
+        }
+    }
+
+    public func resourceTiling(for resource: Resource, start: UInt32, count: UInt32) -> (tilesNeeded: UInt32, 
+                                                                                         mipInfo: PackedMipInfo, 
+                                                                                         shape: TileShape,
+                                                                                         retrieved: UInt32, 
+                                                                                         tiling: SubresourceTiling) {
+        // https://docs.microsoft.com/en-us/windows/win32/api/d3d12/nf-d3d12-id3d12device-getresourcetiling
+        fatalError("no implementation")
+    }
+
+    /// Gets a locally unique identifier for the current device (adapter).
+    public var adapterLUID: WinSDK.LUID {
+        return performFatally(as: RawValue.self) {pThis in
+            return pThis.pointee.lpVtbl.pointee.GetAdapterLuid(pThis)
+        }
+    }
+
+    /** Makes objects resident for the device.
+    - parameter objects: A pointer to a memory block that contains an array of ID3D12Pageable interface pointers for the objects. Even though most D3D12 objects inherit from ID3D12Pageable, residency changes are only supported on the following objects: Descriptor Heaps, Heaps, Committed Resources, and Query Heaps
+    */
+    public func makeResident(_ objects: [Pageable]) throws {
+        try perform(as: RawValue.self) {pThis in 
+            let NumObjects = UInt32(objects.count)
+            var ppObjects = try objects.map({try $0.perform(as: Pageable.RawValue.self) {Optional($0)}})
+            try pThis.pointee.lpVtbl.pointee.MakeResident(pThis, NumObjects, &ppObjects).checkResult()
+        }
+    }
+
+    /** Opens a handle for shared resources, shared heaps, and shared fences, by using HANDLE and REFIID.
+    - parameter handle: The handle that was output by the call to ID3D12Device::CreateSharedHandle.
+    - parameter type: The globally unique identifier (GUID) for one of the following interfaces: ID3D12Heap, ID3D12Resource, ID3D12Fence
+    - returns: The REFIID, or GUID, of the interface can be obtained by using the __uuidof() macro. For example, __uuidof(ID3D12Heap) will get the GUID of the interface to a resource.
+    */
+    public func openSharedHandle<T: Pageable>(_ handle: UnsafeMutableRawPointer, for type: T.Type) throws -> T {
+        return try perform(as: RawValue.self) {pThis in
+            var riid: WinSDK.IID = try {
+                if type == Heap.self {
+                    return Heap.interfaceID
+                }else if type == Resource.self {
+                    return Resource.interfaceID
+                }else if type == Fence.self {
+                    return Fence.interfaceID
+                }else{
+                    throw Error(.invalidArgument)
+                }
+            }()
+            var p: UnsafeMutableRawPointer?
+            try pThis.pointee.lpVtbl.pointee.OpenSharedHandle(pThis, handle, &riid, &p).checkResult()
+            guard let p = p else {throw Error(.invalidArgument)}
+            if type == Heap.self {
+                return Heap(win32Pointer: p) as! T
+            }else if type == Resource.self {
+                return Resource(win32Pointer: p) as! T
+            }else if type == Fence.self {
+                return Fence(win32Pointer: p) as! T
+            }else{
+                throw Error(.invalidArgument)
+            }
+        }
+    }
+
+    /** Opens a handle for shared resources, shared heaps, and shared fences, by using Name and Access.
+    - parameter name: The name that was optionally passed as the Name parameter in the call to ID3D12Device::CreateSharedHandle.
+    - returns: Pointer to the shared handle.
+    */
+    public func openSharedHandle(byName name: String) throws -> UnsafeMutableRawPointer {
+        return try perform(as: RawValue.self) {pThis in
+            let Name = name.lpcwstr
+            let Access = DWORD(WinSDK.GENERIC_ALL)
+            var p: UnsafeMutableRawPointer?
+            try pThis.pointee.lpVtbl.pointee.OpenSharedHandleByName(pThis, Name, Access, &p).checkResult()
+            guard let p = p else {throw Error(.invalidArgument)}
+            return p
+        }
+    }
+
+    /** A development-time aid for certain types of profiling and experimental prototyping.
+    - parameter enabled: Specifies a BOOL that turns the stable power state on or off.
+    */
+    public func setStablePowerState(enabled: Bool) throws {
+        try perform(as: RawValue.self) {pThis in
+            let Enable = WindowsBool(booleanLiteral: enabled)
+            try pThis.pointee.lpVtbl.pointee.SetStablePowerState(pThis, Enable).checkResult()
+        }
+    }
+
+    override class var interfaceID: WinSDK.IID {
+        if #available(Windows 10.0.16299, *) {
+            return RawValue3.interfaceID //ID3D12Device3
+        }else if #available(Windows 10.0.15063, *) {
+            return RawValue2.interfaceID //ID3D12Device2
+        }else if #available(Windows 10.0.14393, *) {
+            return RawValue1.interfaceID //ID3D12Device1
+        }else{
+            return RawValue.interfaceID  //ID3D12Device
+        }
+    }
 }
 
 extension Device {
@@ -573,6 +727,77 @@ public extension Device {
     func CreateShaderResourceView(_ pResource: Any,
                                   _ pDesc: Any,
                                   _ DestDescriptor: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "createSharedHandle")
+    func CreateSharedHandle(_ pObject: Any,
+                            _ pAttributes: Any,
+                            _ Access: Any,
+                            _ Name: Any,
+                            _ pHandle: Any) -> HRESULT {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "createUnorderedAccessView")
+    func CreateUnorderedAccessView(_ pResource: Any,
+                                   _ pCounterResource: Any,
+                                   _ pDesc: Any,
+                                   _ DestDescriptor: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "evict")
+    func Evict(_ NumObjects: Any,
+               _ ppObjects: inout Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "resourceAllocationInfo")
+    func GetResourceAllocationInfo(_ visibleMask: Any,
+                                   _ numResourceDescs: Any,
+                                   _ pResourceDescs: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "resourceTiling")
+    func GetResourceTiling(_ pTiledResource: Any,
+                           _ pNumTilesForEntireResource: inout Any,
+                           _ pPackedMipDesc: inout Any,
+                           _ pStandardTileShapeForNonPackedMips: inout Any,
+                           _ pNumSubresourceTilings: Any,
+                           _ FirstSubresourceTilingToGet: Any,
+                           _ pSubresourceTilingsForNonPackedMips: inout Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "adapterLUID")
+    func GetAdapterLuid() -> WinSDK.LUID {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "makeResident")
+    func MakeResident(_ NumObjects: Any,
+                      _ ppObjects: inout Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "openSharedHandle")
+    func OpenSharedHandle(_ pObject: Any,
+                          _ riid: Any,
+                          _ ppvObj: inout Any) -> HRESULT {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "openSharedHandle(byName:)")
+    func OpenSharedHandleByName(_ Name: Any,
+                                _ Access: Any,
+                                _ pNTHandle: inout Any) -> HRESULT {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "setStablePowerState(enabled:)")
+    func SetStablePowerState(_ Enable: Any) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 }

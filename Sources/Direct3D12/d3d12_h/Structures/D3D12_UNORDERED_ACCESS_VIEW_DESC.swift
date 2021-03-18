@@ -6,9 +6,9 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
-public struct UnorderedAccessViewDescriptor {
+public struct UnorderedAccessViewDescription {
     internal var rawValue: WinSDK.D3D12_UNORDERED_ACCESS_VIEW_DESC
 
 
@@ -21,7 +21,7 @@ public struct UnorderedAccessViewDescriptor {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "UnorderedAccessViewDescriptor")
-public typealias D3D12_UNORDERED_ACCESS_VIEW_DESC = UnorderedAccessViewDescriptor
+@available(*, deprecated, renamed: "UnorderedAccessViewDescription")
+public typealias D3D12_UNORDERED_ACCESS_VIEW_DESC = UnorderedAccessViewDescription
 
 #endif

@@ -11,7 +11,7 @@ import WinSDK
 public class Fence: Pageable {
     
     override class var interfaceID: WinSDK.IID {
-        if #available(Windows 10.0.1709, *) {
+        if #available(Windows 10.0.16299, *) {
             return RawValue1.interfaceID
         }
         return RawValue.interfaceID

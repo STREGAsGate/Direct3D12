@@ -6,7 +6,7 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
 public struct TiledResourceCoordinate {
     public typealias RawValue = WinSDK.D3D12_TILED_RESOURCE_COORDINATE

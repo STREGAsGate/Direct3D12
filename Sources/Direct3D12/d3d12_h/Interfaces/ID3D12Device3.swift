@@ -8,30 +8,34 @@
 
 import WinSDK
 
+
 @available(Windows, introduced: 10.0.16299)
-public extension Fence {
+public extension Device {
     
 }
 
 @available(Windows, introduced: 10.0.16299)
-extension Fence {
-    typealias RawValue1 = WinSDK.ID3D12Fence1
-    convenience init(_ rawValue: inout RawValue1) {
+extension Device {
+    typealias RawValue3 = WinSDK.ID3D12Device3
+    convenience init(_ rawValue: inout RawValue3) {
         self.init(win32Pointer: &rawValue)
     }
 }
-
 @available(Windows, introduced: 10.0.16299)
-extension Fence.RawValue1 {
-    static var interfaceID: WinSDK.IID {
-        return WinSDK.IID_ID3D12Fence1
-    }
+extension Device.RawValue3 {
+    static var interfaceID: IID {WinSDK.IID_ID3D12Device3}
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(Windows, introduced: 10.0.16299, deprecated, renamed: "Fence")
-public typealias ID3D12Fence1 = Fence
+@available(Windows, introduced: 10.0.16299)
+@available(*, deprecated, renamed: "Device")
+public typealias ID3D12Device3 = Device
+
+@available(Windows, introduced: 10.0.16299)
+public extension Device {
+
+}
 
 #endif

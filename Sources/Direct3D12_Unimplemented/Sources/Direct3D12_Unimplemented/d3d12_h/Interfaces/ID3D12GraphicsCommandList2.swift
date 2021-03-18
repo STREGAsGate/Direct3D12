@@ -8,6 +8,7 @@
 
 import WinSDK.DirectX.Direct3D12
 
+@available(Windows, introduced: 10.0.16299)
 public extension GraphicsCommandList {
     
 }
@@ -15,7 +16,13 @@ public extension GraphicsCommandList {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
+@available(Windows, introduced: 10.0.16299)
 @available(*, deprecated, renamed: "GraphicsCommandList")
 public typealias ID3D12GraphicsCommandList2 = GraphicsCommandList 
+
+@available(Windows, introduced: 10.0.16299)
+public extension  GraphicsCommandList {
+
+}
 
 #endif

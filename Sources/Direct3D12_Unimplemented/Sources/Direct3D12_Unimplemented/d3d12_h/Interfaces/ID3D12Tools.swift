@@ -6,8 +6,9 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
+@available(Windows, introduced: 10.0.15063)
 public class Tools: IUnknown {
     
 }
@@ -15,7 +16,13 @@ public class Tools: IUnknown {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
+@available(Windows, introduced: 10.0.15063)
 @available(*, deprecated, renamed: "Tools")
 public typealias ID3D12Tools = Tools
+
+@available(Windows, introduced: 10.0.15063)
+public extension Tools {
+
+}
 
 #endif

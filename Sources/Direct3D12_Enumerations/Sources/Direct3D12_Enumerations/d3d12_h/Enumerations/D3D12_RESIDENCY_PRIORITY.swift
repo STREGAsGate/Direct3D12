@@ -22,7 +22,7 @@ public enum ResidencyPriority {
     ///	Indicates a maximum priority. Applications are discouraged from using priorities greater than this; D3D12_RESIDENCY_PRIORITY_MAXIMUM is not guaranteed to be available. For more information see ID3D12Device1::SetResidencyPriority
     case maximum
 
-    internal var rawValue: WinSDK.D3D12_RESIDENCY_PRIORITY {
+    public var rawValue: WinSDK.D3D12_RESIDENCY_PRIORITY {
         switch self {
         case .minimum:
             return WinSDK.D3D12_RESIDENCY_PRIORITY_MINIMUM
