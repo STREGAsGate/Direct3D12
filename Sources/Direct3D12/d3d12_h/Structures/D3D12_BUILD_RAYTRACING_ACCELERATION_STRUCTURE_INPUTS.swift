@@ -6,13 +6,15 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
+@available(Windows, introduced: 10.0.17763)
 public struct BuildRaytracingAccelerationStructureInputs {
-    internal var rawValue: WinSDK.D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS
+    public typealias RawValue = WinSDK.D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,6 +23,7 @@ public struct BuildRaytracingAccelerationStructureInputs {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
+@available(Windows, introduced: 10.0.17763)
 @available(*, deprecated, renamed: "BuildRaytracingAccelerationStructureInputs")
 public typealias D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS = BuildRaytracingAccelerationStructureInputs 
 

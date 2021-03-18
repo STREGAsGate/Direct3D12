@@ -6,13 +6,15 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
+@available(Windows, introduced: 10.0.17763)
 public struct SerializedDataDriverMatchingIdentifier {
-    internal var rawValue: WinSDK.D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER
+    public typealias RawValue = WinSDK.D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +23,8 @@ public struct SerializedDataDriverMatchingIdentifier {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
+@available(Windows, introduced: 10.0.17763)
 @available(*, deprecated, renamed: "SerializedDataDriverMatchingIdentifier")
-public typealias D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER = RenderTargetFormatArray
+public typealias D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER = SerializedDataDriverMatchingIdentifier
 
 #endif

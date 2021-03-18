@@ -9,7 +9,9 @@
 import WinSDK
 
 /// Specifies flags to be used when creating a command list.
+@available(Windows, introduced: 10.0.17134)
 public struct CommandListFlags: OptionSet {
+    public typealias RawType = WinSDK.D3D12_COMMAND_LIST_FLAGS
     public let rawValue: Int32
 
     //Use an empty collection `[]` to represent none in Swift.
@@ -28,10 +30,12 @@ public struct CommandListFlags: OptionSet {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
+@available(Windows, introduced: 10.0.17134)
 @available(*, deprecated, renamed: "CommandListFlags")
 public typealias D3D12_COMMAND_LIST_FLAGS = CommandListFlags
 
-public extension ColorWriteEnable {
+@available(Windows, introduced: 10.0.17134)
+public extension CommandListFlags {
     @available(*, deprecated, message: "Use [] to represent none in Swift.")
     static let D3D12_COMMAND_LIST_FLAG_NONE: CommandListFlags = []
 }

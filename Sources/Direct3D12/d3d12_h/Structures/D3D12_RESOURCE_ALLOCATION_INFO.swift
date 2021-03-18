@@ -9,10 +9,11 @@
 import WinSDK
 
 public struct ResourceAllocationInfo {
-    internal var rawValue: WinSDK.D3D12_RESOURCE_ALLOCATION_INFO
+    public typealias RawValue = WinSDK.D3D12_RESOURCE_ALLOCATION_INFO
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RESOURCE_ALLOCATION_INFO) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

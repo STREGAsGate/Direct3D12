@@ -10,6 +10,7 @@ import WinSDK
 
 /// Used with the EnqueuMakeResident function to choose how residency operations proceed when the memory budget is exceeded.
 public struct ResidencyFlags: OptionSet {
+    public typealias RawType = WinSDK.D3D12_RESIDENCY_FLAGS
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// Specifies the default residency policy, which allows residency operations to succeed regardless of the application's current memory budget. EnqueueMakeResident returns E_OUTOFMEMORY only when there is no memory available.

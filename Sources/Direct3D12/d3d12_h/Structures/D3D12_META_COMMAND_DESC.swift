@@ -6,13 +6,15 @@
  * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
  */
 
-import WinSDK.DirectX.Direct3D12
+import WinSDK
 
+@available(Windows, introduced: 10.0.17763)
 public struct MetaCommandDescription {
-    internal var rawValue: WinSDK.D3D12_META_COMMAND_DESC
+    public typealias RawValue = WinSDK.D3D12_META_COMMAND_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_META_COMMAND_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,6 +23,7 @@ public struct MetaCommandDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
+@available(Windows, introduced: 10.0.17763)
 @available(*, deprecated, renamed: "MetaCommandDescription")
 public typealias D3D12_META_COMMAND_DESC = MetaCommandDescription
 

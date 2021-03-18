@@ -9,11 +9,14 @@
 import WinSDK
 
 /// Specifies the type of serialized data. Use a value from this enumeration when calling ID3D12Device5::CheckDriverMatchingIdentifier.
+@available(Windows, introduced: 10.0.17763)
 public enum SerializedDataType {
+    public typealias RawValue = WinSDK.D3D12_SERIALIZED_DATA_TYPE
+    
     /// The serialized data is a raytracing acceleration structure.
     case raytracingAccelerationStructure
 
-    internal var rawValue: WinSDK.D3D12_SERIALIZED_DATA_TYPE {
+    public var rawValue: RawValue {
         switch self {
         case .raytracingAccelerationStructure:
             return WinSDK.D3D12_SERIALIZED_DATA_RAYTRACING_ACCELERATION_STRUCTURE
@@ -25,9 +28,11 @@ public enum SerializedDataType {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
+@available(Windows, introduced: 10.0.17763)
 @available(*, deprecated, renamed: "SerializedDataType")
 public typealias D3D12_SERIALIZED_DATA_TYPE = SerializedDataType
 
+@available(Windows, introduced: 10.0.17763)
 public extension SerializedDataType  {
     @available(*, deprecated, renamed: "raytracingAccelerationStructure")
     static let D3D12_SERIALIZED_DATA_RAYTRACING_ACCELERATION_STRUCTURE = Self.raytracingAccelerationStructure

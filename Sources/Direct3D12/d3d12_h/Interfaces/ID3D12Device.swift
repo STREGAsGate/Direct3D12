@@ -525,7 +525,11 @@ public class Device: Object {
     }
 
     override class var interfaceID: WinSDK.IID {
-        if #available(Windows 10.0.16299, *) {
+        if #available(Windows 10.0.17763, *) {
+            return RawValue5.interfaceID //ID3D12Device5
+        }else if #available(Windows 10.0.17134, *) {
+            return RawValue4.interfaceID //ID3D12Device4
+        }else if #available(Windows 10.0.16299, *) {
             return RawValue3.interfaceID //ID3D12Device3
         }else if #available(Windows 10.0.15063, *) {
             return RawValue2.interfaceID //ID3D12Device2

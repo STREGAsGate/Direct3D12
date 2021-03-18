@@ -10,6 +10,7 @@ import WinSDK
 
 /// Specifies the result of a call to [ID3D12Device5::CheckDriverMatchingIdentifier](https://docs.microsoft.com/en-us/windows/desktop/api/d3d12/nf-d3d12-id3d12device5-checkdrivermatchingidentifier) which queries whether serialized data is compatible with the current device and driver version.
 public enum DriverMatchingIdentifierStatus {
+    public typealias RawValue = WinSDK.D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS
     ///	Serialized data is compatible with the current device/driver.
     case compatibleWithDevice
     ///	The specified [D3D12_SERIALIZED_DATA_TYPE](https://docs.microsoft.com/en-us/windows/desktop/api/d3d12/ne-d3d12-d3d12_serialized_data_type) specified is unknown or unsupported.
@@ -20,8 +21,10 @@ public enum DriverMatchingIdentifierStatus {
     case incompatibleVersion
     ///	[D3D12_SERIALIZED_DATA_TYPE](https://docs.microsoft.com/en-us/windows/desktop/api/d3d12/ne-d3d12-d3d12_serialized_data_type) specifies a data type that is not compatible with the type of serialized data. As long as there is only a single defined serialized data type this error cannot not be produced.
     case incompatibleType
-
-    internal var rawValue: WinSDK.D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
+    /// Used when Swift has no case defined. This could happen if new values are added to the Windows SDK
+    case unimplemented(RawValue)
+    
+    public var rawValue: RawValue {
         switch self {
         case .compatibleWithDevice:
             return WinSDK.D3D12_DRIVER_MATCHING_IDENTIFIER_COMPATIBLE_WITH_DEVICE
@@ -33,6 +36,25 @@ public enum DriverMatchingIdentifierStatus {
             return WinSDK.D3D12_DRIVER_MATCHING_IDENTIFIER_INCOMPATIBLE_VERSION
         case .incompatibleType:
             return WinSDK.D3D12_DRIVER_MATCHING_IDENTIFIER_INCOMPATIBLE_TYPE
+        case let .unimplemented(rawValue):
+            return rawValue
+        }
+    }
+
+    public init(_ rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.D3D12_DRIVER_MATCHING_IDENTIFIER_COMPATIBLE_WITH_DEVICE:
+            self = .compatibleWithDevice
+        case WinSDK.D3D12_DRIVER_MATCHING_IDENTIFIER_UNSUPPORTED_TYPE:
+            self = .unsupportedType
+        case WinSDK.D3D12_DRIVER_MATCHING_IDENTIFIER_UNRECOGNIZED:
+            self = .unrecognized
+        case WinSDK.D3D12_DRIVER_MATCHING_IDENTIFIER_INCOMPATIBLE_VERSION:
+            self = .incompatibleVersion
+        case WinSDK.D3D12_DRIVER_MATCHING_IDENTIFIER_INCOMPATIBLE_TYPE:
+            self = .incompatibleType
+        default:
+            self = .unimplemented(rawValue)
         }
     }
 }

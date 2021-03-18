@@ -12,6 +12,16 @@ public extension ProtectedResourceSession {
     
 }
 
+extension ProtectedResourceSession {
+    typealias RawValue1 = WinSDK.ID3D12ProtectedResourceSession1
+    convenience init(_ rawValue: inout RawValue1) {
+        self.init(win32Pointer: &rawValue)
+    }
+}
+extension ProtectedResourceSession.RawValue1 {
+    static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12ProtectedResourceSession1}
+}
+
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 

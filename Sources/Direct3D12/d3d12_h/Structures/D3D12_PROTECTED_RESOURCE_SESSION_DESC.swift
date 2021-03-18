@@ -8,6 +8,7 @@
 
 import WinSDK.DirectX.Direct3D12
 
+@available(Windows, introduced: 10.0.17134)
 public struct ProtectedResourceSessionDescription {
     internal var rawValue: WinSDK.D3D12_PROTECTED_RESOURCE_SESSION_DESC
 
@@ -21,6 +22,7 @@ public struct ProtectedResourceSessionDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
+@available(Windows, introduced: 10.0.17134)
 @available(*, deprecated, renamed: "ProtectedResourceSessionDescription")
 public typealias D3D12_PROTECTED_RESOURCE_SESSION_DESC = ProtectedResourceSessionDescription
 
