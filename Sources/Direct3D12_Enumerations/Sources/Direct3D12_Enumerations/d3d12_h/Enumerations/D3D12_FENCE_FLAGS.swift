@@ -3,7 +3,7 @@
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
- * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
+ * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
 import WinSDK
@@ -11,7 +11,8 @@ import WinSDK
 /// Specifies fence options.
 public struct FenceFlags: OptionSet {
     public typealias RawType = WinSDK.D3D12_FENCE_FLAGS
-    public let rawValue: Int32
+    public typealias RawValue = WinSDK.D3D12_FENCE_FLAGS.RawValue
+    public let rawValue: RawValue
     //Use an empty collection `[]` to represent none in Swift.
     ///// 	No options are specified.
     //static let none = FenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NONE.rawValue)
@@ -26,7 +27,7 @@ public struct FenceFlags: OptionSet {
     static let nonMonitored = FenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NON_MONITORED.rawValue)
 
 
-    public init(rawValue: Int32) {
+    public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
     public init() {

@@ -3,12 +3,26 @@
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
- * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
+ * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
 import WinSDK
 
+/// An interface from which other core interfaces inherit from, including (but not limited to) ID3D12PipelineLibrary, ID3D12CommandList, ID3D12Pageable, and ID3D12RootSignature. It provides a method to get back to the device object it was created against.
 public class DeviceChild: Object {
+
+    /** Gets a pointer to the device that created this interface.
+    - returns: A pointer to a memory block that receives a pointer to the ID3D12Device interface for the device.
+    */
+    public func device() throws -> Device {
+        return try perform(as: RawValue.self) {pThis in 
+            var riid = Device.interfaceID
+            var ppvDevice: UnsafeMutableRawPointer?
+            try pThis.pointee.lpVtbl.pointee.GetDevice(pThis, &riid, &ppvDevice).checkResult()
+            guard let p = ppvDevice else {throw Error(.invalidArgument)}
+            return Device(win32Pointer: p)
+        }
+    }
 
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
@@ -28,5 +42,13 @@ extension DeviceChild.RawValue {
 
 @available(*, unavailable, renamed: "DeviceChild")
 public typealias ID3D12DeviceChild = DeviceChild 
+
+public extension DeviceChild {
+    @available(*, unavailable, renamed: "device")
+    func GetDevice(_ riid: Any, 
+                   _ ppvDevice: inout Any) -> HRESULT {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+}
 
 #endif

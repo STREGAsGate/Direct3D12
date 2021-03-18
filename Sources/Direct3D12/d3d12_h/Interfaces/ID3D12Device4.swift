@@ -1,9 +1,9 @@
 /**
- * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
- * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
+ * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
 import WinSDK
@@ -80,6 +80,7 @@ public extension Device {
     /** Creates an object that represents a session for content protection. You can then provide that session when you're creating resource or heap objects, to indicate that they should be protected.
     - parameter description: A pointer to a constant D3D12_PROTECTED_RESOURCE_SESSION_DESC structure, describing the session to create.
     */
+    @available(Windows, deprecated: 10.0.19041, message: "Use description type `ProtectedResourceSessionDescription1`.")
     func createProtectedResourceSession(description: ProtectedResourceSessionDescription) throws -> ProtectedResourceSession {
         return try perform(as: RawValue4.self) {pThis in
             var pDesc = description.rawValue
@@ -120,6 +121,7 @@ public extension Device {
     - returns info: A D3D12_RESOURCE_ALLOCATION_INFO structure that provides info about video memory allocated for the specified array of resources.
     - returns infos: An array of D3D12_RESOURCE_ALLOCATION_INFO1 structures, containing additional details for each resource description passed as input. This makes it simpler for your application to allocate a heap for multiple resources, and without manually computing offsets for where each resource should be placed.
     */
+    @available(Windows, deprecated: 10.0.19041, message: "Use descriptions type ResourceDescription1")
     func resourceAllocationInfo(multipleAdapterNodeMask: UInt32 = 0,
                                 descriptions: [ResourceDescription]) -> (info: ResourceAllocationInfo, infos: [ResourceAllocationInfo1]) {
         return performFatally(as: RawValue4.self) {pThis in

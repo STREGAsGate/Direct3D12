@@ -3,7 +3,7 @@
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
- * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
+ * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
 import WinSDK
@@ -73,7 +73,7 @@ public class Device: Object {
     }
 
     /** Creates a command allocator object.
-    - parameters type: A D3D12_COMMAND_LIST_TYPE-typed value that specifies the type of command allocator to create. The type of command allocator can be the type that records either direct command lists or bundles.
+    - parameter type: A D3D12_COMMAND_LIST_TYPE-typed value that specifies the type of command allocator to create. The type of command allocator can be the type that records either direct command lists or bundles.
     */
     public func createCommandAllocator(type: CommandListType) throws -> CommandAllocator {
         return try perform(as: RawValue.self) {pThis in
@@ -86,10 +86,10 @@ public class Device: Object {
     }
 
     /** Creates a command list.
-    - parameters multipleAdapterNodeMask: For single-GPU operation, set this to zero. If there are multiple GPU nodes, then set a bit to identify the node (the device's physical adapter) for which to create the command list. Each bit in the mask corresponds to a single node. Only one bit must be set. Also see Multi-adapter systems.
-    - parameters type: Specifies the type of command list to create.
-    - parameters commandAllocator: A pointer to the command allocator object from which the device creates command lists.
-    - parameters initialState: An optional pointer to the pipeline state object that contains the initial pipeline state for the command list. If it is nulltpr, then the runtime sets a dummy initial pipeline state, so that drivers don't have to deal with undefined state. The overhead for this is low, particularly for a command list, for which the overall cost of recording the command list likely dwarfs the cost of a single initial state setting. So there's little cost in not setting the initial pipeline state parameter, if doing so is inconvenient. For bundles, on the other hand, it might make more sense to try to set the initial state parameter (since bundles are likely smaller overall, and can be reused frequently).
+    - parameter multipleAdapterNodeMask: For single-GPU operation, set this to zero. If there are multiple GPU nodes, then set a bit to identify the node (the device's physical adapter) for which to create the command list. Each bit in the mask corresponds to a single node. Only one bit must be set. Also see Multi-adapter systems.
+    - parameter type: Specifies the type of command list to create.
+    - parameter commandAllocator: A pointer to the command allocator object from which the device creates command lists.
+    - parameter initialState: An optional pointer to the pipeline state object that contains the initial pipeline state for the command list. If it is nulltpr, then the runtime sets a dummy initial pipeline state, so that drivers don't have to deal with undefined state. The overhead for this is low, particularly for a command list, for which the overall cost of recording the command list likely dwarfs the cost of a single initial state setting. So there's little cost in not setting the initial pipeline state parameter, if doing so is inconvenient. For bundles, on the other hand, it might make more sense to try to set the initial state parameter (since bundles are likely smaller overall, and can be reused frequently).
     */
     public func createCommandList(multipleAdapterNodeMask: UInt32 = 0, 
                            type: CommandListType,
@@ -165,7 +165,7 @@ public class Device: Object {
     }
 
     /** Creates a compute pipeline state object.
-    - parameter: A pointer to a D3D12_COMPUTE_PIPELINE_STATE_DESC structure that describes compute pipeline state.
+    - parameter description: A pointer to a D3D12_COMPUTE_PIPELINE_STATE_DESC structure that describes compute pipeline state.
     */
     public func createComputePipelineState(description: ComputePipelineStateDescription) throws -> PipelineState {
         return try perform(as: RawValue.self) {pThis in
@@ -267,6 +267,7 @@ public class Device: Object {
     - parameter initialState: The initial state of the resource, as a bitwise-OR'd combination of D3D12_RESOURCE_STATES enumeration constants. When a resource is created together with a D3D12_HEAP_TYPE_UPLOAD heap, InitialState must be D3D12_RESOURCE_STATE_GENERIC_READ. When a resource is created together with a D3D12_HEAP_TYPE_READBACK heap, InitialState must be D3D12_RESOURCE_STATE_COPY_DEST.
     - parameter clearColor: Specifies a D3D12_CLEAR_VALUE that describes the default value for a clear color.
     */
+    @available(Windows, deprecated: 10.0.19041, message: "Use description type ResourceDescription1")
     public func createPlacedResource(heap: Heap, 
                                      offset: UInt64, 
                                      description: ResourceDescription,
@@ -455,6 +456,37 @@ public class Device: Object {
         }
     }
 
+    /** Gets a resource layout that can be copied. Helps the app fill-in D3D12_PLACED_SUBRESOURCE_FOOTPRINT and D3D12_SUBRESOURCE_FOOTPRINT when suballocating space in upload heaps.
+    - parameter description: A description of the resource, as a pointer to a D3D12_RESOURCE_DESC structure.
+    - parameter firstIndex: Index of the first subresource in the resource. The range of valid values is 0 to D3D12_REQ_SUBRESOURCES.
+    - parameter count: The number of subresources in the resource. The range of valid values is 0 to (D3D12_REQ_SUBRESOURCES - FirstSubresource).
+    - parameter offset: The offset, in bytes, to the resource.
+    - parameter layouts: A pointer to an array (of length NumSubresources) of D3D12_PLACED_SUBRESOURCE_FOOTPRINT structures, to be filled with the description and placement of each subresource.
+    - returns rowCounts: A pointer to an array (of length NumSubresources) of integer variables, to be filled with the number of rows for each subresource.
+    - returns rowSizes: A pointer to an array (of length NumSubresources) of integer variables, each entry to be filled with the unpadded size in bytes of a row, of each subresource. For example, if a Texture2D resource has a width of 32 and bytes per pixel of 4, then pRowSizeInBytes returns 128. pRowSizeInBytes should not be confused with row pitch, as examining pLayouts and getting the row pitch from that will give you 256 as it is aligned to D3D12_TEXTURE_DATA_PITCH_ALIGNMENT.
+    - returns totalByteSize: A pointer to an integer variable, to be filled with the total size, in bytes.
+    */
+    @available(Windows, deprecated: 10.0.19041, message: "Use description type ResourceDescription1.")
+    func copyableFootprints(description: ResourceDescription,
+                            firstIndex: UInt32,
+                            count: UInt32,
+                            offset: UInt64,
+                            layouts: PlacedSubresourceFootprint) -> (rowCounts: [UInt32], rowSizes: [UInt64], totalByteSize: UInt64) {
+        performFatally(as: RawValue.self) {pThis in 
+            var pResourceDesc = description.rawValue
+            let FirstSubresource = firstIndex
+            let NumSubresources = count
+            let BaseOffset = offset
+            var pLayouts = layouts.rawValue
+
+            var pNumRows: [UInt32] = Array(repeating: 0, count: Int(count))
+            var pRowSizeInBytes: [UInt64] = Array(repeating: 0, count: Int(count))
+            var pTotalBytes: UInt64 = 0
+            pThis.pointee.lpVtbl.pointee.GetCopyableFootprints(pThis, &pResourceDesc, FirstSubresource, NumSubresources, BaseOffset, &pLayouts, &pNumRows, &pRowSizeInBytes, &pTotalBytes)
+            return (pNumRows, pRowSizeInBytes, pTotalBytes)
+        }
+    }
+
     /** Makes objects resident for the device.
     - parameter objects: A pointer to a memory block that contains an array of ID3D12Pageable interface pointers for the objects. Even though most D3D12 objects inherit from ID3D12Pageable, residency changes are only supported on the following objects: Descriptor Heaps, Heaps, Committed Resources, and Query Heaps
     */
@@ -525,7 +557,13 @@ public class Device: Object {
     }
 
     override class var interfaceID: WinSDK.IID {
-        if #available(Windows 10.0.17763, *) {
+        if #available(Windows 10.0.19041, *) {
+            //Device7 and Device8 were relased at the same time. Always use Device8.
+            return RawValue8.interfaceID //ID3D12Device8
+          //return RawValue7.interfaceID //ID3D12Device7
+        }else if #available(Windows 10.0.18362, *) {
+            return RawValue6.interfaceID //ID3D12Device6
+        }else if #available(Windows 10.0.17763, *) {
             return RawValue5.interfaceID //ID3D12Device5
         }else if #available(Windows 10.0.17134, *) {
             return RawValue4.interfaceID //ID3D12Device4
@@ -685,7 +723,7 @@ public extension Device {
                               _ InitialState: Any,
                               _ pOptimizedClearValue: Any,
                               _ riid: Any,
-                              _ ppvResource: Any) -> HRESULT {
+                              _ ppvResource: inout Any) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
@@ -708,7 +746,7 @@ public extension Device {
                               _ InitialState: Any,
                               _ pOptimizedClearValue: Any,
                               _ riid: Any,
-                              _ ppvResource: Any) -> HRESULT {
+                              _ ppvResource: inout Any) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
@@ -739,7 +777,7 @@ public extension Device {
                             _ pAttributes: Any,
                             _ Access: Any,
                             _ Name: Any,
-                            _ pHandle: Any) -> HRESULT {
+                            _ pHandle: inout Any) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
@@ -759,8 +797,8 @@ public extension Device {
 
     @available(*, unavailable, renamed: "resourceAllocationInfo")
     func GetResourceAllocationInfo(_ visibleMask: Any,
-                                   _ numResourceDescs: Any,
-                                   _ pResourceDescs: Any) {
+                                   _ numResourceDescs: inout Any,
+                                   _ pResourceDescs: inout Any) {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
@@ -777,6 +815,18 @@ public extension Device {
 
     @available(*, unavailable, renamed: "adapterLUID")
     func GetAdapterLuid() -> WinSDK.LUID {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "copyableFootprints")
+    func GetCopyableFootprints(_ pResourceDesc: Any,
+                               _ FirstSubresource: Any,
+                               _ NumSubresources: Any,
+                               _ BaseOffset: Any,
+                               _ pLayouts: Any,
+                               _ pNumRows: inout Any?,
+                               _ pRowSizeInBytes: inout Any?,
+                                _ pTotalBytes: inout Any?) {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 

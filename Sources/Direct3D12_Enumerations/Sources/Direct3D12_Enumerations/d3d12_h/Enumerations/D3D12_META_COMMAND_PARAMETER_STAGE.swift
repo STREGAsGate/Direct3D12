@@ -1,23 +1,25 @@
 /**
- * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
- * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
+ * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
 import WinSDK
 
 /// Defines constants that specify the stage of a parameter to a meta command.
+@available(Windows, introduced: 10.0.17763)
 public enum MetaCommandParameterStage {
-///	Specifies that the parameter is used at the meta command creation stage.
-case creation
-///	Specifies that the parameter is used at the meta command initialization stage.
-case initialization
-///	Specifies that the parameter is used at the meta command execution stage.
-case execution
+    public typealias RawValue = WinSDK.D3D12_META_COMMAND_PARAMETER_STAGE
+    ///	Specifies that the parameter is used at the meta command creation stage.
+    case creation
+    ///	Specifies that the parameter is used at the meta command initialization stage.
+    case initialization
+    ///	Specifies that the parameter is used at the meta command execution stage.
+    case execution
 
-    internal var rawValue: WinSDK.D3D12_META_COMMAND_PARAMETER_STAGE {
+    public var rawValue: RawValue {
         switch self {
         case .creation:
             return WinSDK.D3D12_META_COMMAND_PARAMETER_STAGE_CREATION
@@ -33,18 +35,21 @@ case execution
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
+@available(Windows, introduced: 10.0.17763)
 @available(*, deprecated, renamed: "MetaCommandParameterStage")
 public typealias D3D12_META_COMMAND_PARAMETER_STAGE = MetaCommandParameterStage
 
-public extension MetaCommandParameterStage  {
-    @available(*, deprecated, renamed: "creation")
-    static let D3D12_META_COMMAND_PARAMETER_STAGE_CREATION = Self.creation
+@available(Windows, introduced: 10.0.17763)
+@available(*, deprecated, renamed: "creation")
+let D3D12_META_COMMAND_PARAMETER_STAGE_CREATION = MetaCommandParameterStage.creation
 
-    @available(*, deprecated, renamed: "initialization")
-    static let D3D12_META_COMMAND_PARAMETER_STAGE_INITIALIZATION = Self.initialization
+@available(Windows, introduced: 10.0.17763)
+@available(*, deprecated, renamed: "initialization")
+let D3D12_META_COMMAND_PARAMETER_STAGE_INITIALIZATION = MetaCommandParameterStage.initialization
 
-    @available(*, deprecated, renamed: "execution")
-    static let D3D12_META_COMMAND_PARAMETER_STAGE_EXECUTION = Self.execution
-}
+@available(Windows, introduced: 10.0.17763)
+@available(*, deprecated, renamed: "execution")
+let D3D12_META_COMMAND_PARAMETER_STAGE_EXECUTION = MetaCommandParameterStage.execution
+
 
 #endif

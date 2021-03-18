@@ -3,14 +3,20 @@
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
- * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
+ * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
 import WinSDK
 
 @available(Windows, introduced: 10.0.16299)
 public extension Fence {
-    
+    /// Gets the flags used to create the fence represented by the current instance.
+    var creationFlags: FenceFlags {
+        return performFatally(as: RawValue1.self) {pThis in
+            let v = pThis.pointee.lpVtbl.pointee.GetCreationFlags(pThis)
+            return FenceFlags(rawValue: v.rawValue)
+        }
+    }
 }
 
 @available(Windows, introduced: 10.0.16299)
@@ -33,5 +39,13 @@ extension Fence.RawValue1 {
 
 @available(Windows, introduced: 10.0.16299, deprecated, renamed: "Fence")
 public typealias ID3D12Fence1 = Fence
+
+@available(Windows, introduced: 10.0.16299)
+public extension Fence {
+    @available(*, unavailable, renamed: "creationFlags")
+    func GetCreationFlags() -> FenceFlags.RawValue {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+}
 
 #endif

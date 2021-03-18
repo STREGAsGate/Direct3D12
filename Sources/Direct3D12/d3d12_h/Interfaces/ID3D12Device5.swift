@@ -1,9 +1,9 @@
 /**
- * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
- * Find me on YouTube as Strega's Gate, or social media @STREGAsGate
+ * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
 import WinSDK
@@ -40,7 +40,6 @@ public extension Device {
         }
     }
 
-    //TODO: This isn't very Swifty
     /** Creates an instance of the specified meta command.
     - parameter multipleAdapterNodeMask: For single-adapter operation, set this to zero. If there are multiple adapter nodes, set a bit to identify the node (one of the device's physical adapters) to which the meta command applies. Each bit in the mask corresponds to a single node. Only one bit must be set. See Multi-adapter systems.
     - parameter parameters: An optional pointer to a constant structure containing the values of the parameters for creating the meta command.
@@ -78,11 +77,19 @@ public extension Device {
     /** No implementation
 
     */
-    func enumerateMetaCommandParameters(withID id: GUID,
+    func enumerateMetaCommandParameters(forID id: GUID,
                                         stage: MetaCommandParameterStage,
-                                        parameters: Any?) throws -> [MetaCommandDescription] {
-        // https://docs.microsoft.com/en-us/windows/win32/api/d3d12/nf-d3d12-id3d12device5-enumeratemetacommandparameters
-        fatalError("no implementation")
+                                        totalStructureSize: UInt32?) throws -> [MetaCommandParameterDescription] {
+        return try perform(as: RawValue5.self) {pThis in
+            var CommandId = id
+            let Stage = stage.rawValue
+            var pTotalStructureSizeInBytes = totalStructureSize ?? 0
+            var pParameterCount: UInt32 = 0
+            try pThis.pointee.lpVtbl.pointee.EnumerateMetaCommandParameters(pThis, &CommandId, Stage, &pTotalStructureSizeInBytes, &pParameterCount, nil).checkResult()
+            let pParameterDescs = UnsafeMutableBufferPointer<MetaCommandParameterDescription.RawValue>(start: nil, count: Int(pParameterCount))
+            try pThis.pointee.lpVtbl.pointee.EnumerateMetaCommandParameters(pThis, &CommandId, Stage, &pTotalStructureSizeInBytes, &pParameterCount, pParameterDescs.baseAddress).checkResult()
+            return pParameterDescs.map({MetaCommandParameterDescription($0)})
+        }
     }
 
     /** No implementation
