@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import WinSDK.DirectX
 
 public class GraphicsCommandList: CommandList {
 
@@ -157,7 +158,7 @@ public class GraphicsCommandList: CommandList {
     - parameter destination: A pointer to the ID3D12Resourceinterface that represents the destination resource.
     */
     public func copyResource(from source: Resource, to destination: Resource) {
-                performFatally(as: RawValue.self) {pThis in
+        performFatally(as: RawValue.self) {pThis in
             let pDstBuffer = destination.performFatally(as: Resource.RawValue.self) {$0}
             let pSrcBuffer = source.performFatally(as: Resource.RawValue.self) {$0}
             pThis.pointee.lpVtbl.pointee.CopyResource(pThis, pDstBuffer, pSrcBuffer)
@@ -184,7 +185,10 @@ public class GraphicsCommandList: CommandList {
 
     To copy an entire resource, rather than just a region of a subresource, we recommend to use CopyResource instead.
     */
-    public func copyTextureRegion(_ region: Box, from source: TextureCopyLocation, to destination: TextureCopyLocation, atX x: UInt32, y: UInt32, z: UInt32 = 0) {
+    public func copyTextureRegion(_ region: Box, 
+                                 from source: TextureCopyLocation, 
+                                 to destination: TextureCopyLocation, 
+                                 atX x: UInt32, y: UInt32, z: UInt32 = 0) {
         performFatally(as: RawValue.self) {pThis in
             var pDst = destination.rawValue
             let DstX = x
@@ -193,6 +197,144 @@ public class GraphicsCommandList: CommandList {
             var pSrc = source.rawValue
             var pSrcBox = region.rawValue
             pThis.pointee.lpVtbl.pointee.CopyTextureRegion(pThis, &pDst, DstX, DstY, DstZ, &pSrc, &pSrcBox)
+        }
+    }
+
+    /** Copies tiles from buffer to tiled resource or vice versa.
+    - parameter tiledResource: A pointer to a tiled resource.
+    - parameter start: A pointer to a D3D12_TILED_RESOURCE_COORDINATE structure that describes the starting coordinates of the tiled resource.
+    - parameter size: A pointer to a D3D12_TILE_REGION_SIZE structure that describes the size of the tiled region.
+    - parameter buffer: A pointer to an ID3D12Resource that represents a default, dynamic, or staging buffer.
+    - parameter offset: The offset in bytes into the buffer at pBuffer to start the operation.
+    - perameter flags: A combination of D3D12_TILE_COPY_FLAGS-typed values that are combined by using a bitwise OR operation and that identifies how to copy tiles.
+    */
+    public func copyTiles(from tiledResource: Resource, at start: TiledResourceCoordinate, size: TileRegionSize,
+                          buffer: Resource, offset: UInt64,
+                          flags: TileCopyFlags) {
+        performFatally(as: RawValue.self) {pThis in
+            let pTiledResource = tiledResource.performFatally(as: Resource.RawValue.self) {$0}
+            var pTileRegionStartCoordinate = start.rawValue
+            var pTileRegionSize = size.rawValue
+            let pBuffer = buffer.performFatally(as: Resource.RawValue.self) {$0}
+            let BufferStartOffsetInBytes = offset
+            let Flags = TileCopyFlags.RawType(flags.rawValue)
+            pThis.pointee.lpVtbl.pointee.CopyTiles(pThis, pTiledResource, &pTileRegionStartCoordinate, &pTileRegionSize, pBuffer, BufferStartOffsetInBytes, Flags)
+        }
+    }
+
+    /** Indicates that the contents of a resource don't need to be preserved. The function may re-initialize resource metadata in some cases.
+    - parameter resource: A pointer to the ID3D12Resource interface for the resource to discard.
+    - parameter region: A pointer to a D3D12_DISCARD_REGION structure that describes details for the discard-resource operation.
+    */
+    public func discardResource(_ resource: Resource, region: DiscardRegion? = nil) {
+        performFatally(as: RawValue.self) {pThis in
+            let pResource = resource.performFatally(as: Resource.RawValue.self) {$0}
+            if var pRegion = region?.rawValue {
+                pThis.pointee.lpVtbl.pointee.DiscardResource(pThis, pResource, &pRegion)
+            }else{
+                pThis.pointee.lpVtbl.pointee.DiscardResource(pThis, pResource, nil)
+            }
+        }
+    }
+
+    /** Executes a command list from a thread group.
+    - parameter countX: The number of groups dispatched in the x direction. ThreadGroupCountX must be less than or equal to D3D11_CS_DISPATCH_MAX_THREAD_GROUPS_PER_DIMENSION (65535).
+    - parameter countY: The number of groups dispatched in the y direction. ThreadGroupCountY must be less than or equal to D3D11_CS_DISPATCH_MAX_THREAD_GROUPS_PER_DIMENSION (65535).
+    - parameter countZ: The number of groups dispatched in the z direction. ThreadGroupCountZ must be less than or equal to D3D11_CS_DISPATCH_MAX_THREAD_GROUPS_PER_DIMENSION (65535). In feature level 10 the value for ThreadGroupCountZ must be 1.
+    */
+    public func dispatch(countX: UInt32, countY: UInt32 = 1, countZ: UInt32 = 1) {
+        performFatally(as: RawValue.self) {pThis in
+            pThis.pointee.lpVtbl.pointee.Dispatch(pThis, countX, countY, countZ)
+        }
+    }
+
+    /** Draws indexed, instanced primitives.
+    - parameter instanceCount: Number of instances to draw.
+    - parameter instanceStartIndex: A value added to each index before reading per-instance data from a vertex buffer.
+    - parameter indexCount: Number of indices read from the index buffer for each instance.
+    - parameter startIndex: The location of the first index read by the GPU from the index buffer.
+    - parameter baseVertexLocation: A value added to each index before reading a vertex from the vertex buffer.
+    */
+    public func drawIndexedInstanced(indexCountPerInstance: UInt32,
+                                     instanceCount: UInt32,
+                                     startIndexLocation: UInt32,
+                                     baseVertexLocation: Int32,
+                                     startInstanceLocation: UInt32) {
+        performFatally(as: RawValue.self) {pThis in
+            let IndexCountPerInstance = indexCountPerInstance
+            let InstanceCount = instanceCount
+            let StartIndexLocation = startIndexLocation
+            let BaseVertexLocation = baseVertexLocation
+            let StartInstanceLocation = startInstanceLocation
+            pThis.pointee.lpVtbl.pointee.DrawIndexedInstanced(pThis, IndexCountPerInstance, InstanceCount, StartIndexLocation, BaseVertexLocation, StartInstanceLocation)
+        }
+    }
+
+    /** Draws non-indexed, instanced primitives.
+    - parameter vertexCountPerInstance: Number of vertices to draw.
+    - parameter instanceCount: Number of instances to draw.
+    - parameter startVertexLocation: Index of the first vertex.
+    - parameter startInstanceLocation: A value added to each index before reading per-instance data from a vertex buffer.
+    */
+    public func drawInstanced(vertexCountPerInstance: UInt32, 
+                              instanceCount: UInt32, 
+                              startVertexLocation: UInt32, 
+                              startInstanceLocation: UInt32) {
+        performFatally(as: RawValue.self) {pThis in
+            let VertexCountPerInstance = vertexCountPerInstance
+            let InstanceCount = instanceCount
+            let StartVertexLocation = startVertexLocation
+            let StartInstanceLocation = startInstanceLocation
+            pThis.pointee.lpVtbl.pointee.DrawInstanced(pThis, VertexCountPerInstance, InstanceCount, StartVertexLocation, StartInstanceLocation)
+        }
+    }
+
+    /** Ends a running query.
+    - parameter queryHeap: Specifies the ID3D12QueryHeap containing the query.
+    - parameter type: Specifies one member of D3D12_QUERY_TYPE.
+    - parameter index: Specifies the index of the query in the query heap.
+    */
+    public func endQuery(_ queryHeap: QueryHeap, type: QueryType, index: UInt32 = 0) {
+        performFatally(as: RawValue.self) {pThis in
+            let pQueryHeap = queryHeap.performFatally(as: QueryHeap.RawValue.self) {$0}
+            let Type = type.rawValue
+            let Index = index
+            pThis.pointee.lpVtbl.pointee.EndQuery(pThis, pQueryHeap, Type, Index)
+        }
+    }
+    
+    /** Executes a bundle.
+    - parameter bundle: Specifies the ID3D12GraphicsCommandList that determines the bundle to be executed.
+    */
+    public func executeBundle(_ bundle: GraphicsCommandList) {
+        performFatally(as: RawValue.self) {pThis in
+            let pCommandList = bundle.performFatally(as: GraphicsCommandList.RawValue.self) {$0}
+            pThis.pointee.lpVtbl.pointee.ExecuteBundle(pThis, pCommandList)
+        }
+    }
+
+    /** Apps perform indirect draws/dispatches using the ExecuteIndirect method.
+    - parameter signature: Specifies a ID3D12CommandSignature. The data referenced by pArgumentBuffer will be interpreted depending on the contents of the command signature. Refer to Indirect Drawing for the APIs that are used to create a command signature.
+    - parameter maxCount: There are two ways that command counts can be specified: If pCountBuffer is not NULL, then MaxCommandCount specifies the maximum number of operations which will be performed. The actual number of operations to be performed are defined by the minimum of this value, and a 32-bit unsigned integer contained in pCountBuffer (at the byte offset specified by CountBufferOffset). If pCountBuffer is NULL, the MaxCommandCount specifies the exact number of operations which will be performed.
+    - parameter argumentBuffer: Specifies one or more ID3D12Resource objects, containing the command arguments.
+    - parameter argumentBufferOffset: Specifies an offset into pArgumentBuffer to identify the first command argument.
+    - parameter countBuffer: Specifies a pointer to a ID3D12Resource.
+    - parameter countBufferOffset: Specifies a UINT64 that is the offset into pCountBuffer, identifying the argument count.
+    */
+    public func executeIndirect(signature: CommandSignature,
+                                maxCount: UInt32,
+                                argumentBuffer: Resource,
+                                argumentBufferOffset: UInt64,
+                                countBuffer: Resource,
+                                countBufferOffset: UInt64) {
+        performFatally(as: RawValue.self) {pThis in
+            let pCommandSignature = signature.performFatally(as: CommandSignature.RawValue.self) {$0}
+            let MaxCommandCount = maxCount
+            let pArgumentBuffer = argumentBuffer.performFatally(as: Resource.RawValue.self) {$0}
+            let ArgumentBufferOffset = argumentBufferOffset
+            let pCountBuffer = countBuffer.performFatally(as: Resource.RawValue.self) {$0}
+            let CountBufferOffset = countBufferOffset
+            pThis.pointee.lpVtbl.pointee.ExecuteIndirect(pThis, pCommandSignature, MaxCommandCount, pArgumentBuffer, ArgumentBufferOffset, pCountBuffer, CountBufferOffset)
         }
     }
 
@@ -299,9 +441,68 @@ public extension GraphicsCommandList {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
+    @available(*, unavailable, renamed: "copyTiles(from:at:size:buffer:offset:flags:)")
+    func CopyTiles(_ pTiledResource: Any,
+                   _ pTileRegionStartCoordinate: Any,
+                   _ pTileRegionSize: Any,
+                   _ pBuffer: Any,
+                   _ BufferStartOffsetInBytes: Any,
+                   _ Flags: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "discardResource(_:region:)")
+    func DiscardResource(_ pResource: Any,
+                         _ pRegion: Any?) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "dispatch(countX:countY:countZ:)")
+    func Dispatch(_ ThreadGroupCountX: Any,
+                  _ ThreadGroupCountY: Any,
+                  _ ThreadGroupCountZ: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "drawIndexedInstanced(indexCountPerInstance:instanceCount:startIndexLocation:baseVertexLocation:startInstanceLocation:)")
+    func DrawIndexedInstanced(_ IndexCountPerInstance: Any,
+                              _ InstanceCount: Any,
+                              _ StartIndexLocation: Any,
+                              _ BaseVertexLocation: Any,
+                              _ StartInstanceLocation: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "drawInstanced(vertexCountPerInstance:instanceCount:startVertexLocation:startInstanceLocation:)")
+    func DrawInstanced(_ VertexCountPerInstance: Any,
+                       _ InstanceCount: Any,
+                       _ StartVertexLocation: Any,
+                       _ StartInstanceLocation: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
 
     @available(*, unavailable, message: "Not intended to be called directly. Use the PIX event runtime to insert events into a command queue.")
     func EndEvent(_ Metadata: Any, _ pData: Any, _ Size: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "endQuery(_:type:index:)")
+    func EndQuery(_ pQueryHeap: Any, _ Type: Any, _ Index: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "executeBundle(_:)")
+    func ExecuteBundle(_ pCommandList: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "executeIndirect(signature:maxCount:argumentBuffer:offset:countBuffer:offset:)")
+    func ExecuteIndirect(_ pCommandSignature: Any,
+                         _ MaxCommandCount: Any,
+                         _ pArgumentBuffer: Any,
+                         _ ArgumentBufferOffset: Any,
+                         _ pCountBuffer: Any?,
+                         _ CountBufferOffset: Any) {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 }

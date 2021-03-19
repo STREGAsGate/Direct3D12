@@ -9,10 +9,11 @@
 import WinSDK
 
 public struct DiscardRegion {
-    internal var rawValue: WinSDK.D3D12_DISCARD_REGION
+    public typealias RawValue = WinSDK.D3D12_DISCARD_REGION
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_DISCARD_REGION) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

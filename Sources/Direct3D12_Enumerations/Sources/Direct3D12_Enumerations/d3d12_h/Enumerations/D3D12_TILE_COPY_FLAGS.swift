@@ -10,7 +10,9 @@ import WinSDK
 
 /// Specifies how to copy a tile.
 public struct TileCopyFlags: OptionSet {
-    public let rawValue: Int32
+    public typealias RawType = WinSDK.D3D12_TILE_COPY_FLAGS
+    public typealias RawValue = WinSDK.D3D12_TILE_COPY_FLAGS.RawValue
+    public let rawValue: RawValue
     //Use an empty collection `[]` to represent none in Swift.
     ///// No tile-copy flags are specified.
     //static let none = TileCopyFlags(rawValue: WinSDK.D3D12_TILE_COPY_FLAG_NONE.rawValue)
@@ -28,7 +30,7 @@ public struct TileCopyFlags: OptionSet {
     /// In this ID3D12GraphicsCommandList::CopyTiles call, you specify the source data with the pTiledResource parameter and the destination with the pBuffer parameter.
     static let swizzledTiledResourceToLinearBuffer = TileCopyFlags(rawValue: WinSDK.D3D12_TILE_COPY_FLAG_SWIZZLED_TILED_RESOURCE_TO_LINEAR_BUFFER.rawValue)
 
-    public init(rawValue: Int32) {
+    public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
     public init() {
