@@ -9,10 +9,10 @@
 import WinSDK
 
 public struct TextureCopyLocation {
-    internal var rawValue: WinSDK.D3D12_TEXTURE_COPY_LOCATION
+    public typealias RawValue = WinSDK.D3D12_TEXTURE_COPY_LOCATION
+    internal var rawValue: RawValue
 
-
-    internal init(_ rawValue: WinSDK.D3D12_TEXTURE_COPY_LOCATION) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

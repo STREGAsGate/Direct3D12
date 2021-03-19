@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -10,7 +10,9 @@ import WinSDK
 
 /// Specifies what to clear from the depth stencil view.
 public struct ClearFlags: OptionSet {
-    public let rawValue: Int32
+    public typealias RawType = WinSDK.D3D12_CLEAR_FLAGS
+    public typealias RawValue = WinSDK.D3D12_CLEAR_FLAGS.RawValue
+    public let rawValue: RawValue
 
     /// Indicates the depth buffer should be cleared.
     static let depth = ClearFlags(rawValue: WinSDK.D3D12_CLEAR_FLAG_DEPTH.rawValue)
@@ -18,7 +20,7 @@ public struct ClearFlags: OptionSet {
     /// Indicates the stencil buffer should be cleared.
     static let stencil = ClearFlags(rawValue: WinSDK.D3D12_CLEAR_FLAG_STENCIL.rawValue)
 
-    public init(rawValue: Int32) {
+    public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
     public init() {
