@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct Viewport {
-    internal var rawValue: WinSDK.D3D12_VIEWPORT
+public struct IndexBufferView {
+    public typealias RawValue = WinSDK.D3D12_INDEX_BUFFER_VIEW
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_VIEWPORT) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct Viewport {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Viewport")
-public typealias D3D12_VIEWPORT = Viewport
+@available(*, deprecated, renamed: "IndexBufferView")
+public typealias D3D12_INDEX_BUFFER_VIEW = IndexBufferView
 
 #endif

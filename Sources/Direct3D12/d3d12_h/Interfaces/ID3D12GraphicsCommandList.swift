@@ -34,7 +34,7 @@ public class GraphicsCommandList: CommandList {
     */
     public func clearDepthStencilView(_ view: CPUDescriptorHandle,
                                       flags: ClearFlags,
-                                      depthValue: Float32 = 0,
+                                      depthValue: Float = 0,
                                       stencilValue: UInt8 = 0,
                                       regions: [Rect]? = nil) {
         performFatally(as: RawValue.self) {pThis in
@@ -54,8 +54,9 @@ public class GraphicsCommandList: CommandList {
     - parameter regions: An array of D3D12_RECT structures for the rectangles in the resource view to clear. If NULL, ClearRenderTargetView clears the entire resource view.
     */
     public func clearRenderTargetView(_ view: CPUDescriptorHandle,
-                                      withColor clearColor: [Float32],
-                                      regions: [Rect]? = nil) {
+                                      withColor clearColor: [Float],
+                                      regions: [Rect]? = nil) throws {
+        guard clearColor.count == 4 else {throw Error(.invalidArgument)}
         performFatally(as: RawValue.self) {pThis in
             let RenderTargetView = view.rawValue
             let ColorRGBA = clearColor
@@ -90,7 +91,7 @@ public class GraphicsCommandList: CommandList {
     public func clearUnorderedAccessView(gpuHandle: GPUDescriptorHandle,
                                          cpuHandle: CPUDescriptorHandle,
                                          resource: Resource,
-                                         floatValues values: [Float32],
+                                         floatValues values: [Float],
                                          regions: [Rect]? = nil) {
         performFatally(as: RawValue.self) {pThis in
             let ViewGPUHandleInCurrentHeap = gpuHandle.rawValue
@@ -338,6 +339,202 @@ public class GraphicsCommandList: CommandList {
         }
     }
 
+    /** Sets the view for the index buffer.
+    - parameter view: The view specifies the index buffer's address, size, and DXGI_FORMAT, as a pointer to a D3D12_INDEX_BUFFER_VIEW structure.
+    */
+    public func setIndexBuffer(_ view: IndexBufferView) {
+        performFatally(as: RawValue.self) {pThis in
+            var pView = view.rawValue
+            pThis.pointee.lpVtbl.pointee.IASetIndexBuffer(pThis, &pView)
+        }
+    }
+
+    /** Bind information about the primitive type, and data order that describes input data for the input assembler stage.
+    - parameter primitiveTopology: The type of primitive and ordering of the primitive data (see D3D_PRIMITIVE_TOPOLOGY).
+    */
+    public func setPrimitiveTopology(_ primitiveTopology: PrimitiveTopology) {
+        performFatally(as: RawValue.self) {pThis in
+            let PrimitiveTopology = primitiveTopology.rawValue
+            pThis.pointee.lpVtbl.pointee.IASetPrimitiveTopology(pThis, PrimitiveTopology)
+        }
+    }
+
+    /** Sets a CPU descriptor handle for the vertex buffers.
+    - parameter buffers: Specifies the vertex buffer views in an array of D3D12_VERTEX_BUFFER_VIEW structures.
+    - parameter startSlot: Sets a CPU descriptor handle for the vertex buffers.
+    */
+    public func setVertexBuffers(_ buffers: [VertexBufferView], startingAt startSlot: UInt32 = 0) {
+       performFatally(as: RawValue.self) {pThis in
+            let StartSlot = startSlot
+            let NumViews = UInt32(buffers.count)
+            let pViews = buffers.map({$0.rawValue})
+            pThis.pointee.lpVtbl.pointee.IASetVertexBuffers(pThis, StartSlot, NumViews, pViews)
+        }
+    }
+
+    /** Sets the blend factor that modulate values for a pixel shader, render target, or both.
+    - parameter red: Array of blend factors, one for each RGBA component.
+    - parameter green: Array of blend factors, one for each RGBA component.
+    - parameter blue: Array of blend factors, one for each RGBA component.
+    - parameter alpha: Array of blend factors, one for each RGBA component.
+    */
+    public func setBlendFactor(red: Float, green: Float, blue: Float, alpha: Float) {
+       performFatally(as: RawValue.self) {pThis in
+            let BlendFactor = [red, green, blue, alpha]
+            pThis.pointee.lpVtbl.pointee.OMSetBlendFactor(pThis, BlendFactor)
+        }
+    }
+    
+    /** Sets the blend factor that modulate values for a pixel shader, render target, or both.
+    - parameter blendFactor: Array of blend factors, one for each RGBA component.
+    */
+    public func setBlendFactor(_ blendFactor: [Float]) throws {
+        try perform(as: RawValue.self) {pThis in
+            guard blendFactor.count == 4 else {throw Error(.invalidArgument)}
+            let BlendFactor = blendFactor
+            pThis.pointee.lpVtbl.pointee.OMSetBlendFactor(pThis, BlendFactor)
+        }
+    }
+
+    /** Sets CPU descriptor handles for the render targets and depth stencil.
+    - parameter renderTargets: Specifies an array of D3D12_CPU_DESCRIPTOR_HANDLE structures that describe the CPU descriptor handles that represents the start of the heap of render target descriptors. If this parameter is NULL and NumRenderTargetDescriptors is 0, no render targets are bound.
+    - parameter depthStencilDescriptor: A pointer to a D3D12_CPU_DESCRIPTOR_HANDLE structure that describes the CPU descriptor handle that represents the start of the heap that holds the depth stencil descriptor. If this parameter is NULL, no depth stencil descriptor is bound.
+    */
+    public func setRenderTargets(_ renderTargets: [CPUDescriptorHandle], depthStencilDescriptor: CPUDescriptorHandle? = nil) {
+        performFatally(as: RawValue.self) {pThis in
+            let NumRenderTargetDescriptors = UInt32(renderTargets.count)
+            let pRenderTargetDescriptors = renderTargets.map({$0.rawValue})
+            let RTsSingleHandleToDescriptorRange = WindowsBool(booleanLiteral: true) //We just made sure they are contiguous
+            if var pDepthStencilDescriptor = depthStencilDescriptor?.rawValue {
+                pThis.pointee.lpVtbl.pointee.OMSetRenderTargets(pThis, NumRenderTargetDescriptors, pRenderTargetDescriptors, RTsSingleHandleToDescriptorRange, &pDepthStencilDescriptor)
+            }else{
+                pThis.pointee.lpVtbl.pointee.OMSetRenderTargets(pThis, NumRenderTargetDescriptors, pRenderTargetDescriptors, RTsSingleHandleToDescriptorRange, nil)
+            }
+        }
+    }
+
+    /** Sets the reference value for depth stencil tests.
+    - parameter reference: Reference value to perform against when doing a depth-stencil test.
+    */
+    public func setStencilReference(_ reference: UInt32) {
+        performFatally(as: RawValue.self) {pThis in
+            let StencilRef = reference
+            pThis.pointee.lpVtbl.pointee.OMSetStencilRef(pThis, StencilRef)
+        }
+    }
+
+    /** Resets a command list back to its initial state as if a new command list was just created.
+    - parameter commandAllocator: A pointer to the ID3D12CommandAllocator object that the device creates command lists from.
+    - parameter state: A pointer to the ID3D12PipelineState object that contains the initial pipeline state for the command list. This is optional and can be NULL. If NULL, the runtime sets a dummy initial pipeline state so that drivers don't have to deal with undefined state. The overhead for this is low, particularly for a command list, for which the overall cost of recording the command list likely dwarfs the cost of one initial state setting. So there is little cost in not setting the initial pipeline state parameter if it isn't convenient. For bundles on the other hand, it might make more sense to try to set the initial state parameter since bundles are likely smaller overall and can be reused frequently.
+    */
+    public func reset(usingOriginalAllocator commandAllocator: CommandAllocator, withInitialState state: PipelineState?) throws {
+        try perform(as: RawValue.self) {pThis in
+            let pAllocator = try commandAllocator.perform(as: CommandAllocator.RawValue.self) {$0}
+            let pInitialState = try state?.perform(as: PipelineState.RawValue.self, body: {$0})
+            try pThis.pointee.lpVtbl.pointee.Reset(pThis, pAllocator, pInitialState).checkResult()
+        }
+    }
+
+    /** Extracts data from a query. ResolveQueryData works with all heap types (default, upload, and readback).
+    - parameter query: Specifies the ID3D12QueryHeap containing the queries to resolve.
+    - parameter type: Specifies the type of query, one member of D3D12_QUERY_TYPE.
+    - parameter startIndex: Specifies an index of the first query to resolve.
+    - parameter count: Specifies the number of queries to resolve.
+    - parameter destination: Specifies an ID3D12Resource destination buffer, which must be in the state D3D12_RESOURCE_STATE_COPY_DEST.
+    - parameter offset: Specifies an alignment offset into the destination buffer. Must be a multiple of 8 bytes.
+    */
+    public func resolveQueryData(fromHeap query: QueryHeap, ofType type: QueryType, at startIndex: UInt32, count: UInt32, toResource destination: Resource, at offset: UInt64) {
+        performFatally(as: RawValue.self) {pThis in
+            let pQueryHeap = query.performFatally(as: QueryHeap.RawValue.self) {$0}
+            let Type = type.rawValue
+            let StartIndex = startIndex
+            let NumQueries = count
+            let pDestinationBuffer = destination.performFatally(as: Resource.RawValue.self) {$0}
+            let AlignedDestinationBufferOffset = offset
+            pThis.pointee.lpVtbl.pointee.ResolveQueryData(pThis, pQueryHeap, Type, StartIndex, NumQueries, pDestinationBuffer, AlignedDestinationBufferOffset)
+        }
+    }
+
+    /** Copy a multi-sampled resource into a non-multi-sampled resource.
+    - parameter source: Source resource. Must be multisampled.
+    - parameter srcIndex: The source subresource of the source resource.
+    - parameter destination: Destination resource. Must be a created on a D3D12_HEAP_TYPE_DEFAULT heap and be single-sampled. See ID3D12Resource.
+    - parameter dstIndex: A zero-based index, that identifies the destination subresource. Use D3D12CalcSubresource to calculate the subresource index if the parent resource is complex.
+    - parameter format: A DXGI_FORMAT that indicates how the multisampled resource will be resolved to a single-sampled resource. See remarks.
+    */
+    public func resolveSubresource(from source: Resource, at srcIndex: UInt32, to destination: Resource, at dstIndex: UInt32, format: Format) {
+        performFatally(as: RawValue.self) {pThis in
+            let pDstResource = destination.performFatally(as: Resource.RawValue.self) {$0}
+            let DstSubresource = dstIndex
+            let pSrcResource = source.performFatally(as: Resource.RawValue.self) {$0}
+            let SrcSubresource = srcIndex
+            let Format = format.rawValue
+            pThis.pointee.lpVtbl.pointee.ResolveSubresource(pThis, pDstResource, DstSubresource, pSrcResource, SrcSubresource, Format)
+        }
+    }
+
+    /** Notifies the driver that it needs to synchronize multiple accesses to resources.
+    - parameter barriers: Pointer to an array of barrier descriptions.
+    */
+    public func resourceBarrier(_ barriers: [ResourceBarrier]) {
+        performFatally(as: RawValue.self) {pThis in
+            let NumBarriers = UInt32(barriers.count)
+            let pBarriers = barriers.map({$0.rawValue})
+            pThis.pointee.lpVtbl.pointee.ResourceBarrier(pThis, NumBarriers, pBarriers)
+        }
+    }
+
+    /** Binds an array of scissor rectangles to the rasterizer stage.
+    - parameter rects: An array of scissor rectangles.
+    */
+    public func setScissorRects(_ rects: [Rect]) {
+        performFatally(as: RawValue.self) {pThis in
+            let NumRects = UInt32(rects.count)
+            let pRects = rects.map({$0.rawValue})
+            pThis.pointee.lpVtbl.pointee.RSSetScissorRects(pThis, NumRects, pRects)
+        }
+    }
+
+    /** Bind an array of viewports to the rasterizer stage of the pipeline.
+    - parameter viewports: An array of D3D12_VIEWPORT structures to bind to the device.
+    */
+    public func setViewports(_ viewports: [Viewport]) {
+        performFatally(as: RawValue.self) {pThis in
+            let NumViewports = UInt32(viewports.count)
+            let pViewports = viewports.map({$0.rawValue})
+            pThis.pointee.lpVtbl.pointee.RSSetViewports(pThis, NumViewports, pViewports)
+        }
+    }
+
+    /** Sets a constant in the compute root signature.
+    - parameter index: The slot number for binding.
+    - parameter data: The source data for the constant to set.
+    - parameter offset: The offset, in 32-bit values, to set the constant in the root signature.
+    */
+    public func setComputeRoot32BitConstant(at index: UInt32, data: UInt32, offset: UInt32) {
+        performFatally(as: RawValue.self) {pThis in
+            let RootParameterIndex = index
+            let SrcData = data
+            let DestOffsetIn32BitValues = offset
+            pThis.pointee.lpVtbl.pointee.SetComputeRoot32BitConstant(pThis, RootParameterIndex, SrcData, DestOffsetIn32BitValues)
+        }
+    }
+
+    /** Sets a constant in the compute root signature.
+    - parameter index: The slot number for binding.
+    - parameter data: The source data for the group of constants to set.
+    - parameter offset: The offset, in 32-bit values, to set the constant in the root signature.
+    */
+    public func setComputeRoot32BitConstants(at index: UInt32, data: [UInt32], offset: UInt32) {
+       performFatally(as: RawValue.self) {pThis in
+            let RootParameterIndex = index
+            let Num32BitValuesToSet = UInt32(data.count)
+            let SrcData = data
+            let DestOffsetIn32BitValues = offset
+            pThis.pointee.lpVtbl.pointee.SetComputeRoot32BitConstants(pThis, RootParameterIndex, Num32BitValuesToSet, SrcData, DestOffsetIn32BitValues)
+        }
+    }
+
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
@@ -505,6 +702,93 @@ public extension GraphicsCommandList {
                          _ CountBufferOffset: Any) {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
+
+    @available(*, unavailable, renamed: "setIndexBuffer(_:)")
+    func IASetIndexBuffer(_ pView: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "setPrimitiveTopology(_:)")
+    func IASetPrimitiveTopology(_ PrimitiveTopology: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+    
+    @available(*, unavailable, renamed: "setVertexBuffers(_:startingAt:)")
+    func IASetVertexBuffers(_ StartSlot: Any,
+                            _ NumViews: Any,
+                            _ pViews: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "setBlendFactor(_:)")
+    func OMSetBlendFactor(_ BlendFactor: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "setRenderTargets(_:depthStencilDescriptor:)")
+    func OMSetRenderTargets(_ NumRenderTargetDescriptors: Any,
+                            _ pRenderTargetDescriptors: Any,
+                            _ RTsSingleHandleToDescriptorRange: Any,
+                            _ pDepthStencilDescriptor: Any?) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "setStencilReference(_:)")
+    func OMSetStencilRef(_ StencilRef: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "reset(usingOriginalAllocator:withInitialState:)")
+    func RESET(_ pAllocator: Any,
+               _ pInitialState: Any?) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "resolveQueryData(fromHeap:ofType:at:count:toResource:at:)")
+    func ResolveQueryData(_ pQueryHeap: Any,
+                          _ Type: Any,
+                          _ StartIndex: Any,
+                          _ NumQueries: Any,
+                          _ pDestinationBuffer: Any,
+                          _ AlignedDestinationBufferOffset: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "resolveSubresource(from:at:to:at:format:)")
+    func ResolveSubresource(_ pDstResource: Any,
+                            _ DstSubresource: Any,
+                            _ pSrcResource: Any,
+                            _ SrcSubresource: Any,
+                            _ Format: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "resourceBarrier(_:)")
+    func ResourceBarrier(_ NumBarriers: Any,
+                         _ pBarriers: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "setScissorRects(_:)")
+    func RSSetScissorRects(_ NumRects: Any,
+                           _ pRects: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "setViewports(_:)")
+    func RSSetViewports(_ NumViewports: Any,
+                        _ pViewports: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
+    @available(*, unavailable, renamed: "setComputeRoot32BitConstants(at:data:offset:)")
+    func SetComputeRoot32BitConstants(_ RootParameterIndex: Any,
+                                     _ Num32BitValuesToSet: Any,
+                                     _ SrcData: Any,
+                                     _ DestOffsetIn32BitValues: Any) {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+
 }
 
 #endif

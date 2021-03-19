@@ -9,10 +9,11 @@
 import WinSDK
 
 public struct ResourceBarrier {
-    internal var rawValue: WinSDK.D3D12_RESOURCE_BARRIER
+    public typealias RawValue = WinSDK.D3D12_RESOURCE_BARRIER
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RESOURCE_BARRIER) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

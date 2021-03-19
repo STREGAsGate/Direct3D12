@@ -9,10 +9,11 @@
 import WinSDK
 
 public struct VertexBufferView {
-    internal var rawValue: WinSDK.D3D12_VERTEX_BUFFER_VIEW
+    public typealias RawValue = WinSDK.D3D12_VERTEX_BUFFER_VIEW
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_VERTEX_BUFFER_VIEW) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
