@@ -8,25 +8,25 @@
 
 import WinSDK
 
-public class PipelineState: Pageable {
+public class D3DPipelineState: D3DPageable {
     
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension PipelineState {
+extension D3DPipelineState {
     typealias RawValue = WinSDK.ID3D12PipelineState
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension PipelineState.RawValue {
+extension D3DPipelineState.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12PipelineState}
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "PipelineState")
-public typealias ID3D12PipelineState = PipelineState 
+@available(*, deprecated, renamed: "D3DPipelineState")
+public typealias ID3D12PipelineState = D3DPipelineState 
 
 #endif

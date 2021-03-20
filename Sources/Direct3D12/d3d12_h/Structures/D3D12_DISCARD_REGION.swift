@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct DiscardRegion {
+public struct D3DDiscardRegion {
     public typealias RawValue = WinSDK.D3D12_DISCARD_REGION
     internal var rawValue: RawValue
 
@@ -22,7 +22,7 @@ public struct DiscardRegion {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DiscardRegion")
-public typealias D3D12_DISCARD_REGION = DiscardRegion
+@available(*, deprecated, renamed: "D3DDiscardRegion")
+public typealias D3D12_DISCARD_REGION = D3DDiscardRegion
 
 #endif

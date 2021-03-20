@@ -8,14 +8,14 @@
 
 import WinSDK
 
-public class RootSignatureDeserializer: IUnknown {
+public class D3DRootSignatureDeserializer: IUnknown {
     
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RootSignatureDeserializer")
-public typealias ID3D12RootSignatureDeserializer = RootSignatureDeserializer
+@available(*, deprecated, renamed: "D3DRootSignatureDeserializer")
+public typealias ID3D12RootSignatureDeserializer = D3DRootSignatureDeserializer
 
 #endif

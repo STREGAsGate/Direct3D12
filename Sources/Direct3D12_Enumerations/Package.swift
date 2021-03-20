@@ -22,10 +22,6 @@ let package = Package(
             targets: ["Direct3D12_Enumerations"]),
     ],
     targets: [
-        .target(
-            name: "Direct3D12_Enumerations",
-            exclude: ["d3d12_h/Enumerations/TEMPLATE_D3D12_ENUM.swift",
-                      "d3d12_h/Enumerations/TEMPLATE_D3D12_FLAGS.swift"]
-        ),
+        .target(name: "Direct3D12_Enumerations"),
     ]
 )

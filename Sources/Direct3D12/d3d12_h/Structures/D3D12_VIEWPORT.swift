@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct Viewport {
+public struct D3DViewport {
     public typealias RawValue = WinSDK.D3D12_VIEWPORT
     internal var rawValue: RawValue
 
@@ -22,7 +22,7 @@ public struct Viewport {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Viewport")
-public typealias D3D12_VIEWPORT = Viewport
+@available(*, deprecated, renamed: "D3DViewport")
+public typealias D3D12_VIEWPORT = D3DViewport
 
 #endif

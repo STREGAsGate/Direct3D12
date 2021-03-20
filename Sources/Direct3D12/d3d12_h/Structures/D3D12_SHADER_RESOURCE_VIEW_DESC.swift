@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct ShaderResourceViewDescription {
+public struct D3DShaderResourceViewDescription {
     internal var rawValue: WinSDK.D3D12_SHADER_RESOURCE_VIEW_DESC
 
 
@@ -21,7 +21,7 @@ public struct ShaderResourceViewDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ShaderResourceViewDescription")
-public typealias D3D12_SHADER_RESOURCE_VIEW_DESC = ShaderResourceViewDescription
+@available(*, deprecated, renamed: "D3DShaderResourceViewDescription")
+public typealias D3D12_SHADER_RESOURCE_VIEW_DESC = D3DShaderResourceViewDescription
 
 #endif

@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Specifies a type of descriptor heap.
-public enum DescriptorHeapType {
+public enum D3DDescriptorHeapType {
     public typealias RawValue = WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE
     ///	The descriptor heap for the combination of constant-buffer, shader-resource, and unordered-access views.
     case constantBufferShaderResourceAndUnordererAccess
@@ -42,23 +42,23 @@ public enum DescriptorHeapType {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DescriptorHeapType")
-public typealias D3D12_DESCRIPTOR_HEAP_TYPE = DescriptorHeapType
+@available(*, deprecated, renamed: "D3DDescriptorHeapType")
+public typealias D3D12_DESCRIPTOR_HEAP_TYPE = D3DDescriptorHeapType
 
 
-@available(*, deprecated, renamed: "DescriptorHeapType.constantBufferShaderResourceAndUnordererAccess")
-public let D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV = DescriptorHeapType.constantBufferShaderResourceAndUnordererAccess
+@available(*, deprecated, renamed: "D3DDescriptorHeapType.constantBufferShaderResourceAndUnordererAccess")
+public let D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV = D3DDescriptorHeapType.constantBufferShaderResourceAndUnordererAccess
 
-@available(*, deprecated, renamed: "DescriptorHeapType.sampler")
-public let D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER = DescriptorHeapType.sampler
+@available(*, deprecated, renamed: "D3DDescriptorHeapType.sampler")
+public let D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER = D3DDescriptorHeapType.sampler
 
-@available(*, deprecated, renamed: "DescriptorHeapType.renderTargetView")
-public let D3D12_DESCRIPTOR_HEAP_TYPE_RTV = DescriptorHeapType.renderTargetView
+@available(*, deprecated, renamed: "D3DDescriptorHeapType.renderTargetView")
+public let D3D12_DESCRIPTOR_HEAP_TYPE_RTV = D3DDescriptorHeapType.renderTargetView
 
-@available(*, deprecated, renamed: "DescriptorHeapType.depthStencilView")
-public let D3D12_DESCRIPTOR_HEAP_TYPE_DSV = DescriptorHeapType.depthStencilView
+@available(*, deprecated, renamed: "D3DDescriptorHeapType.depthStencilView")
+public let D3D12_DESCRIPTOR_HEAP_TYPE_DSV = D3DDescriptorHeapType.depthStencilView
 
-@available(*, deprecated, renamed: "DescriptorHeapType.numberOfTypes")
-public let D3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES = DescriptorHeapType.numberOfTypes
+@available(*, deprecated, renamed: "D3DDescriptorHeapType.numberOfTypes")
+public let D3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES = D3DDescriptorHeapType.numberOfTypes
 
 #endif

@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct UnorderedAccessViewDescription {
+public struct D3DUnorderedAccessViewDescription {
     internal var rawValue: WinSDK.D3D12_UNORDERED_ACCESS_VIEW_DESC
 
 
@@ -21,7 +21,7 @@ public struct UnorderedAccessViewDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "UnorderedAccessViewDescription")
-public typealias D3D12_UNORDERED_ACCESS_VIEW_DESC = UnorderedAccessViewDescription
+@available(*, deprecated, renamed: "D3DUnorderedAccessViewDescription")
+public typealias D3D12_UNORDERED_ACCESS_VIEW_DESC = D3DUnorderedAccessViewDescription
 
 #endif

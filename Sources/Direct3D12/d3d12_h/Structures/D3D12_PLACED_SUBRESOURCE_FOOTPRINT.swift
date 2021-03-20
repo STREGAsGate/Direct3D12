@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct PlacedSubresourceFootprint {
+public struct D3DPlacedSubresourceFootprint {
     public typealias RawValue = WinSDK.D3D12_PLACED_SUBRESOURCE_FOOTPRINT
     internal var rawValue: RawValue
 
@@ -22,7 +22,7 @@ public struct PlacedSubresourceFootprint {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "PlacedSubresourceFootprint")
-public typealias D3D12_PLACED_SUBRESOURCE_FOOTPRINT = PlacedSubresourceFootprint
+@available(*, deprecated, renamed: "D3DPlacedSubresourceFootprint")
+public typealias D3D12_PLACED_SUBRESOURCE_FOOTPRINT = D3DPlacedSubresourceFootprint
 
 #endif

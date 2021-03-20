@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct SamplerDescription {
+public struct D3DSamplerDescription {
     internal var rawValue: WinSDK.D3D12_SAMPLER_DESC
 
 
@@ -21,7 +21,7 @@ public struct SamplerDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "SamplerDescription")
-public typealias D3D12_SAMPLER_DESC = SamplerDescription
+@available(*, deprecated, renamed: "D3DSamplerDescription")
+public typealias D3D12_SAMPLER_DESC = D3DSamplerDescription
 
 #endif

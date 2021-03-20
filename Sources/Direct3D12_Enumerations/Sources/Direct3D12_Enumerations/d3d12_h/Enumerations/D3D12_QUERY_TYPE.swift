@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Specifies the type of query.
-public enum QueryType {
+public enum D3DQueryType {
     public typealias RawValue = WinSDK.D3D12_QUERY_TYPE
     ///	Indicates the query is for depth/stencil occlusion counts.
     case occlusion
@@ -68,36 +68,36 @@ public enum QueryType {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "QueryType")
-public typealias D3D12_QUERY_TYPE = QueryType
+@available(*, deprecated, renamed: "D3DQueryType")
+public typealias D3D12_QUERY_TYPE = D3DQueryType
 
 
-@available(*, deprecated, renamed: "QueryType.occlusion")
-public let D3D12_QUERY_TYPE_OCCLUSION = QueryType.occlusion
+@available(*, deprecated, renamed: "D3DQueryType.occlusion")
+public let D3D12_QUERY_TYPE_OCCLUSION = D3DQueryType.occlusion
 
-@available(*, deprecated, renamed: "QueryType.binaryOcclusion")
-public let D3D12_QUERY_TYPE_BINARY_OCCLUSION = QueryType.binaryOcclusion
+@available(*, deprecated, renamed: "D3DQueryType.binaryOcclusion")
+public let D3D12_QUERY_TYPE_BINARY_OCCLUSION = D3DQueryType.binaryOcclusion
 
-@available(*, deprecated, renamed: "QueryType.timestamp")
-public let D3D12_QUERY_TYPE_TIMESTAMP = QueryType.timestamp
+@available(*, deprecated, renamed: "D3DQueryType.timestamp")
+public let D3D12_QUERY_TYPE_TIMESTAMP = D3DQueryType.timestamp
 
-@available(*, deprecated, renamed: "QueryType.pipelineStatistics")
-public let D3D12_QUERY_TYPE_PIPELINE_STATISTICS = QueryType.pipelineStatistics
+@available(*, deprecated, renamed: "D3DQueryType.pipelineStatistics")
+public let D3D12_QUERY_TYPE_PIPELINE_STATISTICS = D3DQueryType.pipelineStatistics
 
-@available(*, deprecated, renamed: "QueryType.streamOutput0Statistics")
-public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM0 = QueryType.streamOutput0Statistics
+@available(*, deprecated, renamed: "D3DQueryType.streamOutput0Statistics")
+public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM0 = D3DQueryType.streamOutput0Statistics
 
-@available(*, deprecated, renamed: "QueryType.streamOutput1Statistics")
-public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM1 = QueryType.streamOutput1Statistics
+@available(*, deprecated, renamed: "D3DQueryType.streamOutput1Statistics")
+public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM1 = D3DQueryType.streamOutput1Statistics
 
-@available(*, deprecated, renamed: "QueryType.streamOutput2Statistics")
-public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM2 = QueryType.streamOutput2Statistics
+@available(*, deprecated, renamed: "D3DQueryType.streamOutput2Statistics")
+public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM2 = D3DQueryType.streamOutput2Statistics
 
-@available(*, deprecated, renamed: "QueryType.streamOutput3Statistics")
-public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM3 = QueryType.streamOutput3Statistics
+@available(*, deprecated, renamed: "D3DQueryType.streamOutput3Statistics")
+public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM3 = D3DQueryType.streamOutput3Statistics
 
-@available(*, deprecated, renamed: "QueryType.videoDecodeStatistics")
-public let D3D12_QUERY_TYPE_VIDEO_DECODE_STATISTICS = QueryType.videoDecodeStatistics
+@available(*, deprecated, renamed: "D3DQueryType.videoDecodeStatistics")
+public let D3D12_QUERY_TYPE_VIDEO_DECODE_STATISTICS = D3DQueryType.videoDecodeStatistics
 
 
 #endif

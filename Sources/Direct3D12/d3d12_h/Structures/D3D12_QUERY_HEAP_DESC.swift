@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct QueryHeapDescription {
+public struct D3DQueryHeapDescription {
     internal var rawValue: WinSDK.D3D12_QUERY_HEAP_DESC
 
 
@@ -21,7 +21,7 @@ public struct QueryHeapDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "QueryHeapDescription")
-public typealias D3D12_QUERY_HEAP_DESC = QueryHeapDescription
+@available(*, deprecated, renamed: "D3DQueryHeapDescription")
+public typealias D3D12_QUERY_HEAP_DESC = D3DQueryHeapDescription
 
 #endif

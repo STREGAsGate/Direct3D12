@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct PackedMipInfo {
+public struct D3DPackedMipInfo {
     internal var rawValue: WinSDK.D3D12_PACKED_MIP_INFO
 
 
@@ -21,7 +21,7 @@ public struct PackedMipInfo {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "PackedMipInfo")
-public typealias D3D12_PACKED_MIP_INFO = PackedMipInfo
+@available(*, deprecated, renamed: "D3DPackedMipInfo")
+public typealias D3D12_PACKED_MIP_INFO = D3DPackedMipInfo
 
 #endif

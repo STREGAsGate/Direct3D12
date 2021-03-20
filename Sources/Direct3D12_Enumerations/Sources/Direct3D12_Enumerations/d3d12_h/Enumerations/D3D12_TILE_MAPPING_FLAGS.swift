@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Specifies how to perform a tile-mapping operation.
-public struct TileMappingFlags: OptionSet {
+public struct D3DTileMappingFlags: OptionSet {
     public typealias RawType = WinSDK.D3D12_TILE_MAPPING_FLAGS
     public typealias RawValue = WinSDK.D3D12_TILE_MAPPING_FLAGS.RawValue
     public let rawValue: RawValue
@@ -19,7 +19,7 @@ public struct TileMappingFlags: OptionSet {
 
     /// Unsupported, do not use.
     @available(*, unavailable, message: "Unsupported, do not use.")
-    static let noHazard = TileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NO_HAZARD.rawValue)
+    static let noHazard = D3DTileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NO_HAZARD.rawValue)
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue
@@ -33,14 +33,14 @@ public struct TileMappingFlags: OptionSet {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "TileMappingFlags")
-public typealias D3D12_TILE_MAPPING_FLAGS = TileMappingFlags
+@available(*, deprecated, renamed: "D3DTileMappingFlags")
+public typealias D3D12_TILE_MAPPING_FLAGS = D3DTileMappingFlags
 
 
 @available(*, deprecated, message: "Use [] to represent none in Swift.")
-public let D3D12_TILE_MAPPING_FLAG_NONE: TileMappingFlags = []
+public let D3D12_TILE_MAPPING_FLAG_NONE: D3DTileMappingFlags = []
 
-@available(*, deprecated, renamed: "noHazard")
-public let D3D12_TILE_MAPPING_FLAG_NO_HAZARD = TileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NO_HAZARD.rawValue)
+@available(*, deprecated, renamed: "D3D.noHazard")
+public let D3D12_TILE_MAPPING_FLAG_NO_HAZARD = D3DTileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NO_HAZARD.rawValue)
 
 #endif

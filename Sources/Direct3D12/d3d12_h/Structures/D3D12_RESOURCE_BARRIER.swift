@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct ResourceBarrier {
+public struct D3DResourceBarrier {
     public typealias RawValue = WinSDK.D3D12_RESOURCE_BARRIER
     internal var rawValue: RawValue
 
@@ -22,7 +22,7 @@ public struct ResourceBarrier {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ResourceBarrier")
-public typealias D3D12_RESOURCE_BARRIER = ResourceBarrier
+@available(*, deprecated, renamed: "D3DResourceBarrier")
+public typealias D3D12_RESOURCE_BARRIER = D3DResourceBarrier
 
 #endif

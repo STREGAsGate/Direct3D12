@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct RootSignatureDescription {
+public struct D3DRootSignatureDescription {
     internal var rawValue: WinSDK.D3D12_ROOT_SIGNATURE_DESC
 
 
@@ -21,7 +21,7 @@ public struct RootSignatureDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RootSignatureDescription")
-public typealias D3D12_ROOT_SIGNATURE_DESC = RootSignatureDescription
+@available(*, deprecated, renamed: "D3DRootSignatureDescription")
+public typealias D3D12_ROOT_SIGNATURE_DESC = D3DRootSignatureDescription
 
 #endif

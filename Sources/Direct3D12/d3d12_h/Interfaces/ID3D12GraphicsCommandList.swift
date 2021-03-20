@@ -10,16 +10,16 @@ import WinSDK
 import WinSDK.DirectX
 
 /// Encapsulates a list of graphics commands for rendering. Includes APIs for instrumenting the command list execution, and for setting and clearing the pipeline state.
-public class GraphicsCommandList: CommandList {
+public class D3DGraphicsCommandList: D3DCommandList {
 
     /** Starts a query running.
     - parameter type: Specifies one member of D3D12_QUERY_TYPE.
     - parameter heap: Specifies the ID3D12QueryHeap containing the query.
     - parameter index: Specifies the index of the query within the query heap.
     */
-    public func beginQuery(_ type: QueryType, on heap: QueryHeap, atIndex index: UInt32 = 0) {
+    public func beginQuery(_ type: D3DQueryType, on heap: D3DQueryHeap, atIndex index: UInt32 = 0) {
         performFatally(as: RawValue.self) {pThis in
-            let pQueryHeap = heap.performFatally(as: QueryHeap.RawValue.self) {$0}
+            let pQueryHeap = heap.performFatally(as: D3DQueryHeap.RawValue.self) {$0}
             let Type = type.rawValue
             let Index = index
             pThis.pointee.lpVtbl.pointee.BeginQuery(pThis, pQueryHeap, Type, Index)
@@ -33,14 +33,14 @@ public class GraphicsCommandList: CommandList {
     - parameter stencilValue: A value to clear the stencil buffer with.
     - parameter regions: An array of D3D12_RECT structures for the rectangles in the resource view to clear. If NULL, ClearDepthStencilView clears the entire resource view.
     */
-    public func clearDepthStencilView(_ view: CPUDescriptorHandle,
-                                      flags: ClearFlags,
+    public func clearDepthStencilView(_ view: D3DCPUDescriptorHandle,
+                                      flags: D3DClearFlags,
                                       depthValue: Float = 0,
                                       stencilValue: UInt8 = 0,
-                                      regions: [Rect]? = nil) {
+                                      regions: [D3DRect]? = nil) {
         performFatally(as: RawValue.self) {pThis in
             let DepthStencilView = view.rawValue
-            let ClearFlags = ClearFlags.RawType(flags.rawValue)
+            let ClearFlags = D3DClearFlags.RawType(flags.rawValue)
             let Depth = depthValue
             let Stencil = stencilValue
             let NumRects = UInt32(regions?.count ?? 0)
@@ -54,9 +54,9 @@ public class GraphicsCommandList: CommandList {
     - parameter clearColor: A 4-component array that represents the color to fill the render target with.
     - parameter regions: An array of D3D12_RECT structures for the rectangles in the resource view to clear. If NULL, ClearRenderTargetView clears the entire resource view.
     */
-    public func clearRenderTargetView(_ view: CPUDescriptorHandle,
+    public func clearRenderTargetView(_ view: D3DCPUDescriptorHandle,
                                       withColor clearColor: [Float],
-                                      regions: [Rect]? = nil) throws {
+                                      regions: [D3DRect]? = nil) throws {
         guard clearColor.count == 4 else {throw Error(.invalidArgument)}
         performFatally(as: RawValue.self) {pThis in
             let RenderTargetView = view.rawValue
@@ -75,9 +75,9 @@ public class GraphicsCommandList: CommandList {
 
     The app-provided pipeline state object becomes bound as the currently set pipeline state object.
     */
-    public func clearState(usingInitialPipleineState state: PipelineState) {
+    public func clearState(usingInitialPipleineState state: D3DPipelineState) {
         performFatally(as: RawValue.self) {pThis in
-            let pPipelineState = state.performFatally(as: PipelineState.RawValue.self) {$0}
+            let pPipelineState = state.performFatally(as: D3DPipelineState.RawValue.self) {$0}
             pThis.pointee.lpVtbl.pointee.ClearState(pThis, pPipelineState)
         }
     }
@@ -89,15 +89,15 @@ public class GraphicsCommandList: CommandList {
     - parameter values: A 4-component array that containing the values to fill the unordered-access-view resource with.
     - prameter regions: An array of D3D12_RECT structures for the rectangles in the resource view to clear. If NULL, ClearUnorderedAccessViewFloat clears the entire resource view.
     */
-    public func clearUnorderedAccessView(gpuHandle: GPUDescriptorHandle,
-                                         cpuHandle: CPUDescriptorHandle,
-                                         resource: Resource,
+    public func clearUnorderedAccessView(gpuHandle: D3DGPUDescriptorHandle,
+                                         cpuHandle: D3DCPUDescriptorHandle,
+                                         resource: D3DResource,
                                          floatValues values: [Float],
-                                         regions: [Rect]? = nil) {
+                                         regions: [D3DRect]? = nil) {
         performFatally(as: RawValue.self) {pThis in
             let ViewGPUHandleInCurrentHeap = gpuHandle.rawValue
             let ViewCPUHandle = cpuHandle.rawValue
-            let pResource = resource.performFatally(as: Resource.RawValue.self) {$0}
+            let pResource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
             let Values = values
             let NumRects = UInt32(regions?.count ?? 0)
             let pRects = regions?.map({$0.rawValue})
@@ -112,15 +112,15 @@ public class GraphicsCommandList: CommandList {
     - parameter values: A 4-component array that containing the values to fill the unordered-access-view resource with.
     - prameter regions: An array of D3D12_RECT structures for the rectangles in the resource view to clear. If NULL, ClearUnorderedAccessViewFloat clears the entire resource view.
     */
-    public func clearUnorderedAccessView(gpuHandle: GPUDescriptorHandle,
-                                         cpuHandle: CPUDescriptorHandle,
-                                         resource: Resource,
+    public func clearUnorderedAccessView(gpuHandle: D3DGPUDescriptorHandle,
+                                         cpuHandle: D3DCPUDescriptorHandle,
+                                         resource: D3DResource,
                                          uintValues values: [UInt32],
-                                         regions: [Rect]? = nil) {
+                                         regions: [D3DRect]? = nil) {
         performFatally(as: RawValue.self) {pThis in
             let ViewGPUHandleInCurrentHeap = gpuHandle.rawValue
             let ViewCPUHandle = cpuHandle.rawValue
-            let pResource = resource.performFatally(as: Resource.RawValue.self) {$0}
+            let pResource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
             let Values = values
             let NumRects = UInt32(regions?.count ?? 0)
             let pRects = regions?.map({$0.rawValue})
@@ -144,11 +144,11 @@ public class GraphicsCommandList: CommandList {
     - parameter dstOffset: Specifies a UINT64 offset (in bytes) into the destination resource.
     - parameter count: Specifies the number of bytes to copy.
     */
-    public func copyBufferRegion(from source: Resource, at srcOffset: UInt64, to destination: Resource, at dstOffset: UInt64, count: UInt64) {
+    public func copyBufferRegion(from source: D3DResource, at srcOffset: UInt64, to destination: D3DResource, at dstOffset: UInt64, count: UInt64) {
         performFatally(as: RawValue.self) {pThis in
-            let pDstBuffer = destination.performFatally(as: Resource.RawValue.self) {$0}
+            let pDstBuffer = destination.performFatally(as: D3DResource.RawValue.self) {$0}
             let DstOffset = dstOffset
-            let pSrcBuffer = source.performFatally(as: Resource.RawValue.self) {$0}
+            let pSrcBuffer = source.performFatally(as: D3DResource.RawValue.self) {$0}
             let SrcOffset = srcOffset
             let NumBytes = count
             pThis.pointee.lpVtbl.pointee.CopyBufferRegion(pThis, pDstBuffer, DstOffset, pSrcBuffer, SrcOffset, NumBytes)
@@ -159,10 +159,10 @@ public class GraphicsCommandList: CommandList {
     - parameter source: A pointer to the ID3D12Resourceinterface that represents the source resource.
     - parameter destination: A pointer to the ID3D12Resourceinterface that represents the destination resource.
     */
-    public func copyResource(from source: Resource, to destination: Resource) {
+    public func copyResource(from source: D3DResource, to destination: D3DResource) {
         performFatally(as: RawValue.self) {pThis in
-            let pDstBuffer = destination.performFatally(as: Resource.RawValue.self) {$0}
-            let pSrcBuffer = source.performFatally(as: Resource.RawValue.self) {$0}
+            let pDstBuffer = destination.performFatally(as: D3DResource.RawValue.self) {$0}
+            let pSrcBuffer = source.performFatally(as: D3DResource.RawValue.self) {$0}
             pThis.pointee.lpVtbl.pointee.CopyResource(pThis, pDstBuffer, pSrcBuffer)
         }
     }
@@ -187,9 +187,9 @@ public class GraphicsCommandList: CommandList {
 
     To copy an entire resource, rather than just a region of a subresource, we recommend to use CopyResource instead.
     */
-    public func copyTextureRegion(_ region: Box, 
-                                 from source: TextureCopyLocation, 
-                                 to destination: TextureCopyLocation, 
+    public func copyTextureRegion(_ region: D3DBox, 
+                                 from source: D3DTextureCopyLocation, 
+                                 to destination: D3DTextureCopyLocation, 
                                  atX x: UInt32, y: UInt32, z: UInt32 = 0) {
         performFatally(as: RawValue.self) {pThis in
             var pDst = destination.rawValue
@@ -210,16 +210,16 @@ public class GraphicsCommandList: CommandList {
     - parameter offset: The offset in bytes into the buffer at pBuffer to start the operation.
     - perameter flags: A combination of D3D12_TILE_COPY_FLAGS-typed values that are combined by using a bitwise OR operation and that identifies how to copy tiles.
     */
-    public func copyTiles(from tiledResource: Resource, at start: TiledResourceCoordinate, size: TileRegionSize,
-                          buffer: Resource, offset: UInt64,
-                          flags: TileCopyFlags) {
+    public func copyTiles(from tiledResource: D3DResource, at start: D3DTiledResourceCoordinate, size: D3DTileRegionSize,
+                          buffer: D3DResource, offset: UInt64,
+                          flags: D3DTileCopyFlags) {
         performFatally(as: RawValue.self) {pThis in
-            let pTiledResource = tiledResource.performFatally(as: Resource.RawValue.self) {$0}
+            let pTiledResource = tiledResource.performFatally(as: D3DResource.RawValue.self) {$0}
             var pTileRegionStartCoordinate = start.rawValue
             var pTileRegionSize = size.rawValue
-            let pBuffer = buffer.performFatally(as: Resource.RawValue.self) {$0}
+            let pBuffer = buffer.performFatally(as: D3DResource.RawValue.self) {$0}
             let BufferStartOffsetInBytes = offset
-            let Flags = TileCopyFlags.RawType(flags.rawValue)
+            let Flags = D3DTileCopyFlags.RawType(flags.rawValue)
             pThis.pointee.lpVtbl.pointee.CopyTiles(pThis, pTiledResource, &pTileRegionStartCoordinate, &pTileRegionSize, pBuffer, BufferStartOffsetInBytes, Flags)
         }
     }
@@ -228,9 +228,9 @@ public class GraphicsCommandList: CommandList {
     - parameter resource: A pointer to the ID3D12Resource interface for the resource to discard.
     - parameter region: A pointer to a D3D12_DISCARD_REGION structure that describes details for the discard-resource operation.
     */
-    public func discardResource(_ resource: Resource, region: DiscardRegion? = nil) {
+    public func discardResource(_ resource: D3DResource, region: D3DDiscardRegion? = nil) {
         performFatally(as: RawValue.self) {pThis in
-            let pResource = resource.performFatally(as: Resource.RawValue.self) {$0}
+            let pResource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
             if var pRegion = region?.rawValue {
                 pThis.pointee.lpVtbl.pointee.DiscardResource(pThis, pResource, &pRegion)
             }else{
@@ -296,9 +296,9 @@ public class GraphicsCommandList: CommandList {
     - parameter type: Specifies one member of D3D12_QUERY_TYPE.
     - parameter index: Specifies the index of the query in the query heap.
     */
-    public func endQuery(_ queryHeap: QueryHeap, type: QueryType, index: UInt32 = 0) {
+    public func endQuery(_ queryHeap: D3DQueryHeap, type: D3DQueryType, index: UInt32 = 0) {
         performFatally(as: RawValue.self) {pThis in
-            let pQueryHeap = queryHeap.performFatally(as: QueryHeap.RawValue.self) {$0}
+            let pQueryHeap = queryHeap.performFatally(as: D3DQueryHeap.RawValue.self) {$0}
             let Type = type.rawValue
             let Index = index
             pThis.pointee.lpVtbl.pointee.EndQuery(pThis, pQueryHeap, Type, Index)
@@ -308,9 +308,9 @@ public class GraphicsCommandList: CommandList {
     /** Executes a bundle.
     - parameter bundle: Specifies the ID3D12GraphicsCommandList that determines the bundle to be executed.
     */
-    public func executeBundle(_ bundle: GraphicsCommandList) {
+    public func executeBundle(_ bundle: D3DGraphicsCommandList) {
         performFatally(as: RawValue.self) {pThis in
-            let pCommandList = bundle.performFatally(as: GraphicsCommandList.RawValue.self) {$0}
+            let pCommandList = bundle.performFatally(as: D3DGraphicsCommandList.RawValue.self) {$0}
             pThis.pointee.lpVtbl.pointee.ExecuteBundle(pThis, pCommandList)
         }
     }
@@ -323,18 +323,18 @@ public class GraphicsCommandList: CommandList {
     - parameter countBuffer: Specifies a pointer to a ID3D12Resource.
     - parameter countBufferOffset: Specifies a UINT64 that is the offset into pCountBuffer, identifying the argument count.
     */
-    public func executeIndirect(signature: CommandSignature,
+    public func executeIndirect(signature: D3DCommandSignature,
                                 maxCount: UInt32,
-                                argumentBuffer: Resource,
+                                argumentBuffer: D3DResource,
                                 argumentBufferOffset: UInt64,
-                                countBuffer: Resource,
+                                countBuffer: D3DResource,
                                 countBufferOffset: UInt64) {
         performFatally(as: RawValue.self) {pThis in
-            let pCommandSignature = signature.performFatally(as: CommandSignature.RawValue.self) {$0}
+            let pCommandSignature = signature.performFatally(as: D3DCommandSignature.RawValue.self) {$0}
             let MaxCommandCount = maxCount
-            let pArgumentBuffer = argumentBuffer.performFatally(as: Resource.RawValue.self) {$0}
+            let pArgumentBuffer = argumentBuffer.performFatally(as: D3DResource.RawValue.self) {$0}
             let ArgumentBufferOffset = argumentBufferOffset
-            let pCountBuffer = countBuffer.performFatally(as: Resource.RawValue.self) {$0}
+            let pCountBuffer = countBuffer.performFatally(as: D3DResource.RawValue.self) {$0}
             let CountBufferOffset = countBufferOffset
             pThis.pointee.lpVtbl.pointee.ExecuteIndirect(pThis, pCommandSignature, MaxCommandCount, pArgumentBuffer, ArgumentBufferOffset, pCountBuffer, CountBufferOffset)
         }
@@ -343,7 +343,7 @@ public class GraphicsCommandList: CommandList {
     /** Sets the view for the index buffer.
     - parameter view: The view specifies the index buffer's address, size, and DXGI_FORMAT, as a pointer to a D3D12_INDEX_BUFFER_VIEW structure.
     */
-    public func setIndexBuffer(_ view: IndexBufferView) {
+    public func setIndexBuffer(_ view: D3DIndexBufferView) {
         performFatally(as: RawValue.self) {pThis in
             var pView = view.rawValue
             pThis.pointee.lpVtbl.pointee.IASetIndexBuffer(pThis, &pView)
@@ -353,7 +353,7 @@ public class GraphicsCommandList: CommandList {
     /** Bind information about the primitive type, and data order that describes input data for the input assembler stage.
     - parameter primitiveTopology: The type of primitive and ordering of the primitive data (see D3D_PRIMITIVE_TOPOLOGY).
     */
-    public func setPrimitiveTopology(_ primitiveTopology: PrimitiveTopology) {
+    public func setPrimitiveTopology(_ primitiveTopology: D3DPrimitiveTopology) {
         performFatally(as: RawValue.self) {pThis in
             let PrimitiveTopology = primitiveTopology.rawValue
             pThis.pointee.lpVtbl.pointee.IASetPrimitiveTopology(pThis, PrimitiveTopology)
@@ -364,7 +364,7 @@ public class GraphicsCommandList: CommandList {
     - parameter buffers: Specifies the vertex buffer views in an array of D3D12_VERTEX_BUFFER_VIEW structures.
     - parameter startSlot: Sets a CPU descriptor handle for the vertex buffers.
     */
-    public func setVertexBuffers(_ buffers: [VertexBufferView], startingAt startSlot: UInt32 = 0) {
+    public func setVertexBuffers(_ buffers: [D3DVertexBufferView], startingAt startSlot: UInt32 = 0) {
        performFatally(as: RawValue.self) {pThis in
             let StartSlot = startSlot
             let NumViews = UInt32(buffers.count)
@@ -401,7 +401,7 @@ public class GraphicsCommandList: CommandList {
     - parameter renderTargets: Specifies an array of D3D12_CPU_DESCRIPTOR_HANDLE structures that describe the CPU descriptor handles that represents the start of the heap of render target descriptors. If this parameter is NULL and NumRenderTargetDescriptors is 0, no render targets are bound.
     - parameter depthStencilDescriptor: A pointer to a D3D12_CPU_DESCRIPTOR_HANDLE structure that describes the CPU descriptor handle that represents the start of the heap that holds the depth stencil descriptor. If this parameter is NULL, no depth stencil descriptor is bound.
     */
-    public func setRenderTargets(_ renderTargets: [CPUDescriptorHandle], depthStencilDescriptor: CPUDescriptorHandle? = nil) {
+    public func setRenderTargets(_ renderTargets: [D3DCPUDescriptorHandle], depthStencilDescriptor: D3DCPUDescriptorHandle? = nil) {
         performFatally(as: RawValue.self) {pThis in
             let NumRenderTargetDescriptors = UInt32(renderTargets.count)
             let pRenderTargetDescriptors = renderTargets.map({$0.rawValue})
@@ -428,10 +428,10 @@ public class GraphicsCommandList: CommandList {
     - parameter commandAllocator: A pointer to the ID3D12CommandAllocator object that the device creates command lists from.
     - parameter state: A pointer to the ID3D12PipelineState object that contains the initial pipeline state for the command list. This is optional and can be NULL. If NULL, the runtime sets a dummy initial pipeline state so that drivers don't have to deal with undefined state. The overhead for this is low, particularly for a command list, for which the overall cost of recording the command list likely dwarfs the cost of one initial state setting. So there is little cost in not setting the initial pipeline state parameter if it isn't convenient. For bundles on the other hand, it might make more sense to try to set the initial state parameter since bundles are likely smaller overall and can be reused frequently.
     */
-    public func reset(usingOriginalAllocator commandAllocator: CommandAllocator, withInitialState state: PipelineState?) throws {
+    public func reset(usingOriginalAllocator commandAllocator: D3DCommandAllocator, withInitialState state: D3DPipelineState?) throws {
         try perform(as: RawValue.self) {pThis in
-            let pAllocator = try commandAllocator.perform(as: CommandAllocator.RawValue.self) {$0}
-            let pInitialState = try state?.perform(as: PipelineState.RawValue.self, body: {$0})
+            let pAllocator = try commandAllocator.perform(as: D3DCommandAllocator.RawValue.self) {$0}
+            let pInitialState = try state?.perform(as: D3DPipelineState.RawValue.self, body: {$0})
             try pThis.pointee.lpVtbl.pointee.Reset(pThis, pAllocator, pInitialState).checkResult()
         }
     }
@@ -444,13 +444,13 @@ public class GraphicsCommandList: CommandList {
     - parameter destination: Specifies an ID3D12Resource destination buffer, which must be in the state D3D12_RESOURCE_STATE_COPY_DEST.
     - parameter offset: Specifies an alignment offset into the destination buffer. Must be a multiple of 8 bytes.
     */
-    public func resolveQueryData(fromHeap query: QueryHeap, ofType type: QueryType, at startIndex: UInt32, count: UInt32, toResource destination: Resource, at offset: UInt64) {
+    public func resolveQueryData(fromHeap query: D3DQueryHeap, ofType type: D3DQueryType, at startIndex: UInt32, count: UInt32, toResource destination: D3DResource, at offset: UInt64) {
         performFatally(as: RawValue.self) {pThis in
-            let pQueryHeap = query.performFatally(as: QueryHeap.RawValue.self) {$0}
+            let pQueryHeap = query.performFatally(as: D3DQueryHeap.RawValue.self) {$0}
             let Type = type.rawValue
             let StartIndex = startIndex
             let NumQueries = count
-            let pDestinationBuffer = destination.performFatally(as: Resource.RawValue.self) {$0}
+            let pDestinationBuffer = destination.performFatally(as: D3DResource.RawValue.self) {$0}
             let AlignedDestinationBufferOffset = offset
             pThis.pointee.lpVtbl.pointee.ResolveQueryData(pThis, pQueryHeap, Type, StartIndex, NumQueries, pDestinationBuffer, AlignedDestinationBufferOffset)
         }
@@ -463,11 +463,11 @@ public class GraphicsCommandList: CommandList {
     - parameter dstIndex: A zero-based index, that identifies the destination subresource. Use D3D12CalcSubresource to calculate the subresource index if the parent resource is complex.
     - parameter format: A DXGI_FORMAT that indicates how the multisampled resource will be resolved to a single-sampled resource. See remarks.
     */
-    public func resolveSubresource(from source: Resource, at srcIndex: UInt32, to destination: Resource, at dstIndex: UInt32, format: Format) {
+    public func resolveSubresource(from source: D3DResource, at srcIndex: UInt32, to destination: D3DResource, at dstIndex: UInt32, format: DGIFormat) {
         performFatally(as: RawValue.self) {pThis in
-            let pDstResource = destination.performFatally(as: Resource.RawValue.self) {$0}
+            let pDstResource = destination.performFatally(as: D3DResource.RawValue.self) {$0}
             let DstSubresource = dstIndex
-            let pSrcResource = source.performFatally(as: Resource.RawValue.self) {$0}
+            let pSrcResource = source.performFatally(as: D3DResource.RawValue.self) {$0}
             let SrcSubresource = srcIndex
             let Format = format.rawValue
             pThis.pointee.lpVtbl.pointee.ResolveSubresource(pThis, pDstResource, DstSubresource, pSrcResource, SrcSubresource, Format)
@@ -477,7 +477,7 @@ public class GraphicsCommandList: CommandList {
     /** Notifies the driver that it needs to synchronize multiple accesses to resources.
     - parameter barriers: Pointer to an array of barrier descriptions.
     */
-    public func resourceBarrier(_ barriers: [ResourceBarrier]) {
+    public func resourceBarrier(_ barriers: [D3DResourceBarrier]) {
         performFatally(as: RawValue.self) {pThis in
             let NumBarriers = UInt32(barriers.count)
             let pBarriers = barriers.map({$0.rawValue})
@@ -488,7 +488,7 @@ public class GraphicsCommandList: CommandList {
     /** Binds an array of scissor rectangles to the rasterizer stage.
     - parameter rects: An array of scissor rectangles.
     */
-    public func setScissorRects(_ rects: [Rect]) {
+    public func setScissorRects(_ rects: [D3DRect]) {
         performFatally(as: RawValue.self) {pThis in
             let NumRects = UInt32(rects.count)
             let pRects = rects.map({$0.rawValue})
@@ -499,7 +499,7 @@ public class GraphicsCommandList: CommandList {
     /** Bind an array of viewports to the rasterizer stage of the pipeline.
     - parameter viewports: An array of D3D12_VIEWPORT structures to bind to the device.
     */
-    public func setViewports(_ viewports: [Viewport]) {
+    public func setViewports(_ viewports: [D3DViewport]) {
         performFatally(as: RawValue.self) {pThis in
             let NumViewports = UInt32(viewports.count)
             let pViewports = viewports.map({$0.rawValue})
@@ -552,7 +552,7 @@ public class GraphicsCommandList: CommandList {
     - parameter parameterIndex: The slot number for binding.
     - parameter descriptor: A GPU_descriptor_handle object for the base descriptor to set.
     */
-    public func setComputeRootDescriptorTable(parameterIndex: UInt32, descriptor: GPUDescriptorHandle) {
+    public func setComputeRootDescriptorTable(parameterIndex: UInt32, descriptor: D3DGPUDescriptorHandle) {
         performFatally(as: RawValue.self) {pThis in
             let RootParameterIndex = parameterIndex
             let BaseDescriptor = descriptor.rawValue
@@ -575,9 +575,9 @@ public class GraphicsCommandList: CommandList {
     /** Sets the layout of the compute root signature.
     - paramerter rootSignature: A pointer to the ID3D12RootSignature object.
     */
-    public func setComputeRootSignature(_ rootSignature: RootSignature) {
+    public func setComputeRootSignature(_ rootSignature: D3DRootSignature) {
         performFatally(as: RawValue.self) {pThis in
-            let pRootSignature = rootSignature.performFatally(as: RootSignature.RawValue.self) {$0}
+            let pRootSignature = rootSignature.performFatally(as: D3DRootSignature.RawValue.self) {$0}
             pThis.pointee.lpVtbl.pointee.SetComputeRootSignature(pThis, pRootSignature)
         }
     }
@@ -597,10 +597,10 @@ public class GraphicsCommandList: CommandList {
     /** Changes the currently bound descriptor heaps that are associated with a command list.
     - parameter heaps: A pointer to an array of ID3D12DescriptorHeap objects for the heaps to set on the command list. You can only bind descriptor heaps of type D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV and D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER. Only one descriptor heap of each type can be set at one time, which means a maximum of 2 heaps (one sampler, one CBV/SRV/UAV) can be set at one time.
     */
-    public func setDescriptorHeaps(_ heaps: [DescriptorHeap]) {
+    public func setDescriptorHeaps(_ heaps: [D3DDescriptorHeap]) {
         performFatally(as: RawValue.self) {pThis in
             let NumDescriptorHeaps = UInt32(heaps.count)
-            let ppDescriptorHeaps = heaps.map({$0.performFatally(as: DescriptorHeap.RawValue.self) {Optional($0)}})
+            let ppDescriptorHeaps = heaps.map({$0.performFatally(as: D3DDescriptorHeap.RawValue.self) {Optional($0)}})
             pThis.pointee.lpVtbl.pointee.SetDescriptorHeaps(pThis, NumDescriptorHeaps, ppDescriptorHeaps)
         }
     }
@@ -650,7 +650,7 @@ public class GraphicsCommandList: CommandList {
     - parameter parameterIndex: The slot number for binding.
     - parameter baseDescriptor: A GPU_descriptor_handle object for the base descriptor to set.
     */
-    public func setGraphicsRootDescriptorTable(parameterIndex: UInt32, baseDescriptor: GPUDescriptorHandle) {
+    public func setGraphicsRootDescriptorTable(parameterIndex: UInt32, baseDescriptor: D3DGPUDescriptorHandle) {
         performFatally(as: RawValue.self) {pThis in
             let RootParameterIndex = parameterIndex
             let BaseDescriptor = baseDescriptor.rawValue
@@ -673,9 +673,9 @@ public class GraphicsCommandList: CommandList {
     /** Sets the layout of the graphics root signature.
     - paramerter rootSignature: A pointer to the ID3D12RootSignature object.
     */
-    public func setGraphicsRootSignature(_ rootSignature: RootSignature) {
+    public func setGraphicsRootSignature(_ rootSignature: D3DRootSignature) {
         performFatally(as: RawValue.self) {pThis in
-            let pRootSignature = rootSignature.performFatally(as: RootSignature.RawValue.self) {$0}
+            let pRootSignature = rootSignature.performFatally(as: D3DRootSignature.RawValue.self) {$0}
             pThis.pointee.lpVtbl.pointee.SetGraphicsRootSignature(pThis, pRootSignature)
         }
     }
@@ -695,9 +695,9 @@ public class GraphicsCommandList: CommandList {
     /** Sets all shaders and programs most of the fixed-function state of the graphics processing unit (GPU) pipeline.
     - parameter pipelineState: Pointer to the ID3D12PipelineState containing the pipeline state data.
     */
-    public func setPipelineState(_ piplineState: PipelineState) {
+    public func setPipelineState(_ piplineState: D3DPipelineState) {
        performFatally(as: RawValue.self) {pThis in
-            let pPipelineState = piplineState.performFatally(as: PipelineState.RawValue.self) {$0}
+            let pPipelineState = piplineState.performFatally(as: D3DPipelineState.RawValue.self) {$0}
             pThis.pointee.lpVtbl.pointee.SetPipelineState(pThis, pPipelineState)
         }
     }
@@ -707,9 +707,9 @@ public class GraphicsCommandList: CommandList {
     - parameter offset: The aligned buffer offset, as a UINT64.
     - parameter operation: Specifies a D3D12_PREDICATION_OP, such as D3D12_PREDICATION_OP_EQUAL_ZERO or D3D12_PREDICATION_OP_NOT_EQUAL_ZERO.
     */
-    public func setPredication(_ buffer: Resource, offset: UInt64, operation: PredictionOperation) {
+    public func setPredication(_ buffer: D3DResource, offset: UInt64, operation: D3DPredictionOperation) {
         performFatally(as: RawValue.self) {pThis in
-            let pBuffer = buffer.performFatally(as: Resource.RawValue.self) {$0}
+            let pBuffer = buffer.performFatally(as: D3DResource.RawValue.self) {$0}
             let AlignedBufferOffset = offset
             let Operation = operation.rawValue
             pThis.pointee.lpVtbl.pointee.SetPredication(pThis, pBuffer, AlignedBufferOffset, Operation)
@@ -720,7 +720,7 @@ public class GraphicsCommandList: CommandList {
     - parameter views: Index into the device's zero-based array to begin setting stream output buffers.
     - parameter startIndex: Specifies an array of D3D12_STREAM_OUTPUT_BUFFER_VIEW structures.
     */
-    public func setTargets(_ views: [StreamOutputBufferView], at startIndex: UInt32 = 0) {
+    public func setTargets(_ views: [D3DStreamOutputBufferView], at startIndex: UInt32 = 0) {
        performFatally(as: RawValue.self) {pThis in
             let StartSlot = startIndex
             let NumViews = UInt32(views.count)
@@ -738,23 +738,23 @@ public class GraphicsCommandList: CommandList {
     }
 }
 
-extension GraphicsCommandList {
+extension D3DGraphicsCommandList {
     typealias RawValue = WinSDK.ID3D12GraphicsCommandList
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension GraphicsCommandList.RawValue {
+extension D3DGraphicsCommandList.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12GraphicsCommandList}
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "GraphicsCommandList")
-public typealias ID3D12GraphicsCommandList = GraphicsCommandList
+@available(*, deprecated, renamed: "D3DGraphicsCommandList")
+public typealias ID3D12GraphicsCommandList = D3DGraphicsCommandList
 
-public extension GraphicsCommandList {
+public extension D3DGraphicsCommandList {
     @available(*, unavailable, message: "Not intended to be called directly. Use the PIX event runtime to insert events into a command queue.")
     func BeginEvent(_ Metadata: Any, _ pData: Any, _ Size: Any) {
         fatalError("This API is here to make migration easier. There is no implementation.")

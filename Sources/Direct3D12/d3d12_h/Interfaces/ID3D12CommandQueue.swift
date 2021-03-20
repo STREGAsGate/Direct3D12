@@ -6,10 +6,10 @@
  * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
+import WinSDK
 import WinSDK.DirectX
-import Direct3D12_Enumerations
 
-public class CommandQueue: Pageable {
+public class D3DCommandQueue: D3DPageable {
 
     /** Copies mappings from a source reserved resource to a destination reserved resource.
     - parameter srcResource: A pointer to the source reserved resource.
@@ -19,16 +19,16 @@ public class CommandQueue: Pageable {
     - parameter regionSize: A pointer to a D3D12_TILE_REGION_SIZE structure that describes the size of the reserved region.
     - parameter flags: One member of D3D12_TILE_MAPPING_FLAGS.
     */
-    public func copyTileMappings(from srcResource: Resource, sourceRegionStartCoord: TiledResourceCoordinate, 
-                                 to dstResource: Resource, destinationRegionStartCoord: TiledResourceCoordinate, 
-                                 regionSize: TileRegionSize, flags: TileMappingFlags = []) {
+    public func copyTileMappings(from srcResource: D3DResource, sourceRegionStartCoord: D3DTiledResourceCoordinate, 
+                                 to dstResource: D3DResource, destinationRegionStartCoord: D3DTiledResourceCoordinate, 
+                                 regionSize: D3DTileRegionSize, flags: D3DTileMappingFlags = []) {
         performFatally(as: RawValue.self) {pThis in
-            let dstResource = dstResource.performFatally(as: Resource.RawValue.self) {$0}
+            let dstResource = dstResource.performFatally(as: D3DResource.RawValue.self) {$0}
             var dstCoord = destinationRegionStartCoord.rawValue
-            let srcResource = srcResource.performFatally(as: Resource.RawValue.self) {$0}
+            let srcResource = srcResource.performFatally(as: D3DResource.RawValue.self) {$0}
             var srcCoord = sourceRegionStartCoord.rawValue
             var regionSize = regionSize.rawValue
-            let flags = TileMappingFlags.RawType(rawValue: flags.rawValue)
+            let flags = D3DTileMappingFlags.RawType(rawValue: flags.rawValue)
             pThis.pointee.lpVtbl.pointee.CopyTileMappings(pThis, dstResource, &dstCoord, srcResource, &srcCoord, &regionSize,  flags)
         }
     }
@@ -36,9 +36,9 @@ public class CommandQueue: Pageable {
     /** Submits an array of command lists for execution.
     - parameter commandLists: The array of ID3D12CommandList command lists to be executed.
     */
-    public func executeCommandLists(_ commandLists: [CommandList]) {
+    public func executeCommandLists(_ commandLists: [D3DCommandList]) {
         performFatally(as: RawValue.self) {pThis in
-            let pCommandLists = commandLists.map({$0.performFatally(as: CommandList.RawValue.self){Optional($0)}})
+            let pCommandLists = commandLists.map({$0.performFatally(as: D3DCommandList.RawValue.self){Optional($0)}})
             pThis.pointee.lpVtbl.pointee.ExecuteCommandLists(pThis, UInt32(commandLists.count), pCommandLists)
         }
     }
@@ -54,10 +54,10 @@ public class CommandQueue: Pageable {
     }
 
     /// Gets the description of the command queue.
-    public var commandQueueDescription: CommandQueueDescription {
+    public var commandQueueDescription: D3DCommandQueueDescription {
         return performFatally(as: RawValue.self) {pThis in
             let v = pThis.pointee.lpVtbl.pointee.GetDesc(pThis)
-            return CommandQueueDescription(v)
+            return D3DCommandQueueDescription(v)
         }
     }
 
@@ -74,9 +74,9 @@ public class CommandQueue: Pageable {
     - parameter fence: A pointer to the ID3D12Fence object.
     - parameter value: The value to set the fence to.
     */
-    public func signal(fence: Fence, value: UInt64) throws {
+    public func signal(fence: D3DFence, value: UInt64) throws {
         try perform(as: RawValue.self) {pThis in
-            let pFence = try fence.perform(as: Fence.RawValue.self) {$0}
+            let pFence = try fence.perform(as: D3DFence.RawValue.self) {$0}
             try pThis.pointee.lpVtbl.pointee.Signal(pThis, pFence, value).checkResult()
         }
     }
@@ -91,25 +91,25 @@ public class CommandQueue: Pageable {
     - parameter resourceHeap: A pointer to the resource heap.
     - parameter flags: A combination of D3D12_TILE_MAPPING_FLAGS values that are combined by using a bitwise OR operation.
     */
-    public func updateTileMappings(for resource: Resource,
-                                   resourceRegionStartCoordinates: [TiledResourceCoordinate]?,
-                                   resourceRegionSizes: [TileRegionSize]?,
-                                   heap: Heap,
-                                   rangeFlags: [TileRangeFlags]?,
+    public func updateTileMappings(for resource: D3DResource,
+                                   resourceRegionStartCoordinates: [D3DTiledResourceCoordinate]?,
+                                   resourceRegionSizes: [D3DTileRegionSize]?,
+                                   heap: D3DHeap,
+                                   rangeFlags: [D3DTileRangeFlags]?,
                                    heapRangeStartOffsets: [UInt32]?,
                                    rangeTileCounts: [UInt32]?,
-                                   flags: TileMappingFlags = []) {
+                                   flags: D3DTileMappingFlags = []) {
         performFatally(as: RawValue.self) {pThis in
-            let resource = resource.performFatally(as: Resource.RawValue.self) {$0}
+            let resource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
             let numResourceRegions = UInt32(resourceRegionStartCoordinates?.count ?? resourceRegionSizes?.count ?? 0)
             let pResourceRegionStartCoordinates = resourceRegionStartCoordinates?.map({$0.rawValue})
             let pResourceRegionSizes = resourceRegionSizes?.map({$0.rawValue})
-            let pHeap = heap.performFatally(as: Heap.RawValue.self) {$0}
+            let pHeap = heap.performFatally(as: D3DHeap.RawValue.self) {$0}
             let numRanges = UInt32(rangeFlags?.count ?? rangeTileCounts?.count ?? heapRangeStartOffsets?.count ?? 0)
-            let pRangeFlags = rangeFlags?.map({TileRangeFlags.RawType($0.rawValue)})
+            let pRangeFlags = rangeFlags?.map({D3DTileRangeFlags.RawType($0.rawValue)})
             let pHeapRangeStartOffsets = heapRangeStartOffsets
             let pRangeTileCounts = rangeTileCounts
-            let flags = TileMappingFlags.RawType(rawValue: flags.rawValue)
+            let flags = D3DTileMappingFlags.RawType(rawValue: flags.rawValue)
             pThis.pointee.lpVtbl.pointee.UpdateTileMappings(pThis, resource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags)
         }
     }
@@ -118,9 +118,9 @@ public class CommandQueue: Pageable {
     - parameter fence: A pointer to the ID3D12Fence object.
     - parameter value: The value that the command queue is waiting for the fence to reach or exceed. So when ID3D12Fence::GetCompletedValue is greater than or equal to Value, the wait is terminated.
     */
-    public func wait(fence: Fence, value: UInt64) throws {
+    public func wait(fence: D3DFence, value: UInt64) throws {
         try perform(as: RawValue.self) {pThis in
-            let pFence = try fence.perform(as: Fence.RawValue.self) {$0}
+            let pFence = try fence.perform(as: D3DFence.RawValue.self) {$0}
             try pThis.pointee.lpVtbl.pointee.Wait(pThis, pFence, value).checkResult()
         }
     }
@@ -128,32 +128,32 @@ public class CommandQueue: Pageable {
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension CommandQueue {
+extension D3DCommandQueue {
     typealias RawValue = WinSDK.ID3D12CommandQueue
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension CommandQueue.RawValue {
+extension D3DCommandQueue.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12CommandQueue}
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, unavailable, renamed: "CommandQueue")
-public typealias ID3D12CommandQueue = CommandQueue 
+@available(*, unavailable, renamed: "D3DCommandQueue")
+public typealias ID3D12CommandQueue = D3DCommandQueue 
 
-public extension CommandQueue {
+public extension D3DCommandQueue {
     @available(*, unavailable, message: "Not intended to be called directly. Use the PIX event runtime to insert events into a command queue.")
     func BeginEvent(_ metadata: UInt32, _ pData: UnsafeRawPointer?, _ size: UInt32) {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "copyTileMappings")
-    func CopyTileMappings(_ pDstResource: UnsafeMutablePointer<Resource.RawValue>?, _ pDstRegionStartCoordinate: UnsafeMutablePointer<TiledResourceCoordinate.RawValue>?, 
-                          _ pSrcResource: UnsafeMutablePointer<Resource.RawValue>?, _ pSrcRegionStartCoordinate: UnsafeMutablePointer<TiledResourceCoordinate.RawValue>?, 
-                          _ pRegionSize: UnsafePointer<TileRegionSize.RawValue>, _ Flags: TileMappingFlags.RawType) {
+    func CopyTileMappings(_ pDstResource: UnsafeMutablePointer<D3DResource.RawValue>?, _ pDstRegionStartCoordinate: UnsafeMutablePointer<D3DTiledResourceCoordinate.RawValue>?, 
+                          _ pSrcResource: UnsafeMutablePointer<D3DResource.RawValue>?, _ pSrcRegionStartCoordinate: UnsafeMutablePointer<D3DTiledResourceCoordinate.RawValue>?, 
+                          _ pRegionSize: UnsafePointer<D3DTileRegionSize.RawValue>, _ Flags: D3DTileMappingFlags.RawType) {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
@@ -163,7 +163,7 @@ public extension CommandQueue {
     }
 
     @available(*, unavailable, renamed: "executeCommandLists")
-    func ExecuteCommandLists(_ NumCommandLists: UInt32, ppCommandLists: UnsafePointer<UnsafeMutablePointer<CommandList>?>?) {
+    func ExecuteCommandLists(_ NumCommandLists: UInt32, ppCommandLists: UnsafePointer<UnsafeMutablePointer<D3DCommandList>?>?) {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
@@ -173,7 +173,7 @@ public extension CommandQueue {
     }
 
     @available(*, unavailable, renamed: "commandQueueDescription")
-    func GetDesc() -> CommandQueueDescription {
+    func GetDesc() -> D3DCommandQueueDescription {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
@@ -188,26 +188,26 @@ public extension CommandQueue {
     }
 
     @available(*, unavailable, renamed: "signal")
-    func Signal(_ pFence: Fence, _ Value: UInt32) -> HRESULT {
+    func Signal(_ pFence: D3DFence, _ Value: UInt32) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "updateTileMappings")
-    func UpdateTileMappings(_ pResource: UnsafeMutablePointer<Resource>?, 
+    func UpdateTileMappings(_ pResource: UnsafeMutablePointer<D3DResource>?, 
                             _ NumResourceRegions: UInt32, 
-                            _ pResourceRegionStartCoordinates: UnsafePointer<TiledResourceCoordinate>?, 
-                            _ pResourceRegionSizes: UnsafePointer<TileRegionSize>?, 
-                            _ pHeap: UnsafeMutablePointer<Heap>?, 
+                            _ pResourceRegionStartCoordinates: UnsafePointer<D3DTiledResourceCoordinate>?, 
+                            _ pResourceRegionSizes: UnsafePointer<D3DTileRegionSize>?, 
+                            _ pHeap: UnsafeMutablePointer<D3DHeap>?, 
                             _ NumRanges: UInt32,
-                            _ pRangeFlags: UnsafePointer<TileRangeFlags>?,
+                            _ pRangeFlags: UnsafePointer<D3DTileRangeFlags>?,
                             _ pHeapRangeStartOffsets: UnsafePointer<UInt32>?,
                             _ pRangeTileCounts: UnsafePointer<UInt32>?,
-                            _ Flags: TileMappingFlags) {
+                            _ Flags: D3DTileMappingFlags) {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "signal")
-    func Wait(_ pFence: Fence, _ Value: UInt32) -> HRESULT {
+    func Wait(_ pFence: D3DFence, _ Value: UInt32) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 }

@@ -8,25 +8,25 @@
 
 import WinSDK
 
-public class Pageable: DeviceChild {
+public class D3DPageable: D3DDeviceChild {
 
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension Pageable {
+extension D3DPageable {
     typealias RawValue = WinSDK.ID3D12Pageable
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension Pageable.RawValue {
+extension D3DPageable.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12Pageable}
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, unavailable, renamed: "Pageable")
-public typealias ID3D12Pageable = Pageable 
+@available(*, unavailable, renamed: "D3DPageable")
+public typealias ID3D12Pageable = D3DPageable 
 
 #endif

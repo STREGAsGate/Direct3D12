@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct GraphicsPipelineStateDescription {
+public struct D3DGraphicsPipelineStateDescription {
     internal var rawValue: WinSDK.D3D12_GRAPHICS_PIPELINE_STATE_DESC
 
 
@@ -21,7 +21,7 @@ public struct GraphicsPipelineStateDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "GraphicsPipelineStateDescription")
-public typealias D3D12_GRAPHICS_PIPELINE_STATE_DESC = GraphicsPipelineStateDescription
+@available(*, deprecated, renamed: "D3DGraphicsPipelineStateDescription")
+public typealias D3D12_GRAPHICS_PIPELINE_STATE_DESC = D3DGraphicsPipelineStateDescription
 
 #endif

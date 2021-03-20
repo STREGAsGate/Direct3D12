@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct CPUDescriptorHandle {
+public struct D3DCPUDescriptorHandle {
     internal var rawValue: WinSDK.D3D12_CPU_DESCRIPTOR_HANDLE
 
 
@@ -21,7 +21,7 @@ public struct CPUDescriptorHandle {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "CPUDescriptorHandle")
-public typealias D3D12_CPU_DESCRIPTOR_HANDLE = CPUDescriptorHandle 
+@available(*, deprecated, renamed: "D3DCPUDescriptorHandle")
+public typealias D3D12_CPU_DESCRIPTOR_HANDLE = D3DCPUDescriptorHandle 
 
 #endif

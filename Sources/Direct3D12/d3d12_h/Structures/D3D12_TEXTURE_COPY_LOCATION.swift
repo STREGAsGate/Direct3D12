@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct TextureCopyLocation {
+public struct D3DTextureCopyLocation {
     public typealias RawValue = WinSDK.D3D12_TEXTURE_COPY_LOCATION
     internal var rawValue: RawValue
 
@@ -21,7 +21,7 @@ public struct TextureCopyLocation {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "TextureCopyLocation")
-public typealias D3D12_TEXTURE_COPY_LOCATION = TextureCopyLocation
+@available(*, deprecated, renamed: "D3DTextureCopyLocation")
+public typealias D3D12_TEXTURE_COPY_LOCATION = D3DTextureCopyLocation
 
 #endif

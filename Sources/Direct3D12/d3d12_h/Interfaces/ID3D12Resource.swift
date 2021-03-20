@@ -8,25 +8,25 @@
 
 import WinSDK
 
-public class Resource: Pageable {
+public class D3DResource: D3DPageable {
     
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension Resource {
+extension D3DResource {
     public typealias RawValue = WinSDK.ID3D12Resource
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension Resource.RawValue {
+extension D3DResource.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12Resource}
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, unavailable, renamed: "Resource")
-public typealias ID3D12Resource = Resource 
+@available(*, unavailable, renamed: "D3DResource")
+public typealias ID3D12Resource = D3DResource 
 
 #endif

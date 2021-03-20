@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct HeapProperties {
+public struct D3DHeapProperties {
     internal var rawValue: WinSDK.D3D12_HEAP_PROPERTIES
 
 
@@ -21,7 +21,7 @@ public struct HeapProperties {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "HeapProperties")
-public typealias D3D12_HEAP_PROPERTIES = HeapProperties
+@available(*, deprecated, renamed: "D3DHeapProperties")
+public typealias D3D12_HEAP_PROPERTIES = D3DHeapProperties
 
 #endif

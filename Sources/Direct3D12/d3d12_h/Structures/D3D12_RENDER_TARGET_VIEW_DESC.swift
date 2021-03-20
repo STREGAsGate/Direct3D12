@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct RenderTargetViewDescription {
+public struct D3DRenderTargetViewDescription {
     internal var rawValue: WinSDK.D3D12_RENDER_TARGET_VIEW_DESC
 
 
@@ -21,7 +21,7 @@ public struct RenderTargetViewDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RenderTargetViewDescription")
-public typealias D3D12_RENDER_TARGET_VIEW_DESC = RenderTargetViewDescription
+@available(*, deprecated, renamed: "D3DRenderTargetViewDescription")
+public typealias D3D12_RENDER_TARGET_VIEW_DESC = D3DRenderTargetViewDescription
 
 #endif

@@ -9,16 +9,16 @@
 import WinSDK
 
 /// Specifies what to clear from the depth stencil view.
-public struct ClearFlags: OptionSet {
+public struct D3DClearFlags: OptionSet {
     public typealias RawType = WinSDK.D3D12_CLEAR_FLAGS
     public typealias RawValue = WinSDK.D3D12_CLEAR_FLAGS.RawValue
     public let rawValue: RawValue
 
     /// Indicates the depth buffer should be cleared.
-    static let depth = ClearFlags(rawValue: WinSDK.D3D12_CLEAR_FLAG_DEPTH.rawValue)
+    static let depth = D3DClearFlags(rawValue: WinSDK.D3D12_CLEAR_FLAG_DEPTH.rawValue)
 
     /// Indicates the stencil buffer should be cleared.
-    static let stencil = ClearFlags(rawValue: WinSDK.D3D12_CLEAR_FLAG_STENCIL.rawValue)
+    static let stencil = D3DClearFlags(rawValue: WinSDK.D3D12_CLEAR_FLAG_STENCIL.rawValue)
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue
@@ -32,14 +32,14 @@ public struct ClearFlags: OptionSet {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ClearFlags")
-public typealias D3D12_CLEAR_FLAGS = ClearFlags
+@available(*, deprecated, renamed: "D3DClearFlags")
+public typealias D3D12_CLEAR_FLAGS = D3DClearFlags
 
 
-@available(*, deprecated, renamed: "ClearFlags.depth")
-public let D3D12_CLEAR_FLAG_DEPTH = ClearFlags.depth
+@available(*, deprecated, renamed: "D3DClearFlags.depth")
+public let D3D12_CLEAR_FLAG_DEPTH = D3DClearFlags.depth
 
-@available(*, deprecated, renamed: "ClearFlags.stencil")
-public let D3D12_CLEAR_FLAG_STENCIL = ClearFlags.stencil
+@available(*, deprecated, renamed: "D3DClearFlags.stencil")
+public let D3D12_CLEAR_FLAG_STENCIL = D3DClearFlags.stencil
 
 #endif

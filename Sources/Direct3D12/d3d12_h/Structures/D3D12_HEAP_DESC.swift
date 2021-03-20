@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct HeapDescription {
+public struct D3DHeapDescription {
     internal var rawValue: WinSDK.D3D12_HEAP_DESC
 
 
@@ -21,7 +21,7 @@ public struct HeapDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "HeapDescription")
-public typealias D3D12_HEAP_DESC = HeapDescription
+@available(*, deprecated, renamed: "D3DHeapDescription")
+public typealias D3D12_HEAP_DESC = D3DHeapDescription
 
 #endif

@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct ClearValue {
+public struct D3DClearValue {
     internal var rawValue: WinSDK.D3D12_CLEAR_VALUE
 
 
@@ -21,7 +21,7 @@ public struct ClearValue {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ClearValue")
-public typealias D3D12_CLEAR_VALUE = ClearValue 
+@available(*, deprecated, renamed: "D3DClearValue")
+public typealias D3D12_CLEAR_VALUE = D3DClearValue 
 
 #endif

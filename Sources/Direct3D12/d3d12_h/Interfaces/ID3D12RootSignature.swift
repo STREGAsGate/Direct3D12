@@ -8,25 +8,25 @@
 
 import WinSDK
 
-public class RootSignature: DeviceChild {
+public class D3DRootSignature: D3DDeviceChild {
     
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension RootSignature {
+extension D3DRootSignature {
     public typealias RawValue = WinSDK.ID3D12RootSignature
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension RootSignature.RawValue {
+extension D3DRootSignature.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12RootSignature}
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RootSignature")
-public typealias ID3D12RootSignature = RootSignature 
+@available(*, deprecated, renamed: "D3DRootSignature")
+public typealias ID3D12RootSignature = D3DRootSignature 
 
 #endif

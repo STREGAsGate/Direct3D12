@@ -9,7 +9,7 @@
 import WinSDK
 
 @available(Windows, deprecated: 10.0.19041, renamed: "ResourceDescription1")
-public struct ResourceDescription {
+public struct D3DResourceDescription {
     internal var rawValue: WinSDK.D3D12_RESOURCE_DESC
 
 
@@ -22,7 +22,7 @@ public struct ResourceDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ResourceDescription")
-public typealias D3D12_RESOURCE_DESC = ResourceDescription
+@available(*, deprecated, renamed: "D3DResourceDescription")
+public typealias D3D12_RESOURCE_DESC = D3DResourceDescription
 
 #endif

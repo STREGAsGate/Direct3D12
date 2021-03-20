@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct ResourceAllocationInfo {
+public struct D3DResourceAllocationInfo {
     public typealias RawValue = WinSDK.D3D12_RESOURCE_ALLOCATION_INFO
     internal var rawValue: RawValue
 
@@ -22,7 +22,7 @@ public struct ResourceAllocationInfo {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ResourceAllocationInfo")
-public typealias D3D12_RESOURCE_ALLOCATION_INFO = ResourceAllocationInfo
+@available(*, deprecated, renamed: "D3DResourceAllocationInfo")
+public typealias D3D12_RESOURCE_ALLOCATION_INFO = D3DResourceAllocationInfo
 
 #endif

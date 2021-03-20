@@ -8,18 +8,18 @@
 
 import WinSDK
 
-public class Heap: Pageable {
+public class D3DHeap: D3DPageable {
     
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension Heap {
+extension D3DHeap {
     typealias RawValue = WinSDK.ID3D12Heap
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension Heap.RawValue {
+extension D3DHeap.RawValue {
     static var interfaceID: WinSDK.IID {
         return WinSDK.IID_ID3D12Heap
     }
@@ -28,7 +28,7 @@ extension Heap.RawValue {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Heap")
-public typealias ID3D12Heap = Heap 
+@available(*, deprecated, renamed: "D3DHeap")
+public typealias ID3D12Heap = D3DHeap 
 
 #endif

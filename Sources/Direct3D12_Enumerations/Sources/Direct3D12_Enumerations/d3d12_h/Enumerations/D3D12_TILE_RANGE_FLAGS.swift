@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Specifies a range of tile mappings.
-public struct TileRangeFlags: OptionSet {
+public struct D3DTileRangeFlags: OptionSet {
     public typealias RawType = WinSDK.D3D12_TILE_RANGE_FLAGS
     public typealias RawValue = WinSDK.D3D12_TILE_RANGE_FLAGS.RawValue
     public let rawValue: RawValue
@@ -18,11 +18,11 @@ public struct TileRangeFlags: OptionSet {
     //static let none = TileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_NONE.rawValue)
 
     ///	The tile range is NULL.
-    static let null = TileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_NULL.rawValue)
+    static let null = D3DTileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_NULL.rawValue)
     ///	Skip the tile range.
-    static let skip = TileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_SKIP.rawValue)
+    static let skip = D3DTileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_SKIP.rawValue)
     ///	Reuse a single tile in the tile range.
-    static let reuseSingleTile = TileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE.rawValue)
+    static let reuseSingleTile = D3DTileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE.rawValue)
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue
@@ -36,20 +36,20 @@ public struct TileRangeFlags: OptionSet {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "TileRangeFlags")
-public typealias D3D12_TILE_RANGE_FLAGS = TileRangeFlags
+@available(*, deprecated, renamed: "D3DTileRangeFlags")
+public typealias D3D12_TILE_RANGE_FLAGS = D3DTileRangeFlags
 
 
 @available(*, deprecated, message: "Use [] to represent none in Swift.")
-public let D3D12_TILE_RANGE_FLAG_NONE: TileRangeFlags = []
+public let D3D12_TILE_RANGE_FLAG_NONE: D3DTileRangeFlags = []
 
-@available(*, deprecated, renamed: "null")
-public let D3D12_TILE_RANGE_FLAG_NULL = TileRangeFlags.null
+@available(*, deprecated, renamed: "D3DTileRangeFlags.null")
+public let D3D12_TILE_RANGE_FLAG_NULL = D3DTileRangeFlags.null
 
-@available(*, deprecated, renamed: "skip")
-public let D3D12_TILE_RANGE_FLAG_SKIP = TileRangeFlags.skip
+@available(*, deprecated, renamed: "D3DTileRangeFlags.skip")
+public let D3D12_TILE_RANGE_FLAG_SKIP = D3DTileRangeFlags.skip
 
 @available(*, deprecated, renamed: "reuseSingleTile")
-public let D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE = TileRangeFlags.reuseSingleTile
+public let D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE = D3DTileRangeFlags.reuseSingleTile
 
 #endif

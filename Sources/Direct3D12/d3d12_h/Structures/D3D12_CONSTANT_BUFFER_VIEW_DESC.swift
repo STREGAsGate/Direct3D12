@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct ConstantBufferViewDescription {
+public struct D3DConstantBufferViewDescription {
     internal var rawValue: WinSDK.D3D12_CONSTANT_BUFFER_VIEW_DESC
 
 
@@ -21,7 +21,7 @@ public struct ConstantBufferViewDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ConstantBufferViewDescription")
-public typealias D3D12_CONSTANT_BUFFER_VIEW_DESC = ConstantBufferViewDescription 
+@available(*, deprecated, renamed: "D3DConstantBufferViewDescription")
+public typealias D3D12_CONSTANT_BUFFER_VIEW_DESC = D3DConstantBufferViewDescription 
 
 #endif

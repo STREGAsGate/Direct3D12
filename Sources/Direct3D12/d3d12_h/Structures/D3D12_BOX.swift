@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct Box {
+public struct D3DBox {
     public typealias RawValue = WinSDK.D3D12_BOX
     internal var rawValue: RawValue
 
@@ -22,7 +22,7 @@ public struct Box {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Box")
-public typealias D3D12_BOX = Box 
+@available(*, deprecated, renamed: "D3DBox")
+public typealias D3D12_BOX = D3DBox 
 
 #endif

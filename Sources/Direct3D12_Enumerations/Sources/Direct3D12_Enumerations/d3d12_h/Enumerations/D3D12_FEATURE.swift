@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Defines constants that specify a Direct3D 12 feature or feature set to query about. When you want to query for the level to which an adapter supports a feature, pass one of these values to ID3D12Device::CheckFeatureSupport.
-public enum Feature {
+public enum D3DFeature {
     public typealias RawValue = WinSDK.D3D12_FEATURE
     ///	Indicates a query for the level of support for basic Direct3D 12 feature options. The corresponding data structure for this value is D3D12_FEATURE_DATA_D3D12_OPTIONS.
     case options
@@ -141,101 +141,101 @@ public enum Feature {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Feature")
-public typealias D3D12_FEATURE = Feature
+@available(*, deprecated, renamed: "D3DFeature")
+public typealias D3D12_FEATURE = D3DFeature
 
 
-@available(*, deprecated, renamed: "Feature.options")
-public let D3D12_FEATURE_D3D12_OPTIONS = Feature.options
+@available(*, deprecated, renamed: "D3DFeature.options")
+public let D3D12_FEATURE_D3D12_OPTIONS = D3DFeature.options
 
-@available(*, deprecated, renamed: "Feature.architecture")
-public let D3D12_FEATURE_ARCHITECTURE = Feature.architecture
+@available(*, deprecated, renamed: "D3DFeature.architecture")
+public let D3D12_FEATURE_ARCHITECTURE = D3DFeature.architecture
 
-@available(*, deprecated, renamed: "Feature.featureLevels")
-public let D3D12_FEATURE_FEATURE_LEVELS = Feature.featureLevels
+@available(*, deprecated, renamed: "D3DFeature.featureLevels")
+public let D3D12_FEATURE_FEATURE_LEVELS = D3DFeature.featureLevels
 
-@available(*, deprecated, renamed: "Feature.formatSupport")
-public let D3D12_FEATURE_FORMAT_SUPPORT = Feature.formatSupport
+@available(*, deprecated, renamed: "D3DFeature.formatSupport")
+public let D3D12_FEATURE_FORMAT_SUPPORT = D3DFeature.formatSupport
 
-@available(*, deprecated, renamed: "Feature.multisampleQualityLevels")
-public let D3D12_FEATURE_MULTISAMPLE_QUALITY_LEVELS = Feature.multisampleQualityLevels
+@available(*, deprecated, renamed: "D3DFeature.multisampleQualityLevels")
+public let D3D12_FEATURE_MULTISAMPLE_QUALITY_LEVELS = D3DFeature.multisampleQualityLevels
 
-@available(*, deprecated, renamed: "Feature.formatInfo")
-public let D3D12_FEATURE_FORMAT_INFO = Feature.formatInfo
+@available(*, deprecated, renamed: "D3DFeature.formatInfo")
+public let D3D12_FEATURE_FORMAT_INFO = D3DFeature.formatInfo
 
-@available(*, deprecated, renamed: "Feature.gpuVirtualAddressSupport")
-public let D3D12_FEATURE_GPU_VIRTUAL_ADDRESS_SUPPORT = Feature.gpuVirtualAddressSupport
+@available(*, deprecated, renamed: "D3DFeature.gpuVirtualAddressSupport")
+public let D3D12_FEATURE_GPU_VIRTUAL_ADDRESS_SUPPORT = D3DFeature.gpuVirtualAddressSupport
 
-@available(*, deprecated, renamed: "Feature.shaderModel")
-public let D3D12_FEATURE_SHADER_MODEL = Feature.shaderModel
+@available(*, deprecated, renamed: "D3DFeature.shaderModel")
+public let D3D12_FEATURE_SHADER_MODEL = D3DFeature.shaderModel
 
-@available(*, deprecated, renamed: "Feature.options1")
-public let D3D12_FEATURE_D3D12_OPTIONS1 = Feature.options1
+@available(*, deprecated, renamed: "D3DFeature.options1")
+public let D3D12_FEATURE_D3D12_OPTIONS1 = D3DFeature.options1
 
-@available(*, deprecated, renamed: "Feature.protectedResourceSessionSupport")
-public let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_SUPPORT = Feature.protectedResourceSessionSupport
+@available(*, deprecated, renamed: "D3DFeature.protectedResourceSessionSupport")
+public let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_SUPPORT = D3DFeature.protectedResourceSessionSupport
 
-@available(*, deprecated, renamed: "Feature.rootSignature")
-public let D3D12_FEATURE_ROOT_SIGNATURE = Feature.rootSignature
+@available(*, deprecated, renamed: "D3DFeature.rootSignature")
+public let D3D12_FEATURE_ROOT_SIGNATURE = D3DFeature.rootSignature
 
 @available(Windows, introduced: 10.0.15063)
-@available(*, deprecated, renamed: "Feature.architecture1")
-public let D3D12_FEATURE_ARCHITECTURE1 = Feature.architecture1
+@available(*, deprecated, renamed: "D3DFeature.architecture1")
+public let D3D12_FEATURE_ARCHITECTURE1 = D3DFeature.architecture1
 
 @available(Windows, introduced: 10.0.16299)
-@available(*, deprecated, renamed: "Feature.options2")
-public let D3D12_FEATURE_D3D12_OPTIONS2 = Feature.options2
+@available(*, deprecated, renamed: "D3DFeature.options2")
+public let D3D12_FEATURE_D3D12_OPTIONS2 = D3DFeature.options2
 
 @available(Windows, introduced: 10.0.16299)
-@available(*, deprecated, renamed: "Feature.shaderCache")
-public let D3D12_FEATURE_SHADER_CACHE = Feature.shaderCache
+@available(*, deprecated, renamed: "D3DFeature.shaderCache")
+public let D3D12_FEATURE_SHADER_CACHE = D3DFeature.shaderCache
 
 @available(Windows, introduced: 10.0.16299)
-@available(*, deprecated, renamed: "Feature.commandQueuePriority")
-public let D3D12_FEATURE_COMMAND_QUEUE_PRIORITY = Feature.commandQueuePriority
+@available(*, deprecated, renamed: "D3DFeature.commandQueuePriority")
+public let D3D12_FEATURE_COMMAND_QUEUE_PRIORITY = D3DFeature.commandQueuePriority
 
 @available(Windows, introduced: 10.0.16299)
-@available(*, deprecated, renamed: "Feature.options3")
-public let D3D12_FEATURE_D3D12_OPTIONS3 = Feature.options3
+@available(*, deprecated, renamed: "D3DFeature.options3")
+public let D3D12_FEATURE_D3D12_OPTIONS3 = D3DFeature.options3
 
 @available(Windows, introduced: 10.0.16299)
-@available(*, deprecated, renamed: "Feature.existingHeaps")
-public let D3D12_FEATURE_EXISTING_HEAPS = Feature.existingHeaps
+@available(*, deprecated, renamed: "D3DFeature.existingHeaps")
+public let D3D12_FEATURE_EXISTING_HEAPS = D3DFeature.existingHeaps
 
 @available(Windows, introduced: 10.0.17763)
-@available(*, deprecated, renamed: "Feature.options4")
-public let D3D12_FEATURE_D3D12_OPTIONS4 = Feature.options4
+@available(*, deprecated, renamed: "D3DFeature.options4")
+public let D3D12_FEATURE_D3D12_OPTIONS4 = D3DFeature.options4
 
 @available(Windows, introduced: 10.0.17763)
-@available(*, deprecated, renamed: "Feature.serialization")
-public let D3D12_FEATURE_SERIALIZATION = Feature.serialization
+@available(*, deprecated, renamed: "D3DFeature.serialization")
+public let D3D12_FEATURE_SERIALIZATION = D3DFeature.serialization
 
 @available(Windows, introduced: 10.0.17763)
-@available(*, deprecated, renamed: "Feature.crossNode")
-public let D3D12_FEATURE_CROSS_NODE = Feature.crossNode
+@available(*, deprecated, renamed: "D3DFeature.crossNode")
+public let D3D12_FEATURE_CROSS_NODE = D3DFeature.crossNode
 
 @available(Windows, introduced: 10.0.17763)
-@available(*, deprecated, renamed: "Feature.options5")
-public let D3D12_FEATURE_D3D12_OPTIONS5 = Feature.options5
+@available(*, deprecated, renamed: "D3DFeature.options5")
+public let D3D12_FEATURE_D3D12_OPTIONS5 = D3DFeature.options5
 
 @available(Windows, introduced: 10.0.18362)
-@available(*, deprecated, renamed: "Feature.options6")
-public let D3D12_FEATURE_D3D12_OPTIONS6 = Feature.options6
+@available(*, deprecated, renamed: "D3DFeature.options6")
+public let D3D12_FEATURE_D3D12_OPTIONS6 = D3DFeature.options6
 
 @available(Windows, introduced: 10.0.19041)
-@available(*, deprecated, renamed: "Feature.queryMetaCommand")
-public let D3D12_FEATURE_QUERY_META_COMMAND = Feature.queryMetaCommand
+@available(*, deprecated, renamed: "D3DFeature.queryMetaCommand")
+public let D3D12_FEATURE_QUERY_META_COMMAND = D3DFeature.queryMetaCommand
     
 @available(Windows, introduced: 10.0.19041)
-@available(*, deprecated, renamed: "Feature.options7")
-public let D3D12_FEATURE_D3D12_OPTIONS7 = Feature.options7
+@available(*, deprecated, renamed: "D3DFeature.options7")
+public let D3D12_FEATURE_D3D12_OPTIONS7 = D3DFeature.options7
     
 @available(Windows, introduced: 10.0.19041)
-@available(*, deprecated, renamed: "Feature.protectedResourceSessionTypeCount")
-public let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPE_COUNT = Feature.protectedResourceSessionTypeCount
+@available(*, deprecated, renamed: "D3DFeature.protectedResourceSessionTypeCount")
+public let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPE_COUNT = D3DFeature.protectedResourceSessionTypeCount
     
 @available(Windows, introduced: 10.0.19041)
-@available(*, deprecated, renamed: "Feature.protectedResourceSessionTypes")
-public let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPES = Feature.protectedResourceSessionTypes
+@available(*, deprecated, renamed: "D3DFeature.protectedResourceSessionTypes")
+public let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPES = D3DFeature.protectedResourceSessionTypes
 
 #endif

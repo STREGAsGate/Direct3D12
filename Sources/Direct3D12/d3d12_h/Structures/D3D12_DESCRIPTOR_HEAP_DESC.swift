@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct DescriptorHeapDescription {
+public struct D3DDescriptorHeapDescription {
     internal var rawValue: WinSDK.D3D12_DESCRIPTOR_HEAP_DESC
 
     internal init(_ rawValue: WinSDK.D3D12_DESCRIPTOR_HEAP_DESC) {
@@ -20,7 +20,7 @@ public struct DescriptorHeapDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DescriptorHeapDescription")
-public typealias D3D12_DESCRIPTOR_HEAP_DESC = DescriptorHeapDescription
+@available(*, deprecated, renamed: "D3DDescriptorHeapDescription")
+public typealias D3D12_DESCRIPTOR_HEAP_DESC = D3DDescriptorHeapDescription
 
 #endif

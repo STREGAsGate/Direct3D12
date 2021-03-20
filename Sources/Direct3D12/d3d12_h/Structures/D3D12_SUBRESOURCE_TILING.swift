@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct SubresourceTiling {
+public struct D3DSubresourceTiling {
     internal var rawValue: WinSDK.D3D12_SUBRESOURCE_TILING
 
 
@@ -21,7 +21,7 @@ public struct SubresourceTiling {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "SubresourceTiling")
-public typealias D3D12_SUBRESOURCE_TILING = SubresourceTiling
+@available(*, deprecated, renamed: "D3DSubresourceTiling")
+public typealias D3D12_SUBRESOURCE_TILING = D3DSubresourceTiling
 
 #endif

@@ -8,18 +8,18 @@
 
 import WinSDK
 
-public class QueryHeap: Pageable {
+public class D3DQueryHeap: D3DPageable {
 
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension QueryHeap {
+extension D3DQueryHeap {
     typealias RawValue = WinSDK.ID3D12QueryHeap
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension QueryHeap.RawValue {
+extension D3DQueryHeap.RawValue {
     static var interfaceID: WinSDK.IID {
         return WinSDK.IID_ID3D12QueryHeap
     }
@@ -29,7 +29,7 @@ extension QueryHeap.RawValue {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "QueryHeap")
-public typealias ID3D12QueryHeap = QueryHeap 
+@available(*, deprecated, renamed: "D3DQueryHeap")
+public typealias ID3D12QueryHeap = D3DQueryHeap 
 
 #endif

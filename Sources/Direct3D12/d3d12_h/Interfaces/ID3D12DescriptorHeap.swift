@@ -9,64 +9,64 @@
 import WinSDK
 
 /// A descriptor heap is a collection of contiguous allocations of descriptors, one allocation for every descriptor. Descriptor heaps contain many object types that are not part of a Pipeline State Object (PSO), such as Shader Resource Views (SRVs), Unordered Access Views (UAVs), Constant Buffer Views (CBVs), and Samplers.
-public class DescriptorHeap: Pageable {
+public class D3DDescriptorHeap: D3DPageable {
 
     /// Gets the CPU descriptor handle that represents the start of the heap.
-    public var cpuDescriptorHandleForHeapStart: CPUDescriptorHandle {
+    public var cpuDescriptorHandleForHeapStart: D3DCPUDescriptorHandle {
         return performFatally(as: RawValue.self) {pThis in
             let v = pThis.pointee.lpVtbl.pointee.GetCPUDescriptorHandleForHeapStart(pThis)
-            return CPUDescriptorHandle(v)
+            return D3DCPUDescriptorHandle(v)
         }
     }
 
     /// Gets the descriptor heap description.
-    public var descriptorHeapDescription: DescriptorHeapDescription {
+    public var descriptorHeapDescription: D3DDescriptorHeapDescription {
         return performFatally(as: RawValue.self) {pThis in
             let v = pThis.pointee.lpVtbl.pointee.GetDesc(pThis)
-            return DescriptorHeapDescription(v)
+            return D3DDescriptorHeapDescription(v)
         }
     }
 
     /// Gets the GPU descriptor handle that represents the start of the heap.
-    public var gpuDescriptorHandleForHeapStart: GPUDescriptorHandle {
+    public var gpuDescriptorHandleForHeapStart: D3DGPUDescriptorHandle {
         return performFatally(as: RawValue.self) {pThis in
             let v = pThis.pointee.lpVtbl.pointee.GetGPUDescriptorHandleForHeapStart(pThis)
-            return GPUDescriptorHandle(v)
+            return D3DGPUDescriptorHandle(v)
         }
     }
 
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension DescriptorHeap {
+extension D3DDescriptorHeap {
     typealias RawValue = WinSDK.ID3D12DescriptorHeap
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension DescriptorHeap.RawValue {
+extension D3DDescriptorHeap.RawValue {
     static var interfaceID: IID {WinSDK.IID_ID3D12DescriptorHeap}
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DescriptorHeap")
-public typealias ID3D12DescriptorHeap = DescriptorHeap 
+@available(*, deprecated, renamed: "D3DDescriptorHeap")
+public typealias ID3D12DescriptorHeap = D3DDescriptorHeap 
 
-public extension DescriptorHeap {
+public extension D3DDescriptorHeap {
     @available(*, unavailable, renamed: "cpuDescriptorHandleForHeapStart")
-    func GetCPUDescriptorHandleForHeapStart() -> CPUDescriptorHandle {
+    func GetCPUDescriptorHandleForHeapStart() -> D3DCPUDescriptorHandle {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "descriptorHeapDescription")
-    func GetDesc() -> DescriptorHeapDescription {
+    func GetDesc() -> D3DDescriptorHeapDescription {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "gpuDescriptorHandleForHeapStart")
-    func GetGPUDescriptorHandleForHeapStart() -> GPUDescriptorHandle {
+    func GetGPUDescriptorHandleForHeapStart() -> D3DGPUDescriptorHandle {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 }

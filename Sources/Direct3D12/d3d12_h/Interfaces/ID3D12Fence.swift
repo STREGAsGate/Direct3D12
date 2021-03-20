@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Represents a fence, an object used for synchronization of the CPU and one or more GPUs.
-public class Fence: Pageable {
+public class D3DFence: D3DPageable {
     
     /// Gets the current value of the fence.
     public var value: UInt64 {
@@ -49,13 +49,13 @@ public class Fence: Pageable {
     }
 }
 
-extension Fence {
+extension D3DFence {
     typealias RawValue = WinSDK.ID3D12Fence
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension Fence.RawValue {
+extension D3DFence.RawValue {
     static var interfaceID: WinSDK.IID {
         return WinSDK.IID_ID3D12Fence
     }
@@ -64,10 +64,10 @@ extension Fence.RawValue {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Fence")
-public typealias ID3D12Fence = Fence
+@available(*, deprecated, renamed: "D3DFence")
+public typealias ID3D12Fence = D3DFence
 
-public extension Fence {
+public extension D3DFence {
     @available(*, unavailable, renamed: "value")
     func GetCompletedValue() -> UInt64 {
         fatalError("This API is here to make migration easier. There is no implementation.")

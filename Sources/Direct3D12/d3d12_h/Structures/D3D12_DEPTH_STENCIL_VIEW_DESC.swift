@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct DepthStencilViewDescription {
+public struct D3DDepthStencilViewDescription {
     internal var rawValue: WinSDK.D3D12_DEPTH_STENCIL_VIEW_DESC
 
 
@@ -21,7 +21,7 @@ public struct DepthStencilViewDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DepthStencilViewDescription")
-public typealias D3D12_DEPTH_STENCIL_VIEW_DESC = DepthStencilViewDescription
+@available(*, deprecated, renamed: "D3DDepthStencilViewDescription")
+public typealias D3D12_DEPTH_STENCIL_VIEW_DESC = D3DDepthStencilViewDescription
 
 #endif

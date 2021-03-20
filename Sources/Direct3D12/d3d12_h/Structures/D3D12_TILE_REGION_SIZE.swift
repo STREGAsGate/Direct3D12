@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct TileRegionSize {
+public struct D3DTileRegionSize {
     public typealias RawValue = WinSDK.D3D12_TILE_REGION_SIZE
     var rawValue: RawValue
 
@@ -22,7 +22,7 @@ public struct TileRegionSize {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "TileRegionSize")
-public typealias D3D12_TILE_REGION_SIZE = TileRegionSize
+@available(*, deprecated, renamed: "D3DTileRegionSize")
+public typealias D3D12_TILE_REGION_SIZE = D3DTileRegionSize
 
 #endif

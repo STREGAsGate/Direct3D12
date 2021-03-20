@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Specifies the predication operation to apply.
-public enum PredictionOperation {
+public enum D3DPredictionOperation {
     public typealias RawValue = WinSDK.D3D12_PREDICATION_OP
     ///	Enables predication if all 64-bits are zero.
     case equalZero
@@ -30,14 +30,14 @@ public enum PredictionOperation {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "PredictionOperation")
-public typealias D3D12_PREDICATION_OP = PredictionOperation
+@available(*, deprecated, renamed: "D3DPredictionOperation")
+public typealias D3D12_PREDICATION_OP = D3DPredictionOperation
 
 
-@available(*, deprecated, renamed: "PredictionOperation.equalZero")
-public let D3D12_PREDICATION_OP_EQUAL_ZERO = PredictionOperation.equalZero
+@available(*, deprecated, renamed: "D3DPredictionOperation.equalZero")
+public let D3D12_PREDICATION_OP_EQUAL_ZERO = D3DPredictionOperation.equalZero
 
-@available(*, deprecated, renamed: "PredictionOperation.notEqualZero")
-public let D3D12_PREDICATION_OP_NOT_EQUAL_ZERO = PredictionOperation.notEqualZero
+@available(*, deprecated, renamed: "D3DPredictionOperation.notEqualZero")
+public let D3D12_PREDICATION_OP_NOT_EQUAL_ZERO = D3DPredictionOperation.notEqualZero
 
 #endif

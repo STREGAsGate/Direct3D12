@@ -8,13 +8,13 @@
 
 import WinSDK
 
-public class Device: Object {
+public class D3DDevice: D3DObject {
     
     /** Gets information about the features that are supported by the current graphics driver.
     - parameter feature: A constant from the D3D12_FEATURE enumeration describing the feature(s) that you want to query for support.
     - parameter A pointer to a data structure that corresponds to the value of the Feature parameter. To determine the corresponding data structure for each constant, see D3D12_FEATURE.
     */
-    public func supports<T>(_ feature: Feature, _ structure: T) -> Bool {
+    public func supports<T>(_ feature: D3DFeature, _ structure: T) -> Bool {
         return performFatally(as: RawValue.self) {pThis in
             let size = UInt32(MemoryLayout<T>.size)
             var s = structure
@@ -30,11 +30,11 @@ public class Device: Object {
     - parameter srcRangeSizes: An array of source descriptor range sizes to copy from.
     - parameter type: The D3D12_DESCRIPTOR_HEAP_TYPE-typed value that specifies the type of descriptor heap to copy with. This is required as different descriptor types may have different sizes.
     */
-    public func copyDescriptors(destRangeStarts: [CPUDescriptorHandle],
+    public func copyDescriptors(destRangeStarts: [D3DCPUDescriptorHandle],
                                 destRangeSizes: [UInt32],
-                                srcRangeStarts: [CPUDescriptorHandle],
+                                srcRangeStarts: [D3DCPUDescriptorHandle],
                                 srcRangeSizes: [UInt32],
-                                type: DescriptorHeapType) {
+                                type: D3DDescriptorHeapType) {
         performFatally(as: RawValue.self) {pThis in
             let NumDestDescriptorRanges = UInt32(destRangeStarts.count)
             let pDestDescriptorRangeStarts = destRangeStarts.map({$0.rawValue})
@@ -56,10 +56,10 @@ public class Device: Object {
     - parameter count: The number of descriptors to copy.
     - parameter type: The D3D12_DESCRIPTOR_HEAP_TYPE-typed value that specifies the type of descriptor heap to copy with. This is required as different descriptor types may have different sizes.
     */
-    public func copyDescriptors(from destRangeStart: CPUDescriptorHandle,
-                                to srcRangeStart: CPUDescriptorHandle,
+    public func copyDescriptors(from destRangeStart: D3DCPUDescriptorHandle,
+                                to srcRangeStart: D3DCPUDescriptorHandle,
                                 count: UInt32,
-                                type: DescriptorHeapType) {
+                                type: D3DDescriptorHeapType) {
         performFatally(as: RawValue.self) {pThis in
             let NumDescriptors = count
             let pDestDescriptorRangeStarts = destRangeStart.rawValue
@@ -75,13 +75,13 @@ public class Device: Object {
     /** Creates a command allocator object.
     - parameter type: A D3D12_COMMAND_LIST_TYPE-typed value that specifies the type of command allocator to create. The type of command allocator can be the type that records either direct command lists or bundles.
     */
-    public func createCommandAllocator(type: CommandListType) throws -> CommandAllocator {
+    public func createCommandAllocator(type: D3DCommandListType) throws -> D3DCommandAllocator {
         return try perform(as: RawValue.self) {pThis in
             var ppCommandAllocator: UnsafeMutableRawPointer?
-            var riid = CommandAllocator.interfaceID
+            var riid = D3DCommandAllocator.interfaceID
             try pThis.pointee.lpVtbl.pointee.CreateCommandAllocator(pThis, type.rawValue, &riid, &ppCommandAllocator).checkResult()
             guard let p = ppCommandAllocator else {throw Error(.invalidArgument)}
-            return CommandAllocator(win32Pointer: p)
+            return D3DCommandAllocator(win32Pointer: p)
         }
     }
 
@@ -92,33 +92,33 @@ public class Device: Object {
     - parameter initialState: An optional pointer to the pipeline state object that contains the initial pipeline state for the command list. If it is nulltpr, then the runtime sets a dummy initial pipeline state, so that drivers don't have to deal with undefined state. The overhead for this is low, particularly for a command list, for which the overall cost of recording the command list likely dwarfs the cost of a single initial state setting. So there's little cost in not setting the initial pipeline state parameter, if doing so is inconvenient. For bundles, on the other hand, it might make more sense to try to set the initial state parameter (since bundles are likely smaller overall, and can be reused frequently).
     */
     public func createCommandList(multipleAdapterNodeMask: UInt32 = 0, 
-                           type: CommandListType,
-                           commandAllocator: CommandAllocator,
-                           initialState: PipelineState? = nil) throws -> CommandList {
+                           type: D3DCommandListType,
+                           commandAllocator: D3DCommandAllocator,
+                           initialState: D3DPipelineState? = nil) throws -> D3DCommandList {
         return try perform(as: RawValue.self) {pThis in
             let nodeMask = multipleAdapterNodeMask
             let type = type.rawValue
-            let pCommandAllocator = try commandAllocator.perform(as: CommandAllocator.RawValue.self){$0}
+            let pCommandAllocator = try commandAllocator.perform(as: D3DCommandAllocator.RawValue.self){$0}
             var ppCommandList: UnsafeMutableRawPointer?
-            let pInitialState = try initialState?.perform(as: PipelineState.RawValue.self){$0}
-            var riid = CommandList.interfaceID
+            let pInitialState = try initialState?.perform(as: D3DPipelineState.RawValue.self){$0}
+            var riid = D3DCommandList.interfaceID
             try pThis.pointee.lpVtbl.pointee.CreateCommandList(pThis, nodeMask, type, pCommandAllocator, pInitialState, &riid, &ppCommandList).checkResult()
             guard let p = ppCommandList else {throw Error(.invalidArgument)}
-            return CommandList(win32Pointer: p)
+            return D3DCommandList(win32Pointer: p)
         }
     }
 
     /** Creates a command queue.
     - parameter description: Specifies a D3D12_COMMAND_QUEUE_DESC that describes the command queue.
     */
-    public func createCommandQueue(description: CommandQueueDescription) throws -> CommandQueue {
+    public func createCommandQueue(description: D3DCommandQueueDescription) throws -> D3DCommandQueue {
         return try perform(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
-            var riid = CommandQueue.interfaceID
+            var riid = D3DCommandQueue.interfaceID
             var ppCommandQueue: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateCommandQueue(pThis, &pDesc, &riid, &ppCommandQueue).checkResult()
             guard let p = ppCommandQueue else {throw Error(.invalidArgument)}
-            return CommandQueue(win32Pointer: p)
+            return D3DCommandQueue(win32Pointer: p)
         }
     }
 
@@ -126,15 +126,15 @@ public class Device: Object {
     - parameter description: Describes the command signature to be created with the D3D12_COMMAND_SIGNATURE_DESC structure.
     - parameter rootSignature: Specifies the ID3D12RootSignature that the command signature applies to. The root signature is required if any of the commands in the signature will update bindings on the pipeline. If the only command present is a draw or dispatch, the root signature parameter can be set to NULL.
     */
-    public func createCommandSignature(description: CommandSignatureDescription, rootSignature: RootSignature?) throws -> CommandSignature {
+    public func createCommandSignature(description: D3DCommandSignatureDescription, rootSignature: D3DRootSignature?) throws -> D3DCommandSignature {
         return try perform(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
-            let pRootSignature = try rootSignature?.perform(as: RootSignature.RawValue.self) {$0}
-            var riid = CommandSignature.interfaceID
+            let pRootSignature = try rootSignature?.perform(as: D3DRootSignature.RawValue.self) {$0}
+            var riid = D3DCommandSignature.interfaceID
             var ppCommandSignature: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateCommandSignature(pThis, &pDesc, pRootSignature, &riid, &ppCommandSignature).checkResult()
             guard let p = ppCommandSignature else {throw Error(.invalidArgument)}
-            return CommandSignature(win32Pointer: p)
+            return D3DCommandSignature(win32Pointer: p)
         }
     }
 
@@ -145,36 +145,36 @@ public class Device: Object {
     - parameter state: The initial state of the resource, as a bitwise-OR'd combination of D3D12_RESOURCE_STATES enumeration constants. When you create a resource together with a D3D12_HEAP_TYPE_UPLOAD heap, you must set InitialResourceState to D3D12_RESOURCE_STATE_GENERIC_READ. When you create a resource together with a D3D12_HEAP_TYPE_READBACK heap, you must set InitialResourceState to D3D12_RESOURCE_STATE_COPY_DEST.
     - parameter clearColor: Specifies a D3D12_CLEAR_VALUE structure that describes the default value for a clear color.
     */
-    public func createCommittedResource(description: ResourceDescription,
-                                        properties: HeapProperties,
-                                        flags: HeapFlags = [],
-                                        state: ResourceStates,
-                                        clearColor: ClearValue) throws -> Resource {
+    public func createCommittedResource(description: D3DResourceDescription,
+                                        properties: D3DHeapProperties,
+                                        flags: D3DHeapFlags = [],
+                                        state: D3DResourceStates,
+                                        clearColor: D3DClearValue) throws -> D3DResource {
         return try perform(as: RawValue.self) {pThis in
             var pHeapProperties = properties.rawValue
-            let HeapFlags = HeapFlags.RawType(flags.rawValue)
+            let HeapFlags = D3DHeapFlags.RawType(flags.rawValue)
             var pDesc = description.rawValue
-            let InitialResourceState = ResourceStates.RawType(state.rawValue)
+            let InitialResourceState = D3DResourceStates.RawType(state.rawValue)
             var pOptimizedClearValue = clearColor.rawValue
-            var riidResource = Resource.interfaceID
+            var riidResource = D3DResource.interfaceID
             var ppvResource: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateCommittedResource(pThis, &pHeapProperties, HeapFlags, &pDesc, InitialResourceState, &pOptimizedClearValue, &riidResource, &ppvResource).checkResult()
             guard let p = ppvResource else {throw Error(.invalidArgument)}
-            return Resource(win32Pointer: p)
+            return D3DResource(win32Pointer: p)
         }
     }
 
     /** Creates a compute pipeline state object.
     - parameter description: A pointer to a D3D12_COMPUTE_PIPELINE_STATE_DESC structure that describes compute pipeline state.
     */
-    public func createComputePipelineState(description: ComputePipelineStateDescription) throws -> PipelineState {
+    public func createComputePipelineState(description: D3DComputePipelineStateDescription) throws -> D3DPipelineState {
         return try perform(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
-            var riid = PipelineState.interfaceID
+            var riid = D3DPipelineState.interfaceID
             var ppComputePipelineState: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateComputePipelineState(pThis, &pDesc, &riid, &ppComputePipelineState).checkResult()
             guard let p = ppComputePipelineState else {throw Error(.invalidArgument)}
-            return PipelineState(win32Pointer: p)
+            return D3DPipelineState(win32Pointer: p)
         }
     }
 
@@ -182,7 +182,7 @@ public class Device: Object {
     - parameter description: A pointer to a D3D12_CONSTANT_BUFFER_VIEW_DESC structure that describes the constant-buffer view.
     - parameter destination: Describes the CPU descriptor handle that represents the start of the heap that holds the constant-buffer view.
     */
-    public func CreateConstantBufferView(description: ConstantBufferViewDescription, destination: CPUDescriptorHandle) {
+    public func CreateConstantBufferView(description: D3DConstantBufferViewDescription, destination: D3DCPUDescriptorHandle) {
         performFatally(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
             pThis.pointee.lpVtbl.pointee.CreateConstantBufferView(pThis, &pDesc, destination.rawValue)
@@ -194,9 +194,9 @@ public class Device: Object {
     - parameter description: A pointer to a D3D12_DEPTH_STENCIL_VIEW_DESC structure that describes the depth-stencil view. A null pDesc is used to initialize a default descriptor, if possible. This behavior is identical to the D3D11 null descriptor behavior, where defaults are filled in. This behavior inherits the resource format and dimension (if not typeless) and DSVs target the first mip and all array slices. Not all resources support null descriptor initialization.
     - parameter destination: Describes the CPU descriptor handle that represents the start of the heap that holds the depth-stencil view.
     */
-    public func createDepthStencilView(resource: Resource, description: DepthStencilViewDescription, destination: CPUDescriptorHandle) {
+    public func createDepthStencilView(resource: D3DResource, description: D3DDepthStencilViewDescription, destination: D3DCPUDescriptorHandle) {
         performFatally(as: RawValue.self) {pThis in
-            let pResource = resource.performFatally(as: Resource.RawValue.self) {$0}
+            let pResource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
             var pDesc = description.rawValue
             pThis.pointee.lpVtbl.pointee.CreateDepthStencilView(pThis, pResource, &pDesc, destination.rawValue)
         }
@@ -205,14 +205,14 @@ public class Device: Object {
     /** Creates a descriptor heap object.
     - parameter description: A pointer to a D3D12_DESCRIPTOR_HEAP_DESC structure that describes the heap.
     */
-    public func createDescriptorHeap(description: DescriptorHeapDescription) throws -> DescriptorHeap {
+    public func createDescriptorHeap(description: D3DDescriptorHeapDescription) throws -> D3DDescriptorHeap {
         return try perform(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
-            var riid = DescriptorHeap.interfaceID
+            var riid = D3DDescriptorHeap.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateDescriptorHeap(pThis, &pDesc, &riid, &pp).checkResult()
             guard let p = pp else {throw Error(.invalidArgument)}
-            return DescriptorHeap(win32Pointer: p)
+            return D3DDescriptorHeap(win32Pointer: p)
         }
     }
 
@@ -220,43 +220,43 @@ public class Device: Object {
     - parameter initialValue: The initial value for the fence.
     - parameter flags: A combination of D3D12_FENCE_FLAGS-typed values that are combined by using a bitwise OR operation. The resulting value specifies options for the fence.
     */
-    public func createFence(initialValue: UInt64, flags: FenceFlags) throws -> Fence {
+    public func createFence(initialValue: UInt64, flags: D3DFenceFlags) throws -> D3DFence {
         return try perform(as: RawValue.self) {pThis in
             let InitialValue = initialValue
-            let Flags = FenceFlags.RawType(flags.rawValue)
-            var riid = Fence.interfaceID
+            let Flags = D3DFenceFlags.RawType(flags.rawValue)
+            var riid = D3DFence.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateFence(pThis, InitialValue, Flags, &riid, &pp).checkResult()
             guard let p = pp else {throw Error(.invalidArgument)}
-            return Fence(win32Pointer: p)
+            return D3DFence(win32Pointer: p)
         }
     }
 
     /** Creates a graphics pipeline state object.
     - parameter description: A pointer to a D3D12_GRAPHICS_PIPELINE_STATE_DESC structure that describes graphics pipeline state.
     */
-    public func createGraphicsPipelineState(description: GraphicsPipelineStateDescription) throws -> PipelineState {
+    public func createGraphicsPipelineState(description: D3DGraphicsPipelineStateDescription) throws -> D3DPipelineState {
         return try perform(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
-            var riid = PipelineState.interfaceID
+            var riid = D3DPipelineState.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateGraphicsPipelineState(pThis, &pDesc, &riid, &pp).checkResult()
             guard let p = pp else {throw Error(.invalidArgument)}
-            return PipelineState(win32Pointer: p)
+            return D3DPipelineState(win32Pointer: p)
         }
     }
 
     /** Creates a heap that can be used with placed resources and reserved resources.
     - parameter description: A pointer to a constant D3D12_HEAP_DESC structure that describes the heap.
     */
-    public func createHeap(description: HeapDescription) throws -> Heap {
+    public func createHeap(description: D3DHeapDescription) throws -> D3DHeap {
         return try perform(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
-            var riid = Heap.interfaceID
+            var riid = D3DHeap.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateHeap(pThis, &pDesc, &riid, &pp).checkResult()
             guard let p = pp else {throw Error(.invalidArgument)}
-            return Heap(win32Pointer: p)
+            return D3DHeap(win32Pointer: p)
         }
     }
 
@@ -268,36 +268,36 @@ public class Device: Object {
     - parameter clearColor: Specifies a D3D12_CLEAR_VALUE that describes the default value for a clear color.
     */
     @available(Windows, deprecated: 10.0.19041, message: "Use description type ResourceDescription1")
-    public func createPlacedResource(heap: Heap, 
+    public func createPlacedResource(heap: D3DHeap, 
                                      offset: UInt64, 
-                                     description: ResourceDescription,
-                                     initialState: ResourceStates,
-                                     clearColor: ClearValue) throws -> Resource {
+                                     description: D3DResourceDescription,
+                                     initialState: D3DResourceStates,
+                                     clearColor: D3DClearValue) throws -> D3DResource {
         return try perform(as: RawValue.self) {pThis in
-            let pHeap = try heap.perform(as: Heap.RawValue.self) {$0}
+            let pHeap = try heap.perform(as: D3DHeap.RawValue.self) {$0}
             let HeapOffset = offset
             var pDesc = description.rawValue
-            let InitialState = ResourceStates.RawType(initialState.rawValue)
+            let InitialState = D3DResourceStates.RawType(initialState.rawValue)
             var pOptimizedClearValue = clearColor.rawValue
-            var riid = Resource.interfaceID
+            var riid = D3DResource.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreatePlacedResource(pThis, pHeap, HeapOffset, &pDesc, InitialState, &pOptimizedClearValue, &riid, &pp).checkResult()
             guard let p = pp else {throw Error(.invalidArgument)}
-            return Resource(win32Pointer: p)
+            return D3DResource(win32Pointer: p)
         }
     }
 
     /** Creates a query heap. A query heap contains an array of queries.
     - parameter description: Specifies the query heap in a D3D12_QUERY_HEAP_DESC structure.
     */
-    public func createQueryHeap(description: QueryHeapDescription) throws -> QueryHeap {
+    public func createQueryHeap(description: D3DQueryHeapDescription) throws -> D3DQueryHeap {
        return try perform(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
-            var riid = QueryHeap.interfaceID
+            var riid = D3DQueryHeap.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateQueryHeap(pThis, &pDesc, &riid, &pp).checkResult()
             guard let p = pp else {throw Error(.invalidArgument)}
-            return QueryHeap(win32Pointer: p)
+            return D3DQueryHeap(win32Pointer: p)
         }
     }
 
@@ -306,9 +306,9 @@ public class Device: Object {
     - parameter description: A pointer to a D3D12_RENDER_TARGET_VIEW_DESC structure that describes the render-target view.
     - parameter destination: Describes the CPU descriptor handle that represents the destination where the newly-created render target view will reside.
     */
-    public func createRenderTargetView(resource: Resource, description: RenderTargetViewDescription, destination: CPUDescriptorHandle) {
+    public func createRenderTargetView(resource: D3DResource, description: D3DRenderTargetViewDescription, destination: D3DCPUDescriptorHandle) {
         performFatally(as: RawValue.self) {pThis in
-            let pResource = resource.performFatally(as: Resource.RawValue.self) {$0}
+            let pResource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
             var pDesc = description.rawValue
             pThis.pointee.lpVtbl.pointee.CreateRenderTargetView(pThis, pResource, &pDesc, destination.rawValue)
         }
@@ -319,18 +319,18 @@ public class Device: Object {
     - parameter initialState: The initial state of the resource, as a bitwise-OR'd combination of D3D12_RESOURCE_STATES enumeration constants.
     - parameter clearColor: Specifies a D3D12_CLEAR_VALUE structure that describes the default value for a clear color.
     */
-    public func createReservedResource(description: ResourceDescription,
-                                       initialState: ResourceStates,
-                                       clearColor: ClearValue) throws -> Resource {
+    public func createReservedResource(description: D3DResourceDescription,
+                                       initialState: D3DResourceStates,
+                                       clearColor: D3DClearValue) throws -> D3DResource {
         return try perform(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
-            let InitialState = ResourceStates.RawType(initialState.rawValue)
+            let InitialState = D3DResourceStates.RawType(initialState.rawValue)
             var pOptimizedClearValue = clearColor.rawValue
-            var riid = Resource.interfaceID
+            var riid = D3DResource.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateReservedResource(pThis, &pDesc, InitialState, &pOptimizedClearValue, &riid, &pp).checkResult()
             guard let p = pp else {throw Error(.invalidArgument)}
-            return Resource(win32Pointer: p)
+            return D3DResource(win32Pointer: p)
         }
     }
 
@@ -340,8 +340,8 @@ public class Device: Object {
     - parameter version: A D3D_ROOT_SIGNATURE_VERSION-typed value that specifies the version of root signature.
     */
     public func createRootSignature(multipleAdapterNodeMask: UInt32 = 0,
-                                    description: RootSignatureDescription,
-                                    version: RootSignatureVersion) throws -> RootSignature {
+                                    description: D3DRootSignatureDescription,
+                                    version: D3DRootSignatureVersion) throws -> D3DRootSignature {
         return try perform(as: RawValue.self) {pThis in
             var pRootSignature = description.rawValue
             var ppBlob: UnsafeMutablePointer<WinSDK.ID3DBlob>?
@@ -349,11 +349,11 @@ public class Device: Object {
             try WinSDK.D3D12SerializeRootSignature(&pRootSignature, version.rawValue, &ppBlob, &ppErrorBlob).checkResult()
             guard let buffer = ppBlob?.pointee.lpVtbl.pointee.GetBufferPointer(ppBlob) else {throw Error(.invalidArgument)}
             guard let bufferSize = ppBlob?.pointee.lpVtbl.pointee.GetBufferSize(ppBlob) else {throw Error(.invalidArgument)}
-            var riid = RootSignature.interfaceID
+            var riid = D3DRootSignature.interfaceID
             var ppCommandSignature: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateRootSignature(pThis, multipleAdapterNodeMask, buffer, bufferSize, &riid, &ppCommandSignature).checkResult()
             guard let p = ppCommandSignature else {throw Error(.invalidArgument)}
-            return RootSignature(win32Pointer: p)
+            return D3DRootSignature(win32Pointer: p)
         }
     }
 
@@ -361,7 +361,7 @@ public class Device: Object {
     - parameter description: A pointer to a D3D12_SAMPLER_DESC structure that describes the sampler.
     - parameter destination: Describes the CPU descriptor handle that represents the start of the heap that holds the sampler.
     */
-    public func createSampler(description: SamplerDescription, destination: CPUDescriptorHandle) {
+    public func createSampler(description: D3DSamplerDescription, destination: D3DCPUDescriptorHandle) {
         performFatally(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
             pThis.pointee.lpVtbl.pointee.CreateSampler(pThis, &pDesc, destination.rawValue)
@@ -373,9 +373,9 @@ public class Device: Object {
     - parameter description: A pointer to a D3D12_SHADER_RESOURCE_VIEW_DESC structure that describes the shader-resource view.
     - parameter destination: Describes the CPU descriptor handle that represents the shader-resource view. This handle can be created in a shader-visible or non-shader-visible descriptor heap.
     */
-    public func createShaderResourceView(resource: Resource, description: ShaderResourceViewDescription, destination: CPUDescriptorHandle) {
+    public func createShaderResourceView(resource: D3DResource, description: D3DShaderResourceViewDescription, destination: D3DCPUDescriptorHandle) {
         performFatally(as: RawValue.self) {pThis in
-            let pResource = resource.performFatally(as: Resource.RawValue.self) {$0}
+            let pResource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
             var pDesc = description.rawValue
             pThis.pointee.lpVtbl.pointee.CreateShaderResourceView(pThis, pResource, &pDesc, destination.rawValue)
         }
@@ -386,9 +386,9 @@ public class Device: Object {
     - parameter object: A pointer to the ID3D12DeviceChild interface that represents the heap, resource, or fence object to create for sharing. The following interfaces (derived from ID3D12DeviceChild) are supported:
     - parameter name: A NULL-terminated UNICODE string that contains the name to associate with the shared heap. The name is limited to MAX_PATH characters. Name comparison is case-sensitive. If Name matches the name of an existing resource, CreateSharedHandle fails with DXGI_ERROR_NAME_ALREADY_EXISTS. This occurs because these objects share the same namespace. The name can have a "Global" or "Local" prefix to explicitly create the object in the global or session namespace. The remainder of the name can contain any character except the backslash character (\). For more information, see Kernel Object Namespaces. Fast user switching is implemented using Terminal Services sessions. Kernel object names must follow the guidelines outlined for Terminal Services so that applications can support multiple users.
     */
-    public func createSharedHandle(object: DeviceChild, name: String) throws -> UnsafeMutableRawPointer {
+    public func createSharedHandle(object: D3DDeviceChild, name: String) throws -> UnsafeMutableRawPointer {
         return try perform(as: RawValue.self) {pThis in
-            let pObject = try object.perform(as: DeviceChild.RawValue.self) {$0}
+            let pObject = try object.perform(as: D3DDeviceChild.RawValue.self) {$0}
             let pAttributes: UnsafeMutablePointer<SECURITY_ATTRIBUTES>? = nil
             let ACCESS = DWORD(WinSDK.GENERIC_ALL)
             let Name = name.lpcwstr
@@ -405,10 +405,10 @@ public class Device: Object {
     - parameter description: A pointer to a D3D12_UNORDERED_ACCESS_VIEW_DESC structure that describes the unordered-access view.
     - parameter destination: Describes the CPU descriptor handle that represents the start of the heap that holds the unordered-access view.
     */
-    public func createUnorderedAccessView(resource: Resource, counter: Resource, description: UnorderedAccessViewDescription, destination: CPUDescriptorHandle) {
+    public func createUnorderedAccessView(resource: D3DResource, counter: D3DResource, description: D3DUnorderedAccessViewDescription, destination: D3DCPUDescriptorHandle) {
         performFatally(as: RawValue.self) {pThis in
-            let pResource = resource.performFatally(as: Resource.RawValue.self) {$0}
-            let pCounterResource = counter.performFatally(as: Resource.RawValue.self) {$0}
+            let pResource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
+            let pCounterResource = counter.performFatally(as: D3DResource.RawValue.self) {$0}
             var pDesc = description.rawValue
             pThis.pointee.lpVtbl.pointee.CreateUnorderedAccessView(pThis, pResource, pCounterResource, &pDesc, destination.rawValue)
         }
@@ -417,10 +417,10 @@ public class Device: Object {
     /** Enables the page-out of data, which precludes GPU access of that data.
     - parameter objects: A pointer to a memory block that contains an array of ID3D12Pageable interface pointers for the objects. Even though most D3D12 objects inherit from ID3D12Pageable, residency changes are only supported on the following objects: Descriptor Heaps, Heaps, Committed Resources, and Query Heaps
     */
-    public func evict(_ objects: [Pageable]) throws {
+    public func evict(_ objects: [D3DPageable]) throws {
         try perform(as: RawValue.self) {pThis in 
             let NumObjects = UInt32(objects.count)
-            var ppObjects = try objects.map({try $0.perform(as: Pageable.RawValue.self) {Optional($0)}})
+            var ppObjects = try objects.map({try $0.perform(as: D3DPageable.RawValue.self) {Optional($0)}})
             try pThis.pointee.lpVtbl.pointee.Evict(pThis, NumObjects, &ppObjects).checkResult()
         }
     }
@@ -430,21 +430,21 @@ public class Device: Object {
     - parameter descriptors: An array of D3D12_RESOURCE_DESC structures that described the resources to get info about.
     */
     public func resourceAllocationInfo(multipleAdapterNodeMask: UInt32 = 0, 
-                                       descriptors: [ResourceDescription]) -> ResourceAllocationInfo {
+                                       descriptors: [D3DResourceDescription]) -> D3DResourceAllocationInfo {
         return performFatally(as: RawValue.self) {pThis in
             let visibleMask = multipleAdapterNodeMask
             let numResourceDescs = UInt32(descriptors.count)
             let pResourceDescs = descriptors.map({$0.rawValue})
             let v = pThis.pointee.lpVtbl.pointee.GetResourceAllocationInfo(pThis, visibleMask, numResourceDescs, pResourceDescs)
-            return ResourceAllocationInfo(v)
+            return D3DResourceAllocationInfo(v)
         }
     }
 
-    public func resourceTiling(for resource: Resource, start: UInt32, count: UInt32) -> (tilesNeeded: UInt32, 
-                                                                                         mipInfo: PackedMipInfo, 
-                                                                                         shape: TileShape,
-                                                                                         retrieved: UInt32, 
-                                                                                         tiling: SubresourceTiling) {
+    public func resourceTiling(for resource: D3DResource, start: UInt32, count: UInt32) -> (tilesNeeded: UInt32, 
+                                                                                            mipInfo: D3DPackedMipInfo, 
+                                                                                            shape: D3DTileShape,
+                                                                                            retrieved: UInt32, 
+                                                                                            tiling: D3DSubresourceTiling) {
         // https://docs.microsoft.com/en-us/windows/win32/api/d3d12/nf-d3d12-id3d12device-getresourcetiling
         fatalError("no implementation")
     }
@@ -467,11 +467,11 @@ public class Device: Object {
     - returns totalByteSize: A pointer to an integer variable, to be filled with the total size, in bytes.
     */
     @available(Windows, deprecated: 10.0.19041, message: "Use description type ResourceDescription1.")
-    func copyableFootprints(description: ResourceDescription,
+    func copyableFootprints(description: D3DResourceDescription,
                             firstIndex: UInt32,
                             count: UInt32,
                             offset: UInt64,
-                            layouts: PlacedSubresourceFootprint) -> (rowCounts: [UInt32], rowSizes: [UInt64], totalByteSize: UInt64) {
+                            layouts: D3DPlacedSubresourceFootprint) -> (rowCounts: [UInt32], rowSizes: [UInt64], totalByteSize: UInt64) {
         performFatally(as: RawValue.self) {pThis in 
             var pResourceDesc = description.rawValue
             let FirstSubresource = firstIndex
@@ -490,10 +490,10 @@ public class Device: Object {
     /** Makes objects resident for the device.
     - parameter objects: A pointer to a memory block that contains an array of ID3D12Pageable interface pointers for the objects. Even though most D3D12 objects inherit from ID3D12Pageable, residency changes are only supported on the following objects: Descriptor Heaps, Heaps, Committed Resources, and Query Heaps
     */
-    public func makeResident(_ objects: [Pageable]) throws {
+    public func makeResident(_ objects: [D3DPageable]) throws {
         try perform(as: RawValue.self) {pThis in 
             let NumObjects = UInt32(objects.count)
-            var ppObjects = try objects.map({try $0.perform(as: Pageable.RawValue.self) {Optional($0)}})
+            var ppObjects = try objects.map({try $0.perform(as: D3DPageable.RawValue.self) {Optional($0)}})
             try pThis.pointee.lpVtbl.pointee.MakeResident(pThis, NumObjects, &ppObjects).checkResult()
         }
     }
@@ -503,15 +503,15 @@ public class Device: Object {
     - parameter type: The globally unique identifier (GUID) for one of the following interfaces: ID3D12Heap, ID3D12Resource, ID3D12Fence
     - returns: The REFIID, or GUID, of the interface can be obtained by using the __uuidof() macro. For example, __uuidof(ID3D12Heap) will get the GUID of the interface to a resource.
     */
-    public func openSharedHandle<T: Pageable>(_ handle: UnsafeMutableRawPointer, for type: T.Type) throws -> T {
+    public func openSharedHandle<T: D3DPageable>(_ handle: UnsafeMutableRawPointer, for type: T.Type) throws -> T {
         return try perform(as: RawValue.self) {pThis in
             var riid: WinSDK.IID = try {
-                if type == Heap.self {
-                    return Heap.interfaceID
-                }else if type == Resource.self {
-                    return Resource.interfaceID
-                }else if type == Fence.self {
-                    return Fence.interfaceID
+                if type == D3DHeap.self {
+                    return D3DHeap.interfaceID
+                }else if type == D3DResource.self {
+                    return D3DResource.interfaceID
+                }else if type == D3DFence.self {
+                    return D3DFence.interfaceID
                 }else{
                     throw Error(.invalidArgument)
                 }
@@ -519,12 +519,12 @@ public class Device: Object {
             var p: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.OpenSharedHandle(pThis, handle, &riid, &p).checkResult()
             guard let p = p else {throw Error(.invalidArgument)}
-            if type == Heap.self {
-                return Heap(win32Pointer: p) as! T
-            }else if type == Resource.self {
-                return Resource(win32Pointer: p) as! T
-            }else if type == Fence.self {
-                return Fence(win32Pointer: p) as! T
+            if type == D3DHeap.self {
+                return D3DHeap(win32Pointer: p) as! T
+            }else if type == D3DResource.self {
+                return D3DResource(win32Pointer: p) as! T
+            }else if type == D3DFence.self {
+                return D3DFence(win32Pointer: p) as! T
             }else{
                 throw Error(.invalidArgument)
             }
@@ -577,15 +577,29 @@ public class Device: Object {
             return RawValue.interfaceID  //ID3D12Device
         // }
     }
+
+    public init(minimumFeatureLevel featureLevel: D3DFeatureLevel) throws {
+        let pAdapter: UnsafeMutablePointer<WinSDK.IUnknown>? = nil
+        let MinimumFeatureLevel = featureLevel.rawValue
+        var riid = D3DDevice.interfaceID
+        var ppDevice: UnsafeMutableRawPointer?
+        try WinSDK.D3D12CreateDevice(pAdapter, MinimumFeatureLevel, &riid, &ppDevice).checkResult()
+        guard let p = ppDevice else {throw Error(.invalidArgument)}
+        super.init(win32Pointer: p)
+    }
+
+    override public init(win32Pointer pointer: UnsafeMutableRawPointer?) {
+        super.init(win32Pointer: pointer)
+    }
 }
 
-extension Device {
+extension D3DDevice {
     typealias RawValue = WinSDK.ID3D12Device
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     } 
 }
-extension Device.RawValue {
+extension D3DDevice.RawValue {
     static var interfaceID: IID {WinSDK.IID_ID3D12Device}
 }
 
@@ -593,64 +607,64 @@ extension Device.RawValue {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Device")
-public typealias ID3D12Device = Device 
+@available(*, deprecated, renamed: "D3DDevice")
+public typealias ID3D12Device = D3DDevice 
 
-public extension Device {
+public extension D3DDevice {
     @available(*, unavailable, renamed: "commandListType")
-    func GetType() -> CommandListType.RawValue {
+    func GetType() -> D3DCommandListType.RawValue {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "supports")
-    func CheckFeatureSupport(_ Feature: Feature, _ pFeatureSupportData: UnsafeMutableRawPointer?, _ FeatureSupportDataSize: UInt32) -> HRESULT {
+    func CheckFeatureSupport(_ Feature: D3DFeature, _ pFeatureSupportData: UnsafeMutableRawPointer?, _ FeatureSupportDataSize: UInt32) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "copyDescriptors")
     func CopyDescriptors(_ NumDestDescriptorRanges: UInt32,
-                         _ pDestDescriptorRangeStarts: UnsafePointer<CPUDescriptorHandle>?,
+                         _ pDestDescriptorRangeStarts: UnsafePointer<D3DCPUDescriptorHandle>?,
                          _ pDestDescriptorRangeSizes: UnsafePointer<UInt32>,
                          _ NumSrcDescriptorRanges: UInt32,
-                         _ pSrcDescriptorRangeStarts: UnsafePointer<CPUDescriptorHandle>?,
+                         _ pSrcDescriptorRangeStarts: UnsafePointer<D3DCPUDescriptorHandle>?,
                          _ pSrcDescriptorRangeSizes: UnsafeMutablePointer<UInt32>?,
-                         _ DescriptorHeapsType: DescriptorHeapType) {
+                         _ DescriptorHeapsType: D3DDescriptorHeapType) {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "copyDescriptors")
     func CopyDescriptorsSimple(_ NumDestDescriptors: UInt32,
-                               _ pDestDescriptorRangeStart: CPUDescriptorHandle,
-                               _ pSrcDescriptorRangeStart: CPUDescriptorHandle,
-                               _ DescriptorHeapsType: DescriptorHeapType) {
+                               _ pDestDescriptorRangeStart: D3DCPUDescriptorHandle,
+                               _ pSrcDescriptorRangeStart: D3DCPUDescriptorHandle,
+                               _ DescriptorHeapsType: D3DDescriptorHeapType) {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "createCommandAllocator")
-    func CreateCommandAllocator(_ type: CommandListType, _ riid: UnsafePointer<WinSDK.IID>?, _ ppCommandAllocator: UnsafeMutablePointer<UnsafeMutableRawPointer?>?) -> HRESULT {
+    func CreateCommandAllocator(_ type: D3DCommandListType, _ riid: UnsafePointer<WinSDK.IID>?, _ ppCommandAllocator: UnsafeMutablePointer<UnsafeMutableRawPointer?>?) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "createCommandList")
     func CreateCommandList(_ nodeMask: UInt32,
-                           _ type: CommandListType,
-                           _ pCommandAllocator: UnsafeMutablePointer<CommandAllocator>,
-                           _ pInitialState: UnsafeMutablePointer<PipelineState>?,
+                           _ type: D3DCommandListType,
+                           _ pCommandAllocator: UnsafeMutablePointer<D3DCommandAllocator>,
+                           _ pInitialState: UnsafeMutablePointer<D3DPipelineState>?,
                            _ riid: UnsafePointer<WinSDK.IID>?,
                            _ ppCommandList: UnsafeMutablePointer<UnsafeMutableRawPointer?>?) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "createCommandQueue")
-    func CreateCommandQueue(_ pDesc: UnsafePointer<CommandQueueDescription>, 
+    func CreateCommandQueue(_ pDesc: UnsafePointer<D3DCommandQueueDescription>, 
                             _ riid: UnsafePointer<WinSDK.IID>?, 
                             _ ppCommandQueue: UnsafeMutablePointer<UnsafeMutableRawPointer?>?) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 
     @available(*, unavailable, renamed: "createCommandSignature")
-    func CreateCommandSignature(_ pDesc: UnsafePointer<CommandSignatureDescription>, 
-                                _ pRootSignature: UnsafeMutablePointer<RootSignature>,
+    func CreateCommandSignature(_ pDesc: UnsafePointer<D3DCommandSignatureDescription>, 
+                                _ pRootSignature: UnsafeMutablePointer<D3DRootSignature>,
                                 _ riid: UnsafePointer<WinSDK.IID>?,
                                 _ ppvCommandSignature: UnsafeMutablePointer<UnsafeMutableRawPointer?>?) -> HRESULT {
         fatalError("This API is here to make migration easier. There is no implementation.")

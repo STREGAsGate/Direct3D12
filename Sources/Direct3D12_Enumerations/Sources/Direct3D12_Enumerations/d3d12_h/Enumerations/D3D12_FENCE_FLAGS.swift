@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Specifies fence options.
-public struct FenceFlags: OptionSet {
+public struct D3DFenceFlags: OptionSet {
     public typealias RawType = WinSDK.D3D12_FENCE_FLAGS
     public typealias RawValue = WinSDK.D3D12_FENCE_FLAGS.RawValue
     public let rawValue: RawValue
@@ -18,13 +18,13 @@ public struct FenceFlags: OptionSet {
     //static let none = FenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NONE.rawValue)
 
     /// The fence is shared.
-    static let shared = FenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_SHARED.rawValue)
+    static let shared = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_SHARED.rawValue)
     	
     /// The fence is shared with another GPU adapter.
-    static let sharedCrossAdapter = FenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_SHARED_CROSS_ADAPTER.rawValue)
+    static let sharedCrossAdapter = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_SHARED_CROSS_ADAPTER.rawValue)
 	
     /// The fence is of the non-monitored type. Non-monitored fences should only be used when the adapter doesn't support monitored fences, or when a fence is shared with an adapter that doesn't support monitored fences.
-    static let nonMonitored = FenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NON_MONITORED.rawValue)
+    static let nonMonitored = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NON_MONITORED.rawValue)
 
 
     public init(rawValue: RawValue) {
@@ -39,20 +39,20 @@ public struct FenceFlags: OptionSet {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FenceFlags")
-public typealias D3D12_FENCE_FLAGS = FenceFlags
+@available(*, deprecated, renamed: "D3DFenceFlags")
+public typealias D3D12_FENCE_FLAGS = D3DFenceFlags
 
 
 @available(*, deprecated, message: "Use [] to represent none in Swift.")
-public let D3D12_FENCE_FLAG_NONE: FenceFlags = []
+public let D3D12_FENCE_FLAG_NONE: D3DFenceFlags = []
 
-@available(*, deprecated, renamed: "FenceFlags.shared")
-public let D3D12_FENCE_FLAG_SHARED = FenceFlags.shared
+@available(*, deprecated, renamed: "D3DFenceFlags.shared")
+public let D3D12_FENCE_FLAG_SHARED = D3DFenceFlags.shared
 
-@available(*, deprecated, renamed: "FenceFlags.sharedCrossAdapter")
-public let D3D12_FENCE_FLAG_SHARED_CROSS_ADAPTER = FenceFlags.sharedCrossAdapter
+@available(*, deprecated, renamed: "D3DFenceFlags.sharedCrossAdapter")
+public let D3D12_FENCE_FLAG_SHARED_CROSS_ADAPTER = D3DFenceFlags.sharedCrossAdapter
 
-@available(*, deprecated, renamed: "FenceFlags.nonMonitored")
-public let D3D12_FENCE_FLAG_NON_MONITORED = FenceFlags.nonMonitored
+@available(*, deprecated, renamed: "D3DFenceFlags.nonMonitored")
+public let D3D12_FENCE_FLAG_NON_MONITORED = D3DFenceFlags.nonMonitored
 
 #endif

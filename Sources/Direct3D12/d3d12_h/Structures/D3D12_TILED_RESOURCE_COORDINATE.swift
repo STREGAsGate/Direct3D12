@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct TiledResourceCoordinate {
+public struct D3DTiledResourceCoordinate {
     public typealias RawValue = WinSDK.D3D12_TILED_RESOURCE_COORDINATE
     var rawValue: RawValue
 
@@ -22,7 +22,7 @@ public struct TiledResourceCoordinate {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "TiledResourceCoordinate")
-public typealias D3D12_TILED_RESOURCE_COORDINATE = TiledResourceCoordinate
+@available(*, deprecated, renamed: "D3DTiledResourceCoordinate")
+public typealias D3D12_TILED_RESOURCE_COORDINATE = D3DTiledResourceCoordinate
 
 #endif

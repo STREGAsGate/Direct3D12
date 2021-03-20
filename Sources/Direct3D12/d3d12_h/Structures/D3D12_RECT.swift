@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct Rect {
+public struct D3DRect {
     public typealias RawValue = WinSDK.D3D12_RECT
     internal var rawValue: RawValue
 
@@ -22,7 +22,7 @@ public struct Rect {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Rect")
-public typealias D3D12_RECT = Rect 
+@available(*, deprecated, renamed: "D3DRect")
+public typealias D3D12_RECT = D3DRect 
 
 #endif

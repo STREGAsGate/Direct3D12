@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct CommandSignatureDescription {
+public struct D3DCommandSignatureDescription {
     internal var rawValue: WinSDK.D3D12_COMMAND_SIGNATURE_DESC
 
 
@@ -21,7 +21,7 @@ public struct CommandSignatureDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "CommandSignatureDescription")
-public typealias D3D12_COMMAND_SIGNATURE_DESC = CommandSignatureDescription 
+@available(*, deprecated, renamed: "D3DCommandSignatureDescription")
+public typealias D3D12_COMMAND_SIGNATURE_DESC = D3DCommandSignatureDescription 
 
 #endif

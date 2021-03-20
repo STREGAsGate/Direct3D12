@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct TileShape {
+public struct D3DTileShape {
     internal var rawValue: WinSDK.D3D12_TILE_SHAPE
 
 
@@ -21,7 +21,7 @@ public struct TileShape {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "TileShape")
-public typealias D3D12_TILE_SHAPE = TileShape
+@available(*, deprecated, renamed: "D3DTileShape")
+public typealias D3D12_TILE_SHAPE = D3DTileShape
 
 #endif

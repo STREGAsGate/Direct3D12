@@ -12,7 +12,7 @@ import WinSDK.DirectX
 // The explicit D3D10 and D3D12 varients in d3dcommon.h are just aliases
 
 /// Values that indicate how the pipeline interprets vertex data that is bound to the input-assembler stage. These primitive topology values determine how the vertex data is rendered on screen.
-public enum PrimitiveTopology {
+public enum D3DPrimitiveTopology {
     public typealias RawValue = WinSDK.D3D_PRIMITIVE_TOPOLOGY
     /// The IA stage has not been initialized with a primitive topology. The IA stage will not function properly unless a primitive topology is defined.
     case undefined
@@ -193,133 +193,133 @@ public enum PrimitiveTopology {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "PrimitiveTopology")
-public typealias D3D_PRIMITIVE_TOPOLOGY  = PrimitiveTopology
+@available(*, deprecated, renamed: "D3DPrimitiveTopology")
+public typealias D3D_PRIMITIVE_TOPOLOGY  = D3DPrimitiveTopology
 
-@available(*, deprecated, renamed: "undefined")
-public let D3D_PRIMITIVE_TOPOLOGY_UNDEFINED = PrimitiveTopology.undefined
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.undefined")
+public let D3D_PRIMITIVE_TOPOLOGY_UNDEFINED = D3DPrimitiveTopology.undefined
 
-@available(*, deprecated, renamed: "pointList")
-public let D3D_PRIMITIVE_TOPOLOGY_POINTLIST = PrimitiveTopology.pointList
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.pointList")
+public let D3D_PRIMITIVE_TOPOLOGY_POINTLIST = D3DPrimitiveTopology.pointList
 
-@available(*, deprecated, renamed: "lineList")
-public let D3D_PRIMITIVE_TOPOLOGY_LINELIST = PrimitiveTopology.lineList
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.lineList")
+public let D3D_PRIMITIVE_TOPOLOGY_LINELIST = D3DPrimitiveTopology.lineList
 
-@available(*, deprecated, renamed: "lineStrip")
-public let D3D_PRIMITIVE_TOPOLOGY_LINESTRIP = PrimitiveTopology.lineStrip
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.lineStrip")
+public let D3D_PRIMITIVE_TOPOLOGY_LINESTRIP = D3DPrimitiveTopology.lineStrip
 
-@available(*, deprecated, renamed: "triangleList")
-public let D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST = PrimitiveTopology.triangleList
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.triangleList")
+public let D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST = D3DPrimitiveTopology.triangleList
 
-@available(*, deprecated, renamed: "triangleStrip")
-public let D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP = PrimitiveTopology.triangleStrip
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.triangleStrip")
+public let D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP = D3DPrimitiveTopology.triangleStrip
 
-@available(*, deprecated, renamed: "lineListAdjacent")
-public let D3D_PRIMITIVE_TOPOLOGY_LINELIST_ADJ = PrimitiveTopology.lineListAdjacent
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.lineListAdjacent")
+public let D3D_PRIMITIVE_TOPOLOGY_LINELIST_ADJ = D3DPrimitiveTopology.lineListAdjacent
 
-@available(*, deprecated, renamed: "lineStripAdjacent")
-public let D3D_PRIMITIVE_TOPOLOGY_LINESTRIP_ADJ = PrimitiveTopology.lineStripAdjacent
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.lineStripAdjacent")
+public let D3D_PRIMITIVE_TOPOLOGY_LINESTRIP_ADJ = D3DPrimitiveTopology.lineStripAdjacent
 
-@available(*, deprecated, renamed: "triangleListAdjacent")
-public let D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST_ADJ = PrimitiveTopology.triangleListAdjacent
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.triangleListAdjacent")
+public let D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST_ADJ = D3DPrimitiveTopology.triangleListAdjacent
 
-@available(*, deprecated, renamed: "triangleStripAdjacent")
-public let D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP_ADJ = PrimitiveTopology.triangleStripAdjacent
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.triangleStripAdjacent")
+public let D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP_ADJ = D3DPrimitiveTopology.triangleStripAdjacent
 
-@available(*, deprecated, renamed: "controlPointPatchList1")
-public let D3D_PRIMITIVE_TOPOLOGY_1_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList1
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList1")
+public let D3D_PRIMITIVE_TOPOLOGY_1_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList1
 
-@available(*, deprecated, renamed: "controlPointPatchList2")
-public let D3D_PRIMITIVE_TOPOLOGY_2_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList2
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList2")
+public let D3D_PRIMITIVE_TOPOLOGY_2_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList2
 
-@available(*, deprecated, renamed: "controlPointPatchList3")
-public let D3D_PRIMITIVE_TOPOLOGY_3_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList3
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList3")
+public let D3D_PRIMITIVE_TOPOLOGY_3_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList3
 
-@available(*, deprecated, renamed: "controlPointPatchList4")
-public let D3D_PRIMITIVE_TOPOLOGY_4_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList4
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList4")
+public let D3D_PRIMITIVE_TOPOLOGY_4_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList4
 
-@available(*, deprecated, renamed: "controlPointPatchList5")
-public let D3D_PRIMITIVE_TOPOLOGY_5_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList5
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList5")
+public let D3D_PRIMITIVE_TOPOLOGY_5_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList5
 
-@available(*, deprecated, renamed: "controlPointPatchList6")
-public let D3D_PRIMITIVE_TOPOLOGY_6_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList6
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList6")
+public let D3D_PRIMITIVE_TOPOLOGY_6_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList6
 
-@available(*, deprecated, renamed: "controlPointPatchList7")
-public let D3D_PRIMITIVE_TOPOLOGY_7_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList7
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList7")
+public let D3D_PRIMITIVE_TOPOLOGY_7_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList7
 
-@available(*, deprecated, renamed: "controlPointPatchList8")
-public let D3D_PRIMITIVE_TOPOLOGY_8_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList8
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList8")
+public let D3D_PRIMITIVE_TOPOLOGY_8_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList8
 
-@available(*, deprecated, renamed: "controlPointPatchList9")
-public let D3D_PRIMITIVE_TOPOLOGY_9_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList9
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList9")
+public let D3D_PRIMITIVE_TOPOLOGY_9_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList9
 
-@available(*, deprecated, renamed: "controlPointPatchList10")
-public let D3D_PRIMITIVE_TOPOLOGY_10_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList10
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList10")
+public let D3D_PRIMITIVE_TOPOLOGY_10_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList10
 
-@available(*, deprecated, renamed: "controlPointPatchList11")
-public let D3D_PRIMITIVE_TOPOLOGY_11_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList11
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList11")
+public let D3D_PRIMITIVE_TOPOLOGY_11_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList11
 
-@available(*, deprecated, renamed: "controlPointPatchList12")
-public let D3D_PRIMITIVE_TOPOLOGY_12_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList12
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList12")
+public let D3D_PRIMITIVE_TOPOLOGY_12_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList12
 
-@available(*, deprecated, renamed: "controlPointPatchList13")
-public let D3D_PRIMITIVE_TOPOLOGY_13_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList13
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList13")
+public let D3D_PRIMITIVE_TOPOLOGY_13_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList13
 
-@available(*, deprecated, renamed: "controlPointPatchList14")
-public let D3D_PRIMITIVE_TOPOLOGY_14_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList14
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList14")
+public let D3D_PRIMITIVE_TOPOLOGY_14_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList14
 
-@available(*, deprecated, renamed: "controlPointPatchList15")
-public let D3D_PRIMITIVE_TOPOLOGY_15_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList15
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList15")
+public let D3D_PRIMITIVE_TOPOLOGY_15_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList15
 
-@available(*, deprecated, renamed: "controlPointPatchList16")
-public let D3D_PRIMITIVE_TOPOLOGY_16_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList16
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList16")
+public let D3D_PRIMITIVE_TOPOLOGY_16_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList16
 
-@available(*, deprecated, renamed: "controlPointPatchList17")
-public let D3D_PRIMITIVE_TOPOLOGY_17_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList17
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList17")
+public let D3D_PRIMITIVE_TOPOLOGY_17_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList17
 
-@available(*, deprecated, renamed: "controlPointPatchList18")
-public let D3D_PRIMITIVE_TOPOLOGY_18_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList18
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList18")
+public let D3D_PRIMITIVE_TOPOLOGY_18_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList18
 
-@available(*, deprecated, renamed: "controlPointPatchList19")
-public let D3D_PRIMITIVE_TOPOLOGY_19_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList19
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList19")
+public let D3D_PRIMITIVE_TOPOLOGY_19_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList19
 
-@available(*, deprecated, renamed: "controlPointPatchList20")
-public let D3D_PRIMITIVE_TOPOLOGY_20_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList20
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList20")
+public let D3D_PRIMITIVE_TOPOLOGY_20_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList20
 
-@available(*, deprecated, renamed: "controlPointPatchList21")
-public let D3D_PRIMITIVE_TOPOLOGY_21_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList21
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList21")
+public let D3D_PRIMITIVE_TOPOLOGY_21_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList21
 
-@available(*, deprecated, renamed: "controlPointPatchList22")
-public let D3D_PRIMITIVE_TOPOLOGY_22_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList22
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList22")
+public let D3D_PRIMITIVE_TOPOLOGY_22_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList22
 
-@available(*, deprecated, renamed: "controlPointPatchList23")
-public let D3D_PRIMITIVE_TOPOLOGY_23_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList23
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList23")
+public let D3D_PRIMITIVE_TOPOLOGY_23_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList23
 
-@available(*, deprecated, renamed: "controlPointPatchList24")
-public let D3D_PRIMITIVE_TOPOLOGY_24_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList24
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList24")
+public let D3D_PRIMITIVE_TOPOLOGY_24_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList24
 
-@available(*, deprecated, renamed: "controlPointPatchList25")
-public let D3D_PRIMITIVE_TOPOLOGY_25_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList25
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList25")
+public let D3D_PRIMITIVE_TOPOLOGY_25_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList25
 
-@available(*, deprecated, renamed: "controlPointPatchList26")
-public let D3D_PRIMITIVE_TOPOLOGY_26_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList26
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList26")
+public let D3D_PRIMITIVE_TOPOLOGY_26_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList26
 
-@available(*, deprecated, renamed: "controlPointPatchList27")
-public let D3D_PRIMITIVE_TOPOLOGY_27_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList27
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList27")
+public let D3D_PRIMITIVE_TOPOLOGY_27_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList27
 
-@available(*, deprecated, renamed: "controlPointPatchList28")
-public let D3D_PRIMITIVE_TOPOLOGY_28_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList28
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList28")
+public let D3D_PRIMITIVE_TOPOLOGY_28_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList28
 
-@available(*, deprecated, renamed: "controlPointPatchList29")
-public let D3D_PRIMITIVE_TOPOLOGY_29_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList29
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList29")
+public let D3D_PRIMITIVE_TOPOLOGY_29_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList29
 
-@available(*, deprecated, renamed: "controlPointPatchList30")
-public let D3D_PRIMITIVE_TOPOLOGY_30_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList30
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList30")
+public let D3D_PRIMITIVE_TOPOLOGY_30_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList30
 
-@available(*, deprecated, renamed: "controlPointPatchList31")
-public let D3D_PRIMITIVE_TOPOLOGY_31_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList31
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList31")
+public let D3D_PRIMITIVE_TOPOLOGY_31_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList31
 
-@available(*, deprecated, renamed: "controlPointPatchList32")
-public let D3D_PRIMITIVE_TOPOLOGY_32_CONTROL_POINT_PATCHLIST = PrimitiveTopology.controlPointPatchList32
+@available(*, deprecated, renamed: "D3DPrimitiveTopology.controlPointPatchList32")
+public let D3D_PRIMITIVE_TOPOLOGY_32_CONTROL_POINT_PATCHLIST = D3DPrimitiveTopology.controlPointPatchList32
 
 #endif

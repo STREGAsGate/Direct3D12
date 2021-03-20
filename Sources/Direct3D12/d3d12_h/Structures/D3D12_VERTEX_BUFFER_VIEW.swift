@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct VertexBufferView {
+public struct D3DVertexBufferView {
     public typealias RawValue = WinSDK.D3D12_VERTEX_BUFFER_VIEW
     internal var rawValue: RawValue
 
@@ -22,7 +22,7 @@ public struct VertexBufferView {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "VertexBufferView")
-public typealias D3D12_VERTEX_BUFFER_VIEW = VertexBufferView
+@available(*, deprecated, renamed: "D3DVertexBufferView")
+public typealias D3D12_VERTEX_BUFFER_VIEW = D3DVertexBufferView
 
 #endif

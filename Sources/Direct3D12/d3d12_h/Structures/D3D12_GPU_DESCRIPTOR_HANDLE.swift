@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct GPUDescriptorHandle {
+public struct D3DGPUDescriptorHandle {
     internal var rawValue: WinSDK.D3D12_GPU_DESCRIPTOR_HANDLE
 
 
@@ -21,7 +21,7 @@ public struct GPUDescriptorHandle {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "GPUDescriptorHandle")
-public typealias D3D12_GPU_DESCRIPTOR_HANDLE = GPUDescriptorHandle
+@available(*, deprecated, renamed: "D3DGPUDescriptorHandle")
+public typealias D3D12_GPU_DESCRIPTOR_HANDLE = D3DGPUDescriptorHandle
 
 #endif

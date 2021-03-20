@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Specifies the type of a command list.
-public enum CommandListType {
+public enum D3DCommandListType {
     ///	Specifies a command buffer that the GPU can execute. A direct command list doesn't inherit any GPU state.
     case direct
     ///	Specifies a command buffer that can be executed only directly via a direct command list. A bundle command list inherits all GPU state (except for the currently set pipeline state object and primitive topology).
@@ -29,7 +29,7 @@ public enum CommandListType {
     case _unimplemented(RawValue)
 }
 
-extension CommandListType: RawRepresentable {
+extension D3DCommandListType: RawRepresentable {
     public typealias RawValue = WinSDK.D3D12_COMMAND_LIST_TYPE
     public var rawValue: WinSDK.D3D12_COMMAND_LIST_TYPE {
         switch self {
@@ -77,29 +77,29 @@ extension CommandListType: RawRepresentable {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "CommandListType")
-public typealias D3D12_COMMAND_LIST_TYPE = CommandListType
+@available(*, deprecated, renamed: "D3DCommandListType")
+public typealias D3D12_COMMAND_LIST_TYPE = D3DCommandListType
 
 
-@available(*, deprecated, renamed: "CommandListType.direct")
-public let D3D12_COMMAND_LIST_TYPE_DIRECT = CommandListType.direct
+@available(*, deprecated, renamed: "D3DCommandListType.direct")
+public let D3D12_COMMAND_LIST_TYPE_DIRECT = D3DCommandListType.direct
 
-@available(*, deprecated, renamed: "CommandListType.bundle")
-public let D3D12_COMMAND_LIST_TYPE_BUNDLE = CommandListType.bundle
+@available(*, deprecated, renamed: "D3DCommandListType.bundle")
+public let D3D12_COMMAND_LIST_TYPE_BUNDLE = D3DCommandListType.bundle
 
-@available(*, deprecated, renamed: "CommandListType.compute")
-public let D3D12_COMMAND_LIST_TYPE_COMPUTE = CommandListType.compute
+@available(*, deprecated, renamed: "D3DCommandListType.compute")
+public let D3D12_COMMAND_LIST_TYPE_COMPUTE = D3DCommandListType.compute
 
-@available(*, deprecated, renamed: "CommandListType.copy")
-public let D3D12_COMMAND_LIST_TYPE_COPY = CommandListType.copy
+@available(*, deprecated, renamed: "D3DCommandListType.copy")
+public let D3D12_COMMAND_LIST_TYPE_COPY = D3DCommandListType.copy
 
-@available(*, deprecated, renamed: "CommandListType.videoDecode")
-public let D3D12_COMMAND_LIST_TYPE_VIDEO_DECODE = CommandListType.videoDecode
+@available(*, deprecated, renamed: "D3DCommandListType.videoDecode")
+public let D3D12_COMMAND_LIST_TYPE_VIDEO_DECODE = D3DCommandListType.videoDecode
 
-@available(*, deprecated, renamed: "CommandListType.videoProcess")
-public let D3D12_COMMAND_LIST_TYPE_VIDEO_PROCESS = CommandListType.videoProcess
+@available(*, deprecated, renamed: "D3DCommandListType.videoProcess")
+public let D3D12_COMMAND_LIST_TYPE_VIDEO_PROCESS = D3DCommandListType.videoProcess
 
-@available(*, deprecated, renamed: "CommandListType.videoEncode")
-public let D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE = CommandListType.videoEncode
+@available(*, deprecated, renamed: "D3DCommandListType.videoEncode")
+public let D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE = D3DCommandListType.videoEncode
 
 #endif

@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct CommandQueueDescription {
+public struct D3DCommandQueueDescription {
     internal var rawValue: WinSDK.D3D12_COMMAND_QUEUE_DESC
 
 
@@ -21,7 +21,7 @@ public struct CommandQueueDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "CommandQueueDescription")
-public typealias D3D12_COMMAND_QUEUE_DESC = CommandQueueDescription 
+@available(*, deprecated, renamed: "D3DCommandQueueDescription")
+public typealias D3D12_COMMAND_QUEUE_DESC = D3DCommandQueueDescription 
 
 #endif

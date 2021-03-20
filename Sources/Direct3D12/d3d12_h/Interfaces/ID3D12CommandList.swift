@@ -7,38 +7,37 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
-public class CommandList: DeviceChild {
+public class D3DCommandList: D3DDeviceChild {
     /// Gets the type of the command list, such as direct, bundle, compute, or copy.
-    public var commandListType: CommandListType {
+    public var commandListType: D3DCommandListType {
         return performFatally(as: RawValue.self) {
-            return CommandListType(rawValue: $0.pointee.lpVtbl.pointee.GetType($0))
+            return D3DCommandListType(rawValue: $0.pointee.lpVtbl.pointee.GetType($0))
         }
     }
 
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension CommandList {
+extension D3DCommandList {
     typealias RawValue = WinSDK.ID3D12CommandList
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension CommandList.RawValue {
+extension D3DCommandList.RawValue {
     static var interfaceID: IID {WinSDK.IID_ID3D12CommandList}
 }
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, unavailable, renamed: "CommandList")
-public typealias ID3D12CommandList = CommandList 
+@available(*, unavailable, renamed: "D3DCommandList")
+public typealias ID3D12CommandList = D3DCommandList 
 
-public extension CommandList {
+public extension D3DCommandList {
     @available(*, unavailable, renamed: "commandListType")
-    func GetType() -> CommandListType.RawValue {
+    func GetType() -> D3DCommandListType.RawValue {
         fatalError("This API is here to make migration easier. There is no implementation.")
     }
 }

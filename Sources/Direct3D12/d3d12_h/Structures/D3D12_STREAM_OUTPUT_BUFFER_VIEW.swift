@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct StreamOutputBufferView {
+public struct D3DStreamOutputBufferView {
     public typealias RawValue = WinSDK.D3D12_STREAM_OUTPUT_BUFFER_VIEW
     internal var rawValue: RawValue
 
@@ -21,7 +21,7 @@ public struct StreamOutputBufferView {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "StreamOutputBufferView")
-public typealias D3D12_STREAM_OUTPUT_BUFFER_VIEW = StreamOutputBufferView
+@available(*, deprecated, renamed: "D3DStreamOutputBufferView")
+public typealias D3D12_STREAM_OUTPUT_BUFFER_VIEW = D3DStreamOutputBufferView
 
 #endif

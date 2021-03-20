@@ -10,7 +10,7 @@ import WinSDK
 import WinSDK.DirectX
 
 /// Specifies the version of root signature layout.
-public enum RootSignatureVersion {
+public enum D3DRootSignatureVersion {
     public typealias RawValue = WinSDK.D3D_ROOT_SIGNATURE_VERSION
     /// Version one of root signature layout.
     case v1_0
@@ -32,15 +32,15 @@ public enum RootSignatureVersion {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RootSignatureVersion")
-public typealias D3D_ROOT_SIGNATURE_VERSION = RootSignatureVersion
+@available(*, deprecated, renamed: "D3DRootSignatureVersion")
+public typealias D3D_ROOT_SIGNATURE_VERSION = D3DRootSignatureVersion
 
 
 @available(*, deprecated, renamed: "v1_0")
-let D3D_ROOT_SIGNATURE_VERSION_1_0: RootSignatureVersion = .v1_0
+let D3D_ROOT_SIGNATURE_VERSION_1_0: D3DRootSignatureVersion = .v1_0
 
 @available(Windows, introduced: 10.0.14393)
 @available(*, deprecated, renamed: "v1_1")
-let D3D_ROOT_SIGNATURE_VERSION_1_1: RootSignatureVersion = .v1_1
+let D3D_ROOT_SIGNATURE_VERSION_1_1: D3DRootSignatureVersion = .v1_1
 
 #endif

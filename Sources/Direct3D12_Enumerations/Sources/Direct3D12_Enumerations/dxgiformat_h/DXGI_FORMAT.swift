@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Resource data formats, including fully-typed and typeless formats. A list of modifiers at the bottom of the page more fully describes each format type.
-public enum Format {
+public enum DGIFormat {
     public typealias RawValue = WinSDK.DXGI_FORMAT
     ///	The format is not known.
     case unknown
@@ -158,51 +158,51 @@ public enum Format {
     */
     case r9g9b9e5SharedEXP
     /**
-        A four-component, 32-bit unsigned-normalized-integer format. This packed RGB format is analogous to the UYVY format. Each 32-bit block describes a pair of pixels: (R8, G8, B8) and (R8, G8, B8) where the R8/B8 values are repeated, and the G8 values are unique to each pixel. ³
+        A four-component, 32-bit unsigned-normalized-integer DGIFormat. This packed RGB format is analogous to the UYVY DGIFormat. Each 32-bit block describes a pair of pixels: (R8, G8, B8) and (R8, G8, B8) where the R8/B8 values are repeated, and the G8 values are unique to each pixel. ³
 
         Width must be even.
     */
     case r8g8B8g8Unorm
     /**
-        A four-component, 32-bit unsigned-normalized-integer format. This packed RGB format is analogous to the YUY2 format. Each 32-bit block describes a pair of pixels: (R8, G8, B8) and (R8, G8, B8) where the R8/B8 values are repeated, and the G8 values are unique to each pixel. ³
+        A four-component, 32-bit unsigned-normalized-integer DGIFormat. This packed RGB format is analogous to the YUY2 DGIFormat. Each 32-bit block describes a pair of pixels: (R8, G8, B8) and (R8, G8, B8) where the R8/B8 values are repeated, and the G8 values are unique to each pixel. ³
 
         Width must be even.
     */
     case g8r8G8b8Unorm
-    ///	Four-component typeless block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	Four-component typeless block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc1Typeless
-    ///	Four-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	Four-component block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc1Unorm
     ///	Four-component block-compression format for sRGB data. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc1UnormSRGB
-    ///	Four-component typeless block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	Four-component typeless block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc2Typeless
-    ///	Four-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	Four-component block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc2Unorm
     ///	Four-component block-compression format for sRGB data. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc2UnormSRGB
-    ///	Four-component typeless block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	Four-component typeless block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc3Typeless
-    ///	Four-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	Four-component block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc3Unorm
     ///	Four-component block-compression format for sRGB data. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc3UnormSRGB
-    ///	One-component typeless block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	One-component typeless block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc4Typeless
-    ///	One-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	One-component block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc4Unorm
-    ///	One-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	One-component block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc4Snorm
-    ///	Two-component typeless block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	Two-component typeless block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc5Typeless
-    ///	Two-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	Two-component block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc5Unorm
-    ///	Two-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	Two-component block-compression DGIFormat. For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc5Snorm
     /**
         A three-component, 16-bit unsigned-normalized-integer format that supports 5 bits for blue, 6 bits for green, and 5 bits for red.
 
-        Direct3D 10 through Direct3D 11:  This value is defined for DXGI. However, Direct3D 10, 10.1, or 11 devices do not support this format.
+        Direct3D 10 through Direct3D 11:  This value is defined for DXGI. However, Direct3D 10, 10.1, or 11 devices do not support this DGIFormat.
 
         Direct3D 11.1:  This value is not supported until Windows 8.
     */
@@ -210,7 +210,7 @@ public enum Format {
     /**
         A four-component, 16-bit unsigned-normalized-integer format that supports 5 bits for each color channel and 1-bit alpha.
 
-        Direct3D 10 through Direct3D 11:  This value is defined for DXGI. However, Direct3D 10, 10.1, or 11 devices do not support this format.
+        Direct3D 10 through Direct3D 11:  This value is defined for DXGI. However, Direct3D 10, 10.1, or 11 devices do not support this DGIFormat.
 
         Direct3D 11.1:  This value is not supported until Windows 8.
     */
@@ -229,20 +229,20 @@ public enum Format {
     case b8g8r8x8Typeless
     ///	A four-component, 32-bit unsigned-normalized standard RGB format that supports 8 bits for each color channel, and 8 bits are unused. ⁴
     case b8g8r8x8UnormSRGB
-    ///	A typeless block-compression format. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	A typeless block-compression DGIFormat. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc6hTypeless
-    ///	A block-compression format. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.⁵
+    ///	A block-compression DGIFormat. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.⁵
     case bc6hUf16
-    ///	A block-compression format. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.⁵
+    ///	A block-compression DGIFormat. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.⁵
     case bc6hSf16
-    ///	A typeless block-compression format. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	A typeless block-compression DGIFormat. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc7Typeless
-    ///	A block-compression format. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	A block-compression DGIFormat. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc7Unorm
-    ///	A block-compression format. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.
+    ///	A block-compression DGIFormat. ⁴ For information about block-compression formats, see Texture Block Compression in Direct3D 11.
     case bc7UnormSRGB
     /**
-        Most common YUV 4:4:4 video resource format. Valid view formats for this video resource format are DXGI_FORMAT_R8G8B8A8_UNORM and DXGI_FORMAT_R8G8B8A8_UINT. For UAVs, an additional valid view format is DXGI_FORMAT_R32_UINT. By using DXGI_FORMAT_R32_UINT for UAVs, you can both read and write as opposed to just write for DXGI_FORMAT_R8G8B8A8_UNORM and DXGI_FORMAT_R8G8B8A8_UINT. Supported view types are SRV, RTV, and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is V->R8,
+        Most common YUV 4:4:4 video resource DGIFormat. Valid view formats for this video resource format are DXGI_FORMAT_R8G8B8A8_UNORM and DXGI_FORMAT_R8G8B8A8_UINT. For UAVs, an additional valid view format is DXGI_FORMAT_R32_UINT. By using DXGI_FORMAT_R32_UINT for UAVs, you can both read and write as opposed to just write for DXGI_FORMAT_R8G8B8A8_UNORM and DXGI_FORMAT_R8G8B8A8_UINT. Supported view types are SRV, RTV, and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is V->R8,
         U->G8,
         Y->B8,
         and A->A8.
@@ -253,7 +253,7 @@ public enum Format {
     */
     case ayuv
     /**
-        10-bit per channel packed YUV 4:4:4 video resource format. Valid view formats for this video resource format are DXGI_FORMAT_R10G10B10A2_UNORM and DXGI_FORMAT_R10G10B10A2_UINT. For UAVs, an additional valid view format is DXGI_FORMAT_R32_UINT. By using DXGI_FORMAT_R32_UINT for UAVs, you can both read and write as opposed to just write for DXGI_FORMAT_R10G10B10A2_UNORM and DXGI_FORMAT_R10G10B10A2_UINT. Supported view types are SRV and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is U->R10,
+        10-bit per channel packed YUV 4:4:4 video resource DGIFormat. Valid view formats for this video resource format are DXGI_FORMAT_R10G10B10A2_UNORM and DXGI_FORMAT_R10G10B10A2_UINT. For UAVs, an additional valid view format is DXGI_FORMAT_R32_UINT. By using DXGI_FORMAT_R32_UINT for UAVs, you can both read and write as opposed to just write for DXGI_FORMAT_R10G10B10A2_UNORM and DXGI_FORMAT_R10G10B10A2_UINT. Supported view types are SRV and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is U->R10,
         Y->G10,
         V->B10,
         and A->A2.
@@ -264,7 +264,7 @@ public enum Format {
     */
     case y410
     /**
-        16-bit per channel packed YUV 4:4:4 video resource format. Valid view formats for this video resource format are DXGI_FORMAT_R16G16B16A16_UNORM and DXGI_FORMAT_R16G16B16A16_UINT. Supported view types are SRV and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is U->R16,
+        16-bit per channel packed YUV 4:4:4 video resource DGIFormat. Valid view formats for this video resource format are DXGI_FORMAT_R16G16B16A16_UNORM and DXGI_FORMAT_R16G16B16A16_UINT. Supported view types are SRV and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is U->R16,
         Y->G16,
         V->B16,
         and A->A16.
@@ -275,7 +275,7 @@ public enum Format {
     */
     case y416
     /**
-        Most common YUV 4:2:0 video resource format. Valid luminance data view formats for this video resource format are DXGI_FORMAT_R8_UNORM and DXGI_FORMAT_R8_UINT. Valid chrominance data view formats (width and height are each 1/2 of luminance view) for this video resource format are DXGI_FORMAT_R8G8_UNORM and DXGI_FORMAT_R8G8_UINT. Supported view types are SRV, RTV, and UAV. For luminance data view, the mapping to the view channel is Y->R8. For chrominance data view, the mapping to the view channel is U->R8 and
+        Most common YUV 4:2:0 video resource DGIFormat. Valid luminance data view formats for this video resource format are DXGI_FORMAT_R8_UNORM and DXGI_FORMAT_R8_UINT. Valid chrominance data view formats (width and height are each 1/2 of luminance view) for this video resource format are DXGI_FORMAT_R8G8_UNORM and DXGI_FORMAT_R8G8_UINT. Supported view types are SRV, RTV, and UAV. For luminance data view, the mapping to the view channel is Y->R8. For chrominance data view, the mapping to the view channel is U->R8 and
         V->G8.
 
         For more info about YUV formats for video rendering, see Recommended 8-Bit YUV Formats for Video Rendering.
@@ -288,7 +288,7 @@ public enum Format {
     */
     case nv12
     /**
-        10-bit per channel planar YUV 4:2:0 video resource format. Valid luminance data view formats for this video resource format are DXGI_FORMAT_R16_UNORM and DXGI_FORMAT_R16_UINT. The runtime does not enforce whether the lowest 6 bits are 0 (given that this video resource format is a 10-bit format that uses 16 bits). If required, application shader code would have to enforce this manually. From the runtime's point of view, DXGI_FORMAT_P010 is no different than DXGI_FORMAT_P016. Valid chrominance data view formats (width and height are each 1/2 of luminance view) for this video resource format are DXGI_FORMAT_R16G16_UNORM and DXGI_FORMAT_R16G16_UINT. For UAVs, an additional valid chrominance data view format is DXGI_FORMAT_R32_UINT. By using DXGI_FORMAT_R32_UINT for UAVs, you can both read and write as opposed to just write for DXGI_FORMAT_R16G16_UNORM and DXGI_FORMAT_R16G16_UINT. Supported view types are SRV, RTV, and UAV. For luminance data view, the mapping to the view channel is Y->R16. For chrominance data view, the mapping to the view channel is U->R16 and
+        10-bit per channel planar YUV 4:2:0 video resource DGIFormat. Valid luminance data view formats for this video resource format are DXGI_FORMAT_R16_UNORM and DXGI_FORMAT_R16_UINT. The runtime does not enforce whether the lowest 6 bits are 0 (given that this video resource format is a 10-bit format that uses 16 bits). If required, application shader code would have to enforce this manually. From the runtime's point of view, DXGI_FORMAT_P010 is no different than DXGI_FORMAT_P016. Valid chrominance data view formats (width and height are each 1/2 of luminance view) for this video resource format are DXGI_FORMAT_R16G16_UNORM and DXGI_FORMAT_R16G16_UINT. For UAVs, an additional valid chrominance data view format is DXGI_FORMAT_R32_UINT. By using DXGI_FORMAT_R32_UINT for UAVs, you can both read and write as opposed to just write for DXGI_FORMAT_R16G16_UNORM and DXGI_FORMAT_R16G16_UINT. Supported view types are SRV, RTV, and UAV. For luminance data view, the mapping to the view channel is Y->R16. For chrominance data view, the mapping to the view channel is U->R16 and
         V->G16.
 
         For more info about YUV formats for video rendering, see Recommended 8-Bit YUV Formats for Video Rendering.
@@ -301,7 +301,7 @@ public enum Format {
     */
     case p010
     /**
-        16-bit per channel planar YUV 4:2:0 video resource format. Valid luminance data view formats for this video resource format are DXGI_FORMAT_R16_UNORM and DXGI_FORMAT_R16_UINT. Valid chrominance data view formats (width and height are each 1/2 of luminance view) for this video resource format are DXGI_FORMAT_R16G16_UNORM and DXGI_FORMAT_R16G16_UINT. For UAVs, an additional valid chrominance data view format is DXGI_FORMAT_R32_UINT. By using DXGI_FORMAT_R32_UINT for UAVs, you can both read and write as opposed to just write for DXGI_FORMAT_R16G16_UNORM and DXGI_FORMAT_R16G16_UINT. Supported view types are SRV, RTV, and UAV. For luminance data view, the mapping to the view channel is Y->R16. For chrominance data view, the mapping to the view channel is U->R16 and
+        16-bit per channel planar YUV 4:2:0 video resource DGIFormat. Valid luminance data view formats for this video resource format are DXGI_FORMAT_R16_UNORM and DXGI_FORMAT_R16_UINT. Valid chrominance data view formats (width and height are each 1/2 of luminance view) for this video resource format are DXGI_FORMAT_R16G16_UNORM and DXGI_FORMAT_R16G16_UINT. For UAVs, an additional valid chrominance data view format is DXGI_FORMAT_R32_UINT. By using DXGI_FORMAT_R32_UINT for UAVs, you can both read and write as opposed to just write for DXGI_FORMAT_R16G16_UNORM and DXGI_FORMAT_R16G16_UINT. Supported view types are SRV, RTV, and UAV. For luminance data view, the mapping to the view channel is Y->R16. For chrominance data view, the mapping to the view channel is U->R16 and
         V->G16.
 
         For more info about YUV formats for video rendering, see Recommended 8-Bit YUV Formats for Video Rendering.
@@ -314,7 +314,7 @@ public enum Format {
     */
     case p016
     /**
-        8-bit per channel planar YUV 4:2:0 video resource format. This format is subsampled where each pixel has its own Y value, but each 2x2 pixel block shares a single U and V value. The runtime requires that the width and height of all resources that are created with this format are multiples of 2. The runtime also requires that the left, right, top, and bottom members of any RECT that are used for this format are multiples of 2. This format differs from DXGI_FORMAT_NV12 in that the layout of the data within the resource is completely opaque to applications. Applications cannot use the CPU to map the resource and then access the data within the resource. You cannot use shaders with this format. Because of this behavior, legacy hardware that supports a non-NV12 4:2:0 layout (for example, YV12, and so on) can be used. Also, new hardware that has a 4:2:0 implementation better than NV12 can be used when the application does not need the data to be in a standard layout.
+        8-bit per channel planar YUV 4:2:0 video resource DGIFormat. This format is subsampled where each pixel has its own Y value, but each 2x2 pixel block shares a single U and V value. The runtime requires that the width and height of all resources that are created with this format are multiples of 2. The runtime also requires that the left, right, top, and bottom members of any RECT that are used for this format are multiples of 2. This format differs from DXGI_FORMAT_NV12 in that the layout of the data within the resource is completely opaque to applications. Applications cannot use the CPU to map the resource and then access the data within the resource. You cannot use shaders with this DGIFormat. Because of this behavior, legacy hardware that supports a non-NV12 4:2:0 layout (for example, YV12, and so on) can be used. Also, new hardware that has a 4:2:0 implementation better than NV12 can be used when the application does not need the data to be in a standard layout.
 
         For more info about YUV formats for video rendering, see Recommended 8-Bit YUV Formats for Video Rendering.
 
@@ -326,7 +326,7 @@ public enum Format {
     */
     case opaque420
     /**
-        Most common YUV 4:2:2 video resource format. Valid view formats for this video resource format are DXGI_FORMAT_R8G8B8A8_UNORM and DXGI_FORMAT_R8G8B8A8_UINT. For UAVs, an additional valid view format is DXGI_FORMAT_R32_UINT. By using DXGI_FORMAT_R32_UINT for UAVs, you can both read and write as opposed to just write for DXGI_FORMAT_R8G8B8A8_UNORM and DXGI_FORMAT_R8G8B8A8_UINT. Supported view types are SRV and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is Y0->R8,
+        Most common YUV 4:2:2 video resource DGIFormat. Valid view formats for this video resource format are DXGI_FORMAT_R8G8B8A8_UNORM and DXGI_FORMAT_R8G8B8A8_UINT. For UAVs, an additional valid view format is DXGI_FORMAT_R32_UINT. By using DXGI_FORMAT_R32_UINT for UAVs, you can both read and write as opposed to just write for DXGI_FORMAT_R8G8B8A8_UNORM and DXGI_FORMAT_R8G8B8A8_UINT. Supported view types are SRV and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is Y0->R8,
         U0->G8,
         Y1->B8,
         and V0->A8.
@@ -346,7 +346,7 @@ public enum Format {
     */
     case yuy2
     /**
-        10-bit per channel packed YUV 4:2:2 video resource format. Valid view formats for this video resource format are DXGI_FORMAT_R16G16B16A16_UNORM and DXGI_FORMAT_R16G16B16A16_UINT. The runtime does not enforce whether the lowest 6 bits are 0 (given that this video resource format is a 10-bit format that uses 16 bits). If required, application shader code would have to enforce this manually. From the runtime's point of view, DXGI_FORMAT_Y210 is no different than DXGI_FORMAT_Y216. Supported view types are SRV and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is Y0->R16,
+        10-bit per channel packed YUV 4:2:2 video resource DGIFormat. Valid view formats for this video resource format are DXGI_FORMAT_R16G16B16A16_UNORM and DXGI_FORMAT_R16G16B16A16_UINT. The runtime does not enforce whether the lowest 6 bits are 0 (given that this video resource format is a 10-bit format that uses 16 bits). If required, application shader code would have to enforce this manually. From the runtime's point of view, DXGI_FORMAT_Y210 is no different than DXGI_FORMAT_Y216. Supported view types are SRV and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is Y0->R16,
         U->G16,
         Y1->B16,
         and V->A16.
@@ -359,7 +359,7 @@ public enum Format {
     */
     case y210
     /**
-        16-bit per channel packed YUV 4:2:2 video resource format. Valid view formats for this video resource format are DXGI_FORMAT_R16G16B16A16_UNORM and DXGI_FORMAT_R16G16B16A16_UINT. Supported view types are SRV and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is Y0->R16,
+        16-bit per channel packed YUV 4:2:2 video resource DGIFormat. Valid view formats for this video resource format are DXGI_FORMAT_R16G16B16A16_UNORM and DXGI_FORMAT_R16G16B16A16_UINT. Supported view types are SRV and UAV. One view provides a straightforward mapping of the entire surface. The mapping to the view channel is Y0->R16,
         U->G16,
         Y1->B16,
         and V->A16.
@@ -372,7 +372,7 @@ public enum Format {
     */
     case y216
     /**
-        Most common planar YUV 4:1:1 video resource format. Valid luminance data view formats for this video resource format are DXGI_FORMAT_R8_UNORM and DXGI_FORMAT_R8_UINT. Valid chrominance data view formats (width and height are each 1/4 of luminance view) for this video resource format are DXGI_FORMAT_R8G8_UNORM and DXGI_FORMAT_R8G8_UINT. Supported view types are SRV, RTV, and UAV. For luminance data view, the mapping to the view channel is Y->R8. For chrominance data view, the mapping to the view channel is U->R8 and
+        Most common planar YUV 4:1:1 video resource DGIFormat. Valid luminance data view formats for this video resource format are DXGI_FORMAT_R8_UNORM and DXGI_FORMAT_R8_UINT. Valid chrominance data view formats (width and height are each 1/4 of luminance view) for this video resource format are DXGI_FORMAT_R8G8_UNORM and DXGI_FORMAT_R8G8_UINT. Supported view types are SRV, RTV, and UAV. For luminance data view, the mapping to the view channel is Y->R8. For chrominance data view, the mapping to the view channel is U->R8 and
         V->G8.
 
         For more info about YUV formats for video rendering, see Recommended 8-Bit YUV Formats for Video Rendering.
@@ -420,11 +420,11 @@ public enum Format {
         Direct3D 11.1:  This value is not supported until Windows 8.
     */
     case b4g4r4a4Unorm
-    ///	A video format; an 8-bit version of a hybrid planar 4:2:2 format.
+    ///	A video format; an 8-bit version of a hybrid planar 4:2:2 DGIFormat.
     case p208
-    ///	An 8 bit YCbCrA 4:4 rendering format.
+    ///	An 8 bit YCbCrA 4:4 rendering DGIFormat.
     case v208
-    ///	An 8 bit YCbCrA 4:4:4:4 rendering format.
+    ///	An 8 bit YCbCrA 4:4:4:4 rendering DGIFormat.
     case v408
     /// Forces this enumeration to compile to 32 bits in size. Without this value, some compilers would allow this enumeration to compile to a size other than 32 bits. This value is not used.
     case forceUInt
@@ -684,367 +684,367 @@ public enum Format {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Format")
-public typealias DXGI_FORMAT = Format
+@available(*, deprecated, renamed: "DGIFormat")
+public typealias DXGI_FORMAT = DGIFormat
 
-@available(*, deprecated, renamed: "Format.unknown")
-public let DXGI_FORMAT_UNKNOWN = Format.unknown
+@available(*, deprecated, renamed: "DGIFormat.unknown")
+public let DXGI_FORMAT_UNKNOWN = DGIFormat.unknown
 
-@available(*, deprecated, renamed: "Format.r32g32b32a32Typeless")
-public let DXGI_FORMAT_R32G32B32A32_TYPELESS = Format.r32g32b32a32Typeless
+@available(*, deprecated, renamed: "DGIFormat.r32g32b32a32Typeless")
+public let DXGI_FORMAT_R32G32B32A32_TYPELESS = DGIFormat.r32g32b32a32Typeless
 
-@available(*, deprecated, renamed: "Format.r32g32b32a32Float")
-public let DXGI_FORMAT_R32G32B32A32_FLOAT = Format.r32g32b32a32Float
+@available(*, deprecated, renamed: "DGIFormat.r32g32b32a32Float")
+public let DXGI_FORMAT_R32G32B32A32_FLOAT = DGIFormat.r32g32b32a32Float
 
-@available(*, deprecated, renamed: "Format.r32g32b32a32UInt")
-public let DXGI_FORMAT_R32G32B32A32_UINT = Format.r32g32b32a32UInt
+@available(*, deprecated, renamed: "DGIFormat.r32g32b32a32UInt")
+public let DXGI_FORMAT_R32G32B32A32_UINT = DGIFormat.r32g32b32a32UInt
 
-@available(*, deprecated, renamed: "Format.r32g32b32a32Int")
-public let DXGI_FORMAT_R32G32B32A32_SINT = Format.r32g32b32a32Int
+@available(*, deprecated, renamed: "DGIFormat.r32g32b32a32Int")
+public let DXGI_FORMAT_R32G32B32A32_SINT = DGIFormat.r32g32b32a32Int
 
-@available(*, deprecated, renamed: "Format.r32g32b32Typeless")
-public let DXGI_FORMAT_R32G32B32_TYPELESS = Format.r32g32b32Typeless
+@available(*, deprecated, renamed: "DGIFormat.r32g32b32Typeless")
+public let DXGI_FORMAT_R32G32B32_TYPELESS = DGIFormat.r32g32b32Typeless
 
-@available(*, deprecated, renamed: "Format.r32g32b32Float")
-public let DXGI_FORMAT_R32G32B32_FLOAT = Format.r32g32b32Float
+@available(*, deprecated, renamed: "DGIFormat.r32g32b32Float")
+public let DXGI_FORMAT_R32G32B32_FLOAT = DGIFormat.r32g32b32Float
 
-@available(*, deprecated, renamed: "Format.r32g32b32UInt")
-public let DXGI_FORMAT_R32G32B32_UINT = Format.r32g32b32UInt
+@available(*, deprecated, renamed: "DGIFormat.r32g32b32UInt")
+public let DXGI_FORMAT_R32G32B32_UINT = DGIFormat.r32g32b32UInt
 
-@available(*, deprecated, renamed: "Format.r32g32b32Int")
-public let DXGI_FORMAT_R32G32B32_SINT = Format.r32g32b32Int
+@available(*, deprecated, renamed: "DGIFormat.r32g32b32Int")
+public let DXGI_FORMAT_R32G32B32_SINT = DGIFormat.r32g32b32Int
 
-@available(*, deprecated, renamed: "Format.r16g16b16a16Typeless")
-public let DXGI_FORMAT_R16G16B16A16_TYPELESS = Format.r16g16b16a16Typeless
+@available(*, deprecated, renamed: "DGIFormat.r16g16b16a16Typeless")
+public let DXGI_FORMAT_R16G16B16A16_TYPELESS = DGIFormat.r16g16b16a16Typeless
 
-@available(*, deprecated, renamed: "Format.r16g16b16a16Float")
-public let DXGI_FORMAT_R16G16B16A16_FLOAT = Format.r16g16b16a16Float
+@available(*, deprecated, renamed: "DGIFormat.r16g16b16a16Float")
+public let DXGI_FORMAT_R16G16B16A16_FLOAT = DGIFormat.r16g16b16a16Float
 
-@available(*, deprecated, renamed: "Format.r16g16b16a16Unorm")
-public let DXGI_FORMAT_R16G16B16A16_UNORM = Format.r16g16b16a16Unorm
+@available(*, deprecated, renamed: "DGIFormat.r16g16b16a16Unorm")
+public let DXGI_FORMAT_R16G16B16A16_UNORM = DGIFormat.r16g16b16a16Unorm
 
-@available(*, deprecated, renamed: "Format.r16g16b16a16UInt")
-public let DXGI_FORMAT_R16G16B16A16_UINT = Format.r16g16b16a16UInt
+@available(*, deprecated, renamed: "DGIFormat.r16g16b16a16UInt")
+public let DXGI_FORMAT_R16G16B16A16_UINT = DGIFormat.r16g16b16a16UInt
 
-@available(*, deprecated, renamed: "Format.r16g16b16a16Snorm")
-public let DXGI_FORMAT_R16G16B16A16_SNORM = Format.r16g16b16a16Snorm
+@available(*, deprecated, renamed: "DGIFormat.r16g16b16a16Snorm")
+public let DXGI_FORMAT_R16G16B16A16_SNORM = DGIFormat.r16g16b16a16Snorm
 
-@available(*, deprecated, renamed: "Format.r16g16b16a16Int")
-public let DXGI_FORMAT_R16G16B16A16_SINT = Format.r16g16b16a16Int
+@available(*, deprecated, renamed: "DGIFormat.r16g16b16a16Int")
+public let DXGI_FORMAT_R16G16B16A16_SINT = DGIFormat.r16g16b16a16Int
 
-@available(*, deprecated, renamed: "Format.r32g32Typeless")
-public let DXGI_FORMAT_R32G32_TYPELESS = Format.r32g32Typeless
+@available(*, deprecated, renamed: "DGIFormat.r32g32Typeless")
+public let DXGI_FORMAT_R32G32_TYPELESS = DGIFormat.r32g32Typeless
 
-@available(*, deprecated, renamed: "Format.r32g32Float")
-public let DXGI_FORMAT_R32G32_FLOAT = Format.r32g32Float
+@available(*, deprecated, renamed: "DGIFormat.r32g32Float")
+public let DXGI_FORMAT_R32G32_FLOAT = DGIFormat.r32g32Float
 
-@available(*, deprecated, renamed: "Format.r32g32UInt")
-public let DXGI_FORMAT_R32G32_UINT = Format.r32g32UInt
+@available(*, deprecated, renamed: "DGIFormat.r32g32UInt")
+public let DXGI_FORMAT_R32G32_UINT = DGIFormat.r32g32UInt
 
-@available(*, deprecated, renamed: "Format.r32g32Int")
-public let DXGI_FORMAT_R32G32_SINT = Format.r32g32Int
+@available(*, deprecated, renamed: "DGIFormat.r32g32Int")
+public let DXGI_FORMAT_R32G32_SINT = DGIFormat.r32g32Int
 
-@available(*, deprecated, renamed: "Format.r32g8x24Typeless")
-public let DXGI_FORMAT_R32G8X24_TYPELESS = Format.r32g8x24Typeless
+@available(*, deprecated, renamed: "DGIFormat.r32g8x24Typeless")
+public let DXGI_FORMAT_R32G8X24_TYPELESS = DGIFormat.r32g8x24Typeless
 
-@available(*, deprecated, renamed: "Format.d32FloatS8x24UInt")
-public let DXGI_FORMAT_D32_FLOAT_S8X24_UINT = Format.d32FloatS8x24UInt
+@available(*, deprecated, renamed: "DGIFormat.d32FloatS8x24UInt")
+public let DXGI_FORMAT_D32_FLOAT_S8X24_UINT = DGIFormat.d32FloatS8x24UInt
 
-@available(*, deprecated, renamed: "Format.r32FloatX8x24Typeless")
-public let DXGI_FORMAT_R32_FLOAT_X8X24_TYPELESS = Format.r32FloatX8x24Typeless
+@available(*, deprecated, renamed: "DGIFormat.r32FloatX8x24Typeless")
+public let DXGI_FORMAT_R32_FLOAT_X8X24_TYPELESS = DGIFormat.r32FloatX8x24Typeless
 
-@available(*, deprecated, renamed: "Format.x32TypelessG8x24UInt")
-public let DXGI_FORMAT_X32_TYPELESS_G8X24_UINT = Format.x32TypelessG8x24UInt
+@available(*, deprecated, renamed: "DGIFormat.x32TypelessG8x24UInt")
+public let DXGI_FORMAT_X32_TYPELESS_G8X24_UINT = DGIFormat.x32TypelessG8x24UInt
 
-@available(*, deprecated, renamed: "Format.r10g10b10a2Typeless")
-public let DXGI_FORMAT_R10G10B10A2_TYPELESS = Format.r10g10b10a2Typeless
+@available(*, deprecated, renamed: "DGIFormat.r10g10b10a2Typeless")
+public let DXGI_FORMAT_R10G10B10A2_TYPELESS = DGIFormat.r10g10b10a2Typeless
 
-@available(*, deprecated, renamed: "Format.r10g10b10a2Unorm")
-public let DXGI_FORMAT_R10G10B10A2_UNORM = Format.r10g10b10a2Unorm
+@available(*, deprecated, renamed: "DGIFormat.r10g10b10a2Unorm")
+public let DXGI_FORMAT_R10G10B10A2_UNORM = DGIFormat.r10g10b10a2Unorm
 
-@available(*, deprecated, renamed: "Format.r10g10b10a2UInt")
-public let DXGI_FORMAT_R10G10B10A2_UINT = Format.r10g10b10a2UInt
+@available(*, deprecated, renamed: "DGIFormat.r10g10b10a2UInt")
+public let DXGI_FORMAT_R10G10B10A2_UINT = DGIFormat.r10g10b10a2UInt
 
-@available(*, deprecated, renamed: "Format.r11g11b10Float")
-public let DXGI_FORMAT_R11G11B10_FLOAT = Format.r11g11b10Float
+@available(*, deprecated, renamed: "DGIFormat.r11g11b10Float")
+public let DXGI_FORMAT_R11G11B10_FLOAT = DGIFormat.r11g11b10Float
 
-@available(*, deprecated, renamed: "Format.r8g8b8a8Typeless")
-public let DXGI_FORMAT_R8G8B8A8_TYPELESS = Format.r8g8b8a8Typeless
+@available(*, deprecated, renamed: "DGIFormat.r8g8b8a8Typeless")
+public let DXGI_FORMAT_R8G8B8A8_TYPELESS = DGIFormat.r8g8b8a8Typeless
 
-@available(*, deprecated, renamed: "Format.r8g8b8a8Unorm")
-public let DXGI_FORMAT_R8G8B8A8_UNORM = Format.r8g8b8a8Unorm
+@available(*, deprecated, renamed: "DGIFormat.r8g8b8a8Unorm")
+public let DXGI_FORMAT_R8G8B8A8_UNORM = DGIFormat.r8g8b8a8Unorm
 
-@available(*, deprecated, renamed: "Format.r8g8b8a8UnormSRGB")
-public let DXGI_FORMAT_R8G8B8A8_UNORM_SRGB = Format.r8g8b8a8UnormSRGB
+@available(*, deprecated, renamed: "DGIFormat.r8g8b8a8UnormSRGB")
+public let DXGI_FORMAT_R8G8B8A8_UNORM_SRGB = DGIFormat.r8g8b8a8UnormSRGB
 
-@available(*, deprecated, renamed: "Format.r8g8b8a8UInt")
-public let DXGI_FORMAT_R8G8B8A8_UINT = Format.r8g8b8a8UInt
+@available(*, deprecated, renamed: "DGIFormat.r8g8b8a8UInt")
+public let DXGI_FORMAT_R8G8B8A8_UINT = DGIFormat.r8g8b8a8UInt
 
-@available(*, deprecated, renamed: "Format.r8g8b8a8Snorm")
-public let DXGI_FORMAT_R8G8B8A8_SNORM = Format.r8g8b8a8Snorm
+@available(*, deprecated, renamed: "DGIFormat.r8g8b8a8Snorm")
+public let DXGI_FORMAT_R8G8B8A8_SNORM = DGIFormat.r8g8b8a8Snorm
 
-@available(*, deprecated, renamed: "Format.r8g8b8a8Int")
-public let DXGI_FORMAT_R8G8B8A8_SINT = Format.r8g8b8a8Int
+@available(*, deprecated, renamed: "DGIFormat.r8g8b8a8Int")
+public let DXGI_FORMAT_R8G8B8A8_SINT = DGIFormat.r8g8b8a8Int
 
-@available(*, deprecated, renamed: "Format.r16g16Typeless")
-public let DXGI_FORMAT_R16G16_TYPELESS = Format.r16g16Typeless
+@available(*, deprecated, renamed: "DGIFormat.r16g16Typeless")
+public let DXGI_FORMAT_R16G16_TYPELESS = DGIFormat.r16g16Typeless
 
-@available(*, deprecated, renamed: "Format.r16g16Float")
-public let DXGI_FORMAT_R16G16_FLOAT = Format.r16g16Float
+@available(*, deprecated, renamed: "DGIFormat.r16g16Float")
+public let DXGI_FORMAT_R16G16_FLOAT = DGIFormat.r16g16Float
 
-@available(*, deprecated, renamed: "Format.r16g16Unorm")
-public let DXGI_FORMAT_R16G16_UNORM = Format.r16g16Unorm
+@available(*, deprecated, renamed: "DGIFormat.r16g16Unorm")
+public let DXGI_FORMAT_R16G16_UNORM = DGIFormat.r16g16Unorm
 
-@available(*, deprecated, renamed: "Format.r16g16UInt")
-public let DXGI_FORMAT_R16G16_UINT = Format.r16g16UInt
+@available(*, deprecated, renamed: "DGIFormat.r16g16UInt")
+public let DXGI_FORMAT_R16G16_UINT = DGIFormat.r16g16UInt
 
-@available(*, deprecated, renamed: "Format.r16g16Snorm")
-public let DXGI_FORMAT_R16G16_SNORM = Format.r16g16Snorm
+@available(*, deprecated, renamed: "DGIFormat.r16g16Snorm")
+public let DXGI_FORMAT_R16G16_SNORM = DGIFormat.r16g16Snorm
 
-@available(*, deprecated, renamed: "Format.r16g16Int")
-public let DXGI_FORMAT_R16G16_SINT = Format.r16g16Int
+@available(*, deprecated, renamed: "DGIFormat.r16g16Int")
+public let DXGI_FORMAT_R16G16_SINT = DGIFormat.r16g16Int
 
-@available(*, deprecated, renamed: "Format.r32Typeless")
-public let DXGI_FORMAT_R32_TYPELESS = Format.r32Typeless
+@available(*, deprecated, renamed: "DGIFormat.r32Typeless")
+public let DXGI_FORMAT_R32_TYPELESS = DGIFormat.r32Typeless
 
-@available(*, deprecated, renamed: "Format.d32Float")
-public let DXGI_FORMAT_D32_FLOAT = Format.d32Float
+@available(*, deprecated, renamed: "DGIFormat.d32Float")
+public let DXGI_FORMAT_D32_FLOAT = DGIFormat.d32Float
 
-@available(*, deprecated, renamed: "Format.r32Float")
-public let DXGI_FORMAT_R32_FLOAT = Format.r32Float
+@available(*, deprecated, renamed: "DGIFormat.r32Float")
+public let DXGI_FORMAT_R32_FLOAT = DGIFormat.r32Float
 
-@available(*, deprecated, renamed: "Format.r32UInt")
-public let DXGI_FORMAT_R32_UINT = Format.r32UInt
+@available(*, deprecated, renamed: "DGIFormat.r32UInt")
+public let DXGI_FORMAT_R32_UINT = DGIFormat.r32UInt
 
-@available(*, deprecated, renamed: "Format.r32Int")
-public let DXGI_FORMAT_R32_SINT = Format.r32Int
+@available(*, deprecated, renamed: "DGIFormat.r32Int")
+public let DXGI_FORMAT_R32_SINT = DGIFormat.r32Int
 
-@available(*, deprecated, renamed: "Format.r24g8Typeless")
-public let DXGI_FORMAT_R24G8_TYPELESS = Format.r24g8Typeless
+@available(*, deprecated, renamed: "DGIFormat.r24g8Typeless")
+public let DXGI_FORMAT_R24G8_TYPELESS = DGIFormat.r24g8Typeless
 
-@available(*, deprecated, renamed: "Format.d24UnormS8UInt")
-public let DXGI_FORMAT_D24_UNORM_S8_UINT = Format.d24UnormS8UInt
+@available(*, deprecated, renamed: "DGIFormat.d24UnormS8UInt")
+public let DXGI_FORMAT_D24_UNORM_S8_UINT = DGIFormat.d24UnormS8UInt
 
-@available(*, deprecated, renamed: "Format.r24UnormX8Typeless")
-public let DXGI_FORMAT_R24_UNORM_X8_TYPELESS = Format.r24UnormX8Typeless
+@available(*, deprecated, renamed: "DGIFormat.r24UnormX8Typeless")
+public let DXGI_FORMAT_R24_UNORM_X8_TYPELESS = DGIFormat.r24UnormX8Typeless
 
-@available(*, deprecated, renamed: "Format.x24TypelessG8UInt")
-public let DXGI_FORMAT_X24_TYPELESS_G8_UINT = Format.x24TypelessG8UInt
+@available(*, deprecated, renamed: "DGIFormat.x24TypelessG8UInt")
+public let DXGI_FORMAT_X24_TYPELESS_G8_UINT = DGIFormat.x24TypelessG8UInt
 
-@available(*, deprecated, renamed: "Format.r8g8Typeless")
-public let DXGI_FORMAT_R8G8_TYPELESS = Format.r8g8Typeless
+@available(*, deprecated, renamed: "DGIFormat.r8g8Typeless")
+public let DXGI_FORMAT_R8G8_TYPELESS = DGIFormat.r8g8Typeless
 
-@available(*, deprecated, renamed: "Format.r8g8Unorm")
-public let DXGI_FORMAT_R8G8_UNORM = Format.r8g8Unorm
+@available(*, deprecated, renamed: "DGIFormat.r8g8Unorm")
+public let DXGI_FORMAT_R8G8_UNORM = DGIFormat.r8g8Unorm
 
-@available(*, deprecated, renamed: "Format.r8g8UInt")
-public let DXGI_FORMAT_R8G8_UINT = Format.r8g8UInt
+@available(*, deprecated, renamed: "DGIFormat.r8g8UInt")
+public let DXGI_FORMAT_R8G8_UINT = DGIFormat.r8g8UInt
 
-@available(*, deprecated, renamed: "Format.r8g8Snorm")
-public let DXGI_FORMAT_R8G8_SNORM = Format.r8g8Snorm
+@available(*, deprecated, renamed: "DGIFormat.r8g8Snorm")
+public let DXGI_FORMAT_R8G8_SNORM = DGIFormat.r8g8Snorm
 
-@available(*, deprecated, renamed: "Format.r8g8Int")
-public let DXGI_FORMAT_R8G8_SINT = Format.r8g8Int
+@available(*, deprecated, renamed: "DGIFormat.r8g8Int")
+public let DXGI_FORMAT_R8G8_SINT = DGIFormat.r8g8Int
 
-@available(*, deprecated, renamed: "Format.r16Typeless")
-public let DXGI_FORMAT_R16_TYPELESS = Format.r16Typeless
+@available(*, deprecated, renamed: "DGIFormat.r16Typeless")
+public let DXGI_FORMAT_R16_TYPELESS = DGIFormat.r16Typeless
 
-@available(*, deprecated, renamed: "Format.r16Float")
-public let DXGI_FORMAT_R16_FLOAT = Format.r16Float
+@available(*, deprecated, renamed: "DGIFormat.r16Float")
+public let DXGI_FORMAT_R16_FLOAT = DGIFormat.r16Float
 
-@available(*, deprecated, renamed: "Format.d16Unorm")
-public let DXGI_FORMAT_D16_UNORM = Format.d16Unorm
+@available(*, deprecated, renamed: "DGIFormat.d16Unorm")
+public let DXGI_FORMAT_D16_UNORM = DGIFormat.d16Unorm
 
-@available(*, deprecated, renamed: "Format.r16Unorm")
-public let DXGI_FORMAT_R16_UNORM = Format.r16Unorm
+@available(*, deprecated, renamed: "DGIFormat.r16Unorm")
+public let DXGI_FORMAT_R16_UNORM = DGIFormat.r16Unorm
 
-@available(*, deprecated, renamed: "Format.r16UInt")
-public let DXGI_FORMAT_R16_UINT = Format.r16UInt
+@available(*, deprecated, renamed: "DGIFormat.r16UInt")
+public let DXGI_FORMAT_R16_UINT = DGIFormat.r16UInt
 
-@available(*, deprecated, renamed: "Format.r16Snorm")
-public let DXGI_FORMAT_R16_SNORM = Format.r16Snorm
+@available(*, deprecated, renamed: "DGIFormat.r16Snorm")
+public let DXGI_FORMAT_R16_SNORM = DGIFormat.r16Snorm
 
-@available(*, deprecated, renamed: "Format.r16Int")
-public let DXGI_FORMAT_R16_SINT = Format.r16Int
+@available(*, deprecated, renamed: "DGIFormat.r16Int")
+public let DXGI_FORMAT_R16_SINT = DGIFormat.r16Int
 
-@available(*, deprecated, renamed: "Format.r8Typeless")
-public let DXGI_FORMAT_R8_TYPELESS = Format.r8Typeless
+@available(*, deprecated, renamed: "DGIFormat.r8Typeless")
+public let DXGI_FORMAT_R8_TYPELESS = DGIFormat.r8Typeless
 
-@available(*, deprecated, renamed: "Format.r8Unorm")
-public let DXGI_FORMAT_R8_UNORM = Format.r8Unorm
+@available(*, deprecated, renamed: "DGIFormat.r8Unorm")
+public let DXGI_FORMAT_R8_UNORM = DGIFormat.r8Unorm
 
-@available(*, deprecated, renamed: "Format.r8UInt")
-public let DXGI_FORMAT_R8_UINT = Format.r8UInt
+@available(*, deprecated, renamed: "DGIFormat.r8UInt")
+public let DXGI_FORMAT_R8_UINT = DGIFormat.r8UInt
 
-@available(*, deprecated, renamed: "Format.r8Snorm")
-public let DXGI_FORMAT_R8_SNORM = Format.r8Snorm
+@available(*, deprecated, renamed: "DGIFormat.r8Snorm")
+public let DXGI_FORMAT_R8_SNORM = DGIFormat.r8Snorm
 
-@available(*, deprecated, renamed: "Format.r8Int")
-public let DXGI_FORMAT_R8_SINT = Format.r8Int
+@available(*, deprecated, renamed: "DGIFormat.r8Int")
+public let DXGI_FORMAT_R8_SINT = DGIFormat.r8Int
 
-@available(*, deprecated, renamed: "Format.a8Unorm")
-public let DXGI_FORMAT_A8_UNORM = Format.a8Unorm
+@available(*, deprecated, renamed: "DGIFormat.a8Unorm")
+public let DXGI_FORMAT_A8_UNORM = DGIFormat.a8Unorm
 
-@available(*, deprecated, renamed: "Format.r1Unorm")
-public let DXGI_FORMAT_R1_UNORM = Format.r1Unorm
+@available(*, deprecated, renamed: "DGIFormat.r1Unorm")
+public let DXGI_FORMAT_R1_UNORM = DGIFormat.r1Unorm
 
-@available(*, deprecated, renamed: "Format.r9g9b9e5SharedEXP")
-public let DXGI_FORMAT_R9G9B9E5_SHAREDEXP = Format.r9g9b9e5SharedEXP
+@available(*, deprecated, renamed: "DGIFormat.r9g9b9e5SharedEXP")
+public let DXGI_FORMAT_R9G9B9E5_SHAREDEXP = DGIFormat.r9g9b9e5SharedEXP
 
-@available(*, deprecated, renamed: "Format.r8g8B8g8Unorm")
-public let DXGI_FORMAT_R8G8_B8G8_UNORM = Format.r8g8B8g8Unorm
+@available(*, deprecated, renamed: "DGIFormat.r8g8B8g8Unorm")
+public let DXGI_FORMAT_R8G8_B8G8_UNORM = DGIFormat.r8g8B8g8Unorm
 
-@available(*, deprecated, renamed: "Format.g8r8G8b8Unorm")
-public let DXGI_FORMAT_G8R8_G8B8_UNORM = Format.g8r8G8b8Unorm
+@available(*, deprecated, renamed: "DGIFormat.g8r8G8b8Unorm")
+public let DXGI_FORMAT_G8R8_G8B8_UNORM = DGIFormat.g8r8G8b8Unorm
 
-@available(*, deprecated, renamed: "Format.bc1Typeless")
-public let DXGI_FORMAT_BC1_TYPELESS = Format.bc1Typeless
+@available(*, deprecated, renamed: "DGIFormat.bc1Typeless")
+public let DXGI_FORMAT_BC1_TYPELESS = DGIFormat.bc1Typeless
 
-@available(*, deprecated, renamed: "Format.bc1Unorm")
-public let DXGI_FORMAT_BC1_UNORM = Format.bc1Unorm
+@available(*, deprecated, renamed: "DGIFormat.bc1Unorm")
+public let DXGI_FORMAT_BC1_UNORM = DGIFormat.bc1Unorm
 
-@available(*, deprecated, renamed: "Format.bc1UnormSRGB")
-public let DXGI_FORMAT_BC1_UNORM_SRGB = Format.bc1UnormSRGB
+@available(*, deprecated, renamed: "DGIFormat.bc1UnormSRGB")
+public let DXGI_FORMAT_BC1_UNORM_SRGB = DGIFormat.bc1UnormSRGB
 
-@available(*, deprecated, renamed: "Format.bc2Typeless")
-public let DXGI_FORMAT_BC2_TYPELESS = Format.bc2Typeless
+@available(*, deprecated, renamed: "DGIFormat.bc2Typeless")
+public let DXGI_FORMAT_BC2_TYPELESS = DGIFormat.bc2Typeless
 
-@available(*, deprecated, renamed: "Format.bc2Unorm")
-public let DXGI_FORMAT_BC2_UNORM = Format.bc2Unorm
+@available(*, deprecated, renamed: "DGIFormat.bc2Unorm")
+public let DXGI_FORMAT_BC2_UNORM = DGIFormat.bc2Unorm
 
-@available(*, deprecated, renamed: "Format.bc2UnormSRGB")
-public let DXGI_FORMAT_BC2_UNORM_SRGB = Format.bc2UnormSRGB
+@available(*, deprecated, renamed: "DGIFormat.bc2UnormSRGB")
+public let DXGI_FORMAT_BC2_UNORM_SRGB = DGIFormat.bc2UnormSRGB
 
-@available(*, deprecated, renamed: "Format.bc3Typeless")
-public let DXGI_FORMAT_BC3_TYPELESS = Format.bc3Typeless
+@available(*, deprecated, renamed: "DGIFormat.bc3Typeless")
+public let DXGI_FORMAT_BC3_TYPELESS = DGIFormat.bc3Typeless
 
-@available(*, deprecated, renamed: "Format.bc3Unorm")
-public let DXGI_FORMAT_BC3_UNORM = Format.bc3Unorm
+@available(*, deprecated, renamed: "DGIFormat.bc3Unorm")
+public let DXGI_FORMAT_BC3_UNORM = DGIFormat.bc3Unorm
 
-@available(*, deprecated, renamed: "Format.bc3UnormSRGB")
-public let DXGI_FORMAT_BC3_UNORM_SRGB = Format.bc3UnormSRGB
+@available(*, deprecated, renamed: "DGIFormat.bc3UnormSRGB")
+public let DXGI_FORMAT_BC3_UNORM_SRGB = DGIFormat.bc3UnormSRGB
 
-@available(*, deprecated, renamed: "Format.bc4Typeless")
-public let DXGI_FORMAT_BC4_TYPELESS = Format.bc4Typeless
+@available(*, deprecated, renamed: "DGIFormat.bc4Typeless")
+public let DXGI_FORMAT_BC4_TYPELESS = DGIFormat.bc4Typeless
 
-@available(*, deprecated, renamed: "Format.bc4Unorm")
-public let DXGI_FORMAT_BC4_UNORM = Format.bc4Unorm
+@available(*, deprecated, renamed: "DGIFormat.bc4Unorm")
+public let DXGI_FORMAT_BC4_UNORM = DGIFormat.bc4Unorm
 
-@available(*, deprecated, renamed: "Format.bc4Snorm")
-public let DXGI_FORMAT_BC4_SNORM = Format.bc4Snorm
+@available(*, deprecated, renamed: "DGIFormat.bc4Snorm")
+public let DXGI_FORMAT_BC4_SNORM = DGIFormat.bc4Snorm
 
-@available(*, deprecated, renamed: "Format.bc5Typeless")
-public let DXGI_FORMAT_BC5_TYPELESS = Format.bc5Typeless
+@available(*, deprecated, renamed: "DGIFormat.bc5Typeless")
+public let DXGI_FORMAT_BC5_TYPELESS = DGIFormat.bc5Typeless
 
-@available(*, deprecated, renamed: "Format.bc5Unorm")
-public let DXGI_FORMAT_BC5_UNORM = Format.bc5Unorm
+@available(*, deprecated, renamed: "DGIFormat.bc5Unorm")
+public let DXGI_FORMAT_BC5_UNORM = DGIFormat.bc5Unorm
 
-@available(*, deprecated, renamed: "Format.bc5Snorm")
-public let DXGI_FORMAT_BC5_SNORM = Format.bc5Snorm
+@available(*, deprecated, renamed: "DGIFormat.bc5Snorm")
+public let DXGI_FORMAT_BC5_SNORM = DGIFormat.bc5Snorm
 
-@available(*, deprecated, renamed: "Format.b5g6r5Unorm")
-public let DXGI_FORMAT_B5G6R5_UNORM = Format.b5g6r5Unorm
+@available(*, deprecated, renamed: "DGIFormat.b5g6r5Unorm")
+public let DXGI_FORMAT_B5G6R5_UNORM = DGIFormat.b5g6r5Unorm
 
-@available(*, deprecated, renamed: "Format.b5g5r5a1Unorm")
-public let DXGI_FORMAT_B5G5R5A1_UNORM = Format.b5g5r5a1Unorm
+@available(*, deprecated, renamed: "DGIFormat.b5g5r5a1Unorm")
+public let DXGI_FORMAT_B5G5R5A1_UNORM = DGIFormat.b5g5r5a1Unorm
 
-@available(*, deprecated, renamed: "Format.b8g8r8a8Unorm")
-public let DXGI_FORMAT_B8G8R8A8_UNORM = Format.b8g8r8a8Unorm
+@available(*, deprecated, renamed: "DGIFormat.b8g8r8a8Unorm")
+public let DXGI_FORMAT_B8G8R8A8_UNORM = DGIFormat.b8g8r8a8Unorm
 
-@available(*, deprecated, renamed: "Format.b8g8r8x8Unorm")
-public let DXGI_FORMAT_B8G8R8X8_UNORM = Format.b8g8r8x8Unorm
+@available(*, deprecated, renamed: "DGIFormat.b8g8r8x8Unorm")
+public let DXGI_FORMAT_B8G8R8X8_UNORM = DGIFormat.b8g8r8x8Unorm
 
-@available(*, deprecated, renamed: "Format.r10g10b10XrBiasA2Unorm")
-public let DXGI_FORMAT_R10G10B10_XR_BIAS_A2_UNORM = Format.r10g10b10XrBiasA2Unorm
+@available(*, deprecated, renamed: "DGIFormat.r10g10b10XrBiasA2Unorm")
+public let DXGI_FORMAT_R10G10B10_XR_BIAS_A2_UNORM = DGIFormat.r10g10b10XrBiasA2Unorm
 
-@available(*, deprecated, renamed: "Format.b8g8r8a8Typeless")
-public let DXGI_FORMAT_B8G8R8A8_TYPELESS = Format.b8g8r8a8Typeless
+@available(*, deprecated, renamed: "DGIFormat.b8g8r8a8Typeless")
+public let DXGI_FORMAT_B8G8R8A8_TYPELESS = DGIFormat.b8g8r8a8Typeless
 
-@available(*, deprecated, renamed: "Format.b8g8r8a8UnormSRGB")
-public let DXGI_FORMAT_B8G8R8A8_UNORM_SRGB = Format.b8g8r8a8UnormSRGB
+@available(*, deprecated, renamed: "DGIFormat.b8g8r8a8UnormSRGB")
+public let DXGI_FORMAT_B8G8R8A8_UNORM_SRGB = DGIFormat.b8g8r8a8UnormSRGB
 
-@available(*, deprecated, renamed: "Format.b8g8r8x8Typeless")
-public let DXGI_FORMAT_B8G8R8X8_TYPELESS = Format.b8g8r8x8Typeless
+@available(*, deprecated, renamed: "DGIFormat.b8g8r8x8Typeless")
+public let DXGI_FORMAT_B8G8R8X8_TYPELESS = DGIFormat.b8g8r8x8Typeless
 
-@available(*, deprecated, renamed: "Format.b8g8r8x8UnormSRGB")
-public let DXGI_FORMAT_B8G8R8X8_UNORM_SRGB = Format.b8g8r8x8UnormSRGB
+@available(*, deprecated, renamed: "DGIFormat.b8g8r8x8UnormSRGB")
+public let DXGI_FORMAT_B8G8R8X8_UNORM_SRGB = DGIFormat.b8g8r8x8UnormSRGB
 
-@available(*, deprecated, renamed: "Format.bc6hTypeless")
-public let DXGI_FORMAT_BC6H_TYPELESS = Format.bc6hTypeless
+@available(*, deprecated, renamed: "DGIFormat.bc6hTypeless")
+public let DXGI_FORMAT_BC6H_TYPELESS = DGIFormat.bc6hTypeless
 
-@available(*, deprecated, renamed: "Format.bc6hUf16")
-public let DXGI_FORMAT_BC6H_UF16 = Format.bc6hUf16
+@available(*, deprecated, renamed: "DGIFormat.bc6hUf16")
+public let DXGI_FORMAT_BC6H_UF16 = DGIFormat.bc6hUf16
 
-@available(*, deprecated, renamed: "Format.bc6hSf16")
-public let DXGI_FORMAT_BC6H_SF16 = Format.bc6hSf16
+@available(*, deprecated, renamed: "DGIFormat.bc6hSf16")
+public let DXGI_FORMAT_BC6H_SF16 = DGIFormat.bc6hSf16
 
-@available(*, deprecated, renamed: "Format.bc7Typeless")
-public let DXGI_FORMAT_BC7_TYPELESS = Format.bc7Typeless
+@available(*, deprecated, renamed: "DGIFormat.bc7Typeless")
+public let DXGI_FORMAT_BC7_TYPELESS = DGIFormat.bc7Typeless
 
-@available(*, deprecated, renamed: "Format.bc7Unorm")
-public let DXGI_FORMAT_BC7_UNORM = Format.bc7Unorm
+@available(*, deprecated, renamed: "DGIFormat.bc7Unorm")
+public let DXGI_FORMAT_BC7_UNORM = DGIFormat.bc7Unorm
 
-@available(*, deprecated, renamed: "Format.bc7UnormSRGB")
-public let DXGI_FORMAT_BC7_UNORM_SRGB = Format.bc7UnormSRGB
+@available(*, deprecated, renamed: "DGIFormat.bc7UnormSRGB")
+public let DXGI_FORMAT_BC7_UNORM_SRGB = DGIFormat.bc7UnormSRGB
 
-@available(*, deprecated, renamed: "Format.ayuv")
-public let DXGI_FORMAT_AYUV = Format.ayuv
+@available(*, deprecated, renamed: "DGIFormat.ayuv")
+public let DXGI_FORMAT_AYUV = DGIFormat.ayuv
 
-@available(*, deprecated, renamed: "Format.y410")
-public let DXGI_FORMAT_Y410 = Format.y410
+@available(*, deprecated, renamed: "DGIFormat.y410")
+public let DXGI_FORMAT_Y410 = DGIFormat.y410
 
-@available(*, deprecated, renamed: "Format.y416")
-public let DXGI_FORMAT_Y416 = Format.y416
+@available(*, deprecated, renamed: "DGIFormat.y416")
+public let DXGI_FORMAT_Y416 = DGIFormat.y416
 
-@available(*, deprecated, renamed: "Format.nv12")
-public let DXGI_FORMAT_NV12 = Format.nv12
+@available(*, deprecated, renamed: "DGIFormat.nv12")
+public let DXGI_FORMAT_NV12 = DGIFormat.nv12
 
-@available(*, deprecated, renamed: "Format.p010")
-public let DXGI_FORMAT_P010 = Format.p010
+@available(*, deprecated, renamed: "DGIFormat.p010")
+public let DXGI_FORMAT_P010 = DGIFormat.p010
 
-@available(*, deprecated, renamed: "Format.p016")
-public let DXGI_FORMAT_P016 = Format.p016
+@available(*, deprecated, renamed: "DGIFormat.p016")
+public let DXGI_FORMAT_P016 = DGIFormat.p016
 
-@available(*, deprecated, renamed: "Format.opaque420")
-public let DXGI_FORMAT_420_OPAQUE = Format.opaque420
+@available(*, deprecated, renamed: "DGIFormat.opaque420")
+public let DXGI_FORMAT_420_OPAQUE = DGIFormat.opaque420
 
-@available(*, deprecated, renamed: "Format.yuy2")
-public let DXGI_FORMAT_YUY2 = Format.yuy2
+@available(*, deprecated, renamed: "DGIFormat.yuy2")
+public let DXGI_FORMAT_YUY2 = DGIFormat.yuy2
 
-@available(*, deprecated, renamed: "Format.y210")
-public let DXGI_FORMAT_Y210 = Format.y210
+@available(*, deprecated, renamed: "DGIFormat.y210")
+public let DXGI_FORMAT_Y210 = DGIFormat.y210
 
-@available(*, deprecated, renamed: "Format.y216")
-public let DXGI_FORMAT_Y216 = Format.y216
+@available(*, deprecated, renamed: "DGIFormat.y216")
+public let DXGI_FORMAT_Y216 = DGIFormat.y216
 
-@available(*, deprecated, renamed: "Format.nv11")
-public let DXGI_FORMAT_NV11 = Format.nv11
+@available(*, deprecated, renamed: "DGIFormat.nv11")
+public let DXGI_FORMAT_NV11 = DGIFormat.nv11
 
-@available(*, deprecated, renamed: "Format.ai44")
-public let DXGI_FORMAT_AI44 = Format.ai44
+@available(*, deprecated, renamed: "DGIFormat.ai44")
+public let DXGI_FORMAT_AI44 = DGIFormat.ai44
 
-@available(*, deprecated, renamed: "Format.ia44")
-public let DXGI_FORMAT_IA44 = Format.ia44
+@available(*, deprecated, renamed: "DGIFormat.ia44")
+public let DXGI_FORMAT_IA44 = DGIFormat.ia44
 
-@available(*, deprecated, renamed: "Format.p8")
-public let DXGI_FORMAT_P8 = Format.p8
+@available(*, deprecated, renamed: "DGIFormat.p8")
+public let DXGI_FORMAT_P8 = DGIFormat.p8
 
-@available(*, deprecated, renamed: "Format.a8p8")
-public let DXGI_FORMAT_A8P8 = Format.a8p8
+@available(*, deprecated, renamed: "DGIFormat.a8p8")
+public let DXGI_FORMAT_A8P8 = DGIFormat.a8p8
 
-@available(*, deprecated, renamed: "Format.b4g4r4a4Unorm")
-public let DXGI_FORMAT_B4G4R4A4_UNORM = Format.b4g4r4a4Unorm
+@available(*, deprecated, renamed: "DGIFormat.b4g4r4a4Unorm")
+public let DXGI_FORMAT_B4G4R4A4_UNORM = DGIFormat.b4g4r4a4Unorm
 
-@available(*, deprecated, renamed: "Format.p208")
-public let DXGI_FORMAT_P208 = Format.p208
+@available(*, deprecated, renamed: "DGIFormat.p208")
+public let DXGI_FORMAT_P208 = DGIFormat.p208
 
-@available(*, deprecated, renamed: "Format.v208")
-public let DXGI_FORMAT_V208 = Format.v208
+@available(*, deprecated, renamed: "DGIFormat.v208")
+public let DXGI_FORMAT_V208 = DGIFormat.v208
 
-@available(*, deprecated, renamed: "Format.v408")
-public let DXGI_FORMAT_V408 = Format.v408
+@available(*, deprecated, renamed: "DGIFormat.v408")
+public let DXGI_FORMAT_V408 = DGIFormat.v408
 
-@available(*, deprecated, renamed: "Format.forceUInt")
-public let DXGI_FORMAT_FORCE_UINT = Format.forceUInt
+@available(*, deprecated, renamed: "DGIFormat.forceUInt")
+public let DXGI_FORMAT_FORCE_UINT = DGIFormat.forceUInt
 
 #endif
