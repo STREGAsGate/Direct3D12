@@ -72,31 +72,31 @@ public enum QueryType {
 public typealias D3D12_QUERY_TYPE = QueryType
 
 
-@available(*, deprecated, renamed: "occlusion")
+@available(*, deprecated, renamed: "QueryType.occlusion")
 public let D3D12_QUERY_TYPE_OCCLUSION = QueryType.occlusion
 
-@available(*, deprecated, renamed: "binaryOcclusion")
+@available(*, deprecated, renamed: "QueryType.binaryOcclusion")
 public let D3D12_QUERY_TYPE_BINARY_OCCLUSION = QueryType.binaryOcclusion
 
-@available(*, deprecated, renamed: "timestamp")
+@available(*, deprecated, renamed: "QueryType.timestamp")
 public let D3D12_QUERY_TYPE_TIMESTAMP = QueryType.timestamp
 
-@available(*, deprecated, renamed: "pipelineStatistics")
+@available(*, deprecated, renamed: "QueryType.pipelineStatistics")
 public let D3D12_QUERY_TYPE_PIPELINE_STATISTICS = QueryType.pipelineStatistics
 
-@available(*, deprecated, renamed: "streamOutput0Statistics")
+@available(*, deprecated, renamed: "QueryType.streamOutput0Statistics")
 public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM0 = QueryType.streamOutput0Statistics
 
-@available(*, deprecated, renamed: "streamOutput1Statistics")
+@available(*, deprecated, renamed: "QueryType.streamOutput1Statistics")
 public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM1 = QueryType.streamOutput1Statistics
 
-@available(*, deprecated, renamed: "streamOutput2Statistics")
+@available(*, deprecated, renamed: "QueryType.streamOutput2Statistics")
 public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM2 = QueryType.streamOutput2Statistics
 
-@available(*, deprecated, renamed: "streamOutput3Statistics")
+@available(*, deprecated, renamed: "QueryType.streamOutput3Statistics")
 public let D3D12_QUERY_TYPE_SO_STATISTICS_STREAM3 = QueryType.streamOutput3Statistics
 
-@available(*, deprecated, renamed: "videoDecodeStatistics")
+@available(*, deprecated, renamed: "QueryType.videoDecodeStatistics")
 public let D3D12_QUERY_TYPE_VIDEO_DECODE_STATISTICS = QueryType.videoDecodeStatistics
 
 

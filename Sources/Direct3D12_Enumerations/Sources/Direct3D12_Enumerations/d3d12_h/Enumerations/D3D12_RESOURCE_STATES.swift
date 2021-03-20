@@ -11,7 +11,8 @@ import WinSDK
 /// Defines constants that specify the state of a resource regarding how the resource is being used.
 public struct ResourceStates: OptionSet {
     public typealias RawType = WinSDK.D3D12_RESOURCE_STATES
-    public let rawValue: Int32
+    public typealias RawValue = WinSDK.D3D12_RESOURCE_STATES.RawValue
+    public let rawValue: RawValue
 
     /**
     Your application should transition to this state only for accessing a resource across different graphics engine types.
@@ -81,7 +82,7 @@ public struct ResourceStates: OptionSet {
     ///	This resource is used as the destination in an encode operation. This state is used for the destination texture of a resolve motion vector heap operation.
     static let videoEncodeWrite = ResourceStates(rawValue: WinSDK.D3D12_RESOURCE_STATE_VIDEO_ENCODE_WRITE.rawValue)
 
-    public init(rawValue: Int32) {
+    public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
     public init() {
@@ -96,84 +97,83 @@ public struct ResourceStates: OptionSet {
 @available(*, deprecated, renamed: "ResourceStates")
 public typealias D3D12_RESOURCE_STATES = ResourceStates
 
-public extension ResourceStates {
-    @available(*, deprecated, renamed: "common")
-    static let D3D12_RESOURCE_STATE_COMMON = Self.common
 
-    @available(*, deprecated, renamed: "vertexAndConstantBuffer")
-    static let D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER = Self.vertexAndConstantBuffer
+@available(*, deprecated, renamed: "ResourceStates.common")
+public let D3D12_RESOURCE_STATE_COMMON = ResourceStates.common
 
-    @available(*, deprecated, renamed: "indexBuffer")
-    static let D3D12_RESOURCE_STATE_INDEX_BUFFER = Self.indexBuffer
+@available(*, deprecated, renamed: "ResourceStates.vertexAndConstantBuffer")
+public let D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER = ResourceStates.vertexAndConstantBuffer
 
-    @available(*, deprecated, renamed: "rendertarget")
-    static let D3D12_RESOURCE_STATE_RENDER_TARGET = Self.rendertarget
+@available(*, deprecated, renamed: "ResourceStates.indexBuffer")
+public let D3D12_RESOURCE_STATE_INDEX_BUFFER = ResourceStates.indexBuffer
 
-    @available(*, deprecated, renamed: "unorderedAccess")
-    static let D3D12_RESOURCE_STATE_UNORDERED_ACCESS = Self.unorderedAccess
+@available(*, deprecated, renamed: "ResourceStates.rendertarget")
+public let D3D12_RESOURCE_STATE_RENDER_TARGET = ResourceStates.rendertarget
 
-    @available(*, deprecated, renamed: "depthWrite")
-    static let D3D12_RESOURCE_STATE_DEPTH_WRITE = Self.depthWrite
+@available(*, deprecated, renamed: "ResourceStates.unorderedAccess")
+public let D3D12_RESOURCE_STATE_UNORDERED_ACCESS = ResourceStates.unorderedAccess
 
-    @available(*, deprecated, renamed: "depthRead")
-    static let D3D12_RESOURCE_STATE_DEPTH_READ = Self.depthRead
+@available(*, deprecated, renamed: "ResourceStates.depthWrite")
+public let D3D12_RESOURCE_STATE_DEPTH_WRITE = ResourceStates.depthWrite
 
-    @available(*, deprecated, renamed: "nonPixelShaderResource")
-    static let D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE = Self.nonPixelShaderResource
+@available(*, deprecated, renamed: "ResourceStates.depthRead")
+public let D3D12_RESOURCE_STATE_DEPTH_READ = ResourceStates.depthRead
 
-    @available(*, deprecated, renamed: "pixelShaderResource")
-    static let D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE = Self.pixelShaderResource
+@available(*, deprecated, renamed: "ResourceStates.nonPixelShaderResource")
+public let D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE = ResourceStates.nonPixelShaderResource
 
-    @available(*, deprecated, renamed: "streamOut")
-    static let D3D12_RESOURCE_STATE_STREAM_OUT = Self.streamOut
+@available(*, deprecated, renamed: "ResourceStates.pixelShaderResource")
+public let D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE = ResourceStates.pixelShaderResource
 
-    @available(*, deprecated, renamed: "indirectArgument")
-    static let D3D12_RESOURCE_STATE_INDIRECT_ARGUMENT = Self.indirectArgument
+@available(*, deprecated, renamed: "ResourceStates.streamOut")
+public let D3D12_RESOURCE_STATE_STREAM_OUT = ResourceStates.streamOut
 
-    @available(*, deprecated, renamed: "copyDestination")
-    static let D3D12_RESOURCE_STATE_COPY_DEST = Self.copyDestination
+@available(*, deprecated, renamed: "ResourceStates.indirectArgument")
+public let D3D12_RESOURCE_STATE_INDIRECT_ARGUMENT = ResourceStates.indirectArgument
 
-    @available(*, deprecated, renamed: "copySource")
-    static let D3D12_RESOURCE_STATE_COPY_SOURCE = Self.copySource
- 
-    @available(*, deprecated, renamed: "resolveOperationDestination")
-    static let D3D12_RESOURCE_STATE_RESOLVE_DEST = Self.resolveOperationDestination
+@available(*, deprecated, renamed: "ResourceStates.copyDestination")
+public let D3D12_RESOURCE_STATE_COPY_DEST = ResourceStates.copyDestination
 
-    @available(*, deprecated, renamed: "resolveOperationSource")
-    static let D3D12_RESOURCE_STATE_RESOLVE_SOURCE = Self.resolveOperationSource
+@available(*, deprecated, renamed: "ResourceStates.copySource")
+public let D3D12_RESOURCE_STATE_COPY_SOURCE = ResourceStates.copySource
 
-    @available(*, deprecated, renamed: "raytracingAccelerationStructure")
-    static let D3D12_RESOURCE_STATE_RAYTRACING_ACCELERATION_STRUCTURE = Self.raytracingAccelerationStructure
+@available(*, deprecated, renamed: "ResourceStates.resolveOperationDestination")
+public let D3D12_RESOURCE_STATE_RESOLVE_DEST = ResourceStates.resolveOperationDestination
 
-    @available(*, deprecated, renamed: "shadingRateSource")
-    static let D3D12_RESOURCE_STATE_SHADING_RATE_SOURCE = Self.shadingRateSource
+@available(*, deprecated, renamed: "ResourceStates.resolveOperationSource")
+public let D3D12_RESOURCE_STATE_RESOLVE_SOURCE = ResourceStates.resolveOperationSource
 
-    @available(*, deprecated, renamed: "genericRead")
-    static let D3D12_RESOURCE_STATE_GENERIC_READ = Self.genericRead
+@available(*, deprecated, renamed: "ResourceStates.raytracingAccelerationStructure")
+public let D3D12_RESOURCE_STATE_RAYTRACING_ACCELERATION_STRUCTURE = ResourceStates.raytracingAccelerationStructure
 
-    @available(*, deprecated, renamed: "present")
-    static let D3D12_RESOURCE_STATE_PRESENT = Self.present
+@available(*, deprecated, renamed: "ResourceStates.shadingRateSource")
+public let D3D12_RESOURCE_STATE_SHADING_RATE_SOURCE = ResourceStates.shadingRateSource
 
-    @available(*, deprecated, renamed: "predication")
-    static let D3D12_RESOURCE_STATE_PREDICATION = Self.predication
+@available(*, deprecated, renamed: "ResourceStates.genericRead")
+public let D3D12_RESOURCE_STATE_GENERIC_READ = ResourceStates.genericRead
 
-    @available(*, deprecated, renamed: "videoDecodeRead")
-    static let D3D12_RESOURCE_STATE_VIDEO_DECODE_READ = Self.videoDecodeRead
+@available(*, deprecated, renamed: "ResourceStates.present")
+public let D3D12_RESOURCE_STATE_PRESENT = ResourceStates.present
 
-    @available(*, deprecated, renamed: "videoDecodeWrite")
-    static let D3D12_RESOURCE_STATE_VIDEO_DECODE_WRITE = Self.videoDecodeWrite
+@available(*, deprecated, renamed: "ResourceStates.predication")
+public let D3D12_RESOURCE_STATE_PREDICATION = ResourceStates.predication
 
-    @available(*, deprecated, renamed: "videoProcessRead")
-    static let D3D12_RESOURCE_STATE_VIDEO_PROCESS_READ = Self.videoProcessRead
+@available(*, deprecated, renamed: "ResourceStates.videoDecodeRead")
+public let D3D12_RESOURCE_STATE_VIDEO_DECODE_READ = ResourceStates.videoDecodeRead
 
-    @available(*, deprecated, renamed: "videoProcessWrite")
-    static let D3D12_RESOURCE_STATE_VIDEO_PROCESS_WRITE = Self.videoProcessWrite
+@available(*, deprecated, renamed: "ResourceStates.videoDecodeWrite")
+public let D3D12_RESOURCE_STATE_VIDEO_DECODE_WRITE = ResourceStates.videoDecodeWrite
 
-    @available(*, deprecated, renamed: "videoEncodeRead")
-    static let D3D12_RESOURCE_STATE_VIDEO_ENCODE_READ = Self.videoEncodeRead
+@available(*, deprecated, renamed: "ResourceStates.videoProcessRead")
+public let D3D12_RESOURCE_STATE_VIDEO_PROCESS_READ = ResourceStates.videoProcessRead
 
-    @available(*, deprecated, renamed: "videoEncodeWrite")
-    static let D3D12_RESOURCE_STATE_VIDEO_ENCODE_WRITE = Self.videoEncodeWrite
-}
+@available(*, deprecated, renamed: "ResourceStates.videoProcessWrite")
+public let D3D12_RESOURCE_STATE_VIDEO_PROCESS_WRITE = ResourceStates.videoProcessWrite
+
+@available(*, deprecated, renamed: "ResourceStates.videoEncodeRead")
+public let D3D12_RESOURCE_STATE_VIDEO_ENCODE_READ = ResourceStates.videoEncodeRead
+
+@available(*, deprecated, renamed: "ResourceStates.videoEncodeWrite")
+public let D3D12_RESOURCE_STATE_VIDEO_ENCODE_WRITE = ResourceStates.videoEncodeWrite
 
 #endif

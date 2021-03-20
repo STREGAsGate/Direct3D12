@@ -41,10 +41,11 @@ public class Fence: Pageable {
     }
 
     override class var interfaceID: WinSDK.IID {
-        if #available(Windows 10.0.16299, *) {
-            return RawValue1.interfaceID
-        }
-        return RawValue.interfaceID
+        // if #available(Windows 10.0.16299, *) {
+        //     return RawValue1.interfaceID//ID3D12Fence1
+        // }else{
+            return RawValue.interfaceID //ID3D12Fence
+        //}
     }
 }
 

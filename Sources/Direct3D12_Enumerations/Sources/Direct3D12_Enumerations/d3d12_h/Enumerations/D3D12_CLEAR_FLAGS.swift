@@ -35,12 +35,11 @@ public struct ClearFlags: OptionSet {
 @available(*, deprecated, renamed: "ClearFlags")
 public typealias D3D12_CLEAR_FLAGS = ClearFlags
 
-public extension ClearFlags {
-    @available(*, deprecated, renamed: "depth")
-    static let D3D12_CLEAR_FLAG_DEPTH = Self.depth
 
-    @available(*, deprecated, renamed: "stencil")
-    static let D3D12_CLEAR_FLAG_STENCIL = Self.stencil
-}
+@available(*, deprecated, renamed: "ClearFlags.depth")
+public let D3D12_CLEAR_FLAG_DEPTH = ClearFlags.depth
+
+@available(*, deprecated, renamed: "ClearFlags.stencil")
+public let D3D12_CLEAR_FLAG_STENCIL = ClearFlags.stencil
 
 #endif

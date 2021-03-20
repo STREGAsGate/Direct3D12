@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import WinSDK.DirectX
 
 // The explicit D3D10 and D3D12 varients in d3dcommon.h are just aliases
 

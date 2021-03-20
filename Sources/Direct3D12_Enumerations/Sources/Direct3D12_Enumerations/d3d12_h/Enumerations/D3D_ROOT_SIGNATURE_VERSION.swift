@@ -11,13 +11,14 @@ import WinSDK.DirectX
 
 /// Specifies the version of root signature layout.
 public enum RootSignatureVersion {
+    public typealias RawValue = WinSDK.D3D_ROOT_SIGNATURE_VERSION
     /// Version one of root signature layout.
     case v1_0
     ///	Version 1.1 of root signature layout.
     @available(Windows, introduced: 10.0.14393)
     case v1_1
 
-    public var rawValue: WinSDK.D3D_ROOT_SIGNATURE_VERSION {
+    public var rawValue: RawValue {
         switch self {
             case .v1_0:
                 return WinSDK.D3D_ROOT_SIGNATURE_VERSION_1_0

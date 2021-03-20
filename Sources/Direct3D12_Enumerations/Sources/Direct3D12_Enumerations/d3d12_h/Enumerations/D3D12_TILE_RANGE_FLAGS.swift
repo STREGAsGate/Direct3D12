@@ -11,7 +11,8 @@ import WinSDK
 /// Specifies a range of tile mappings.
 public struct TileRangeFlags: OptionSet {
     public typealias RawType = WinSDK.D3D12_TILE_RANGE_FLAGS
-    public let rawValue: Int32
+    public typealias RawValue = WinSDK.D3D12_TILE_RANGE_FLAGS.RawValue
+    public let rawValue: RawValue
     //Use an empty collection `[]` to represent none in Swift.
     ///// No tile-mapping flags are specified.
     //static let none = TileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_NONE.rawValue)
@@ -23,7 +24,7 @@ public struct TileRangeFlags: OptionSet {
     ///	Reuse a single tile in the tile range.
     static let reuseSingleTile = TileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE.rawValue)
 
-    public init(rawValue: Int32) {
+    public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
     public init() {
@@ -38,18 +39,17 @@ public struct TileRangeFlags: OptionSet {
 @available(*, deprecated, renamed: "TileRangeFlags")
 public typealias D3D12_TILE_RANGE_FLAGS = TileRangeFlags
 
-public extension TileRangeFlags {
-    @available(*, deprecated, message: "Use [] to represent none in Swift.")
-    static let D3D12_TILE_RANGE_FLAG_NONE: TileRangeFlags = []
 
-    @available(*, deprecated, renamed: "null")
-    static let D3D12_TILE_RANGE_FLAG_NULL = Self.null
-    
-    @available(*, deprecated, renamed: "skip")
-    static let D3D12_TILE_RANGE_FLAG_SKIP = Self.skip
-    
-    @available(*, deprecated, renamed: "reuseSingleTile")
-    static let D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE = Self.reuseSingleTile
-}
+@available(*, deprecated, message: "Use [] to represent none in Swift.")
+public let D3D12_TILE_RANGE_FLAG_NONE: TileRangeFlags = []
+
+@available(*, deprecated, renamed: "null")
+public let D3D12_TILE_RANGE_FLAG_NULL = TileRangeFlags.null
+
+@available(*, deprecated, renamed: "skip")
+public let D3D12_TILE_RANGE_FLAG_SKIP = TileRangeFlags.skip
+
+@available(*, deprecated, renamed: "reuseSingleTile")
+public let D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE = TileRangeFlags.reuseSingleTile
 
 #endif

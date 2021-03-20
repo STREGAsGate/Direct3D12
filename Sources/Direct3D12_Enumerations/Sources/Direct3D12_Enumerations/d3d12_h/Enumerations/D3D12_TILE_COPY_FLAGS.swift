@@ -45,18 +45,17 @@ public struct TileCopyFlags: OptionSet {
 @available(*, deprecated, renamed: "TileCopyFlags")
 public typealias D3D12_TILE_COPY_FLAGS = TileCopyFlags
 
-public extension TileCopyFlags {
-    @available(*, deprecated, message: "Use [] to represent none in Swift.")
-    static let D3D12_TILE_COPY_FLAG_NONE: TileCopyFlags = []
 
-    @available(*, deprecated, renamed: "noHazard")
-    static let D3D12_TILE_COPY_FLAG_NO_HAZARD = Self.noHazard
-    
-    @available(*, deprecated, renamed: "linearBufferToSwizzledTiledResource")
-    static let D3D12_TILE_COPY_FLAG_LINEAR_BUFFER_TO_SWIZZLED_TILED_RESOURCE = Self.linearBufferToSwizzledTiledResource
-    
-    @available(*, deprecated, renamed: "swizzledTiledResourceToLinearBuffer")
-    static let D3D12_TILE_COPY_FLAG_SWIZZLED_TILED_RESOURCE_TO_LINEAR_BUFFER = Self.swizzledTiledResourceToLinearBuffer
-}
+@available(*, deprecated, message: "Use [] to represent none in Swift.")
+public let D3D12_TILE_COPY_FLAG_NONE: TileCopyFlags = []
+
+@available(*, deprecated, renamed: "TileCopyFlags.noHazard")
+public let D3D12_TILE_COPY_FLAG_NO_HAZARD = TileCopyFlags.noHazard
+
+@available(*, deprecated, renamed: "TileCopyFlags.linearBufferToSwizzledTiledResource")
+public let D3D12_TILE_COPY_FLAG_LINEAR_BUFFER_TO_SWIZZLED_TILED_RESOURCE = TileCopyFlags.linearBufferToSwizzledTiledResource
+
+@available(*, deprecated, renamed: "TileCopyFlags.swizzledTiledResourceToLinearBuffer")
+public let D3D12_TILE_COPY_FLAG_SWIZZLED_TILED_RESOURCE_TO_LINEAR_BUFFER = TileCopyFlags.swizzledTiledResourceToLinearBuffer
 
 #endif

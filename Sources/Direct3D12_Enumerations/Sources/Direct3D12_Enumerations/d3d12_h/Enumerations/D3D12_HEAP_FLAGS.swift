@@ -11,7 +11,8 @@ import WinSDK
 /// Specifies heap options, such as whether the heap can contain textures, and whether resources are shared across adapters.
 public struct HeapFlags: OptionSet {
     public typealias RawType = WinSDK.D3D12_HEAP_FLAGS
-    public let rawValue: Int32
+    public typealias RawValue = WinSDK.D3D12_HEAP_FLAGS.RawValue
+    public let rawValue: RawValue
     //Use an empty collection `[]` to represent none in Swift.
     ///// No options are specified.
     //static let none = HeapFlags(rawValue: WinSDK.D3D12_HEAP_FLAG_NONE.rawValue)
@@ -56,7 +57,7 @@ public struct HeapFlags: OptionSet {
     ///	The heap is only allowed to store RT and/or DS textures. This is an alias; for more details, see "Aliases" in the Remarks section.
     static let allowOnlyRenderTargetAndDepthStencilTextures = HeapFlags(rawValue: WinSDK.D3D12_HEAP_FLAG_ALLOW_ONLY_RT_DS_TEXTURES.rawValue)
 
-    public init(rawValue: Int32) {
+    public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
     public init() {
@@ -71,54 +72,53 @@ public struct HeapFlags: OptionSet {
 @available(*, deprecated, renamed: "HeapFlags")
 public typealias D3D12_HEAP_FLAGS = HeapFlags
 
-public extension HeapFlags {
-    @available(*, deprecated, message: "Use [] to represent none in Swift.")
-    static let D3D12_HEAP_FLAG_NONE: HeapFlags = []
 
-    @available(*, deprecated, renamed: "shared")
-    static let D3D12_HEAP_FLAG_SHARED = Self.shared
+@available(*, deprecated, message: "Use [] to represent none in Swift.")
+public let D3D12_HEAP_FLAG_NONE: HeapFlags = []
 
-    @available(*, deprecated, renamed: "denyBuffers")
-    static let D3D12_HEAP_FLAG_DENY_BUFFERS = Self.denyBuffers
+@available(*, deprecated, renamed: "HeapFlags.shared")
+public let D3D12_HEAP_FLAG_SHARED = HeapFlags.shared
 
-    @available(*, deprecated, renamed: "allowDisplay")
-    static let D3D12_HEAP_FLAG_ALLOW_DISPLAY = Self.allowDisplay
+@available(*, deprecated, renamed: "HeapFlags.denyBuffers")
+public let D3D12_HEAP_FLAG_DENY_BUFFERS = HeapFlags.denyBuffers
 
-    @available(*, deprecated, renamed: "sharedAcrossAdapter")
-    static let D3D12_HEAP_FLAG_SHARED_CROSS_ADAPTER = Self.sharedAcrossAdapter
+@available(*, deprecated, renamed: "HeapFlags.allowDisplay")
+public let D3D12_HEAP_FLAG_ALLOW_DISPLAY = HeapFlags.allowDisplay
 
-    @available(*, deprecated, renamed: "denyRenderTargetAndDepthStencilTextures")
-    static let D3D12_HEAP_FLAG_DENY_RT_DS_TEXTURES = Self.denyRenderTargetAndDepthStencilTextures
+@available(*, deprecated, renamed: "HeapFlags.sharedAcrossAdapter")
+public let D3D12_HEAP_FLAG_SHARED_CROSS_ADAPTER = HeapFlags.sharedAcrossAdapter
 
-    @available(*, deprecated, renamed: "denyNonRenderTargetAndDepthStencilTextures")
-    static let D3D12_HEAP_FLAG_DENY_NON_RT_DS_TEXTURES = Self.denyNonRenderTargetAndDepthStencilTextures
+@available(*, deprecated, renamed: "HeapFlags.denyRenderTargetAndDepthStencilTextures")
+public let D3D12_HEAP_FLAG_DENY_RT_DS_TEXTURES = HeapFlags.denyRenderTargetAndDepthStencilTextures
 
-    @available(*, deprecated, renamed: "hardwareProtected")
-    static let D3D12_HEAP_FLAG_HARDWARE_PROTECTED = Self.hardwareProtected
+@available(*, deprecated, renamed: "HeapFlags.denyNonRenderTargetAndDepthStencilTextures")
+public let D3D12_HEAP_FLAG_DENY_NON_RT_DS_TEXTURES = HeapFlags.denyNonRenderTargetAndDepthStencilTextures
 
-    @available(*, deprecated, renamed: "allowWriteWatch")
-    static let D3D12_HEAP_FLAG_ALLOW_WRITE_WATCH = Self.allowWriteWatch
+@available(*, deprecated, renamed: "HeapFlags.hardwareProtected")
+public let D3D12_HEAP_FLAG_HARDWARE_PROTECTED = HeapFlags.hardwareProtected
 
-    @available(*, deprecated, renamed: "allowShaderAtomics")
-    static let D3D12_HEAP_FLAG_ALLOW_SHADER_ATOMICS = Self.allowShaderAtomics
+@available(*, deprecated, renamed: "HeapFlags.allowWriteWatch")
+public let D3D12_HEAP_FLAG_ALLOW_WRITE_WATCH = HeapFlags.allowWriteWatch
 
-    @available(*, deprecated, renamed: "createNotResident")
-    static let D3D12_HEAP_FLAG_CREATE_NOT_RESIDENT = Self.createNotResident
+@available(*, deprecated, renamed: "HeapFlags.allowShaderAtomics")
+public let D3D12_HEAP_FLAG_ALLOW_SHADER_ATOMICS = HeapFlags.allowShaderAtomics
 
-    @available(*, deprecated, renamed: "createNotZeroed")
-    static let D3D12_HEAP_FLAG_CREATE_NOT_ZEROED = Self.createNotZeroed
+@available(*, deprecated, renamed: "HeapFlags.createNotResident")
+public let D3D12_HEAP_FLAG_CREATE_NOT_RESIDENT = HeapFlags.createNotResident
 
-    @available(*, deprecated, renamed: "allowAllBuffersAndTextures")
-    static let D3D12_HEAP_FLAG_ALLOW_ALL_BUFFERS_AND_TEXTURES = Self.allowAllBuffersAndTextures
+@available(*, deprecated, renamed: "HeapFlags.createNotZeroed")
+public let D3D12_HEAP_FLAG_CREATE_NOT_ZEROED = HeapFlags.createNotZeroed
 
-    @available(*, deprecated, renamed: "allowOnlyBuffers")
-    static let D3D12_HEAP_FLAG_ALLOW_ONLY_BUFFERS = Self.allowOnlyBuffers
+@available(*, deprecated, renamed: "HeapFlags.allowAllBuffersAndTextures")
+public let D3D12_HEAP_FLAG_ALLOW_ALL_BUFFERS_AND_TEXTURES = HeapFlags.allowAllBuffersAndTextures
 
-    @available(*, deprecated, renamed: "allowOnlyNonRenderTargetOrDepthStencilTextures")
-    static let D3D12_HEAP_FLAG_ALLOW_ONLY_NON_RT_DS_TEXTURES = Self.allowOnlyNonRenderTargetOrDepthStencilTextures
+@available(*, deprecated, renamed: "HeapFlags.allowOnlyBuffers")
+public let D3D12_HEAP_FLAG_ALLOW_ONLY_BUFFERS = HeapFlags.allowOnlyBuffers
 
-    @available(*, deprecated, renamed: "allowOnlyRenderTargetAndDepthStencilTextures")
-    static let D3D12_HEAP_FLAG_ALLOW_ONLY_RT_DS_TEXTURES = Self.allowOnlyRenderTargetAndDepthStencilTextures
-}
+@available(*, deprecated, renamed: "HeapFlags.allowOnlyNonRenderTargetOrDepthStencilTextures")
+public let D3D12_HEAP_FLAG_ALLOW_ONLY_NON_RT_DS_TEXTURES = HeapFlags.allowOnlyNonRenderTargetOrDepthStencilTextures
+
+@available(*, deprecated, renamed: "HeapFlags.allowOnlyRenderTargetAndDepthStencilTextures")
+public let D3D12_HEAP_FLAG_ALLOW_ONLY_RT_DS_TEXTURES = HeapFlags.allowOnlyRenderTargetAndDepthStencilTextures
 
 #endif

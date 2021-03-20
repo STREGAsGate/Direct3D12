@@ -26,7 +26,7 @@ public enum CommandListType {
     case videoEncode
     /// This only occurse if there was no implementation for the wrapped rawValue.
     /// This can happen if d3d12 is expanded but this Swift package is not yet updated.
-    case undefined(_ rawValue: WinSDK.D3D12_COMMAND_LIST_TYPE)
+    case _unimplemented(RawValue)
 }
 
 extension CommandListType: RawRepresentable {
@@ -47,7 +47,7 @@ extension CommandListType: RawRepresentable {
             return WinSDK.D3D12_COMMAND_LIST_TYPE_VIDEO_PROCESS
         case .videoEncode:
             return WinSDK.D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE
-        case let .undefined(rawValue):
+        case let ._unimplemented(rawValue):
             return rawValue
         }
     }
@@ -68,7 +68,7 @@ extension CommandListType: RawRepresentable {
         case WinSDK.D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE:
             self = .videoEncode
         default:
-            self = .undefined(rawValue)
+            self = ._unimplemented(rawValue)
         }
     }
 }
@@ -80,27 +80,26 @@ extension CommandListType: RawRepresentable {
 @available(*, deprecated, renamed: "CommandListType")
 public typealias D3D12_COMMAND_LIST_TYPE = CommandListType
 
-public extension CommandListType  {
-    @available(*, deprecated, renamed: "direct")
-    static let D3D12_COMMAND_LIST_TYPE_DIRECT = Self.direct
-    
-    @available(*, deprecated, renamed: "bundle")
-    static let D3D12_COMMAND_LIST_TYPE_BUNDLE = Self.bundle
-    
-    @available(*, deprecated, renamed: "compute")
-    static let D3D12_COMMAND_LIST_TYPE_COMPUTE = Self.compute
-    
-    @available(*, deprecated, renamed: "copy")
-    static let D3D12_COMMAND_LIST_TYPE_COPY = Self.copy
-    
-    @available(*, deprecated, renamed: "videoDecode")
-    static let D3D12_COMMAND_LIST_TYPE_VIDEO_DECODE = Self.videoDecode
-    
-    @available(*, deprecated, renamed: "videoProcess")
-    static let D3D12_COMMAND_LIST_TYPE_VIDEO_PROCESS = Self.videoProcess
-    
-    @available(*, deprecated, renamed: "videoEncode")
-    static let D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE = Self.videoEncode
-}
+
+@available(*, deprecated, renamed: "CommandListType.direct")
+public let D3D12_COMMAND_LIST_TYPE_DIRECT = CommandListType.direct
+
+@available(*, deprecated, renamed: "CommandListType.bundle")
+public let D3D12_COMMAND_LIST_TYPE_BUNDLE = CommandListType.bundle
+
+@available(*, deprecated, renamed: "CommandListType.compute")
+public let D3D12_COMMAND_LIST_TYPE_COMPUTE = CommandListType.compute
+
+@available(*, deprecated, renamed: "CommandListType.copy")
+public let D3D12_COMMAND_LIST_TYPE_COPY = CommandListType.copy
+
+@available(*, deprecated, renamed: "CommandListType.videoDecode")
+public let D3D12_COMMAND_LIST_TYPE_VIDEO_DECODE = CommandListType.videoDecode
+
+@available(*, deprecated, renamed: "CommandListType.videoProcess")
+public let D3D12_COMMAND_LIST_TYPE_VIDEO_PROCESS = CommandListType.videoProcess
+
+@available(*, deprecated, renamed: "CommandListType.videoEncode")
+public let D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE = CommandListType.videoEncode
 
 #endif

@@ -10,6 +10,7 @@ import WinSDK
 
 /// Defines constants that specify a Direct3D 12 feature or feature set to query about. When you want to query for the level to which an adapter supports a feature, pass one of these values to ID3D12Device::CheckFeatureSupport.
 public enum Feature {
+    public typealias RawValue = WinSDK.D3D12_FEATURE
     ///	Indicates a query for the level of support for basic Direct3D 12 feature options. The corresponding data structure for this value is D3D12_FEATURE_DATA_D3D12_OPTIONS.
     case options
     ///Indicates a query for the adapter's architectural details, so that your application can better optimize for certain adapter properties. The corresponding data structure for this value is D3D12_FEATURE_DATA_ARCHITECTURE.
@@ -78,7 +79,7 @@ public enum Feature {
     @available(Windows, introduced: 10.0.19041)//Possibly available earlier
     case protectedResourceSessionTypes
 
-    public var rawValue: WinSDK.D3D12_FEATURE {
+    public var rawValue: RawValue {
         switch self {
         case .options:
             return WinSDK.D3D12_FEATURE_D3D12_OPTIONS
@@ -143,99 +144,98 @@ public enum Feature {
 @available(*, deprecated, renamed: "Feature")
 public typealias D3D12_FEATURE = Feature
 
-public extension Feature  {
-    @available(*, deprecated, renamed: "options")
-    static let D3D12_FEATURE_D3D12_OPTIONS = Self.options
 
-    @available(*, deprecated, renamed: "architecture")
-    static let D3D12_FEATURE_ARCHITECTURE = Self.architecture
+@available(*, deprecated, renamed: "Feature.options")
+public let D3D12_FEATURE_D3D12_OPTIONS = Feature.options
 
-    @available(*, deprecated, renamed: "featureLevels")
-    static let D3D12_FEATURE_FEATURE_LEVELS = Self.featureLevels
-    
-    @available(*, deprecated, renamed: "formatSupport")
-    static let D3D12_FEATURE_FORMAT_SUPPORT = Self.formatSupport
+@available(*, deprecated, renamed: "Feature.architecture")
+public let D3D12_FEATURE_ARCHITECTURE = Feature.architecture
 
-    @available(*, deprecated, renamed: "multisampleQualityLevels")
-    static let D3D12_FEATURE_MULTISAMPLE_QUALITY_LEVELS = Self.multisampleQualityLevels
-    
-    @available(*, deprecated, renamed: "formatInfo")
-    static let D3D12_FEATURE_FORMAT_INFO = Self.formatInfo
-    
-    @available(*, deprecated, renamed: "gpuVirtualAddressSupport")
-    static let D3D12_FEATURE_GPU_VIRTUAL_ADDRESS_SUPPORT = Self.gpuVirtualAddressSupport
-    
-    @available(*, deprecated, renamed: "shaderModel")
-    static let D3D12_FEATURE_SHADER_MODEL = Self.shaderModel
-    
-    @available(*, deprecated, renamed: "options1")
-    static let D3D12_FEATURE_D3D12_OPTIONS1 = Self.options1
-    
-    @available(*, deprecated, renamed: "protectedResourceSessionSupport")
-    static let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_SUPPORT = Self.protectedResourceSessionSupport
-    
-    @available(*, deprecated, renamed: "rootSignature")
-    static let D3D12_FEATURE_ROOT_SIGNATURE = Self.rootSignature
-    
-    @available(Windows, introduced: 10.0.15063)
-    @available(*, deprecated, renamed: "architecture1")
-    static let D3D12_FEATURE_ARCHITECTURE1 = Self.architecture1
-    
-    @available(Windows, introduced: 10.0.16299)
-    @available(*, deprecated, renamed: "options2")
-    static let D3D12_FEATURE_D3D12_OPTIONS2 = Self.options2
-    
-    @available(Windows, introduced: 10.0.16299)
-    @available(*, deprecated, renamed: "shaderCache")
-    static let D3D12_FEATURE_SHADER_CACHE = Self.shaderCache
+@available(*, deprecated, renamed: "Feature.featureLevels")
+public let D3D12_FEATURE_FEATURE_LEVELS = Feature.featureLevels
 
-    @available(Windows, introduced: 10.0.16299)
-    @available(*, deprecated, renamed: "commandQueuePriority")
-    static let D3D12_FEATURE_COMMAND_QUEUE_PRIORITY = Self.commandQueuePriority
+@available(*, deprecated, renamed: "Feature.formatSupport")
+public let D3D12_FEATURE_FORMAT_SUPPORT = Feature.formatSupport
+
+@available(*, deprecated, renamed: "Feature.multisampleQualityLevels")
+public let D3D12_FEATURE_MULTISAMPLE_QUALITY_LEVELS = Feature.multisampleQualityLevels
+
+@available(*, deprecated, renamed: "Feature.formatInfo")
+public let D3D12_FEATURE_FORMAT_INFO = Feature.formatInfo
+
+@available(*, deprecated, renamed: "Feature.gpuVirtualAddressSupport")
+public let D3D12_FEATURE_GPU_VIRTUAL_ADDRESS_SUPPORT = Feature.gpuVirtualAddressSupport
+
+@available(*, deprecated, renamed: "Feature.shaderModel")
+public let D3D12_FEATURE_SHADER_MODEL = Feature.shaderModel
+
+@available(*, deprecated, renamed: "Feature.options1")
+public let D3D12_FEATURE_D3D12_OPTIONS1 = Feature.options1
+
+@available(*, deprecated, renamed: "Feature.protectedResourceSessionSupport")
+public let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_SUPPORT = Feature.protectedResourceSessionSupport
+
+@available(*, deprecated, renamed: "Feature.rootSignature")
+public let D3D12_FEATURE_ROOT_SIGNATURE = Feature.rootSignature
+
+@available(Windows, introduced: 10.0.15063)
+@available(*, deprecated, renamed: "Feature.architecture1")
+public let D3D12_FEATURE_ARCHITECTURE1 = Feature.architecture1
+
+@available(Windows, introduced: 10.0.16299)
+@available(*, deprecated, renamed: "Feature.options2")
+public let D3D12_FEATURE_D3D12_OPTIONS2 = Feature.options2
+
+@available(Windows, introduced: 10.0.16299)
+@available(*, deprecated, renamed: "Feature.shaderCache")
+public let D3D12_FEATURE_SHADER_CACHE = Feature.shaderCache
+
+@available(Windows, introduced: 10.0.16299)
+@available(*, deprecated, renamed: "Feature.commandQueuePriority")
+public let D3D12_FEATURE_COMMAND_QUEUE_PRIORITY = Feature.commandQueuePriority
+
+@available(Windows, introduced: 10.0.16299)
+@available(*, deprecated, renamed: "Feature.options3")
+public let D3D12_FEATURE_D3D12_OPTIONS3 = Feature.options3
+
+@available(Windows, introduced: 10.0.16299)
+@available(*, deprecated, renamed: "Feature.existingHeaps")
+public let D3D12_FEATURE_EXISTING_HEAPS = Feature.existingHeaps
+
+@available(Windows, introduced: 10.0.17763)
+@available(*, deprecated, renamed: "Feature.options4")
+public let D3D12_FEATURE_D3D12_OPTIONS4 = Feature.options4
+
+@available(Windows, introduced: 10.0.17763)
+@available(*, deprecated, renamed: "Feature.serialization")
+public let D3D12_FEATURE_SERIALIZATION = Feature.serialization
+
+@available(Windows, introduced: 10.0.17763)
+@available(*, deprecated, renamed: "Feature.crossNode")
+public let D3D12_FEATURE_CROSS_NODE = Feature.crossNode
+
+@available(Windows, introduced: 10.0.17763)
+@available(*, deprecated, renamed: "Feature.options5")
+public let D3D12_FEATURE_D3D12_OPTIONS5 = Feature.options5
+
+@available(Windows, introduced: 10.0.18362)
+@available(*, deprecated, renamed: "Feature.options6")
+public let D3D12_FEATURE_D3D12_OPTIONS6 = Feature.options6
+
+@available(Windows, introduced: 10.0.19041)
+@available(*, deprecated, renamed: "Feature.queryMetaCommand")
+public let D3D12_FEATURE_QUERY_META_COMMAND = Feature.queryMetaCommand
     
-    @available(Windows, introduced: 10.0.16299)
-    @available(*, deprecated, renamed: "options3")
-    static let D3D12_FEATURE_D3D12_OPTIONS3 = Self.options3
+@available(Windows, introduced: 10.0.19041)
+@available(*, deprecated, renamed: "Feature.options7")
+public let D3D12_FEATURE_D3D12_OPTIONS7 = Feature.options7
     
-    @available(Windows, introduced: 10.0.16299)
-    @available(*, deprecated, renamed: "existingHeaps")
-    static let D3D12_FEATURE_EXISTING_HEAPS = Self.existingHeaps
+@available(Windows, introduced: 10.0.19041)
+@available(*, deprecated, renamed: "Feature.protectedResourceSessionTypeCount")
+public let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPE_COUNT = Feature.protectedResourceSessionTypeCount
     
-    @available(Windows, introduced: 10.0.17763)
-    @available(*, deprecated, renamed: "options4")
-    static let D3D12_FEATURE_D3D12_OPTIONS4 = Self.options4
-    
-    @available(Windows, introduced: 10.0.17763)
-    @available(*, deprecated, renamed: "serialization")
-    static let D3D12_FEATURE_SERIALIZATION = Self.serialization
-    
-    @available(Windows, introduced: 10.0.17763)
-    @available(*, deprecated, renamed: "crossNode")
-    static let D3D12_FEATURE_CROSS_NODE = Self.crossNode
-    
-    @available(Windows, introduced: 10.0.17763)
-    @available(*, deprecated, renamed: "options5")
-    static let D3D12_FEATURE_D3D12_OPTIONS5 = Self.options5
-    
-    @available(Windows, introduced: 10.0.18362)
-    @available(*, deprecated, renamed: "options6")
-    static let D3D12_FEATURE_D3D12_OPTIONS6 = Self.options6
-    
-    @available(Windows, introduced: 10.0.19041)
-    @available(*, deprecated, renamed: "queryMetaCommand")
-    static let D3D12_FEATURE_QUERY_META_COMMAND = Self.queryMetaCommand
-      
-    @available(Windows, introduced: 10.0.19041)
-    @available(*, deprecated, renamed: "options7")
-    static let D3D12_FEATURE_D3D12_OPTIONS7 = Self.options7
-      
-    @available(Windows, introduced: 10.0.19041)
-    @available(*, deprecated, renamed: "protectedResourceSessionTypeCount")
-    static let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPE_COUNT = Self.protectedResourceSessionTypeCount
-      
-    @available(Windows, introduced: 10.0.19041)
-    @available(*, deprecated, renamed: "protectedResourceSessionTypes")
-    static let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPES = Self.protectedResourceSessionTypes
-}
+@available(Windows, introduced: 10.0.19041)
+@available(*, deprecated, renamed: "Feature.protectedResourceSessionTypes")
+public let D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPES = Feature.protectedResourceSessionTypes
 
 #endif

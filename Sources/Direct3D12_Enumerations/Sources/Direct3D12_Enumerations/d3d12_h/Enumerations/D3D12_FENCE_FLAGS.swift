@@ -42,18 +42,17 @@ public struct FenceFlags: OptionSet {
 @available(*, deprecated, renamed: "FenceFlags")
 public typealias D3D12_FENCE_FLAGS = FenceFlags
 
-public extension FenceFlags {
-    @available(*, deprecated, message: "Use [] to represent none in Swift.")
-    static let D3D12_FENCE_FLAG_NONE: FenceFlags = []
 
-    @available(*, deprecated, renamed: "shared")
-    static let D3D12_FENCE_FLAG_SHARED = Self.shared
+@available(*, deprecated, message: "Use [] to represent none in Swift.")
+public let D3D12_FENCE_FLAG_NONE: FenceFlags = []
 
-    @available(*, deprecated, renamed: "sharedCrossAdapter")
-    static let D3D12_FENCE_FLAG_SHARED_CROSS_ADAPTER = Self.sharedCrossAdapter
-	
-    @available(*, deprecated, renamed: "nonMonitored")
-    static let D3D12_FENCE_FLAG_NON_MONITORED = Self.nonMonitored
-}
+@available(*, deprecated, renamed: "FenceFlags.shared")
+public let D3D12_FENCE_FLAG_SHARED = FenceFlags.shared
+
+@available(*, deprecated, renamed: "FenceFlags.sharedCrossAdapter")
+public let D3D12_FENCE_FLAG_SHARED_CROSS_ADAPTER = FenceFlags.sharedCrossAdapter
+
+@available(*, deprecated, renamed: "FenceFlags.nonMonitored")
+public let D3D12_FENCE_FLAG_NON_MONITORED = FenceFlags.nonMonitored
 
 #endif
