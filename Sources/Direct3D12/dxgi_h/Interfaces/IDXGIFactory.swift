@@ -18,7 +18,7 @@ public class DGIFactory: DGIObject {
         guard let p = ppFactory else {throw Error(.invalidArgument)}
         super.init(win32Pointer: p)
     }
-    override init(win32Pointer pointer: UnsafeMutableRawPointer?) {
+    override init(win32Pointer pointer: UnsafeMutableRawPointer) {
         super.init(win32Pointer: pointer)
     }
 

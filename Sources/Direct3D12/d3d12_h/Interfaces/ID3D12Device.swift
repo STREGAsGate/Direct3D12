@@ -588,7 +588,7 @@ public class D3DDevice: D3DObject {
         super.init(win32Pointer: p)
     }
 
-    override public init(win32Pointer pointer: UnsafeMutableRawPointer?) {
+    override public init(win32Pointer pointer: UnsafeMutableRawPointer) {
         super.init(win32Pointer: pointer)
     }
 }
