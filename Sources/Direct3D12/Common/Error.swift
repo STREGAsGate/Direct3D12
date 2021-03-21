@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -97,20 +97,24 @@ public extension HRESULT {
     }
 }
 
-fileprivate extension HRESULT {
-    var string: String {
+internal extension DWORD {
+    var errorMessage: String {
         let dwFlags: DWORD = DWORD(FORMAT_MESSAGE_ALLOCATE_BUFFER) | DWORD(FORMAT_MESSAGE_FROM_SYSTEM) | DWORD(FORMAT_MESSAGE_IGNORE_INSERTS)
 
         var buffer: UnsafeMutablePointer<WCHAR>? = nil
         let dwResult: DWORD = withUnsafeMutablePointer(to: &buffer) {
             return $0.withMemoryRebound(to: WCHAR.self, capacity: 2) {
-                return FormatMessageW(dwFlags, nil, DWORD(bitPattern: self), DWORD((WORD(SUBLANG_DEFAULT) << 10) | WORD(LANG_NEUTRAL)), $0, 0, nil)
+                return FormatMessageW(dwFlags, nil, self, DWORD((WORD(SUBLANG_DEFAULT) << 10) | WORD(LANG_NEUTRAL)), $0, 0, nil)
             }
         }
         guard dwResult > 0, let message = buffer else {
-            return "HRESULT(0x\(String(DWORD(bitPattern: self), radix: 16)))"
+            return "HRESULT(0x\(String(self, radix: 16)))"
         }
         defer {LocalFree(buffer)}
-        return "0x\(String(DWORD(bitPattern: self), radix: 16)) - \(String(decodingCString: message, as: UTF16.self))"
+        return "0x\(String(self, radix: 16)) - \(String(decodingCString: message, as: UTF16.self))"
     }
+}
+
+fileprivate extension HRESULT {
+    var string: String {DWORD(bitPattern: self).errorMessage}
 }

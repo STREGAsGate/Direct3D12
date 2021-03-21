@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -391,7 +391,7 @@ public class D3DDevice: D3DObject {
             let pObject = try object.perform(as: D3DDeviceChild.RawValue.self) {$0}
             let pAttributes: UnsafeMutablePointer<SECURITY_ATTRIBUTES>? = nil
             let ACCESS = DWORD(WinSDK.GENERIC_ALL)
-            let Name = name.lpcwstr
+            let Name = name.lpcwSTR
             var handle: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateSharedHandle(pThis, pObject, pAttributes, ACCESS, Name, &handle).checkResult()
             guard let handle = handle else {throw Error(.invalidArgument)}
@@ -537,7 +537,7 @@ public class D3DDevice: D3DObject {
     */
     public func openSharedHandle(byName name: String) throws -> UnsafeMutableRawPointer {
         return try perform(as: RawValue.self) {pThis in
-            let Name = name.lpcwstr
+            let Name = name.lpcwSTR
             let Access = DWORD(WinSDK.GENERIC_ALL)
             var p: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.OpenSharedHandleByName(pThis, Name, Access, &p).checkResult()
