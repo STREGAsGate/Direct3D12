@@ -25,6 +25,8 @@ open class MSWindow {
         self.hWnd = Self.makeHWND(withFrame: frame, style: style)
         self.style = style
         SetWindowLongPtrW(self.hWnd, GWLP_USERDATA, unsafeBitCast(self as AnyObject, to: LONG_PTR.self))
+
+        MSApplication.shared.incrementWindowCount()
     }
 
     private final func update() {
@@ -35,21 +37,34 @@ open class MSWindow {
 
     }
 
-    private var isShown = false
+    public enum State {
+        ///The window exists but isn't on screen
+        case hidden
+        ///The window is on screen
+        case shown
+        ///The window isn't visible and can never be shown again.
+        case destroyed
+    }
+
+    public private(set) var state: State = .hidden
+    
+    /// If possible, shows the window on screen.
     public final func show() {
-        guard isShown == false else {return}
-        MSApplication.shared.incrementWindowCount()
+        guard state == .hidden else {return}
         _ = ShowWindow(self.hWnd, SW_SHOWDEFAULT)
-        _ = UpdateWindow(self.hWnd)
-        run()
+        self.performShowOperations()
     }
 
+    /// Makes the window hidden. To destroy the window via code allow the MSWindow to deallocate.
     public final func close() {
-        guard isShown else {return}
-        MSApplication.shared.decrementWindowCount()
+        guard state == .shown else {return}
+        self.performCloseOperations()
+        WinSDK.CloseWindow(self.hWnd)
     }
 
+    //TODO: Move this into MSApplication to reduce queue block creation noise
     private func run() {
+        guard state != .destroyed else {return}
         DispatchQueue.main.async {
             var msg: MSG = MSG()
             if PeekMessageW(&msg, self.hWnd, 0, 0, UINT(PM_REMOVE)) {
@@ -128,26 +143,47 @@ public struct MSWindowStyle: OptionSet {
     public typealias RawValue = Int32
     public let rawValue: RawValue
 
+    /// The window type. This is always required.
     public static let overlapped = MSWindowStyle(rawValue: WinSDK.WS_OVERLAPPED)
 
+    /// Shows the maximize button in the titlebar
     public static let maximizable = MSWindowStyle(rawValue: WinSDK.WS_MAXIMIZEBOX)
+    /// Shows the minimize button in the titlebar
     public static let minimizable = MSWindowStyle(rawValue: WinSDK.WS_MINIMIZEBOX)
+    /// Allows user live resizing via draggin the window border
     public static let resizable = MSWindowStyle(rawValue: WinSDK.WS_THICKFRAME)
 
+    /// Shows the titlebar
     public static let titleBar = MSWindowStyle(rawValue: WinSDK.WS_CAPTION)
+    /// Expects the window to have a menu in the titlebar
     public static let menuInTitleBar = MSWindowStyle(rawValue: WinSDK.WS_SYSMENU)
+    /// Shows the titlebar and expects the window to have a menu
     public static let titleBarMenu: MSWindowStyle = [.titleBar, .menuInTitleBar]
 
-
+    /// Starts the window maximized
     public static let initiallyMaximized = MSWindowStyle(rawValue: WinSDK.WS_MAXIMIZE)
 
-    public static let standard: MSWindowStyle = [.overlapped, .titleBar, .menuInTitleBar, .maximizable, .minimizable, .resizable]
+    /// The default Windows 10 style. Users expect this.
+    public static let standard: MSWindowStyle = [.overlapped, .titleBarMenu, .maximizable, .minimizable, .resizable]
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
 
+// Common tasks shared by manual calls and notifications
+internal extension MSWindow {
+    func performShowOperations() {
+        _ = UpdateWindow(self.hWnd)
+        run()
+    }
+    func performCloseOperations() {
+        delegate?.windowWillClose(self)
+        MSApplication.shared.decrementWindowCount()
+    }
+}
+
+//These are the 
 internal extension MSWindow {
     func _msgPaint() {
         self.draw()
@@ -157,9 +193,25 @@ internal extension MSWindow {
         delegate?.window(self, didChangeSize: self.frame.size)
     }
 
-    func _msgDidClose() {
-        delegate?.windowWillClose(self)
-        self.close()
+    func _msgShow() {
+        print("show recieved")
+        self.state = .shown
+        self.performShowOperations()
+    }
+
+    func _msgHide() {
+        print("hide recieved")
+        self.state = .hidden
+    }
+
+    func _msgClose() {
+        print("close recieved")
+        self.performCloseOperations()
+    }
+
+    func _msgDestroy() {
+        print("destroy recieved")
+        self.state = .destroyed
     }
 
     //return true if input was used
@@ -230,31 +282,39 @@ internal class MSWindowClass {
 internal typealias WindowProc = @convention(c) (HWND?, UINT, WPARAM, LPARAM) -> LRESULT
 
 private func WindowProcedure(_ hWnd: HWND?, _ uMsg: UINT, _ wParam: WPARAM, _ lParam: LPARAM) -> LRESULT {
-    // let lpUserData = GetWindowLongPtrW(hWnd, GWLP_USERDATA)
-    // guard lpUserData != 0, let window = unsafeBitCast(lpUserData, to: AnyObject.self) as? MSWindow else {
-    //     return DefWindowProcW(hWnd, uMsg, wParam, lParam)
-    // }
+    let lpUserData = GetWindowLongPtrW(hWnd, GWLP_USERDATA)
+    guard lpUserData != 0, let window = unsafeBitCast(lpUserData, to: AnyObject.self) as? MSWindow else {
+        return DefWindowProcW(hWnd, uMsg, wParam, lParam)
+    }
     
-    // switch uMsg {
-    // case UINT(WM_SIZE)://Did change size
-    //     window._msgResized()
-    //     return 0
-    // case UINT(WM_PAINT):
-    //     window._msgPaint()
-    //     return 0
-    // case UINT(WM_KEYDOWN):
-    //     if window._msgKeyDown(wParam) {
-    //         return 0
-    //     }
-    // case UINT(WM_KEYUP):
-    //     if window._msgKeyUp(wParam) {
-    //         return 0
-    //     }
-    // case UINT(WM_DESTROY):
-    //     window._msgDidClose()
-    //     return 0
-    // default:
-    //     break
-    // }
+    switch uMsg {
+    case UINT(WM_SIZE):
+        window._msgResized()
+        return 0
+    case UINT(WM_PAINT):
+        window._msgPaint()
+        return 0
+    case UINT(WM_KEYDOWN):
+        if window._msgKeyDown(wParam) {
+            return 0
+        }
+    case UINT(WM_KEYUP):
+        if window._msgKeyUp(wParam) {
+            return 0
+        }
+    case UINT(WM_SHOWWINDOW):
+        switch wParam {
+        case WPARAM(UINT(1)):
+            window._msgShow()
+        default:
+            window._msgHide()
+        }
+    case UINT(WM_CLOSE):
+        window._msgClose()
+    case UINT(WM_DESTROY):
+        window._msgDestroy()
+    default:
+        break
+    }
     return DefWindowProcW(hWnd, uMsg, wParam, lParam)
 } 

@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct CachedPipelineState {
-    internal var rawValue: WinSDK.D3D12_CACHED_PIPELINE_STATE
+public struct DGISwapChainDescription1 {
+    public typealias RawValue = WinSDK.DXGI_SWAP_CHAIN_DESC1
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_CACHED_PIPELINE_STATE) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct CachedPipelineState {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "CachedPipelineState")
-public typealias D3D12_CACHED_PIPELINE_STATE = CachedPipelineState 
+@available(*, deprecated, renamed: "DGISwapChainDescription1")
+public typealias DXGI_SWAP_CHAIN_DESC1 = DGISwapChainDescription1
 
 #endif
