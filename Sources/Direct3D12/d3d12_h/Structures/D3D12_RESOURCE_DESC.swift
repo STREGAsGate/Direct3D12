@@ -8,7 +8,7 @@
 
 import WinSDK
 
-@available(Windows, deprecated: 10.0.19041, renamed: "ResourceDescription1")
+// @available(Windows, deprecated: 10.0.19041, renamed: "ResourceDescription1")
 public struct D3DResourceDescription {
     internal var rawValue: WinSDK.D3D12_RESOURCE_DESC
 

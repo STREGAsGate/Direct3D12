@@ -60,6 +60,9 @@ public struct D3DHeapFlags: OptionSet {
     public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
+    public init(_ rawType: RawType) {
+        self.rawValue = rawType.rawValue
+    }
     public init() {
         self.rawValue = 0
     }

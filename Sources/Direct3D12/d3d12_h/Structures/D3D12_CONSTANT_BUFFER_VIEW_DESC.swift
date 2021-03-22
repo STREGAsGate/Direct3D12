@@ -9,10 +9,40 @@
 import WinSDK
 
 public struct D3DConstantBufferViewDescription {
-    internal var rawValue: WinSDK.D3D12_CONSTANT_BUFFER_VIEW_DESC
+    public typealias RawValue = WinSDK.D3D12_CONSTANT_BUFFER_VIEW_DESC
+    internal var rawValue: RawValue
 
+    /// The D3D12_GPU_VIRTUAL_ADDRESS of the constant buffer. D3D12_GPU_VIRTUAL_ADDRESS is a typedef'd alias of UINT64.
+    public var bufferLocation: UInt64 {
+        get {
+            return rawValue.BufferLocation
+        }
+        set {
+            rawValue.BufferLocation = newValue
+        }
+    }
 
-    internal init(_ rawValue: WinSDK.D3D12_CONSTANT_BUFFER_VIEW_DESC) {
+    /// The size in bytes of the constant buffer.
+    public var bufferSize: UInt32 {
+        get {
+            return rawValue.SizeInBytes
+        }
+        set {
+            rawValue.SizeInBytes = newValue
+        }
+    }
+
+    /** Describes a constant buffer to view.
+    - parameters location: The D3D12_GPU_VIRTUAL_ADDRESS of the constant buffer.
+    - parameters size: The size in bytes of the constant buffer.
+    */
+    public init(location: UInt64, size: UInt32) {
+        self.rawValue = RawValue()
+        self.bufferLocation = location
+        self.bufferSize = size
+    }
+
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

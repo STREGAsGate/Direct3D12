@@ -55,12 +55,11 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter regions: An array of D3D12_RECT structures for the rectangles in the resource view to clear. If NULL, ClearRenderTargetView clears the entire resource view.
     */
     public func clearRenderTargetView(_ view: D3DCPUDescriptorHandle,
-                                      withColor clearColor: [Float],
+                                      withColor clearColor: D3DColor,
                                       regions: [D3DRect]? = nil) throws {
-        guard clearColor.count == 4 else {throw Error(.invalidArgument)}
         performFatally(as: RawValue.self) {pThis in
             let RenderTargetView = view.rawValue
-            let ColorRGBA = clearColor
+            let ColorRGBA = clearColor.rawValue
             let NumRects = UInt32(regions?.count ?? 0)
             let pRects = regions?.map({$0.rawValue})
             pThis.pointee.lpVtbl.pointee.ClearRenderTargetView(pThis, RenderTargetView, ColorRGBA, NumRects, pRects)

@@ -8,11 +8,27 @@
 
 import WinSDK
 
+/// Describes a CPU descriptor handle.
 public struct D3DCPUDescriptorHandle {
-    internal var rawValue: WinSDK.D3D12_CPU_DESCRIPTOR_HANDLE
+    public typealias RawValue = WinSDK.D3D12_CPU_DESCRIPTOR_HANDLE
+    internal var rawValue: RawValue
 
+    /// The address of the descriptor.
+    public var pointer: UInt64 {
+        get {
+            return rawValue.ptr
+        }
+        set {
+            self.rawValue.ptr = newValue
+        }
+    }
 
-    internal init(_ rawValue: WinSDK.D3D12_CPU_DESCRIPTOR_HANDLE) {
+    public init(pointer: UInt64) {
+        self.rawValue = RawValue()
+        self.pointer = pointer
+    }
+
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

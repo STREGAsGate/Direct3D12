@@ -143,19 +143,19 @@ public class D3DDevice: D3DObject {
     - parameter properties: A pointer to a D3D12_HEAP_PROPERTIES structure that provides properties for the resource's heap.
     - parameter flags: Heap options, as a bitwise-OR'd combination of D3D12_HEAP_FLAGS enumeration constants.
     - parameter state: The initial state of the resource, as a bitwise-OR'd combination of D3D12_RESOURCE_STATES enumeration constants. When you create a resource together with a D3D12_HEAP_TYPE_UPLOAD heap, you must set InitialResourceState to D3D12_RESOURCE_STATE_GENERIC_READ. When you create a resource together with a D3D12_HEAP_TYPE_READBACK heap, you must set InitialResourceState to D3D12_RESOURCE_STATE_COPY_DEST.
-    - parameter clearColor: Specifies a D3D12_CLEAR_VALUE structure that describes the default value for a clear color.
+    - parameter clearValue: Specifies a D3D12_CLEAR_VALUE structure that describes the default value for a clear color.
     */
     public func createCommittedResource(description: D3DResourceDescription,
                                         properties: D3DHeapProperties,
                                         flags: D3DHeapFlags = [],
                                         state: D3DResourceStates,
-                                        clearColor: D3DClearValue) throws -> D3DResource {
+                                        clearValue: D3DClearValue) throws -> D3DResource {
         return try perform(as: RawValue.self) {pThis in
             var pHeapProperties = properties.rawValue
             let HeapFlags = D3DHeapFlags.RawType(flags.rawValue)
             var pDesc = description.rawValue
             let InitialResourceState = D3DResourceStates.RawType(state.rawValue)
-            var pOptimizedClearValue = clearColor.rawValue
+            var pOptimizedClearValue = clearValue.rawValue
             var riidResource = D3DResource.interfaceID
             var ppvResource: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateCommittedResource(pThis, &pHeapProperties, HeapFlags, &pDesc, InitialResourceState, &pOptimizedClearValue, &riidResource, &ppvResource).checkResult()
@@ -265,20 +265,20 @@ public class D3DDevice: D3DObject {
     - parameter offset: The offset, in bytes, to the resource. The HeapOffset must be a multiple of the resource's alignment, and HeapOffset plus the resource size must be smaller than or equal to the heap size. GetResourceAllocationInfo must be used to understand the sizes of texture resources.
     - parameter description: A pointer to a D3D12_RESOURCE_DESC structure that describes the resource.
     - parameter initialState: The initial state of the resource, as a bitwise-OR'd combination of D3D12_RESOURCE_STATES enumeration constants. When a resource is created together with a D3D12_HEAP_TYPE_UPLOAD heap, InitialState must be D3D12_RESOURCE_STATE_GENERIC_READ. When a resource is created together with a D3D12_HEAP_TYPE_READBACK heap, InitialState must be D3D12_RESOURCE_STATE_COPY_DEST.
-    - parameter clearColor: Specifies a D3D12_CLEAR_VALUE that describes the default value for a clear color.
+    - parameter clearValue: Specifies a D3D12_CLEAR_VALUE that describes the default value for a clear color.
     */
     @available(Windows, deprecated: 10.0.19041, message: "Use description type ResourceDescription1")
     public func createPlacedResource(heap: D3DHeap, 
                                      offset: UInt64, 
                                      description: D3DResourceDescription,
                                      initialState: D3DResourceStates,
-                                     clearColor: D3DClearValue) throws -> D3DResource {
+                                     clearValue: D3DClearValue) throws -> D3DResource {
         return try perform(as: RawValue.self) {pThis in
             let pHeap = try heap.perform(as: D3DHeap.RawValue.self) {$0}
             let HeapOffset = offset
             var pDesc = description.rawValue
             let InitialState = D3DResourceStates.RawType(initialState.rawValue)
-            var pOptimizedClearValue = clearColor.rawValue
+            var pOptimizedClearValue = clearValue.rawValue
             var riid = D3DResource.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreatePlacedResource(pThis, pHeap, HeapOffset, &pDesc, InitialState, &pOptimizedClearValue, &riid, &pp).checkResult()
@@ -317,15 +317,15 @@ public class D3DDevice: D3DObject {
     /** Creates a resource that is reserved, and not yet mapped to any pages in a heap.
     - parameter description: A pointer to a D3D12_RESOURCE_DESC structure that describes the resource.
     - parameter initialState: The initial state of the resource, as a bitwise-OR'd combination of D3D12_RESOURCE_STATES enumeration constants.
-    - parameter clearColor: Specifies a D3D12_CLEAR_VALUE structure that describes the default value for a clear color.
+    - parameter clearValue: Specifies a D3D12_CLEAR_VALUE structure that describes the default value for a clear color.
     */
     public func createReservedResource(description: D3DResourceDescription,
                                        initialState: D3DResourceStates,
-                                       clearColor: D3DClearValue) throws -> D3DResource {
+                                       clearValue: D3DClearValue) throws -> D3DResource {
         return try perform(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
             let InitialState = D3DResourceStates.RawType(initialState.rawValue)
-            var pOptimizedClearValue = clearColor.rawValue
+            var pOptimizedClearValue = clearValue.rawValue
             var riid = D3DResource.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateReservedResource(pThis, &pDesc, InitialState, &pOptimizedClearValue, &riid, &pp).checkResult()

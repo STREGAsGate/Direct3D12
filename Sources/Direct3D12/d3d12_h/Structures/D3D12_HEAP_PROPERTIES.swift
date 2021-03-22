@@ -9,10 +9,11 @@
 import WinSDK
 
 public struct D3DHeapProperties {
-    internal var rawValue: WinSDK.D3D12_HEAP_PROPERTIES
+    public typealias RawValue = WinSDK.D3D12_HEAP_PROPERTIES
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_HEAP_PROPERTIES) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

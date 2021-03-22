@@ -8,8 +8,19 @@
 
 import WinSDK
 
+/// Represents the state of all currently set shaders as well as certain fixed function state objects.
 public class D3DPipelineState: D3DPageable {
     
+    /// Gets the cached blob representing the pipeline state.
+    public func cachedBlob() throws -> D3DBlob {
+        return try perform(as: RawValue.self) {pThis in
+            var ppBlob: UnsafeMutablePointer<D3DBlob.RawValue>?
+            try pThis.pointee.lpVtbl.pointee.GetCachedBlob(pThis, &ppBlob).checkResult()
+            guard let p = ppBlob else {throw Error(.invalidArgument)}
+            return D3DBlob(win32Pointer: p)
+        }
+    }
+
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
@@ -27,6 +38,13 @@ extension D3DPipelineState.RawValue {
 #if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "D3DPipelineState")
-public typealias ID3D12PipelineState = D3DPipelineState 
+public typealias ID3D12PipelineState = D3DPipelineState
+
+public extension D3DPipelineState {
+    @available(*, unavailable, renamed: "cachedBlob()")
+    func GetCachedBlob(_ ppBlob: Any) -> HRESULT {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+}
 
 #endif

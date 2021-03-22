@@ -9,10 +9,10 @@
 import WinSDK
 
 public struct D3DRootSignatureDescription {
-    internal var rawValue: WinSDK.D3D12_ROOT_SIGNATURE_DESC
+    public typealias RawValue = WinSDK.D3D12_ROOT_SIGNATURE_DESC
+    internal var rawValue: RawValue
 
-
-    internal init(_ rawValue: WinSDK.D3D12_ROOT_SIGNATURE_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

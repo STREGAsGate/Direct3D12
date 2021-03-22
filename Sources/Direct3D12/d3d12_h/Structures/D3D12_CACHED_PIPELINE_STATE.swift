@@ -14,27 +14,13 @@ public struct D3DCachedPipelineState {
     public typealias RawValue = WinSDK.D3D12_CACHED_PIPELINE_STATE
     internal var rawValue: RawValue
 
-    /// Specifies pointer that references the memory location of the cache.
-    var cachedBlob: Data {
-        get {
-            return withUnsafeBytes(of:  self.rawValue.pCachedBlob) {pCachedBlob in
-                return Data(pCachedBlob)
-            }
-        }
-        set {
-            newValue.withUnsafeBytes {pCachedBlob in
-                self.rawValue.pCachedBlob = pCachedBlob.baseAddress!
-            }
-            self.rawValue.CachedBlobSizeInBytes = UInt64(newValue.count)
-        }
-    }
-
     /** Stores a pipeline state.
     - parameter cachedBlob: Specifies pointer that references the memory location of the cache.
     */
-    public init(cachedBlob: Data) {
+    public init(cachedBlob: D3DBlob) {
         self.rawValue = RawValue()
-        self.cachedBlob = cachedBlob
+        self.rawValue.pCachedBlob = UnsafeRawPointer(cachedBlob.bufferPointer)
+        self.rawValue.CachedBlobSizeInBytes = cachedBlob.bufferSize
     }
 
     public init() {
