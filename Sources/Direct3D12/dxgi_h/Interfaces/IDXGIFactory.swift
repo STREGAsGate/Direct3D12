@@ -10,7 +10,6 @@ import WinSDK
 
 public class DGIFactory: DGIObject {
     
-
     public init() throws {
         var riid = DGIFactory.interfaceID
         var ppFactory: UnsafeMutableRawPointer?
@@ -25,14 +24,14 @@ public class DGIFactory: DGIObject {
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension DGIFactory {// Always use Factory1
-    typealias RawValue = WinSDK.IDXGIFactory1
+extension DGIFactory {// Always use Factory2
+    typealias RawValue = WinSDK.IDXGIFactory2
     convenience init(_ rawValue: inout RawValue) {
         self.init(win32Pointer: &rawValue)
     }
 }
-extension DGIFactory.RawValue {// Always use Factory1
-    static var interfaceID: WinSDK.IID {WinSDK.IID_IDXGIFactory1}
+extension DGIFactory.RawValue {// Always use Factory2
+    static var interfaceID: WinSDK.IID {WinSDK.IID_IDXGIFactory2}
 }
 
 //MARK: - Original Style API
@@ -40,5 +39,14 @@ extension DGIFactory.RawValue {// Always use Factory1
 
 @available(*, deprecated, renamed: "DGIFactory")
 public typealias IDXGIFactory = DGIFactory
+
+public extension DGIFactory {
+    @available(*, unavailable, renamed: "createSwapChain(destiption:window:fullScreen:commandQueue:)")
+    func CreateSwapChain(_ pDevice: Any,
+                         _ pDesc: Any,
+                         _ ppSwapChain: inout Any) -> HRESULT {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
+}
 
 #endif

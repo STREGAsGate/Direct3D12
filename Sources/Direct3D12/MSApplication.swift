@@ -14,8 +14,28 @@ public protocol MSApplicationDelegate: AnyObject {
     func applicationWillQuit(_ application: MSApplication)
 }
 
+public struct DirectX {
+    public let factory: DGIFactory
+    public let device: D3DDevice
+
+    internal init() {
+        do {
+            self.factory = try DGIFactory()
+            self.device = try D3DDevice(minimumFeatureLevel: .v9_3)
+        }catch{
+            print(error)
+            fatalError("A DGIFactory and D3DDevice are required but one could not be created.")
+        }
+    }
+}
+
 public final class MSApplication {
     public private(set) var delegate: MSApplicationDelegate? = nil
+
+    public var quitOnLastWindowClosed: Bool = true
+
+    public let directX = DirectX()
+
     private init() {}
 
     private var windowCount = 0
@@ -33,10 +53,20 @@ public final class MSApplication {
 
     private func run() {
         DispatchQueue.main.async {
-            if self.windowCount == 0 {
+            if self.quitOnLastWindowClosed && self.windowCount == 0 {
                 PostQuitMessage(0)
+                
+                DispatchQueue.main.async {
+                    self.delegate?.applicationWillQuit(self)
+                    
+                    //Give everything a moment to respond to quit
+                    DispatchQueue.main.async {
+                        exit(0)
+                    }
+                }
+            }else{
+                self.run()
             }
-            self.run()
         }
     }
 

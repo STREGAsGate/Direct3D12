@@ -8,11 +8,11 @@
 
 import WinSDK
 
-public struct IndirectArgumentDescription {
-    internal var rawValue: WinSDK.D3D12_INDIRECT_ARGUMENT_DESC
+public struct D3DDepthStencilValue {
+    internal var rawValue: WinSDK.D3D12_DEPTH_STENCIL_VALUE
 
 
-    internal init(_ rawValue: WinSDK.D3D12_INDIRECT_ARGUMENT_DESC) {
+    internal init(_ rawValue: WinSDK.D3D12_DEPTH_STENCIL_VALUE) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +21,7 @@ public struct IndirectArgumentDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "IndirectArgumentDescription")
-public typealias D3D12_INDIRECT_ARGUMENT_DESC = IndirectArgumentDescription
+@available(*, deprecated, renamed: "D3DDepthStencilValue")
+public typealias D3D12_DEPTH_STENCIL_VALUE = D3DDepthStencilValue
 
 #endif

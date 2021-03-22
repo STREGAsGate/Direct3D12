@@ -13,7 +13,9 @@ public protocol DXWindowDelegate: MSWindowDelegate {
 }
 
 open class DXWindow: MSWindow {
-
+    // internal let swapChain: DGISwapChain
+    // public let commandQueue: D3DCommandQueue
+    
     public required init(frame: MSRect, style: MSWindowStyle = .standard) {
         super.init(frame: frame, style: style)
     }

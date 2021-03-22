@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct ShaderBytecode {
-    internal var rawValue: WinSDK.D3D12_SHADER_BYTECODE
+public struct D3DShaderBytecode {
+    public typealias RawValue = WinSDK.D3D12_SHADER_BYTECODE
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_SHADER_BYTECODE) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct ShaderBytecode {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ShaderBytecode")
-public typealias D3D12_SHADER_BYTECODE = RenderTargetFormatArray
+@available(*, deprecated, renamed: "D3DShaderBytecode")
+public typealias D3D12_SHADER_BYTECODE = D3DShaderBytecode
 
 #endif

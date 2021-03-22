@@ -678,6 +678,254 @@ public enum DGIFormat {
             return rawValue
         }
     }
+
+
+    public init(_ rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.DXGI_FORMAT_UNKNOWN:
+            self = .unknown
+        case WinSDK.DXGI_FORMAT_R32G32B32A32_TYPELESS:
+            self = .r32g32b32a32Typeless
+        case WinSDK.DXGI_FORMAT_R32G32B32A32_FLOAT:
+            self = .r32g32b32a32Float
+        case WinSDK.DXGI_FORMAT_R32G32B32A32_UINT:
+            self = .r32g32b32a32UInt
+        case WinSDK.DXGI_FORMAT_R32G32B32A32_SINT:
+            self = .r32g32b32a32Int
+        case WinSDK.DXGI_FORMAT_R32G32B32_TYPELESS:
+            self = .r32g32b32Typeless
+        case WinSDK.DXGI_FORMAT_R32G32B32_FLOAT:
+            self = .r32g32b32Float
+        case WinSDK.DXGI_FORMAT_R32G32B32_UINT:
+            self = .r32g32b32UInt
+        case WinSDK.DXGI_FORMAT_R32G32B32_SINT:
+            self = .r32g32b32Int
+        case WinSDK.DXGI_FORMAT_R16G16B16A16_TYPELESS:
+            self = .r16g16b16a16Typeless
+        case WinSDK.DXGI_FORMAT_R16G16B16A16_FLOAT:
+            self = .r16g16b16a16Float
+        case WinSDK.DXGI_FORMAT_R16G16B16A16_UNORM:
+            self = .r16g16b16a16Unorm
+        case WinSDK.DXGI_FORMAT_R16G16B16A16_UINT:
+            self = .r16g16b16a16UInt
+        case WinSDK.DXGI_FORMAT_R16G16B16A16_SNORM:
+            self = .r16g16b16a16Snorm
+        case WinSDK.DXGI_FORMAT_R16G16B16A16_SINT:
+            self = .r16g16b16a16Int
+        case WinSDK.DXGI_FORMAT_R32G32_TYPELESS:
+            self = .r32g32Typeless
+        case WinSDK.DXGI_FORMAT_R32G32_FLOAT:
+            self = .r32g32Float
+        case WinSDK.DXGI_FORMAT_R32G32_UINT:
+            self = .r32g32UInt
+        case WinSDK.DXGI_FORMAT_R32G32_SINT:
+            self = .r32g32Int
+        case WinSDK.DXGI_FORMAT_R32G8X24_TYPELESS:
+            self = .r32g8x24Typeless
+        case WinSDK.DXGI_FORMAT_D32_FLOAT_S8X24_UINT:
+            self = .d32FloatS8x24UInt
+        case WinSDK.DXGI_FORMAT_R32_FLOAT_X8X24_TYPELESS:
+            self = .r32FloatX8x24Typeless
+        case WinSDK.DXGI_FORMAT_X32_TYPELESS_G8X24_UINT:
+            self = .x32TypelessG8x24UInt
+        case WinSDK.DXGI_FORMAT_R10G10B10A2_TYPELESS:
+            self = .r10g10b10a2Typeless
+        case WinSDK.DXGI_FORMAT_R10G10B10A2_UNORM:
+            self = .r10g10b10a2Unorm
+        case WinSDK.DXGI_FORMAT_R10G10B10A2_UINT:
+            self = .r10g10b10a2UInt
+        case WinSDK.DXGI_FORMAT_R11G11B10_FLOAT:
+            self = .r11g11b10Float
+        case WinSDK.DXGI_FORMAT_R8G8B8A8_TYPELESS:
+            self = .r8g8b8a8Typeless
+        case WinSDK.DXGI_FORMAT_R8G8B8A8_UNORM:
+            self = .r8g8b8a8Unorm
+        case WinSDK.DXGI_FORMAT_R8G8B8A8_UNORM_SRGB:
+            self = .r8g8b8a8UnormSRGB
+        case WinSDK.DXGI_FORMAT_R8G8B8A8_UINT:
+            self = .r8g8b8a8UInt
+        case WinSDK.DXGI_FORMAT_R8G8B8A8_SNORM:
+            self = .r8g8b8a8Snorm
+        case WinSDK.DXGI_FORMAT_R8G8B8A8_SINT:
+            self = .r8g8b8a8Int
+        case WinSDK.DXGI_FORMAT_R16G16_TYPELESS:
+            self = .r16g16Typeless
+        case WinSDK.DXGI_FORMAT_R16G16_FLOAT:
+            self = .r16g16Float
+        case WinSDK.DXGI_FORMAT_R16G16_UNORM:
+            self = .r16g16Unorm
+        case WinSDK.DXGI_FORMAT_R16G16_UINT:
+            self = .r16g16UInt
+        case WinSDK.DXGI_FORMAT_R16G16_SNORM:
+            self = .r16g16Snorm
+        case WinSDK.DXGI_FORMAT_R16G16_SINT:
+            self = .r16g16Int
+        case WinSDK.DXGI_FORMAT_R32_TYPELESS:
+            self = .r32Typeless
+        case WinSDK.DXGI_FORMAT_D32_FLOAT:
+            self = .d32Float
+        case WinSDK.DXGI_FORMAT_R32_FLOAT:
+            self = .r32Float
+        case WinSDK.DXGI_FORMAT_R32_UINT:
+            self = .r32UInt
+        case WinSDK.DXGI_FORMAT_R32_SINT:
+            self = .r32Int
+        case WinSDK.DXGI_FORMAT_R24G8_TYPELESS:
+            self = .r24g8Typeless
+        case WinSDK.DXGI_FORMAT_D24_UNORM_S8_UINT:
+            self = .d24UnormS8UInt
+        case WinSDK.DXGI_FORMAT_R24_UNORM_X8_TYPELESS:
+            self = .r24UnormX8Typeless
+        case WinSDK.DXGI_FORMAT_X24_TYPELESS_G8_UINT:
+            self = .x24TypelessG8UInt
+        case WinSDK.DXGI_FORMAT_R8G8_TYPELESS:
+            self = .r8g8Typeless
+        case WinSDK.DXGI_FORMAT_R8G8_UNORM:
+            self = .r8g8Unorm
+        case WinSDK.DXGI_FORMAT_R8G8_UINT:
+            self = .r8g8UInt
+        case WinSDK.DXGI_FORMAT_R8G8_SNORM:
+            self = .r8g8Snorm
+        case WinSDK.DXGI_FORMAT_R8G8_SINT:
+            self = .r8g8Int
+        case WinSDK.DXGI_FORMAT_R16_TYPELESS:
+            self = .r16Typeless
+        case WinSDK.DXGI_FORMAT_R16_FLOAT:
+            self = .r16Float
+        case WinSDK.DXGI_FORMAT_D16_UNORM:
+            self = .d16Unorm
+        case WinSDK.DXGI_FORMAT_R16_UNORM:
+            self = .r16Unorm
+        case WinSDK.DXGI_FORMAT_R16_UINT:
+            self = .r16UInt
+        case WinSDK.DXGI_FORMAT_R16_SNORM:
+            self = .r16Snorm
+        case WinSDK.DXGI_FORMAT_R16_SINT:
+            self = .r16Int
+        case WinSDK.DXGI_FORMAT_R8_TYPELESS:
+            self = .r8Typeless
+        case WinSDK.DXGI_FORMAT_R8_UNORM:
+            self = .r8Unorm
+        case WinSDK.DXGI_FORMAT_R8_UINT:
+            self = .r8UInt
+        case WinSDK.DXGI_FORMAT_R8_SNORM:
+            self = .r8Snorm
+        case WinSDK.DXGI_FORMAT_R8_SINT:
+            self = .r8Int
+        case WinSDK.DXGI_FORMAT_A8_UNORM:
+            self = .a8Unorm
+        case WinSDK.DXGI_FORMAT_R1_UNORM:
+            self = .r1Unorm
+        case WinSDK.DXGI_FORMAT_R9G9B9E5_SHAREDEXP:
+            self = .r9g9b9e5SharedEXP
+        case WinSDK.DXGI_FORMAT_R8G8_B8G8_UNORM:
+            self = .r8g8B8g8Unorm
+        case WinSDK.DXGI_FORMAT_G8R8_G8B8_UNORM:
+            self = .g8r8G8b8Unorm
+        case WinSDK.DXGI_FORMAT_BC1_TYPELESS:
+            self = .bc1Typeless
+        case WinSDK.DXGI_FORMAT_BC1_UNORM:
+            self = .bc1Unorm
+        case WinSDK.DXGI_FORMAT_BC1_UNORM_SRGB:
+            self = .bc1UnormSRGB
+        case WinSDK.DXGI_FORMAT_BC2_TYPELESS:
+            self = .bc2Typeless
+        case WinSDK.DXGI_FORMAT_BC2_UNORM:
+            self = .bc2Unorm
+        case WinSDK.DXGI_FORMAT_BC2_UNORM_SRGB:
+            self = .bc2UnormSRGB
+        case WinSDK.DXGI_FORMAT_BC3_TYPELESS:
+            self = .bc3Typeless
+        case WinSDK.DXGI_FORMAT_BC3_UNORM:
+            self = .bc3Unorm
+        case WinSDK.DXGI_FORMAT_BC3_UNORM_SRGB:
+            self = .bc3UnormSRGB
+        case WinSDK.DXGI_FORMAT_BC4_TYPELESS:
+            self = .bc4Typeless
+        case WinSDK.DXGI_FORMAT_BC4_UNORM:
+            self = .bc4Unorm
+        case WinSDK.DXGI_FORMAT_BC4_SNORM:
+            self = .bc4Snorm
+        case WinSDK.DXGI_FORMAT_BC5_TYPELESS:
+            self = .bc5Typeless
+        case WinSDK.DXGI_FORMAT_BC5_UNORM:
+            self = .bc5Unorm
+        case WinSDK.DXGI_FORMAT_BC5_SNORM:
+            self = .bc5Snorm
+        case WinSDK.DXGI_FORMAT_B5G6R5_UNORM:
+            self = .b5g6r5Unorm
+        case WinSDK.DXGI_FORMAT_B5G5R5A1_UNORM:
+            self = .b5g5r5a1Unorm
+        case WinSDK.DXGI_FORMAT_B8G8R8A8_UNORM:
+            self = .b8g8r8a8Unorm
+        case WinSDK.DXGI_FORMAT_B8G8R8X8_UNORM:
+            self = .b8g8r8x8Unorm
+        case WinSDK.DXGI_FORMAT_R10G10B10_XR_BIAS_A2_UNORM:
+            self = .r10g10b10XrBiasA2Unorm
+        case WinSDK.DXGI_FORMAT_B8G8R8A8_TYPELESS:
+            self = .b8g8r8a8Typeless
+        case WinSDK.DXGI_FORMAT_B8G8R8A8_UNORM_SRGB:
+            self = .b8g8r8a8UnormSRGB
+        case WinSDK.DXGI_FORMAT_B8G8R8X8_TYPELESS:
+            self = .b8g8r8x8Typeless
+        case WinSDK.DXGI_FORMAT_B8G8R8X8_UNORM_SRGB:
+            self = .b8g8r8x8UnormSRGB
+        case WinSDK.DXGI_FORMAT_BC6H_TYPELESS:
+            self = .bc6hTypeless
+        case WinSDK.DXGI_FORMAT_BC6H_UF16:
+            self = .bc6hUf16
+        case WinSDK.DXGI_FORMAT_BC6H_SF16:
+            self = .bc6hSf16
+        case WinSDK.DXGI_FORMAT_BC7_TYPELESS:
+            self = .bc7Typeless
+        case WinSDK.DXGI_FORMAT_BC7_UNORM:
+            self = .bc7Unorm
+        case WinSDK.DXGI_FORMAT_BC7_UNORM_SRGB:
+            self = .bc7UnormSRGB
+        case WinSDK.DXGI_FORMAT_AYUV:
+            self = .ayuv
+        case WinSDK.DXGI_FORMAT_Y410:
+            self = .y410
+        case WinSDK.DXGI_FORMAT_Y416:
+            self = .y416
+        case WinSDK.DXGI_FORMAT_NV12:
+            self = .nv12
+        case WinSDK.DXGI_FORMAT_P010:
+            self = .p010
+        case WinSDK.DXGI_FORMAT_P016:
+            self = .p016
+        case WinSDK.DXGI_FORMAT_420_OPAQUE:
+            self = .opaque420
+        case WinSDK.DXGI_FORMAT_YUY2:
+            self = .yuy2
+        case WinSDK.DXGI_FORMAT_Y210:
+            self = .y210
+        case WinSDK.DXGI_FORMAT_Y216:
+            self = .y216
+        case WinSDK.DXGI_FORMAT_NV11:
+            self = .nv11
+        case WinSDK.DXGI_FORMAT_AI44:
+            self = .ai44
+        case WinSDK.DXGI_FORMAT_IA44:
+            self = .ia44
+        case WinSDK.DXGI_FORMAT_P8:
+            self = .p8
+        case WinSDK.DXGI_FORMAT_A8P8:
+            self = .a8p8
+        case WinSDK.DXGI_FORMAT_B4G4R4A4_UNORM:
+            self = .b4g4r4a4Unorm
+        case WinSDK.DXGI_FORMAT_P208:
+            self = .p208
+        case WinSDK.DXGI_FORMAT_V208:
+            self = .v208
+        case WinSDK.DXGI_FORMAT_V408:
+            self = .v408
+        case WinSDK.DXGI_FORMAT_FORCE_UINT:
+            self = .forceUInt
+        default:
+            self = ._unimplemented(rawValue)
+        }
+    }
 }
   
 

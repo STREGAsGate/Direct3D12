@@ -41,3 +41,13 @@ public class IUnknown {
     
     class var interfaceID: WinSDK.IID {preconditionFailure("Must override!")}
 }
+
+extension IUnknown {// Always use Factory1
+    typealias RawValue = WinSDK.IUnknown
+    convenience init(_ rawValue: inout RawValue) {
+        self.init(win32Pointer: &rawValue)
+    }
+}
+extension IUnknown.RawValue {// Always use Factory1
+    static var interfaceID: WinSDK.IID {WinSDK.IID_IUnknown}
+}
