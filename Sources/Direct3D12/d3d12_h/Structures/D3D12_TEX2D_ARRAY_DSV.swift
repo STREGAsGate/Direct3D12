@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct Texture2DDepthStencilState {
-    internal var rawValue: WinSDK.D3D12_TEX2D_DSV
+public struct D3DTexture2DArrayDepthStencilView {
+    public typealias RawValue = WinSDK.D3D12_TEX2D_ARRAY_DSV
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_TEX2D_DSV) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct Texture2DDepthStencilState {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Texture2DDepthStencilState")
-public typealias D3D12_TEX2D_DSV = Texture2DDepthStencilState
+@available(*, deprecated, renamed: "D3DTexture2DArrayDepthStencilView")
+public typealias D3D12_TEX2D_ARRAY_DSV = D3DTexture2DArrayDepthStencilView
 
 #endif

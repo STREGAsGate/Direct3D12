@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct Texture1DDepthStencilView {
-    internal var rawValue: WinSDK.D3D12_TEX1D_DSV
+public struct D3DTexture1DDepthStencilView {
+    public typealias RawValue = WinSDK.D3D12_TEX1D_DSV
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_TEX1D_DSV) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct Texture1DDepthStencilView {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Texture1DDepthStencilView")
-public typealias D3D12_TEX1D_DSV = Texture1DDepthStencilView
+@available(*, deprecated, renamed: "D3DTexture1DDepthStencilView")
+public typealias D3D12_TEX1D_DSV = D3DTexture1DDepthStencilView
 
 #endif
