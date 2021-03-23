@@ -9,7 +9,9 @@
 import WinSDK
 
 /// Identifies a technique for resolving texture coordinates that are outside of the boundaries of a texture.
-public enum TextureAddressMode {
+public enum D3DTextureAddressMode {
+    public typealias RawValue = WinSDK.D3D12_TEXTURE_ADDRESS_MODE
+    
     ///	Tile the texture at every (u,v) integer junction.
     /// For example, for u values between 0 and 3, the texture is repeated three times.
     case wrap
@@ -24,7 +26,9 @@ public enum TextureAddressMode {
     /// Takes the absolute value of the texture coordinate (thus, mirroring around 0), and then clamps to the maximum value.
     case mirrorOnce
 
-    internal var rawValue: WinSDK.D3D12_TEXTURE_ADDRESS_MODE {
+    case _unimplemented(RawValue)
+
+    public var rawValue: RawValue {
         switch self {
         case .wrap:
             return WinSDK.D3D12_TEXTURE_ADDRESS_MODE_WRAP
@@ -36,6 +40,25 @@ public enum TextureAddressMode {
             return WinSDK.D3D12_TEXTURE_ADDRESS_MODE_BORDER
         case .mirrorOnce:
             return WinSDK.D3D12_TEXTURE_ADDRESS_MODE_MIRROR_ONCE
+        case let ._unimplemented(rawValue):
+            return rawValue
+        }
+    }
+    
+    public init(_ rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.D3D12_TEXTURE_ADDRESS_MODE_WRAP:
+            self = .wrap
+        case WinSDK.D3D12_TEXTURE_ADDRESS_MODE_MIRROR:
+            self = .mirror
+        case WinSDK.D3D12_TEXTURE_ADDRESS_MODE_CLAMP:
+            self = .clamp
+        case WinSDK.D3D12_TEXTURE_ADDRESS_MODE_BORDER:
+            self = .border
+        case WinSDK.D3D12_TEXTURE_ADDRESS_MODE_MIRROR_ONCE:
+            self = .mirrorOnce
+        default:
+            self = ._unimplemented(rawValue)
         }
     }
 }
@@ -44,24 +67,23 @@ public enum TextureAddressMode {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "TextureAddressMode")
-public typealias D3D12_TEXTURE_ADDRESS_MODE = TextureAddressMode
+@available(*, deprecated, renamed: "D3DTextureAddressMode")
+public typealias D3D12_TEXTURE_ADDRESS_MODE = D3DTextureAddressMode
 
-public extension TextureAddressMode  {
-    @available(*, deprecated, renamed: "wrap")
-    static let D3D12_TEXTURE_ADDRESS_MODE_WRAP = Self.wrap
-    
-    @available(*, deprecated, renamed: "mirror")
-    static let D3D12_TEXTURE_ADDRESS_MODE_MIRROR = Self.mirror
-    
-    @available(*, deprecated, renamed: "clamp")
-    static let D3D12_TEXTURE_ADDRESS_MODE_CLAMP = Self.clamp
-    
-    @available(*, deprecated, renamed: "border")
-    static let D3D12_TEXTURE_ADDRESS_MODE_BORDER = Self.border
-    
-    @available(*, deprecated, renamed: "mirrorOnce")
-    static let D3D12_TEXTURE_ADDRESS_MODE_MIRROR_ONCE = Self.mirrorOnce
-}
+
+@available(*, deprecated, renamed: "D3DTextureAddressMode.wrap")
+public let D3D12_TEXTURE_ADDRESS_MODE_WRAP = D3DTextureAddressMode.wrap
+
+@available(*, deprecated, renamed: "D3DTextureAddressMode.mirror")
+public let D3D12_TEXTURE_ADDRESS_MODE_MIRROR = D3DTextureAddressMode.mirror
+
+@available(*, deprecated, renamed: "D3DTextureAddressMode.clamp")
+public let D3D12_TEXTURE_ADDRESS_MODE_CLAMP = D3DTextureAddressMode.clamp
+
+@available(*, deprecated, renamed: "D3DTextureAddressMode.border")
+public let D3D12_TEXTURE_ADDRESS_MODE_BORDER = D3DTextureAddressMode.border
+
+@available(*, deprecated, renamed: "D3DTextureAddressMode.mirrorOnce")
+public let D3D12_TEXTURE_ADDRESS_MODE_MIRROR_ONCE = D3DTextureAddressMode.mirrorOnce
 
 #endif

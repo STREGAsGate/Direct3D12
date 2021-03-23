@@ -26,10 +26,7 @@ public struct D3DClearValue {
     /// Specifies a 4-entry array of float values, determining the RGBA value. The order of RGBA matches the order used with ClearRenderTargetView.
     public var color: D3DColor {
         get {
-            return withUnsafeBytes(of: rawValue.Color) {p in
-                let start = p.baseAddress!.assumingMemoryBound(to: Float.self)
-                return D3DColor(Array(UnsafeBufferPointer(start: start, count: 4)))
-            }
+            return D3DColor(rawValue.Color)
         }
         set {
             self.rawValue.Color = newValue.tuple

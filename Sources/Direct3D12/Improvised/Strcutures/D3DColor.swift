@@ -61,6 +61,10 @@ public struct D3DColor {
         return (rawValue[0], rawValue[1], rawValue[2], rawValue[3])
     }
 
+    internal init(_ tuple: (Float, Float, Float, Float)) {
+        self.rawValue = [tuple.0, tuple.1, tuple.2, tuple.3]
+    }
+
     public init(red: Float, green: Float, blue: Float, alpha: Float) {
         self.rawValue = [red, green, blue, alpha]
     }
