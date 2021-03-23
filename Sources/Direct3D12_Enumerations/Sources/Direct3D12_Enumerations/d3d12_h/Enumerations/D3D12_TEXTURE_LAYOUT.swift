@@ -9,7 +9,9 @@
 import WinSDK
 
 /// Specifies texture layout options.
-public enum TextureLayout {
+public enum D3DTextureLayout {
+    public typealias RawValue = WinSDK.D3D12_TEXTURE_LAYOUT
+
     /**
     Indicates that the layout is unknown, and is likely adapter-dependent.
     During creation, the driver chooses the most efficient layout based on other resource properties, especially resource size and flags.
@@ -142,7 +144,9 @@ public enum TextureLayout {
     */
     case standardSwizzle64kb
 
-    internal var rawValue: WinSDK.D3D12_TEXTURE_LAYOUT {
+    case _unimplemented(RawValue)
+
+    public var rawValue: RawValue {
         switch self {
         case .unknown:
             return WinSDK.D3D12_TEXTURE_LAYOUT_UNKNOWN
@@ -152,6 +156,23 @@ public enum TextureLayout {
             return WinSDK.D3D12_TEXTURE_LAYOUT_64KB_UNDEFINED_SWIZZLE
         case .standardSwizzle64kb:
             return WinSDK.D3D12_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE
+        case let ._unimplemented(rawValue):
+            return rawValue
+        }
+    }
+
+    public init(_ rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.D3D12_TEXTURE_LAYOUT_UNKNOWN:
+            self = .unknown
+        case WinSDK.D3D12_TEXTURE_LAYOUT_ROW_MAJOR:
+            self = .rowMajor
+        case WinSDK.D3D12_TEXTURE_LAYOUT_64KB_UNDEFINED_SWIZZLE:
+            self = .undefinedSwizzle64kb
+        case WinSDK.D3D12_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE:
+            self = .standardSwizzle64kb
+        default:
+            self = ._unimplemented(rawValue)
         }
     }
 }
@@ -160,21 +181,20 @@ public enum TextureLayout {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "TextureLayout")
-public typealias D3D12_TEXTURE_LAYOU = TextureLayout
+@available(*, deprecated, renamed: "D3DTextureLayout")
+public typealias D3D12_TEXTURE_LAYOU = D3DTextureLayout
 
-public extension TextureLayout  {
-    @available(*, deprecated, renamed: "unknown")
-    static let D3D12_TEXTURE_LAYOUT_UNKNOWN = Self.unknown
-    
-    @available(*, deprecated, renamed: "rowMajor")
-    static let D3D12_TEXTURE_LAYOUT_ROW_MAJOR = Self.rowMajor
-    
-    @available(*, deprecated, renamed: "undefinedSwizzle64kb")
-    static let D3D12_TEXTURE_LAYOUT_64KB_UNDEFINED_SWIZZLE = Self.undefinedSwizzle64kb
-    
-    @available(*, deprecated, renamed: "standardSwizzle64kb")
-    static let D3D12_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE = Self.standardSwizzle64kb
-}
+
+@available(*, deprecated, renamed: "D3DTextureLayout.unknown")
+public let D3D12_TEXTURE_LAYOUT_UNKNOWN = D3DTextureLayout.unknown
+
+@available(*, deprecated, renamed: "D3DTextureLayout.rowMajor")
+public let D3D12_TEXTURE_LAYOUT_ROW_MAJOR = D3DTextureLayout.rowMajor
+
+@available(*, deprecated, renamed: "D3DTextureLayout.undefinedSwizzle64kb")
+public let D3D12_TEXTURE_LAYOUT_64KB_UNDEFINED_SWIZZLE = D3DTextureLayout.undefinedSwizzle64kb
+
+@available(*, deprecated, renamed: "D3DTextureLayout.standardSwizzle64kb")
+public let D3D12_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE = D3DTextureLayout.standardSwizzle64kb
 
 #endif
