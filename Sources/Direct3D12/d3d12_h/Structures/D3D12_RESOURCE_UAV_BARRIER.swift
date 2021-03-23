@@ -8,10 +8,25 @@
 
 import WinSDK
 
+/// Represents a resource in which all UAV accesses must complete before any future UAV accesses can begin.
 public struct D3DResourceUnorderedAccessViewBarrier {
     public typealias RawValue = WinSDK.D3D12_RESOURCE_UAV_BARRIER
     internal var rawValue: RawValue
 
+    /// The resource used in the transition, as a pointer to ID3D12Resource.
+    public var resource: D3DResource? {
+        get {
+            return D3DResource(win32Pointer: rawValue.pResource)
+        }
+        set {
+            rawValue.pResource = newValue?.performFatally(as: D3DResource.RawValue.self) {$0}
+        }
+    }
+
+    /// Represents a resource in which all UAV accesses must complete before any future UAV accesses can begin.
+    public init() {
+        self.rawValue = RawValue()
+    }
 
     internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
