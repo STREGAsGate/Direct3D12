@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -11,6 +11,7 @@ import WinSDK
 /// Defines constants that specify the state of a resource regarding how the resource is being used.
 public struct D3DResourceStates: OptionSet {
     public typealias RawType = WinSDK.D3D12_RESOURCE_STATES
+    public var rawType: RawType {RawType(rawValue)}
     public typealias RawValue = WinSDK.D3D12_RESOURCE_STATES.RawValue
     public let rawValue: RawValue
 
@@ -84,6 +85,9 @@ public struct D3DResourceStates: OptionSet {
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue
+    }
+    public init(_ rawType: RawType) {
+        self.rawValue = rawType.rawValue
     }
     public init() {
         self.rawValue = 0
