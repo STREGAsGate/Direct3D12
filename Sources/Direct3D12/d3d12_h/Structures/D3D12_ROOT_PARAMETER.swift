@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RootParameter {
-    internal var rawValue: WinSDK.D3D12_ROOT_PARAMETER
+public struct D3DRootParameter {
+    public typealias RawValue = WinSDK.D3D12_ROOT_PARAMETER
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_ROOT_PARAMETER) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RootParameter {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RootParameter")
-public typealias D3D12_ROOT_PARAMETER = RootParameter
+@available(*, deprecated, renamed: "D3DRootParameter")
+public typealias D3D12_ROOT_PARAMETER = D3DRootParameter
 
 #endif

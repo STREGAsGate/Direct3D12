@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct StaticSamplerDecsriptor {
-    internal var rawValue: WinSDK.D3D12_STATIC_SAMPLER_DESC
+public struct D3DStaticSamplerDecsription {
+    public typealias RawValue =  WinSDK.D3D12_STATIC_SAMPLER_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_STATIC_SAMPLER_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct StaticSamplerDecsriptor {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "StaticSamplerDecsriptor")
-public typealias D3D12_STATIC_SAMPLER_DESC = RenderTargetFormatArray
+@available(*, deprecated, renamed: "D3DStaticSamplerDecsription")
+public typealias D3D12_STATIC_SAMPLER_DESC = D3DStaticSamplerDecsription
 
 #endif
