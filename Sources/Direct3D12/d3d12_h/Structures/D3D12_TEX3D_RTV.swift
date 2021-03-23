@@ -8,11 +8,11 @@
 
 import WinSDK
 
-public struct Texture1DRenderTargetView {
-    internal var rawValue: WinSDK.D3D12_TEX1D_RTV
+public struct D3DTexture3DRenderTargetView {
+    public typealias RawValue = WinSDK.D3D12_TEX3D_RTV
+    internal var rawValue: RawValue
 
-
-    internal init(_ rawValue: WinSDK.D3D12_TEX1D_RTV) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +21,7 @@ public struct Texture1DRenderTargetView {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Texture1DRenderTargetView")
-public typealias D3D12_TEX1D_RTV = Texture1DRenderTargetView
+@available(*, deprecated, renamed: "D3DTexture3DRenderTargetView")
+public typealias D3D12_TEX3D_RTV = D3DTexture3DRenderTargetView
 
 #endif

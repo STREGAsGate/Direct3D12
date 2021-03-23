@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RenderTargetViewBuffer {
-    internal var rawValue: WinSDK.D3D12_BUFFER_RTV
+public struct D3DTexture2DRenderTargetView {
+    public typealias RawValue = WinSDK.D3D12_TEX2D_RTV
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_BUFFER_RTV) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RenderTargetViewBuffer {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RenderTargetViewBuffer")
-public typealias D3D12_BUFFER_RTV = RenderTargetViewBuffer 
+@available(*, deprecated, renamed: "D3DTexture2DRenderTargetView")
+public typealias D3D12_TEX2D_RTV = D3DTexture2DRenderTargetView
 
 #endif

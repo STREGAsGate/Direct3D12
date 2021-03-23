@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct Texture2DArrayRenderTargetView {
-    internal var rawValue: WinSDK.D3D12_TEX2D_ARRAY_RTV
+public struct D3DTexture2DArrayRenderTargetView {
+    public typealias RawValue = WinSDK.D3D12_TEX2D_ARRAY_RTV
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_TEX2D_ARRAY_RTV) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct Texture2DArrayRenderTargetView {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Texture2DArrayRenderTargetView")
-public typealias D3D12_TEX2D_ARRAY_RTV = Texture2DArrayRenderTargetView
+@available(*, deprecated, renamed: "D3DTexture2DArrayRenderTargetView")
+public typealias D3D12_TEX2D_ARRAY_RTV = D3DTexture2DArrayRenderTargetView
 
 #endif
