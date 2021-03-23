@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -22,6 +22,8 @@ public enum D3DDescriptorHeapType {
     ///	The number of types of descriptor heaps.
     case numberOfTypes
 
+    case _unimplemented(RawValue)
+
     public var rawValue: RawValue {
         switch self {
         case .constantBufferShaderResourceAndUnordererAccess:
@@ -34,6 +36,25 @@ public enum D3DDescriptorHeapType {
             return WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE_DSV
         case .numberOfTypes:
             return WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES
+        case let ._unimplemented(rawValue):
+            return rawValue
+        }
+    }
+
+    public init (_ rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV:
+            self = .constantBufferShaderResourceAndUnordererAccess
+        case WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER:
+            self = .sampler
+        case WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE_RTV:
+            self = .renderTargetView
+        case WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE_DSV:
+            self = .depthStencilView
+        case WinSDK.D3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES:
+            self = .numberOfTypes
+        default:
+            self = ._unimplemented(rawValue)
         }
     }
 }

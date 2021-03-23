@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -16,7 +16,7 @@ public class D3DObject: IUnknown {
     */
     public func setDebugName(_ string: String) throws {
         try perform(as: RawValue.self) {pThis in
-            try pThis.pointee.lpVtbl.pointee.SetName(pThis, string.lpcwSTR).checkResult()
+            try pThis.pointee.lpVtbl.pointee.SetName(pThis, string.windowsUTF16).checkResult()
         }
     }
 

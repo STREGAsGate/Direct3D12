@@ -8,13 +8,15 @@
 
 import WinSDK
 
-public struct D3DRange {
-    public typealias RawValue = WinSDK.D3D12_RANGE
-    internal var rawValue: RawValue
+public typealias D3DRange = ClosedRange<WinSDK.SIZE_T>
+internal extension D3DRange {
+    typealias RawValue = WinSDK.D3D12_RANGE
+    var rawValue: RawValue {
+        return RawValue(Begin: lowerBound, End: upperBound)
+    }
 
-
-    internal init(_ rawValue: RawValue) {
-        self.rawValue = rawValue
+    init(_ rawValue: RawValue) {
+        self = rawValue.Begin ... rawValue.End
     }
 }
 

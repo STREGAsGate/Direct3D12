@@ -17,7 +17,7 @@ public extension DGISwapChain {
     */
     func present(withSyncInterval syncInterval: UInt32 = 0, 
                  flags: DGIPresentFlags = [],
-                 parameters: DGPresentParameters = .fullFrame) throws {
+                 parameters: DGIPresentParameters = .fullFrame) throws {
         try perform(as: RawValue.self) {pThis in 
             let SyncInterval = syncInterval
             let PresentFlags = flags.rawValue

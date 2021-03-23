@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -23,6 +23,9 @@ public struct D3DCPUDescriptorHandle {
         }
     }
 
+    /** Describes a CPU descriptor handle.
+    - parameter pointer: The address of the descriptor.
+    */
     public init(pointer: UInt64) {
         self.rawValue = RawValue()
         self.pointer = pointer

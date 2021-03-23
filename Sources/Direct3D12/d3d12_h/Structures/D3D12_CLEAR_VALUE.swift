@@ -58,7 +58,7 @@ public struct D3DClearValue {
         self.depthStencil = depthStencil
     }
 
-    internal init(_ rawValue: WinSDK.D3D12_CLEAR_VALUE) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

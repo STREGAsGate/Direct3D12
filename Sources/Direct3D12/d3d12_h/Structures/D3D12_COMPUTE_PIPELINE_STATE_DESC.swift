@@ -79,7 +79,7 @@ public struct D3DComputePipelineStateDescription {
         self.flags = flags
     }
 
-    internal init(_ rawValue: WinSDK.D3D12_COMPUTE_PIPELINE_STATE_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

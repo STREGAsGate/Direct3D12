@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -8,11 +8,30 @@
 
 import WinSDK
 
+/// Describes a GPU descriptor handle.
 public struct D3DGPUDescriptorHandle {
-    internal var rawValue: WinSDK.D3D12_GPU_DESCRIPTOR_HANDLE
+    public typealias RawValue = WinSDK.D3D12_GPU_DESCRIPTOR_HANDLE
+    internal var rawValue: RawValue
 
+    /// The address of the descriptor.
+    public var pointer: UInt64 {
+        get {
+            return rawValue.ptr
+        }
+        set {
+            self.rawValue.ptr = newValue
+        }
+    }
 
-    internal init(_ rawValue: WinSDK.D3D12_GPU_DESCRIPTOR_HANDLE) {
+    /** Describes a GPU descriptor handle.
+    - parameter pointer: The address of the descriptor.
+    */
+    public init(pointer: UInt64) {
+        self.rawValue = RawValue()
+        self.pointer = pointer
+    }
+
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

@@ -97,10 +97,10 @@ public extension MSWindow {
             lpString.withUnsafeMutableBufferPointer() {p in
                 _ = GetWindowTextW(self.hWnd, p.baseAddress!, Int32(p.count))
             }
-            return String(lpcwstr: lpString)
+            return String(windowsUTF16: lpString)
         }
         set {
-            _ = WinSDK.SetWindowTextW(self.hWnd, newValue?.lpcwSTR)
+            _ = WinSDK.SetWindowTextW(self.hWnd, newValue?.windowsUTF16)
         }
     }
     var frame: MSRect {
@@ -120,8 +120,8 @@ public extension MSWindow {
 fileprivate extension MSWindow {
     class func makeHWND(withFrame frame: MSRect, style: MSWindowStyle) -> HWND {
         let dwExStyle: DWORD = 0
-        let lpClassName = "\(type(of: MSWindow.self))".lpcwSTR
-        let lpWindowName = ProcessInfo.processInfo.processName.lpcwSTR
+        let lpClassName = "\(type(of: MSWindow.self))".windowsUTF16
+        let lpWindowName: [WCHAR] = ProcessInfo.processInfo.processName.windowsUTF16
         let dwStyle: DWORD = DWORD(style.rawValue)
         let X: INT = Int32(frame.origin.x)
         let Y: INT = Int32(frame.origin.y)
@@ -245,7 +245,7 @@ internal class MSWindowClass {
         var IDC_ARROW: UnsafePointer<WCHAR> {
             UnsafePointer<WCHAR>(bitPattern: 32512)!
         }
-        let name = "\(type(of: MSWindow.self))".lpcwSTR
+        let name = "\(type(of: MSWindow.self))".windowsUTF16
         let hInstance = GetModuleHandleW(nil)!
         self.name = name
         self.hInstance = hInstance

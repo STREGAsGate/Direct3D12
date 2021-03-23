@@ -8,10 +8,57 @@
 
 import WinSDK
 
+/// Describes the index buffer to view.
 public struct D3DIndexBufferView {
     public typealias RawValue = WinSDK.D3D12_INDEX_BUFFER_VIEW
     internal var rawValue: RawValue
 
+    /// The GPU virtual address of the index buffer. D3D12_GPU_VIRTUAL_ADDRESS is a typedef'd synonym of UINT64.
+    public var bufferLocation: UInt64 {
+        get {
+            return rawValue.BufferLocation
+        }
+        set {
+            rawValue.BufferLocation = newValue
+        }
+    }
+
+    /// The size in bytes of the index buffer.
+    public var byteCount: UInt32 {
+        get {
+            return rawValue.SizeInBytes
+        }
+        set {
+            rawValue.SizeInBytes = newValue
+        }
+    }
+
+    /// A DXGI_FORMAT-typed value for the index-buffer format.
+    public var format: DGIFormat {
+        get {
+            return DGIFormat(rawValue.Format)
+        }
+        set {
+            rawValue.Format = newValue.rawValue
+        }
+    }
+
+    /** Describes the index buffer to view.
+    - parameter bufferLocation: The GPU virtual address of the index buffer. D3D12_GPU_VIRTUAL_ADDRESS is a typedef'd synonym of UINT64.
+    - parameter byteCount: The size in bytes of the index buffer.
+    - parameter format: A DXGI_FORMAT-typed value for the index-buffer format.
+    */
+    public init(bufferLocation: UInt64, byteCount: UInt32, format: DGIFormat) {
+        self.rawValue = RawValue()
+        self.bufferLocation = bufferLocation
+        self.byteCount = byteCount
+        self.format = format
+    }
+
+    /// Describes the index buffer to view.
+    public init() {
+        self.rawValue = RawValue()
+    }
 
     internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue

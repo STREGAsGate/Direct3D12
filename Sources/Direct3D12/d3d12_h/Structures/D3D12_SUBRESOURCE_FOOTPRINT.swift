@@ -8,11 +8,11 @@
 
 import WinSDK
 
-public struct DepthStencilOperationDescription {
-    internal var rawValue: WinSDK.D3D12_DEPTH_STENCILOP_DESC
+public struct D3DSubresourceFootprint {
+    internal var rawValue: WinSDK.D3D12_SUBRESOURCE_FOOTPRINT
 
 
-    internal init(_ rawValue: WinSDK.D3D12_DEPTH_STENCILOP_DESC) {
+    internal init(_ rawValue: WinSDK.D3D12_SUBRESOURCE_FOOTPRINT) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +21,7 @@ public struct DepthStencilOperationDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DepthStencilOperationDescription")
-public typealias D3D12_DEPTH_STENCILOP_DESC = DepthStencilOperationDescription
+@available(*, deprecated, renamed: "D3DSubresourceFootprint")
+public typealias D3D12_SUBRESOURCE_FOOTPRINT = D3DSubresourceFootprint
 
 #endif

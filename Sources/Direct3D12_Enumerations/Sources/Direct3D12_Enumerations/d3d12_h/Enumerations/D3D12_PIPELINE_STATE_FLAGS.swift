@@ -11,8 +11,10 @@ import WinSDK
 /// Flags to control pipeline state.
 public struct D3DPipelineStateFlags: OptionSet {
     public typealias RawType = WinSDK.D3D12_PIPELINE_STATE_FLAGS
+    public var rawType: RawType {RawType(rawValue)}
     public typealias RawValue = WinSDK.D3D12_PIPELINE_STATE_FLAGS.RawValue
     public let rawValue: RawValue
+
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates no flags.
     //static let none = PipelineStateFlags(rawValue: WinSDK.D3D12_PIPELINE_STATE_FLAG_NONE.rawValue)
@@ -24,6 +26,9 @@ public struct D3DPipelineStateFlags: OptionSet {
     public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
+    public init(_ rawType: RawType) {
+        self.rawValue = rawType.rawValue
+    } 
     public init() {
         self.rawValue = 0
     }

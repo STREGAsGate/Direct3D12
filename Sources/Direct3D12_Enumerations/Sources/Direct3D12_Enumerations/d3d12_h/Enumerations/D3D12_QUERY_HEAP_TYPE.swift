@@ -9,7 +9,9 @@
 import WinSDK
 
 /// Specifies the type of query heap to create.
-public enum QueryHeapType {
+public enum D3DQueryHeapType {
+    public typealias RawValue = WinSDK.D3D12_QUERY_HEAP_TYPE
+
     ///	This returns a binary 0/1 result: 0 indicates that no samples passed depth and stencil testing, 1 indicates that at least one sample passed depth and stencil testing. This enables occlusion queries to not interfere with any GPU performance optimization associated with depth/stencil testing.
     case occlusion
     ///	Indicates that the heap is for high-performance timing data.
@@ -31,7 +33,9 @@ public enum QueryHeapType {
     */
     case copyQueueTimestamps
 
-    internal var rawValue: WinSDK.D3D12_QUERY_HEAP_TYPE {
+    case _unimplemented(RawValue)
+
+    public var rawValue: RawValue {
         switch self {
         case .occlusion:
             return WinSDK.D3D12_QUERY_HEAP_TYPE_OCCLUSION
@@ -45,6 +49,27 @@ public enum QueryHeapType {
             return WinSDK.D3D12_QUERY_HEAP_TYPE_VIDEO_DECODE_STATISTICS
         case .copyQueueTimestamps:
             return WinSDK.D3D12_QUERY_HEAP_TYPE_COPY_QUEUE_TIMESTAMP
+        case let ._unimplemented(rawValue):
+            return rawValue
+        }
+    }
+
+    public init(_ rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.D3D12_QUERY_HEAP_TYPE_OCCLUSION:
+            self = .occlusion
+        case WinSDK.D3D12_QUERY_HEAP_TYPE_TIMESTAMP:
+            self = .timestamp
+        case WinSDK.D3D12_QUERY_HEAP_TYPE_PIPELINE_STATISTICS:
+            self = .pipelineStatistics
+        case WinSDK.D3D12_QUERY_HEAP_TYPE_SO_STATISTICS:
+            self = .streamOutputStatistics
+        case WinSDK.D3D12_QUERY_HEAP_TYPE_VIDEO_DECODE_STATISTICS:
+            self = .videoDecodeStatistics
+        case WinSDK.D3D12_QUERY_HEAP_TYPE_COPY_QUEUE_TIMESTAMP:
+            self = .copyQueueTimestamps
+        default:
+            self = ._unimplemented(rawValue)
         }
     }
 }
@@ -53,27 +78,26 @@ public enum QueryHeapType {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "QueryHeapType")
-public typealias D3D12_QUERY_HEAP_TYPE = QueryHeapType
+@available(*, deprecated, renamed: "D3DQueryHeapType")
+public typealias D3D12_QUERY_HEAP_TYPE = D3DQueryHeapType
 
-public extension QueryHeapType  {
-    @available(*, deprecated, renamed: "occlusion")
-    static let D3D12_QUERY_HEAP_TYPE_OCCLUSION = Self.occlusion
 
-    @available(*, deprecated, renamed: "timestamp")
-    static let D3D12_QUERY_HEAP_TYPE_TIMESTAMP = Self.timestamp
+@available(*, deprecated, renamed: "D3DQueryHeapType.occlusion")
+public let D3D12_QUERY_HEAP_TYPE_OCCLUSION = D3DQueryHeapType.occlusion
 
-    @available(*, deprecated, renamed: "pipelineStatistics")
-    static let D3D12_QUERY_HEAP_TYPE_PIPELINE_STATISTICS = Self.pipelineStatistics
+@available(*, deprecated, renamed: "D3DQueryHeapType.timestamp")
+public let D3D12_QUERY_HEAP_TYPE_TIMESTAMP = D3DQueryHeapType.timestamp
 
-    @available(*, deprecated, renamed: "streamOutputStatistics")
-    static let D3D12_QUERY_HEAP_TYPE_SO_STATISTICS = Self.streamOutputStatistics
+@available(*, deprecated, renamed: "D3DQueryHeapType.pipelineStatistics")
+public let D3D12_QUERY_HEAP_TYPE_PIPELINE_STATISTICS = D3DQueryHeapType.pipelineStatistics
 
-    @available(*, deprecated, renamed: "videoDecodeStatistics")
-    static let D3D12_QUERY_HEAP_TYPE_VIDEO_DECODE_STATISTICS = Self.videoDecodeStatistics
+@available(*, deprecated, renamed: "D3DQueryHeapType.streamOutputStatistics")
+public let D3D12_QUERY_HEAP_TYPE_SO_STATISTICS = D3DQueryHeapType.streamOutputStatistics
 
-    @available(*, deprecated, renamed: "copyQueueTimestamps")
-    static let D3D12_QUERY_HEAP_TYPE_COPY_QUEUE_TIMESTAMP = Self.copyQueueTimestamps
-}
+@available(*, deprecated, renamed: "D3DQueryHeapType.videoDecodeStatistics")
+public let D3D12_QUERY_HEAP_TYPE_VIDEO_DECODE_STATISTICS = D3DQueryHeapType.videoDecodeStatistics
+
+@available(*, deprecated, renamed: "D3DQueryHeapType.copyQueueTimestamps")
+public let D3D12_QUERY_HEAP_TYPE_COPY_QUEUE_TIMESTAMP = D3DQueryHeapType.copyQueueTimestamps
 
 #endif

@@ -9,7 +9,8 @@
 import WinSDK
 
 /// Specifies the type of heap. When resident, heaps reside in a particular physical memory pool with certain CPU cache properties.
-public enum HeapType {
+public enum D3DHeapType {
+    public typealias RawValue = WinSDK.D3D12_HEAP_TYPE
     /**	Specifies the default heap.
     This heap type experiences the most bandwidth for the GPU, but cannot provide CPU access.
     The GPU can read and write to the memory from this pool, and resource transition barriers may be changed.
@@ -52,16 +53,35 @@ public enum HeapType {
     */
     case custom
 
-    internal var rawValue: WinSDK.D3D12_HEAP_TYPE {
+    case _unimplemented(RawValue)
+
+    public var rawValue: RawValue {
         switch self {
-    case .default:
-        return WinSDK.D3D12_HEAP_TYPE_DEFAULT
-    case .upload:
-        return WinSDK.D3D12_HEAP_TYPE_UPLOAD
-    case .readBack:
-        return WinSDK.D3D12_HEAP_TYPE_READBACK
-    case .custom:
-        return WinSDK.D3D12_HEAP_TYPE_CUSTOM
+        case .default:
+            return WinSDK.D3D12_HEAP_TYPE_DEFAULT
+        case .upload:
+            return WinSDK.D3D12_HEAP_TYPE_UPLOAD
+        case .readBack:
+            return WinSDK.D3D12_HEAP_TYPE_READBACK
+        case .custom:
+            return WinSDK.D3D12_HEAP_TYPE_CUSTOM
+        case let ._unimplemented(rawValue):
+            return rawValue
+        }
+    }
+
+    public init(_ rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.D3D12_HEAP_TYPE_DEFAULT:
+            self = .default
+        case WinSDK.D3D12_HEAP_TYPE_UPLOAD:
+            self = .upload
+        case WinSDK.D3D12_HEAP_TYPE_READBACK:
+            self = .readBack
+        case WinSDK.D3D12_HEAP_TYPE_CUSTOM:
+            self = .custom
+        default:
+            self = ._unimplemented(rawValue)
         }
     }
 }
@@ -70,21 +90,20 @@ public enum HeapType {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "HeapType")
-public typealias D3D12_HEAP_TYPE = HeapType
+@available(*, deprecated, renamed: "D3DHeapType")
+public typealias D3D12_HEAP_TYPE = D3DHeapType
 
-public extension HeapType  {
-    @available(*, deprecated, renamed: "default")
-    static let D3D12_HEAP_TYPE_DEFAULT = Self.default
 
-    @available(*, deprecated, renamed: "upload")
-    static let D3D12_HEAP_TYPE_UPLOAD = Self.upload
+@available(*, deprecated, renamed: "D3DHeapType.default")
+public let D3D12_HEAP_TYPE_DEFAULT = D3DHeapType.default
 
-    @available(*, deprecated, renamed: "readBack")
-    static let D3D12_HEAP_TYPE_READBACK = Self.readBack
+@available(*, deprecated, renamed: "D3DHeapType.upload")
+public let D3D12_HEAP_TYPE_UPLOAD = D3DHeapType.upload
 
-    @available(*, deprecated, renamed: "custom")
-    static let D3D12_HEAP_TYPE_CUSTOM = Self.custom
-}
+@available(*, deprecated, renamed: "D3DHeapType.readBack")
+public let D3D12_HEAP_TYPE_READBACK = D3DHeapType.readBack
+
+@available(*, deprecated, renamed: "D3DHeapType.custom")
+public let D3D12_HEAP_TYPE_CUSTOM = D3DHeapType.custom
 
 #endif

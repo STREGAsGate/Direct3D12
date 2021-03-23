@@ -23,6 +23,7 @@ public struct D3DCachedPipelineState {
         self.rawValue.CachedBlobSizeInBytes = cachedBlob.bufferSize
     }
 
+    /// Stores a pipeline state.
     public init() {
         self.rawValue = RawValue(pCachedBlob: nil, CachedBlobSizeInBytes: 0)
     }

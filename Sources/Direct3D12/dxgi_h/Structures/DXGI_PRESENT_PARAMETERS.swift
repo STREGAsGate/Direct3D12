@@ -8,7 +8,7 @@
 
 import WinSDK
 
-public struct DGPresentParameters {
+public struct DGIPresentParameters {
     public typealias RawValue = WinSDK.DXGI_PRESENT_PARAMETERS
     internal var rawValue: RawValue
 
@@ -17,13 +17,13 @@ public struct DGPresentParameters {
         self.rawValue = rawValue
     }
 
-    public static let `fullFrame`: DGPresentParameters = {
+    public static let `fullFrame`: DGIPresentParameters = {
         var params = WinSDK.DXGI_PRESENT_PARAMETERS()
         params.DirtyRectsCount = 0
         params.pDirtyRects = nil
         params.pScrollRect = nil
         params.pScrollOffset = nil
-        return DGPresentParameters(params)
+        return DGIPresentParameters(params)
     }()
 }
 
@@ -31,7 +31,7 @@ public struct DGPresentParameters {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DGPresentParameters")
-public typealias DXGI_PRESENT_PARAMETERS = DGPresentParameters
+@available(*, deprecated, renamed: "DGIPresentParameters")
+public typealias DXGI_PRESENT_PARAMETERS = DGIPresentParameters
 
 #endif

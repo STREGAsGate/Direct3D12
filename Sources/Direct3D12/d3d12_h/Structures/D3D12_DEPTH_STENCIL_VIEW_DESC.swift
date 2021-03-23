@@ -135,8 +135,12 @@ public struct D3DDepthStencilViewDescription {
         self.texture2DMultiSampledArray = texture2DMultiSampledArray
     }
 
+    /// Describes the subresources of a texture that are accessible from a depth-stencil view.
+    public init() {
+        self.rawValue = RawValue()
+    }
 
-    internal init(_ rawValue: WinSDK.D3D12_DEPTH_STENCIL_VIEW_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
