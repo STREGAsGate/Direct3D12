@@ -13,7 +13,7 @@ public struct ProtectedResourceSessionFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// Specifies no flag.
-    //static let none = ProtectedResourceSessionFlags(rawValue: WinSDK.D3D12_PROTECTED_RESOURCE_SESSION_FLAG_NONE.rawValue)
+    //public static let none = ProtectedResourceSessionFlags(rawValue: WinSDK.D3D12_PROTECTED_RESOURCE_SESSION_FLAG_NONE.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

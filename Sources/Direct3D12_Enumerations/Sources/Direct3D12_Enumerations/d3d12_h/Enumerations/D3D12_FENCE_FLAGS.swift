@@ -15,16 +15,16 @@ public struct D3DFenceFlags: OptionSet {
     public let rawValue: RawValue
     //Use an empty collection `[]` to represent none in Swift.
     ///// 	No options are specified.
-    //static let none = FenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NONE.rawValue)
+    //public static let none = FenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NONE.rawValue)
 
     /// The fence is shared.
-    static let shared = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_SHARED.rawValue)
+    public static let shared = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_SHARED.rawValue)
     	
     /// The fence is shared with another GPU adapter.
-    static let sharedCrossAdapter = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_SHARED_CROSS_ADAPTER.rawValue)
+    public static let sharedCrossAdapter = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_SHARED_CROSS_ADAPTER.rawValue)
 	
     /// The fence is of the non-monitored type. Non-monitored fences should only be used when the adapter doesn't support monitored fences, or when a fence is shared with an adapter that doesn't support monitored fences.
-    static let nonMonitored = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NON_MONITORED.rawValue)
+    public static let nonMonitored = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NON_MONITORED.rawValue)
 
 
     public init(rawValue: RawValue) {

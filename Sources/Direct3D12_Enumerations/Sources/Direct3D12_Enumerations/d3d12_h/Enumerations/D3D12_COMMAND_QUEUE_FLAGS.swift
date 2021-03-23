@@ -16,10 +16,10 @@ public struct D3DCommandQueueFlags: OptionSet {
 
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates a default command queue.
-    //static let none = CommandQueueFlags(rawValue: D3D12_COMMAND_QUEUE_FLAG_NONE.rawValue)
+    //public static let none = CommandQueueFlags(rawValue: D3D12_COMMAND_QUEUE_FLAG_NONE.rawValue)
 
     /// Indicates that the GPU timeout should be disabled for this command queue.
-    static let disableGPUTimeout = D3DCommandQueueFlags(rawValue: WinSDK.D3D12_COMMAND_QUEUE_FLAG_DISABLE_GPU_TIMEOUT.rawValue)
+    public static let disableGPUTimeout = D3DCommandQueueFlags(rawValue: WinSDK.D3D12_COMMAND_QUEUE_FLAG_DISABLE_GPU_TIMEOUT.rawValue)
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue

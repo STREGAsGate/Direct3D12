@@ -13,7 +13,7 @@ public struct StateObjectFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No state object constraints.
-    //static let none = StateObjectFlags(rawValue: WinSDK.D3D12_STATE_OBJECT_FLAG_NONE.rawValue)
+    //public static let none = StateObjectFlags(rawValue: WinSDK.D3D12_STATE_OBJECT_FLAG_NONE.rawValue)
 
     /**
     This flag applies to state objects of type collection only. Otherwise this flag is ignored.
@@ -22,7 +22,7 @@ public struct StateObjectFlags: OptionSet {
 
     In the absence of this flag, all exports in this collection must have their dependencies fully locally resolved, including any necessary subobject associations being defined locally. Advanced implementations/drivers will have enough information to compile the code in the collection and not need to keep around any uncompiled code (unless the D3D12_STATE_OBJECT_FLAG_ALLOW_EXTERNAL_DEPENDENCIES_ON_LOCAL_DEFINITIONS flag is set), so that when the collection is used in a containing state object (e.g. RTPSO), minimal work needs to be done by the driver, ideally a “cheap” link at most.
     */
-    static let allowLocalDependenciesOnExternalDefinitions = StateObjectFlags(rawValue: WinSDK.D3D12_STATE_OBJECT_FLAG_ALLOW_LOCAL_DEPENDENCIES_ON_EXTERNAL_DEFINITIONS.rawValue)
+    public static let allowLocalDependenciesOnExternalDefinitions = StateObjectFlags(rawValue: WinSDK.D3D12_STATE_OBJECT_FLAG_ALLOW_LOCAL_DEPENDENCIES_ON_EXTERNAL_DEFINITIONS.rawValue)
     /**
     This flag applies to state objects of type collection only. Otherwise this flag is ignored.
 
@@ -34,7 +34,7 @@ public struct StateObjectFlags: OptionSet {
 
     Regardless of the presence or absence of this flag, shader entrypoints (such as hit groups or miss shaders) in the collection are visible as entrypoints to a containing state object (e.g. RTPSO) if exported by it. In the case of an RTPSO, the exported entrypoints can be used in shader tables for raytracing.
     */
-    static let allowExternalDependenciesOnLocalDefinitions = StateObjectFlags(rawValue: WinSDK.D3D12_STATE_OBJECT_FLAG_ALLOW_EXTERNAL_DEPENDENCIES_ON_LOCAL_DEFINITIONS.rawValue)
+    public static let allowExternalDependenciesOnLocalDefinitions = StateObjectFlags(rawValue: WinSDK.D3D12_STATE_OBJECT_FLAG_ALLOW_EXTERNAL_DEPENDENCIES_ON_LOCAL_DEFINITIONS.rawValue)
     
     public init(rawValue: Int32) {
         self.rawValue = rawValue

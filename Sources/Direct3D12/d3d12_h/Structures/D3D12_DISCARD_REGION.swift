@@ -22,7 +22,7 @@ public struct D3DDiscardRegion {
             }
         }
         set {
-            newValue.map({$0.rawValue}).withUnsafeBufferPointer{p in
+            newValue.map({$0.RECT()}).withUnsafeBufferPointer{p in
                 rawValue.pRects = p.baseAddress!
             }
             rawValue.NumRects = UInt32(newValue.count)

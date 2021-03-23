@@ -15,14 +15,14 @@ public struct D3DTileRangeFlags: OptionSet {
     public let rawValue: RawValue
     //Use an empty collection `[]` to represent none in Swift.
     ///// No tile-mapping flags are specified.
-    //static let none = TileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_NONE.rawValue)
+    //public static let none = TileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_NONE.rawValue)
 
     ///	The tile range is NULL.
-    static let null = D3DTileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_NULL.rawValue)
+    public static let null = D3DTileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_NULL.rawValue)
     ///	Skip the tile range.
-    static let skip = D3DTileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_SKIP.rawValue)
+    public static let skip = D3DTileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_SKIP.rawValue)
     ///	Reuse a single tile in the tile range.
-    static let reuseSingleTile = D3DTileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE.rawValue)
+    public static let reuseSingleTile = D3DTileRangeFlags(rawValue: WinSDK.D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE.rawValue)
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue

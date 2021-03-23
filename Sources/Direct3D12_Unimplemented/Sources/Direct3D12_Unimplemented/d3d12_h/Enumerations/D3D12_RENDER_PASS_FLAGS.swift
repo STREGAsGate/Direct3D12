@@ -13,14 +13,14 @@ public struct RenderPassFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates that the render pass has no special requirements.
-    //static let none = RenderPassFlags(rawValue: WinSDK.D3D12_RENDER_PASS_FLAG_NONE.rawValue)
+    //public static let none = RenderPassFlags(rawValue: WinSDK.D3D12_RENDER_PASS_FLAG_NONE.rawValue)
 
     ///	Indicates that writes to unordered access view(s) should be allowed during the render pass.
-    static let allowUnorderedAccessViewWrites = RenderPassFlags(rawValue: WinSDK.D3D12_RENDER_PASS_FLAG_ALLOW_UAV_WRITES.rawValue)
+    public static let allowUnorderedAccessViewWrites = RenderPassFlags(rawValue: WinSDK.D3D12_RENDER_PASS_FLAG_ALLOW_UAV_WRITES.rawValue)
     ///	Indicates that this is a suspending render pass.
-    static let suspendingPass = RenderPassFlags(rawValue: WinSDK.D3D12_RENDER_PASS_FLAG_SUSPENDING_PASS.rawValue)
+    public static let suspendingPass = RenderPassFlags(rawValue: WinSDK.D3D12_RENDER_PASS_FLAG_SUSPENDING_PASS.rawValue)
     ///	Indicates that this is a resuming render pass.
-    static let resumingPass = RenderPassFlags(rawValue: WinSDK.D3D12_RENDER_PASS_FLAG_RESUMING_PASS.rawValue)
+    public static let resumingPass = RenderPassFlags(rawValue: WinSDK.D3D12_RENDER_PASS_FLAG_RESUMING_PASS.rawValue)
     
     public init(rawValue: Int32) {
         self.rawValue = rawValue

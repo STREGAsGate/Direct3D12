@@ -13,9 +13,9 @@ public struct MetaCommandParameterFlags: OptionSet {
     public let rawValue: Int32
 
     ///	Specifies that the parameter is an input resource.
-    static let input = MetaCommandParameterFlags(rawValue: WinSDK.D3D12_META_COMMAND_PARAMETER_FLAG_INPUT.rawValue)
+    public static let input = MetaCommandParameterFlags(rawValue: WinSDK.D3D12_META_COMMAND_PARAMETER_FLAG_INPUT.rawValue)
     ///	Specifies that the parameter is an output resource.
-    static let output = MetaCommandParameterFlags(rawValue: WinSDK.D3D12_META_COMMAND_PARAMETER_FLAG_OUTPUT.rawValue)
+    public static let output = MetaCommandParameterFlags(rawValue: WinSDK.D3D12_META_COMMAND_PARAMETER_FLAG_OUTPUT.rawValue)
     
     public init(rawValue: Int32) {
         self.rawValue = rawValue

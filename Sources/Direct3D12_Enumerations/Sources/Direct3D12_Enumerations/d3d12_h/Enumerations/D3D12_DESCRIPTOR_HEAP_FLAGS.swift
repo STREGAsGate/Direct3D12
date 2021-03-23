@@ -17,7 +17,7 @@ public struct D3DDescriptorHeapFlags: OptionSet {
 
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates default usage of a heap.
-    //static let none = D3DDescriptorHeapFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_HEAP_FLAG_NONE.rawValue)
+    //public static let none = D3DDescriptorHeapFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_HEAP_FLAG_NONE.rawValue)
 
     /**
     The flag [D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE](https://docs.microsoft.com/en-us/windows/win32/api/d3d12/ne-d3d12-d3d12_descriptor_heap_flags) can optionally be set on a descriptor heap to indicate it is be bound on a command list for reference by shaders. Descriptor heaps created without this flag allow applications the option to stage descriptors in CPU memory before copying them to a shader visible descriptor heap, as a convenience. But it is also fine for applications to directly create descriptors into shader visible descriptor heaps with no requirement to stage anything on the CPU.
@@ -28,7 +28,7 @@ public struct D3DDescriptorHeapFlags: OptionSet {
 
     This flag only applies to CBV/SRV/UAV descriptor heaps, and sampler descriptor heaps. It does not apply to other descriptor heap types since shaders do not directly reference the other types. Attempting to create an RTV/DSV heap with D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE results in a debug layer error.
     */
-    static let shaderVisible = D3DDescriptorHeapFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE.rawValue) 
+    public static let shaderVisible = D3DDescriptorHeapFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE.rawValue) 
 
 
     public init(rawValue: RawValue) {

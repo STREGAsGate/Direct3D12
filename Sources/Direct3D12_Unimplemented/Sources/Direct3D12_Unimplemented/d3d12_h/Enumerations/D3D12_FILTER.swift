@@ -14,77 +14,77 @@ public struct Filter: OptionSet {
     public let rawValue: Int32
 
     ///	Use point sampling for minification, magnification, and mip-level sampling.
-    static let minMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_MAG_MIP_POINT.rawValue)
+    public static let minMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_MAG_MIP_POINT.rawValue)
     ///	Use point sampling for minification and magnification; use linear interpolation for mip-level sampling.
-    static let minMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_MAG_POINT_MIP_LINEAR.rawValue)
+    public static let minMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_MAG_POINT_MIP_LINEAR.rawValue)
     ///	Use point sampling for minification; use linear interpolation for magnification; use point sampling for mip-level sampling.
-    static let minPointMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_POINT_MAG_MIP_LINEAR.rawValue)
+    public static let minPointMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_POINT_MAG_MIP_LINEAR.rawValue)
     ///	Use point sampling for minification; use linear interpolation for magnification and mip-level sampling.
-    static let minPointMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT.rawValue)
+    public static let minPointMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT.rawValue)
     ///	Use linear interpolation for minification; use point sampling for magnification and mip-level sampling.
-    static let minLinearMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_LINEAR_MAG_MIP_POINT.rawValue)
+    public static let minLinearMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_LINEAR_MAG_MIP_POINT.rawValue)
     ///	Use linear interpolation for minification; use point sampling for magnification; use linear interpolation for mip-level sampling.
-    static let minLinearMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR.rawValue)
+    public static let minLinearMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR.rawValue)
     ///	Use linear interpolation for minification and magnification; use point sampling for mip-level sampling.
-    static let minMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_MAG_LINEAR_MIP_POINT.rawValue)
+    public static let minMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_MAG_LINEAR_MIP_POINT.rawValue)
     ///	Use linear interpolation for minification, magnification, and mip-level sampling.
-    static let minMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_MAG_MIP_LINEAR.rawValue)
+    public static let minMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MIN_MAG_MIP_LINEAR.rawValue)
     ///	Use anisotropic interpolation for minification, magnification, and mip-level sampling.
-    static let anisotropic = Filter(rawValue: WinSDK.D3D12_FILTER_ANISOTROPIC.rawValue)
+    public static let anisotropic = Filter(rawValue: WinSDK.D3D12_FILTER_ANISOTROPIC.rawValue)
     ///	Use point sampling for minification, magnification, and mip-level sampling. Compare the result to the comparison value.
-    static let comparisonMinMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_MAG_MIP_POINT.rawValue)
+    public static let comparisonMinMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_MAG_MIP_POINT.rawValue)
     ///	Use point sampling for minification and magnification; use linear interpolation for mip-level sampling. Compare the result to the comparison value.
-    static let comparisonMinMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_MAG_POINT_MIP_LINEAR.rawValue)
+    public static let comparisonMinMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_MAG_POINT_MIP_LINEAR.rawValue)
     ///	Use point sampling for minification; use linear interpolation for magnification; use point sampling for mip-level sampling. Compare the result to the comparison value.
-    static let comparisonMinPointMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_POINT_MAG_LINEAR_MIP_POINT.rawValue)
+    public static let comparisonMinPointMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_POINT_MAG_LINEAR_MIP_POINT.rawValue)
     ///	Use point sampling for minification; use linear interpolation for magnification and mip-level sampling. Compare the result to the comparison value.
-    static let comparisonMinPointMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_POINT_MAG_MIP_LINEAR.rawValue)
+    public static let comparisonMinPointMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_POINT_MAG_MIP_LINEAR.rawValue)
     ///	Use linear interpolation for minification; use point sampling for magnification and mip-level sampling. Compare the result to the comparison value.
-    static let comparisonMinLinearMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_LINEAR_MAG_MIP_POINT.rawValue)
+    public static let comparisonMinLinearMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_LINEAR_MAG_MIP_POINT.rawValue)
     ///	Use linear interpolation for minification; use point sampling for magnification; use linear interpolation for mip-level sampling. Compare the result to the comparison value.
-    static let comparisonMinLinearMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_LINEAR_MAG_POINT_MIP_LINEAR.rawValue)
+    public static let comparisonMinLinearMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_LINEAR_MAG_POINT_MIP_LINEAR.rawValue)
     ///	Use linear interpolation for minification and magnification; use point sampling for mip-level sampling. Compare the result to the comparison value.
-    static let comparisonMinMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_MAG_LINEAR_MIP_POINT.rawValue)
+    public static let comparisonMinMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_MAG_LINEAR_MIP_POINT.rawValue)
     ///	Use linear interpolation for minification, magnification, and mip-level sampling. Compare the result to the comparison value.
-    static let comparisonMinMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR.rawValue)
+    public static let comparisonMinMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR.rawValue)
     ///	Use anisotropic interpolation for minification, magnification, and mip-level sampling. Compare the result to the comparison value.
-    static let comparisonAnisotropic = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_ANISOTROPIC.rawValue)
+    public static let comparisonAnisotropic = Filter(rawValue: WinSDK.D3D12_FILTER_COMPARISON_ANISOTROPIC.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_MAG_MIP_POINT and instead of filtering them return the minimum of the texels. Texels that are weighted 0 during filtering aren't counted towards the minimum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let minimumMinMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_MAG_MIP_POINT.rawValue)
+    public static let minimumMinMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_MAG_MIP_POINT.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_MAG_POINT_MIP_LINEAR and instead of filtering them return the minimum of the texels. Texels that are weighted 0 during filtering aren't counted towards the minimum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let minimumMinMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_MAG_POINT_MIP_LINEAR.rawValue)
+    public static let minimumMinMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_MAG_POINT_MIP_LINEAR.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT and instead of filtering them return the minimum of the texels. Texels that are weighted 0 during filtering aren't counted towards the minimum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let minimumMinPointMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_POINT_MAG_LINEAR_MIP_POINT.rawValue)
+    public static let minimumMinPointMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_POINT_MAG_LINEAR_MIP_POINT.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_POINT_MAG_MIP_LINEAR and instead of filtering them return the minimum of the texels. Texels that are weighted 0 during filtering aren't counted towards the minimum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let minimumMinPointMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_POINT_MAG_MIP_LINEAR.rawValue)
+    public static let minimumMinPointMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_POINT_MAG_MIP_LINEAR.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_LINEAR_MAG_MIP_POINT and instead of filtering them return the minimum of the texels. Texels that are weighted 0 during filtering aren't counted towards the minimum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let minimumMinLinearMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_LINEAR_MAG_MIP_POINT.rawValue)
+    public static let minimumMinLinearMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_LINEAR_MAG_MIP_POINT.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR and instead of filtering them return the minimum of the texels. Texels that are weighted 0 during filtering aren't counted towards the minimum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let minimumMinLinearMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_LINEAR_MAG_POINT_MIP_LINEAR.rawValue)
+    public static let minimumMinLinearMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_LINEAR_MAG_POINT_MIP_LINEAR.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_MAG_LINEAR_MIP_POINT and instead of filtering them return the minimum of the texels. Texels that are weighted 0 during filtering aren't counted towards the minimum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let minimumMinMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_MAG_LINEAR_MIP_POINT.rawValue)
+    public static let minimumMinMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_MAG_LINEAR_MIP_POINT.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_MAG_MIP_LINEAR and instead of filtering them return the minimum of the texels. Texels that are weighted 0 during filtering aren't counted towards the minimum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let minimumMinMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_MAG_MIP_LINEAR.rawValue)
+    public static let minimumMinMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_MIN_MAG_MIP_LINEAR.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_ANISOTROPIC and instead of filtering them return the minimum of the texels. Texels that are weighted 0 during filtering aren't counted towards the minimum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let minimumAnisotropic = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_ANISOTROPIC.rawValue)
+    public static let minimumAnisotropic = Filter(rawValue: WinSDK.D3D12_FILTER_MINIMUM_ANISOTROPIC.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_MAG_MIP_POINT and instead of filtering them return the maximum of the texels. Texels that are weighted 0 during filtering aren't counted towards the maximum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let maximumMinMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_MAG_MIP_POINT.rawValue)
+    public static let maximumMinMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_MAG_MIP_POINT.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_MAG_POINT_MIP_LINEAR and instead of filtering them return the maximum of the texels. Texels that are weighted 0 during filtering aren't counted towards the maximum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let maximumMinMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_MAG_POINT_MIP_LINEAR.rawValue)
+    public static let maximumMinMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_MAG_POINT_MIP_LINEAR.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT and instead of filtering them return the maximum of the texels. Texels that are weighted 0 during filtering aren't counted towards the maximum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let maximumMinPointMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_POINT_MAG_LINEAR_MIP_POINT.rawValue)
+    public static let maximumMinPointMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_POINT_MAG_LINEAR_MIP_POINT.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_POINT_MAG_MIP_LINEAR and instead of filtering them return the maximum of the texels. Texels that are weighted 0 during filtering aren't counted towards the maximum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let maximumMinPointMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_POINT_MAG_MIP_LINEAR.rawValue)
+    public static let maximumMinPointMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_POINT_MAG_MIP_LINEAR.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_LINEAR_MAG_MIP_POINT and instead of filtering them return the maximum of the texels. Texels that are weighted 0 during filtering aren't counted towards the maximum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let maximumMinLinearMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_LINEAR_MAG_MIP_POINT.rawValue)
+    public static let maximumMinLinearMagMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_LINEAR_MAG_MIP_POINT.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR and instead of filtering them return the maximum of the texels. Texels that are weighted 0 during filtering aren't counted towards the maximum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let maximumMinLinearMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_LINEAR_MAG_POINT_MIP_LINEAR.rawValue)
+    public static let maximumMinLinearMagPointMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_LINEAR_MAG_POINT_MIP_LINEAR.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_MAG_LINEAR_MIP_POINT and instead of filtering them return the maximum of the texels. Texels that are weighted 0 during filtering aren't counted towards the maximum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let maximumMinMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_MAG_LINEAR_MIP_POINT.rawValue)
+    public static let maximumMinMagLinearMipPoint = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_MAG_LINEAR_MIP_POINT.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_MIN_MAG_MIP_LINEAR and instead of filtering them return the maximum of the texels. Texels that are weighted 0 during filtering aren't counted towards the maximum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let maximumMinMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_MAG_MIP_LINEAR.rawValue)
+    public static let maximumMinMagMipLinear = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_MIN_MAG_MIP_LINEAR.rawValue)
     ///	Fetch the same set of texels as D3D12_FILTER_ANISOTROPIC and instead of filtering them return the maximum of the texels. Texels that are weighted 0 during filtering aren't counted towards the maximum. You can query support for this filter type from the MinMaxFiltering member in the D3D11_FEATURE_DATA_D3D11_OPTIONS1 structure.
-    static let maximumAnisotropic = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_ANISOTROPIC.rawValue)
+    public static let maximumAnisotropic = Filter(rawValue: WinSDK.D3D12_FILTER_MAXIMUM_ANISOTROPIC.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

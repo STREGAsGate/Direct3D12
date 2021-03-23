@@ -14,7 +14,7 @@ public struct DescriptorRangeFlags: OptionSet {
 
     //Use an empty collection `[]` to represent none in Swift.
     /////	Default behavior. Descriptors are static, and default assumptions are made for data (for SRV/CBV: DATA_STATIC_WHILE_SET_AT_EXECUTE, and for UAV: DATA_VOLATILE).
-    //static let none = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_NONE.rawValue)
+    //public static let none = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_NONE.rawValue)
 
     /**
     If this is the only flag set, then descriptors are volatile and default assumptions are made about data (for SRV/CBV: DATA_STATIC_WHILE_SET_AT_EXECUTE, and for UAV: DATA_VOLATILE).
@@ -23,17 +23,17 @@ public struct DescriptorRangeFlags: OptionSet {
 
     If this flag is combined with DATA_STATIC_WHILE_SET_AT_EXECUTE, then descriptors are volatile. This still doesn’t allow them to change during command list execution so it is valid to combine the additional declaration that data is static while set via root descriptor table during execution – the underlying descriptors are effectively static for longer than the data is being promised to be static.
     */
-    static let descriptorsVolatile = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_DESCRIPTORS_VOLATILE.rawValue)
+    public static let descriptorsVolatile = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_DESCRIPTORS_VOLATILE.rawValue)
 
     ///	Descriptors are static and the data is volatile.
-    static let dataVolatile = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_DATA_VOLATILE.rawValue)
+    public static let dataVolatile = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_DATA_VOLATILE.rawValue)
 
     ///	Descriptors are static and data is static while set at execute.
-    static let dataStaticWhileSetAtExecute = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_DATA_STATIC_WHILE_SET_AT_EXECUTE.rawValue)
+    public static let dataStaticWhileSetAtExecute = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_DATA_STATIC_WHILE_SET_AT_EXECUTE.rawValue)
     ///	Both descriptors and data are static. This maximizes the potential for driver optimization.
-    static let dataStatic = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_DATA_STATIC.rawValue)
+    public static let dataStatic = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_DATA_STATIC.rawValue)
     ///	Provides the same benefits as static descriptors (see D3D12_DESCRIPTOR_RANGE_FLAG_NONE), except that the driver is not allowed to promote buffers to root descriptors as an optimization, because they must maintain bounds checks and root descriptors do not have those.
-    static let staticKeepingBufferBoundsChecks = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_DESCRIPTORS_STATIC_KEEPING_BUFFER_BOUNDS_CHECKS.rawValue)
+    public static let staticKeepingBufferBoundsChecks = DescriptorRangeFlags(rawValue: WinSDK.D3D12_DESCRIPTOR_RANGE_FLAG_DESCRIPTORS_STATIC_KEEPING_BUFFER_BOUNDS_CHECKS.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

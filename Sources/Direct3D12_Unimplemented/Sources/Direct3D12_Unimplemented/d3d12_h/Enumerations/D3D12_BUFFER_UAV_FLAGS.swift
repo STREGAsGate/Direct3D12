@@ -14,11 +14,11 @@ public struct BufferUavFlags: OptionSet {
 
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates a default view.
-    //static let none = BufferUavFlags(rawValue: D3D12_BUFFER_UAV_FLAG_NONE.rawValue)
+    //public static let none = BufferUavFlags(rawValue: D3D12_BUFFER_UAV_FLAG_NONE.rawValue)
 
     /// Resource contains raw, unstructured data. Requires the UAV format to be [DXGI_FORMAT_R32_TYPELESS](https://docs.microsoft.com/en-us/windows/desktop/api/dxgiformat/ne-dxgiformat-dxgi_format).
     /// For more info about raw viewing of buffers, see [Raw Views of Buffers](https://docs.microsoft.com/en-us/windows/desktop/direct3d11/overviews-direct3d-11-resources-intro).
-    static let raw = BufferUavFlags(rawValue: WinSDK.D3D12_BUFFER_UAV_FLAG_RAW.rawValue)
+    public static let raw = BufferUavFlags(rawValue: WinSDK.D3D12_BUFFER_UAV_FLAG_RAW.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

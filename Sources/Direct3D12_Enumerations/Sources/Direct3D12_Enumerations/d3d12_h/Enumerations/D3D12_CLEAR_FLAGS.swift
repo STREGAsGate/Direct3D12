@@ -15,10 +15,10 @@ public struct D3DClearFlags: OptionSet {
     public let rawValue: RawValue
 
     /// Indicates the depth buffer should be cleared.
-    static let depth = D3DClearFlags(rawValue: WinSDK.D3D12_CLEAR_FLAG_DEPTH.rawValue)
+    public static let depth = D3DClearFlags(rawValue: WinSDK.D3D12_CLEAR_FLAG_DEPTH.rawValue)
 
     /// Indicates the stencil buffer should be cleared.
-    static let stencil = D3DClearFlags(rawValue: WinSDK.D3D12_CLEAR_FLAG_STENCIL.rawValue)
+    public static let stencil = D3DClearFlags(rawValue: WinSDK.D3D12_CLEAR_FLAG_STENCIL.rawValue)
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue

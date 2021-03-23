@@ -16,7 +16,7 @@ public struct 1SwiftName: OptionSet {
     //static let none = 1SwiftName(rawValue: WinSDK.1D3D12_FLAG_NONE_NAME.rawValue)
 
     1MemberDocumentationComment
-    static let 1name = 1SwiftName(rawValue: WinSDK.1D3D12_FLAG_NAME.rawValue)
+    public static let 1name = 1SwiftName(rawValue: WinSDK.1D3D12_FLAG_NAME.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

@@ -14,10 +14,10 @@ public struct BufferSrvFlags: OptionSet {
 
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates a default view.
-    //static let none = BufferSrvFlags(rawValue: D3D12_BUFFER_SRV_FLAG_NONE.rawValue)
+    //public static let none = BufferSrvFlags(rawValue: D3D12_BUFFER_SRV_FLAG_NONE.rawValue)
 
     ///	View the buffer as raw. For more info about raw viewing of buffers, see [Raw Views of Buffers](https://docs.microsoft.com/en-us/windows/desktop/direct3d11/overviews-direct3d-11-resources-intro).
-    static let raw = BufferSrvFlags(rawValue: WinSDK.D3D12_BUFFER_SRV_FLAG_RAW.rawValue)
+    public static let raw = BufferSrvFlags(rawValue: WinSDK.D3D12_BUFFER_SRV_FLAG_RAW.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

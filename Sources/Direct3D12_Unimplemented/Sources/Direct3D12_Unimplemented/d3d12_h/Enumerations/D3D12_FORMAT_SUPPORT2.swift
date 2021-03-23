@@ -13,30 +13,30 @@ public struct FormatSupport2: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No unordered resource options are supported.
-    //static let none = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_NONE.rawValue)
+    //public static let none = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_NONE.rawValue)
 
     ///	Format supports atomic add.
-    static let uavAtomicAdd = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_ADD.rawValue)
+    public static let uavAtomicAdd = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_ADD.rawValue)
     ///	Format supports atomic bitwise operations.
-    static let uavAtomicBitwiseOperations = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_BITWISE_OPS.rawValue)
+    public static let uavAtomicBitwiseOperations = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_BITWISE_OPS.rawValue)
     ///	Format supports atomic compare with store or exchange.
-    static let uavAtomicComparerStoreOrCompareExchange = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_COMPARE_STORE_OR_COMPARE_EXCHANGE.rawValue)
+    public static let uavAtomicComparerStoreOrCompareExchange = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_COMPARE_STORE_OR_COMPARE_EXCHANGE.rawValue)
     ///	Format supports atomic exchange.
-    static let uavAtomicExchange = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_EXCHANGE.rawValue)
+    public static let uavAtomicExchange = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_EXCHANGE.rawValue)
     ///	Format supports atomic min and max.
-    static let uavAtomicSignedMinOrMax = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_SIGNED_MIN_OR_MAX.rawValue)
+    public static let uavAtomicSignedMinOrMax = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_SIGNED_MIN_OR_MAX.rawValue)
     ///	Format supports atomic unsigned min and max.
-    static let uavAtomicUnsignedMinOrMax = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_UNSIGNED_MIN_OR_MAX.rawValue)
+    public static let uavAtomicUnsignedMinOrMax = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_UNSIGNED_MIN_OR_MAX.rawValue)
     ///	Format supports a typed load.
-    static let uavTypedLoad = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_TYPED_LOAD.rawValue)
+    public static let uavTypedLoad = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_TYPED_LOAD.rawValue)
     ///	Format supports a typed store.
-    static let uavTypedStore = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_TYPED_STORE.rawValue)
+    public static let uavTypedStore = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_UAV_TYPED_STORE.rawValue)
     ///	Format supports logic operations in blend state.
-    static let outputMergerLogicOperation = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_OUTPUT_MERGER_LOGIC_OP.rawValue)
+    public static let outputMergerLogicOperation = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_OUTPUT_MERGER_LOGIC_OP.rawValue)
     ///	Format supports tiled resources. Refer to Volume Tiled Resources.
-    static let tiled = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_TILED.rawValue)
+    public static let tiled = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_TILED.rawValue)
     ///	Format supports multi-plane overlays.
-    static let multiplaneOverlay = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_MULTIPLANE_OVERLAY.rawValue)
+    public static let multiplaneOverlay = FormatSupport2(rawValue: WinSDK.D3D12_FORMAT_SUPPORT2_MULTIPLANE_OVERLAY.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

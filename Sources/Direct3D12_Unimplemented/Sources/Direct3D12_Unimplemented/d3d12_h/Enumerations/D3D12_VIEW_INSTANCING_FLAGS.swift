@@ -13,10 +13,10 @@ public struct ViewInstancingFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates a default view instancing configuration.
-    //static let none = ViewInstancingFlags(rawValue: WinSDK.D3D12_VIEW_INSTANCING_FLAG_NONE.rawValue)
+    //public static let none = ViewInstancingFlags(rawValue: WinSDK.D3D12_VIEW_INSTANCING_FLAG_NONE.rawValue)
 
     /// Enables view instance masking.
-    static let enableViewInstanceMasking = ViewInstancingFlags(rawValue: WinSDK.D3D12_VIEW_INSTANCING_FLAG_ENABLE_VIEW_INSTANCE_MASKING.rawValue)
+    public static let enableViewInstanceMasking = ViewInstancingFlags(rawValue: WinSDK.D3D12_VIEW_INSTANCING_FLAG_ENABLE_VIEW_INSTANCE_MASKING.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

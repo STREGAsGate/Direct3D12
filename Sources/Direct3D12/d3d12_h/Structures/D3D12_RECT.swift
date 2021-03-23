@@ -8,15 +8,7 @@
 
 import WinSDK
 
-public struct D3DRect {
-    public typealias RawValue = WinSDK.D3D12_RECT
-    internal var rawValue: RawValue
-
-
-    internal init(_ rawValue: RawValue) {
-        self.rawValue = rawValue
-    }
-}
+public typealias D3DRect = MSRect
 
 
 //MARK: - Original Style API

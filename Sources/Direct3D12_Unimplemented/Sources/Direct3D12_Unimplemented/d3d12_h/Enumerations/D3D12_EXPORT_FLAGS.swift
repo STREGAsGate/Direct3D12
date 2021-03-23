@@ -13,7 +13,7 @@ public struct ExportFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No export flags.
-    //static let none = DepthStencilViewFlags(rawValue: WinSDK.D3D12_EXPORT_FLAG_NONE.rawValue)
+    //public static let none = DepthStencilViewFlags(rawValue: WinSDK.D3D12_EXPORT_FLAG_NONE.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

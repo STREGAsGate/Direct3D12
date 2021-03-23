@@ -13,16 +13,16 @@ public struct ShaderCacheSupportFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates that the driver does not support shader caching.
-    //static let none = ShaderCacheSupportFlags(rawValue: WinSDK.D3D12_SHADER_CACHE_SUPPORT_NONE.rawValue)
+    //public static let none = ShaderCacheSupportFlags(rawValue: WinSDK.D3D12_SHADER_CACHE_SUPPORT_NONE.rawValue)
 
     ///	Indicates that the driver supports the CachedPSO member of the D3D12_GRAPHICS_PIPELINE_STATE_DESC and D3D12_COMPUTE_PIPELINE_STATE_DESC structures. This is always supported.
-    static let singlePSO = ShaderCacheSupportFlags(rawValue: WinSDK.D3D12_SHADER_CACHE_SUPPORT_SINGLE_PSO.rawValue)
+    public static let singlePSO = ShaderCacheSupportFlags(rawValue: WinSDK.D3D12_SHADER_CACHE_SUPPORT_SINGLE_PSO.rawValue)
     ///	Indicates that the driver supports the ID3D12PipelineLibrary interface, which provides application-controlled PSO grouping and caching. This is supported by drivers targetting the Windows 10 Anniversary Update.
-    static let library = ShaderCacheSupportFlags(rawValue: WinSDK.D3D12_SHADER_CACHE_SUPPORT_LIBRARY.rawValue)
+    public static let library = ShaderCacheSupportFlags(rawValue: WinSDK.D3D12_SHADER_CACHE_SUPPORT_LIBRARY.rawValue)
     ///	Indicates that the driver supports an OS-managed shader cache that stores compiled shaders in memory during the current run of the application.
-    static let automaticInProcessCache = ShaderCacheSupportFlags(rawValue: WinSDK.D3D12_SHADER_CACHE_SUPPORT_AUTOMATIC_INPROC_CACHE.rawValue)
+    public static let automaticInProcessCache = ShaderCacheSupportFlags(rawValue: WinSDK.D3D12_SHADER_CACHE_SUPPORT_AUTOMATIC_INPROC_CACHE.rawValue)
     ///	Indicates that the driver supports an OS-managed shader cache that stores compiled shaders on disk to accelerate future runs of the application.
-    static let automaticDiskCache = ShaderCacheSupportFlags(rawValue: WinSDK.D3D12_SHADER_CACHE_SUPPORT_AUTOMATIC_DISK_CACHE.rawValue)
+    public static let automaticDiskCache = ShaderCacheSupportFlags(rawValue: WinSDK.D3D12_SHADER_CACHE_SUPPORT_AUTOMATIC_DISK_CACHE.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

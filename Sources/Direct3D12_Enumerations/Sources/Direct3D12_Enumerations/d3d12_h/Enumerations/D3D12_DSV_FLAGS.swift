@@ -16,13 +16,13 @@ public struct D3DDepthStencilViewFlags: OptionSet {
 
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates a default view.
-    //static let none = D3DDepthStencilViewFlags(rawValue: WinSDK.D3D12_DSV_FLAG_NONE.rawValue)
+    //public static let none = D3DDepthStencilViewFlags(rawValue: WinSDK.D3D12_DSV_FLAG_NONE.rawValue)
 
     ///	Indicates that depth values are read only.
-    static let readOnlyDepth = D3DDepthStencilViewFlags(rawValue: WinSDK.D3D12_DSV_FLAG_READ_ONLY_DEPTH.rawValue)
+    public static let readOnlyDepth = D3DDepthStencilViewFlags(rawValue: WinSDK.D3D12_DSV_FLAG_READ_ONLY_DEPTH.rawValue)
 
     ///	Indicates that stencil values are read only.
-    static let readOnlyStencil = D3DDepthStencilViewFlags(rawValue: WinSDK.D3D12_DSV_FLAG_READ_ONLY_STENCIL.rawValue)
+    public static let readOnlyStencil = D3DDepthStencilViewFlags(rawValue: WinSDK.D3D12_DSV_FLAG_READ_ONLY_STENCIL.rawValue)
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue

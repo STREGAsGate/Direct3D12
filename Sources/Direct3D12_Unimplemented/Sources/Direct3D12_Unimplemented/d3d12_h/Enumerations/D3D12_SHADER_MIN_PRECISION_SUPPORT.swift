@@ -13,12 +13,12 @@ public struct ShaderMinimumPrecisionSupport: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// The driver supports only full 32-bit precision for all shader stages.
-    //static let none = ShaderMinimumPrecisionSupport(rawValue: WinSDK.D3D12_SHADER_MIN_PRECISION_SUPPORT_NONE.rawValue)
+    //public static let none = ShaderMinimumPrecisionSupport(rawValue: WinSDK.D3D12_SHADER_MIN_PRECISION_SUPPORT_NONE.rawValue)
 
     ///	The driver supports 10-bit precision.
-    static let supports10bit = ShaderMinimumPrecisionSupport(rawValue: WinSDK.D3D12_SHADER_MIN_PRECISION_SUPPORT_10_BIT.rawValue)
+    public static let supports10bit = ShaderMinimumPrecisionSupport(rawValue: WinSDK.D3D12_SHADER_MIN_PRECISION_SUPPORT_10_BIT.rawValue)
     ///	The driver supports 16-bit precision.
-    static let supports16bit = ShaderMinimumPrecisionSupport(rawValue: WinSDK.D3D12_SHADER_MIN_PRECISION_SUPPORT_16_BIT.rawValue)
+    public static let supports16bit = ShaderMinimumPrecisionSupport(rawValue: WinSDK.D3D12_SHADER_MIN_PRECISION_SUPPORT_16_BIT.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

@@ -15,20 +15,20 @@ public struct D3DTileCopyFlags: OptionSet {
     public let rawValue: RawValue
     //Use an empty collection `[]` to represent none in Swift.
     ///// No tile-copy flags are specified.
-    //static let none = D3DTileCopyFlags(rawValue: WinSDK.D3D12_TILE_COPY_FLAG_NONE.rawValue)
+    //public static let none = D3DTileCopyFlags(rawValue: WinSDK.D3D12_TILE_COPY_FLAG_NONE.rawValue)
 
     ///	Indicates that the GPU isn't currently referencing any of the
     /// portions of destination memory being written.
-    static let noHazard = D3DTileCopyFlags(rawValue: WinSDK.D3D12_TILE_COPY_FLAG_NO_HAZARD.rawValue)
+    public static let noHazard = D3DTileCopyFlags(rawValue: WinSDK.D3D12_TILE_COPY_FLAG_NO_HAZARD.rawValue)
     ///	Indicates that the ID3D12GraphicsCommandList::CopyTiles operation involves copying a linear buffer to a swizzled tiled resource. This means to copy tile data from the
     /// specified buffer location, reading tiles sequentially,
     /// to the specified tile region (in x,y,z order if the region is a box), swizzling to optimal hardware memory layout as needed.
     /// In this ID3D12GraphicsCommandList::CopyTiles call, you specify the source data with the pBuffer parameter and the destination with the pTiledResource parameter.
-    static let linearBufferToSwizzledTiledResource = D3DTileCopyFlags(rawValue: WinSDK.D3D12_TILE_COPY_FLAG_LINEAR_BUFFER_TO_SWIZZLED_TILED_RESOURCE.rawValue)
+    public static let linearBufferToSwizzledTiledResource = D3DTileCopyFlags(rawValue: WinSDK.D3D12_TILE_COPY_FLAG_LINEAR_BUFFER_TO_SWIZZLED_TILED_RESOURCE.rawValue)
     ///	Indicates that the ID3D12GraphicsCommandList::CopyTiles operation involves copying a swizzled tiled resource to a linear buffer. This means to copy tile data from the tile region, reading tiles sequentially (in x,y,z order if the region is a box),
     /// to the specified buffer location, deswizzling to linear memory layout as needed.
     /// In this ID3D12GraphicsCommandList::CopyTiles call, you specify the source data with the pTiledResource parameter and the destination with the pBuffer parameter.
-    static let swizzledTiledResourceToLinearBuffer = D3DTileCopyFlags(rawValue: WinSDK.D3D12_TILE_COPY_FLAG_SWIZZLED_TILED_RESOURCE_TO_LINEAR_BUFFER.rawValue)
+    public static let swizzledTiledResourceToLinearBuffer = D3DTileCopyFlags(rawValue: WinSDK.D3D12_TILE_COPY_FLAG_SWIZZLED_TILED_RESOURCE_TO_LINEAR_BUFFER.rawValue)
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue

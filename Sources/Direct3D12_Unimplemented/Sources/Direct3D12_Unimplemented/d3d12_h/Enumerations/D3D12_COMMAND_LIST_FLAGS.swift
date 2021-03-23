@@ -16,7 +16,7 @@ public struct CommandListFlags: OptionSet {
 
     //Use an empty collection `[]` to represent none in Swift.
     ///// No flags specified.
-    //static let none = CommandListFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_FLAG_NONE.rawValue)
+    //public static let none = CommandListFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_FLAG_NONE.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

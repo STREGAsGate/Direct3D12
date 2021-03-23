@@ -21,7 +21,7 @@ public struct RaytracingAccelerationStructureBuildFalgs: OptionSet {
 
     This flag can only be set on an initial acceleration structure build, or on an update where the source acceleration structure specified D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_ALLOW_UPDATE. In other words, after an acceleration structure was been built without D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_ALLOW_UPDATE, no other acceleration structures can be created from it via updates.
     */
-    static let allowUpdates = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_ALLOW_UPDATE.rawValue)
+    public static let allowUpdates = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_ALLOW_UPDATE.rawValue)
     /**
     Enables the option to compact the acceleration structure by calling CopyRaytracingAccelerationStructure using compact mode, specified with D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE_COMPACT.
 
@@ -43,19 +43,19 @@ public struct RaytracingAccelerationStructureBuildFalgs: OptionSet {
     Note  WhenD3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_ALLOW_UPDATE is specified, there is certain information that needs to be retained in the acceleration structure, and compaction will only help so much. However, if the pipeline knows that the acceleration structure will no longer be updated, it can make the structure more compact. Some apps may benefit from compacting twice - once after the initial build, and again after the acceleration structure has settled to a static state, if that occurs.
 
     */
-    static let allowCompaction = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_ALLOW_COMPACTION.rawValue)
+    public static let allowCompaction = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_ALLOW_COMPACTION.rawValue)
     /**
     Construct a high quality acceleration structure that maximizes raytracing performance at the expense of additional build time. Typically, the implementation will take 2-3 times the build time than the default setting in order to get better tracing performance.
 
     This flag is recommended for static geometry in particular. It is compatible with all other flags except for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_PREFER_FAST_BUILD.
     */
-    static let preferFastTrace = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_PREFER_FAST_TRACE.rawValue)
+    public static let preferFastTrace = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_PREFER_FAST_TRACE.rawValue)
     /**
     Construct a lower quality acceleration structure, trading raytracing performance for build speed. Typically, the implementation will take 1/2 to 1/3 the build time than default setting, with a sacrifice in tracing performance.
 
     This flag is compatible with all other flags except for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_PREFER_FAST_BUILD.
     */
-    static let preferFastBuild = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_PREFER_FAST_BUILD.rawValue)
+    public static let preferFastBuild = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_PREFER_FAST_BUILD.rawValue)
     /**
     Minimize the amount of scratch memory used during the acceleration structure build as well as the size of the result. This option may result in increased build times and/or raytracing times. This is orthogonal to the D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_ALLOW_COMPACTION flag and the explicit acceleration structure compaction that it enables. Combining the flags can mean both the initial acceleration structure as well as the result of compacting it use less memory.
 
@@ -63,7 +63,7 @@ public struct RaytracingAccelerationStructureBuildFalgs: OptionSet {
 
     This flag is compatible with all other flags.
     */
-    static let minimizeMemory = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_MINIMIZE_MEMORY.rawValue)
+    public static let minimizeMemory = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_MINIMIZE_MEMORY.rawValue)
     /**
     Perform an acceleration structure update, as opposed to building from scratch. This is faster than a full build, but can negatively impact raytracing performance, especially if the positions of the underlying objects have changed significantly from the original build of the acceleration structure before updates.
 
@@ -75,7 +75,7 @@ public struct RaytracingAccelerationStructureBuildFalgs: OptionSet {
 
     Acceleration structure updates can be performed in unlimited succession, as long as the source acceleration structure was created with D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_ALLOW_UPDATE and the flags for the update build continue to specify D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_ALLOW_UPDATE.
     */
-    static let performUpdate = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_PERFORM_UPDATE.rawValue)
+    public static let performUpdate = RaytracingAccelerationStructureBuildFalgs(rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_PERFORM_UPDATE.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

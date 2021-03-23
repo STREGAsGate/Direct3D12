@@ -14,10 +14,10 @@ public struct ResidencyFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// Specifies the default residency policy, which allows residency operations to succeed regardless of the application's current memory budget. EnqueueMakeResident returns E_OUTOFMEMORY only when there is no memory available.
-    //static let none = ResidencyFlags(rawValue: WinSDK.D3D12_RESIDENCY_FLAG_NONE.rawValue)
+    //public static let none = ResidencyFlags(rawValue: WinSDK.D3D12_RESIDENCY_FLAG_NONE.rawValue)
 
     /// Specifies that the EnqueueMakeResident function should return E_OUTOFMEMORY when the residency operation would exceed the application's current memory budget.
-    static let denyOverbudget = ResidencyFlags(rawValue: WinSDK.D3D12_RESIDENCY_FLAG_DENY_OVERBUDGET.rawValue)
+    public static let denyOverbudget = ResidencyFlags(rawValue: WinSDK.D3D12_RESIDENCY_FLAG_DENY_OVERBUDGET.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

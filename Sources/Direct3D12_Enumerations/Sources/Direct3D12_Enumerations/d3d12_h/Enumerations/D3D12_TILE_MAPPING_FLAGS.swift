@@ -15,11 +15,11 @@ public struct D3DTileMappingFlags: OptionSet {
     public let rawValue: RawValue
     //Use an empty collection `[]` to represent none in Swift.
     ///// No tile-mapping flags are specified.
-    //static let none = TileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NONE.rawValue)
+    //public static let none = TileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NONE.rawValue)
 
     /// Unsupported, do not use.
     @available(*, unavailable, message: "Unsupported, do not use.")
-    static let noHazard = D3DTileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NO_HAZARD.rawValue)
+    public static let noHazard = D3DTileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NO_HAZARD.rawValue)
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue

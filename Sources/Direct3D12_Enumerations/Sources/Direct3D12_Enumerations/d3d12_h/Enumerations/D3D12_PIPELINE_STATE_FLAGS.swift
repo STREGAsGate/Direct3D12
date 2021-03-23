@@ -17,11 +17,11 @@ public struct D3DPipelineStateFlags: OptionSet {
 
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates no flags.
-    //static let none = PipelineStateFlags(rawValue: WinSDK.D3D12_PIPELINE_STATE_FLAG_NONE.rawValue)
+    //public static let none = PipelineStateFlags(rawValue: WinSDK.D3D12_PIPELINE_STATE_FLAG_NONE.rawValue)
 
     /// Indicates that the pipeline state should be compiled with additional information to assist debugging.
     /// This can only be set on WARP devices.
-    static let toolDebug = D3DPipelineStateFlags(rawValue: WinSDK.D3D12_PIPELINE_STATE_FLAG_TOOL_DEBUG.rawValue)
+    public static let toolDebug = D3DPipelineStateFlags(rawValue: WinSDK.D3D12_PIPELINE_STATE_FLAG_TOOL_DEBUG.rawValue)
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue

@@ -13,19 +13,19 @@ public struct ShadingRate: OptionSet {
     public let rawValue: Int32
 
     ///	Specifies no change to the shading rate.
-    static let shadingRate1X1 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_1X1.rawValue)
+    public static let shadingRate1X1 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_1X1.rawValue)
     ///	Specifies that the shading rate should reduce vertical resolution 2x.
-    static let shadingRate1X2 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_1X2.rawValue)
+    public static let shadingRate1X2 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_1X2.rawValue)
     ///	Specifies that the shading rate should reduce horizontal resolution 2x.
-    static let shadingRate2X1 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_2X1.rawValue)
+    public static let shadingRate2X1 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_2X1.rawValue)
     ///	Specifies that the shading rate should reduce the resolution of both axes 2x.
-    static let shadingRate2X2 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_2X2.rawValue)
+    public static let shadingRate2X2 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_2X2.rawValue)
     ///	Specifies that the shading rate should reduce horizontal resolution 2x, and reduce vertical resolution 4x.
-    static let shadingRate2X4 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_2X4.rawValue)
+    public static let shadingRate2X4 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_2X4.rawValue)
     ///	Specifies that the shading rate should reduce horizontal resolution 4x, and reduce vertical resolution 2x.
-    static let shadingRate4X2 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_4X2.rawValue)
+    public static let shadingRate4X2 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_4X2.rawValue)
     ///	Specifies that the shading rate should reduce the resolution of both axes 4x.
-    static let shadingRate4X4 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_4X4.rawValue)
+    public static let shadingRate4X4 = ShadingRate(rawValue: WinSDK.D3D12_SHADING_RATE_4X4.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

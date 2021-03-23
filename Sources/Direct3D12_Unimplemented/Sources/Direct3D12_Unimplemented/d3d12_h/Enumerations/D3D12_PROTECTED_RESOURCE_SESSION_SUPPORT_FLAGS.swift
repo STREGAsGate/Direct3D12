@@ -13,10 +13,10 @@ public struct ProtectedResourceSessionSupportFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// Indicates that protected resource sessions are not supported.
-    //static let none = ProtectedResourceSessionSupportFlags(rawValue: WinSDK.D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAG_NONE.rawValue)
+    //public static let none = ProtectedResourceSessionSupportFlags(rawValue: WinSDK.D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAG_NONE.rawValue)
 
     /// Indicates that protected resource sessions are supported.
-    static let supported = ProtectedResourceSessionSupportFlags(rawValue: WinSDK.D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAG_SUPPORTED.rawValue)
+    public static let supported = ProtectedResourceSessionSupportFlags(rawValue: WinSDK.D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAG_SUPPORTED.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

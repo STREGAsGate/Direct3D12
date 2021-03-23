@@ -14,28 +14,28 @@ public struct CommandListSupportFlags: OptionSet {
 
     //Use an empty collection `[]` to represent none in Swift.
     ///// Specifies that no command list supports the operation in question.
-    //static let none = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_NONE.rawValue)
+    //public static let none = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_NONE.rawValue)
 
     /// Specifies that direct command lists can support the operation in question.
-    static let direct = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_DIRECT.rawValue)
+    public static let direct = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_DIRECT.rawValue)
 
     /// Specifies that command list bundles can support the operation in question.
-    static let bundle = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_BUNDLE.rawValue)
+    public static let bundle = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_BUNDLE.rawValue)
 
     /// Specifies that compute command lists can support the operation in question.
-    static let compute = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_COMPUTE.rawValue)
+    public static let compute = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_COMPUTE.rawValue)
 
     /// Specifies that copy command lists can support the operation in question.
-    static let copy = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_COPY.rawValue)
+    public static let copy = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_COPY.rawValue)
 
     /// Specifies that video-decode command lists can support the operation in question.
-    static let videoDecode = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_DECODE.rawValue)
+    public static let videoDecode = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_DECODE.rawValue)
 
     /// Specifies that video-processing command lists can support the operation is question.
-    static let videoProcess = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_PROCESS.rawValue)
+    public static let videoProcess = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_PROCESS.rawValue)
 
     /// Specifies that video-encoding command lists can support the operation is question.
-    static let videoEncode = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_ENCODE.rawValue)
+    public static let videoEncode = CommandListSupportFlags(rawValue: WinSDK.D3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_ENCODE.rawValue)
     
 
     public init(rawValue: Int32) {

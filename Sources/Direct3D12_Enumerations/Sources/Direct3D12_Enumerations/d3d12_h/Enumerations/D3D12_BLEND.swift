@@ -9,7 +9,9 @@
 import WinSDK
 
 /// Specifies blend factors, which modulate values for the pixel shader and render target.
-public enum BlendFactor {
+public enum D3DBlendFactor {
+    public typealias RawValue = WinSDK.D3D12_BLEND
+
     ///	The blend factor is (0, 0, 0, 0). No pre-blend operation.
     case zero
     ///	The blend factor is (1, 1, 1, 1). No pre-blend operation.
@@ -45,7 +47,9 @@ public enum BlendFactor {
     ///	The blend factor is data sources as alpha data output by a pixel shader. The pre-blend operation inverts the data, generating 1 - A. This blend factor supports dual-source color blending.
     case inverseSource1Alpha
 
-    internal var rawValue: WinSDK.D3D12_BLEND {
+    case _unimplemented(RawValue)
+
+    public var rawValue: RawValue {
         switch self {
         case .zero:
             return WinSDK.D3D12_BLEND_ZERO
@@ -81,68 +85,110 @@ public enum BlendFactor {
             return WinSDK.D3D12_BLEND_SRC1_ALPHA
         case .inverseSource1Alpha:
             return WinSDK.D3D12_BLEND_INV_SRC1_ALPHA
+        case let ._unimplemented(rawValue):
+            return rawValue
         }
     }
-}
+
+    public init(_ rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.D3D12_BLEND_ZERO:
+            self = .zero
+        case WinSDK.D3D12_BLEND_ONE:
+            self = .one
+        case WinSDK.D3D12_BLEND_SRC_COLOR:
+            self = .sourceColor
+        case WinSDK.D3D12_BLEND_INV_SRC_COLOR:
+            self = .inverseSourceColor
+        case WinSDK.D3D12_BLEND_SRC_ALPHA:
+            self = .sourceAlpha
+        case WinSDK.D3D12_BLEND_INV_SRC_ALPHA:
+            self = .inverseSourceAlpha
+        case WinSDK.D3D12_BLEND_DEST_ALPHA:
+            self = .destinationAlpha
+        case WinSDK.D3D12_BLEND_INV_DEST_ALPHA:
+            self = .inverseDestinationAlpha
+        case WinSDK.D3D12_BLEND_DEST_COLOR:
+            self = .destinationColor
+        case WinSDK.D3D12_BLEND_INV_DEST_COLOR:
+            self = .inverseDestinationColor
+        case WinSDK.D3D12_BLEND_SRC_ALPHA_SAT:
+            self = .sourceAlphaSaturate
+        case WinSDK.D3D12_BLEND_BLEND_FACTOR:
+            self = .blendFactor
+        case WinSDK.D3D12_BLEND_INV_BLEND_FACTOR:
+            self = .inverseBlendFactor
+        case WinSDK.D3D12_BLEND_SRC1_COLOR:
+            self = .source1Color
+        case WinSDK.D3D12_BLEND_INV_SRC1_COLOR:
+            self = .inverseSource1Color
+        case WinSDK.D3D12_BLEND_SRC1_ALPHA:
+            self = .source1Alpha
+        case WinSDK.D3D12_BLEND_INV_SRC1_ALPHA:
+            self = .inverseSource1Alpha
+        default:
+            self = ._unimplemented(rawValue)
+        }
+    }
+} 
 
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "BlendFactor")
-public typealias D3D12_BLEND = BlendFactor
+@available(*, deprecated, renamed: "D3DBlendFactor.D3DBlendFactor")
+public typealias D3D12_BLEND = D3DBlendFactor
 
-public extension BlendFactor {
-    @available(*, deprecated, renamed: "zero")
-    static let D3D12_BLEND_ZERO = Self.zero
 
-    @available(*, deprecated, renamed: "one")
-    static let D3D12_BLEND_ONE = Self.one
+@available(*, deprecated, renamed: "D3DBlendFactor.zero")
+public let D3D12_BLEND_ZERO = D3DBlendFactor.zero
 
-    @available(*, deprecated, renamed: "sourceColor")
-    static let D3D12_BLEND_SRC_COLOR = Self.sourceColor
+@available(*, deprecated, renamed: "D3DBlendFactor.one")
+public let D3D12_BLEND_ONE = D3DBlendFactor.one
 
-    @available(*, deprecated, renamed: "inverseSourceColor")
-    static let D3D12_BLEND_INV_SRC_COLOR = Self.inverseSourceColor
+@available(*, deprecated, renamed: "D3DBlendFactor.sourceColor")
+public let D3D12_BLEND_SRC_COLOR = D3DBlendFactor.sourceColor
 
-    @available(*, deprecated, renamed: "sourceAlpha")
-    static let D3D12_BLEND_SRC_ALPHA = Self.sourceAlpha
+@available(*, deprecated, renamed: "D3DBlendFactor.inverseSourceColor")
+public let D3D12_BLEND_INV_SRC_COLOR = D3DBlendFactor.inverseSourceColor
 
-    @available(*, deprecated, renamed: "inverseSourceAlpha")
-    static let D3D12_BLEND_INV_SRC_ALPHA = Self.inverseSourceAlpha
+@available(*, deprecated, renamed: "D3DBlendFactor.sourceAlpha")
+public let D3D12_BLEND_SRC_ALPHA = D3DBlendFactor.sourceAlpha
 
-    @available(*, deprecated, renamed: "destinationAlpha")
-    static let D3D12_BLEND_DEST_ALPHA = Self.destinationAlpha
- 
-    @available(*, deprecated, renamed: "inverseDestinationAlpha")
-    static let D3D12_BLEND_INV_DEST_ALPHA = Self.inverseDestinationAlpha
- 
-    @available(*, deprecated, renamed: "destinationColor")
-    static let D3D12_BLEND_DEST_COLOR = Self.destinationColor
- 
-    @available(*, deprecated, renamed: "inverseDestinationColor")
-    static let D3D12_BLEND_INV_DEST_COLOR = Self.inverseDestinationColor
- 
-    @available(*, deprecated, renamed: "sourceAlphaSaturate")
-    static let D3D12_BLEND_SRC_ALPHA_SAT = Self.sourceAlphaSaturate
- 
-    @available(*, deprecated, renamed: "blendFactor")
-    static let D3D12_BLEND_BLEND_FACTOR = Self.blendFactor
- 
-    @available(*, deprecated, renamed: "inverseBlendFactor")
-    static let D3D12_BLEND_INV_BLEND_FACTOR = Self.inverseBlendFactor
- 
-    @available(*, deprecated, renamed: "source1Color")
-    static let D3D12_BLEND_SRC1_COLOR = Self.source1Color
- 
-    @available(*, deprecated, renamed: "inverseSource1Color")
-    static let D3D12_BLEND_INV_SRC1_COLOR = Self.inverseSource1Color
+@available(*, deprecated, renamed: "D3DBlendFactor.inverseSourceAlpha")
+public let D3D12_BLEND_INV_SRC_ALPHA = D3DBlendFactor.inverseSourceAlpha
 
-    @available(*, deprecated, renamed: "source1Alpha")
-    static let D3D12_BLEND_SRC1_ALPHA = Self.source1Alpha
+@available(*, deprecated, renamed: "D3DBlendFactor.destinationAlpha")
+public let D3D12_BLEND_DEST_ALPHA = D3DBlendFactor.destinationAlpha
 
-    @available(*, deprecated, renamed: "inverseSource1Alpha")
-    static let D3D12_BLEND_INV_SRC1_ALPHA = Self.inverseSource1Alpha
-}
+@available(*, deprecated, renamed: "D3DBlendFactor.inverseDestinationAlpha")
+public let D3D12_BLEND_INV_DEST_ALPHA = D3DBlendFactor.inverseDestinationAlpha
+
+@available(*, deprecated, renamed: "D3DBlendFactor.destinationColor")
+public let D3D12_BLEND_DEST_COLOR = D3DBlendFactor.destinationColor
+
+@available(*, deprecated, renamed: "D3DBlendFactor.inverseDestinationColor")
+public let D3D12_BLEND_INV_DEST_COLOR = D3DBlendFactor.inverseDestinationColor
+
+@available(*, deprecated, renamed: "D3DBlendFactor.sourceAlphaSaturate")
+public let D3D12_BLEND_SRC_ALPHA_SAT = D3DBlendFactor.sourceAlphaSaturate
+
+@available(*, deprecated, renamed: "D3DBlendFactor.blendFactor")
+public let D3D12_BLEND_BLEND_FACTOR = D3DBlendFactor.blendFactor
+
+@available(*, deprecated, renamed: "D3DBlendFactor.inverseBlendFactor")
+public let D3D12_BLEND_INV_BLEND_FACTOR = D3DBlendFactor.inverseBlendFactor
+
+@available(*, deprecated, renamed: "D3DBlendFactor.source1Color")
+public let D3D12_BLEND_SRC1_COLOR = D3DBlendFactor.source1Color
+
+@available(*, deprecated, renamed: "D3DBlendFactor.inverseSource1Color")
+public let D3D12_BLEND_INV_SRC1_COLOR = D3DBlendFactor.inverseSource1Color
+
+@available(*, deprecated, renamed: "D3DBlendFactor.source1Alpha")
+public let D3D12_BLEND_SRC1_ALPHA = D3DBlendFactor.source1Alpha
+
+@available(*, deprecated, renamed: "D3DBlendFactor.inverseSource1Alpha")
+public let D3D12_BLEND_INV_SRC1_ALPHA = D3DBlendFactor.inverseSource1Alpha
 
 #endif

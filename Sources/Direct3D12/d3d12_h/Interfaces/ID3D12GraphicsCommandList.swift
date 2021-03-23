@@ -44,7 +44,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
             let Depth = depthValue
             let Stencil = stencilValue
             let NumRects = UInt32(regions?.count ?? 0)
-            let pRects = regions?.map({$0.rawValue})
+            let pRects = regions?.map({$0.RECT()})
             pThis.pointee.lpVtbl.pointee.ClearDepthStencilView(pThis, DepthStencilView, ClearFlags, Depth, Stencil, NumRects, pRects)
         }
     }
@@ -61,7 +61,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
             let RenderTargetView = view.rawValue
             let ColorRGBA = clearColor.rawValue
             let NumRects = UInt32(regions?.count ?? 0)
-            let pRects = regions?.map({$0.rawValue})
+            let pRects = regions?.map({$0.RECT()})
             pThis.pointee.lpVtbl.pointee.ClearRenderTargetView(pThis, RenderTargetView, ColorRGBA, NumRects, pRects)
         }
     }
@@ -99,7 +99,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
             let pResource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
             let Values = values
             let NumRects = UInt32(regions?.count ?? 0)
-            let pRects = regions?.map({$0.rawValue})
+            let pRects = regions?.map({$0.RECT()})
             pThis.pointee.lpVtbl.pointee.ClearUnorderedAccessViewFloat(pThis, ViewGPUHandleInCurrentHeap, ViewCPUHandle, pResource, Values, NumRects, pRects)
         }
     }
@@ -122,7 +122,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
             let pResource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
             let Values = values
             let NumRects = UInt32(regions?.count ?? 0)
-            let pRects = regions?.map({$0.rawValue})
+            let pRects = regions?.map({$0.RECT()})
             pThis.pointee.lpVtbl.pointee.ClearUnorderedAccessViewUint(pThis, ViewGPUHandleInCurrentHeap, ViewCPUHandle, pResource, Values, NumRects, pRects)
         }
     }
@@ -490,7 +490,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     public func setScissorRects(_ rects: [D3DRect]) {
         performFatally(as: RawValue.self) {pThis in
             let NumRects = UInt32(rects.count)
-            let pRects = rects.map({$0.rawValue})
+            let pRects = rects.map({$0.RECT()})
             pThis.pointee.lpVtbl.pointee.RSSetScissorRects(pThis, NumRects, pRects)
         }
     }

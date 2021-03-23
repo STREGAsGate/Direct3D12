@@ -13,10 +13,10 @@ public struct MultisampleQualityLevelFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No options are supported.
-    //static let none = MultisampleQualityLevelFlags(rawValue: WinSDK.D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_NONE.rawValue)
+    //public static let none = MultisampleQualityLevelFlags(rawValue: WinSDK.D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_NONE.rawValue)
 
     /// The number of quality levels can be determined for tiled resources.
-    static let tiledResource = MultisampleQualityLevelFlags(rawValue: WinSDK.D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_TILED_RESOURCE.rawValue)
+    public static let tiledResource = MultisampleQualityLevelFlags(rawValue: WinSDK.D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_TILED_RESOURCE.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

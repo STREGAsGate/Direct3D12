@@ -13,13 +13,13 @@ public struct ResourceBarrierFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No flags.
-    //static let none = ResourceBarrierFlags(rawValue: WinSDK.D3D12_RESOURCE_BARRIER_FLAG_NONE.rawValue)
+    //public static let none = ResourceBarrierFlags(rawValue: WinSDK.D3D12_RESOURCE_BARRIER_FLAG_NONE.rawValue)
 
     /// This starts a barrier transition in a new state, putting a resource in a temporary no-access condition.
-    static let beginOnly = ResourceBarrierFlags(rawValue: WinSDK.D3D12_RESOURCE_BARRIER_FLAG_BEGIN_ONLY.rawValue)
+    public static let beginOnly = ResourceBarrierFlags(rawValue: WinSDK.D3D12_RESOURCE_BARRIER_FLAG_BEGIN_ONLY.rawValue)
 
     /// This barrier completes a transition, setting a new state and restoring active access to a resource.
-    static let endOnly = ResourceBarrierFlags(rawValue: WinSDK.D3D12_RESOURCE_BARRIER_FLAG_END_ONLY.rawValue)
+    public static let endOnly = ResourceBarrierFlags(rawValue: WinSDK.D3D12_RESOURCE_BARRIER_FLAG_END_ONLY.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

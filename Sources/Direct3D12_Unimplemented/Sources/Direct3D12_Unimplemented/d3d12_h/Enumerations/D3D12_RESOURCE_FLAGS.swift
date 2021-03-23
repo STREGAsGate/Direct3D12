@@ -13,7 +13,7 @@ public struct ResourceFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No options are specified.
-    //static let none = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_NONE.rawValue)
+    //public static let none = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_NONE.rawValue)
 
     /**
     Allows a render target view to be created for the resource, as well as enables the resource to transition into the state of D3D12_RESOURCE_STATE_RENDER_TARGET. Some adapter architectures allocate extra memory for textures with this flag to reduce the effective bandwidth during common rendering. This characteristic may not be beneficial for textures that are never rendered to, nor is it available for textures compressed with BC formats. Applications should avoid setting this flag when rendering will never occur.
@@ -28,7 +28,7 @@ public struct ResourceFlags: OptionSet {
 
     Cannot be used with 4KB alignment, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL, nor usage with heaps that have D3D12_HEAP_FLAG_DENY_RT_DS_TEXTURES.
     */
-    static let allowRenderTarget = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET.rawValue)
+    public static let allowRenderTarget = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET.rawValue)
     /**
     Allows a depth stencil view to be created for the resource, as well as enables the resource to transition into the state of D3D12_RESOURCE_STATE_DEPTH_WRITE and/or D3D12_RESOURCE_STATE_DEPTH_READ. Most adapter architectures allocate extra memory for textures with this flag to reduce the effective bandwidth and maximize optimizations for early depth-test. Applications should avoid setting this flag when depth operations will never occur.
 
@@ -44,7 +44,7 @@ public struct ResourceFlags: OptionSet {
 
     Precludes GPU copying of a subregion. CopyTextureRegion must copy a whole subresource to or from resources with this flag.
     */
-    static let allowDepthStencil = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL.rawValue)
+    public static let allowDepthStencil = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL.rawValue)
     /**
     Allows an unordered access view to be created for the resource, as well as enables the resource to transition into the state of D3D12_RESOURCE_STATE_UNORDERED_ACCESS. Some adapter architectures must resort to less efficient texture layouts in order to provide this functionality. If a texture is rarely used for unordered access, it may be worth having two textures around and copying between them. One texture would have this flag, while the other wouldn't. Applications should avoid setting this flag when unordered access operations will never occur.
 
@@ -58,7 +58,7 @@ public struct ResourceFlags: OptionSet {
 
     Cannot be used with MSAA textures.
     */
-    static let allowUnorderedAccess = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS.rawValue)
+    public static let allowUnorderedAccess = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS.rawValue)
     /**
     Disallows a shader resource view to be created for the resource, as well as disables the resource to transition into the state of D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE or D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE. Some adapter architectures experience increased bandwidth for depth stencil textures when shader resource views are precluded. If a texture is rarely used for shader resource, it may be worth having two textures around and copying between them. One texture would have this flag and the other wouldn't. Applications should set this flag when depth stencil textures will never be used from shader resource views.
 
@@ -69,7 +69,7 @@ public struct ResourceFlags: OptionSet {
 
     Must be used with D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL.
     */
-    static let denyShaderResource = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE.rawValue)
+    public static let denyShaderResource = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE.rawValue)
     /**
     Allows the resource to be used for cross-adapter data, as well as the same features enabled by ALLOW_SIMULTANEOUS_ACCESS. Cross adapter resources commonly preclude techniques that reduce effective texture bandwidth during usage, and some adapter architectures may require different caching behavior. Applications should avoid setting this flag when the resource data will never be used with another adapter.
 
@@ -81,7 +81,7 @@ public struct ResourceFlags: OptionSet {
 
     Cannot be used with heaps that have D3D12_HEAP_FLAG_ALLOW_DISPLAY.
     */
-    static let allowCrossAdapter = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER.rawValue)
+    public static let allowCrossAdapter = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER.rawValue)
     /**
     Allows a resource to be simultaneously accessed by multiple different queues, devices or processes (for example, allows a resource to be used with ResourceBarrier transitions performed in more than one command list
     executing at the same time).
@@ -96,14 +96,14 @@ public struct ResourceFlags: OptionSet {
     - Can't be used with MSAA textures.
     - Can't be used with D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL.
     */
-    static let allowSimultaneousAccess = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS.rawValue)
+    public static let allowSimultaneousAccess = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS.rawValue)
     /**
     This resource may only be used as a decode reference frame. It may only be written to or read by the video decode operation.
 
     D3D12_VIDEO_DECODE_TIER_1 and D3D12_VIDEO_DECODE_TIER_2 may report D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_REFERENCE_ONLY_ALLOCATIONS_REQUIRED in the D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT structure configuration flag. If so, the application must allocate reference frames with the new D3D12_RESOURCE_VIDEO_DECODE_REFERENCE_ONLY resource flag. D3D12_VIDEO_DECODE_TIER_3 must not set the [D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_REFERENCE_ONLY_ALLOCATIONS_REQUIRED]
     (../d3d12video/ne-d3d12video-d3d12_video_decode_configuration_flags)) configuration flag and must not require the use of this resource flag.
     */
-    static let videoDecodeReferenceOnly = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_VIDEO_DECODE_REFERENCE_ONLY.rawValue)
+    public static let videoDecodeReferenceOnly = ResourceFlags(rawValue: WinSDK.D3D12_RESOURCE_FLAG_VIDEO_DECODE_REFERENCE_ONLY.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

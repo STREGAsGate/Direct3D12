@@ -13,14 +13,14 @@ public struct RootRescriptorFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// Default assumptions are made for data (for SRV/CBV: DATA_STATIC_WHILE_SET_AT_EXECUTE, and for UAV: DATA_VOLATILE).
-    //static let none = RootRescriptorFlags(rawValue: WinSDK.D3D12_ROOT_DESCRIPTOR_FLAG_NONE.rawValue)
+    //public static let none = RootRescriptorFlags(rawValue: WinSDK.D3D12_ROOT_DESCRIPTOR_FLAG_NONE.rawValue)
 
     ///	Data is volatile. Equivalent to Root Signature Version 1.0.
-    static let dataVolatile = RootRescriptorFlags(rawValue: WinSDK.D3D12_ROOT_DESCRIPTOR_FLAG_DATA_VOLATILE.rawValue)
+    public static let dataVolatile = RootRescriptorFlags(rawValue: WinSDK.D3D12_ROOT_DESCRIPTOR_FLAG_DATA_VOLATILE.rawValue)
     ///	Data is static while set at execute.
-    static let dataStaticWhileSetAtExecute = RootRescriptorFlags(rawValue: WinSDK.D3D12_ROOT_DESCRIPTOR_FLAG_DATA_STATIC_WHILE_SET_AT_EXECUTE.rawValue)
+    public static let dataStaticWhileSetAtExecute = RootRescriptorFlags(rawValue: WinSDK.D3D12_ROOT_DESCRIPTOR_FLAG_DATA_STATIC_WHILE_SET_AT_EXECUTE.rawValue)
     ///	Data is static. The best potential for driver optimization.
-    static let dataStatic = RootRescriptorFlags(rawValue: WinSDK.D3D12_ROOT_DESCRIPTOR_FLAG_DATA_STATIC.rawValue)
+    public static let dataStatic = RootRescriptorFlags(rawValue: WinSDK.D3D12_ROOT_DESCRIPTOR_FLAG_DATA_STATIC.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue

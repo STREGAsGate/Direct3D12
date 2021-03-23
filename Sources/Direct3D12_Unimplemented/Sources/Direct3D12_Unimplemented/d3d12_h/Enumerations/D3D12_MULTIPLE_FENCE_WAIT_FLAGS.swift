@@ -14,13 +14,13 @@ public struct MultipleFenceWaitFlags: OptionSet {
     public let rawValue: Int32
     //Use an empty collection `[]` to represent none in Swift.
     ///// No flags.
-    //static let none = MultipleFenceWaitFlags(rawValue: WinSDK.D3D12_MULTIPLE_FENCE_WAIT_FLAG_NONE.rawValue)
+    //public static let none = MultipleFenceWaitFlags(rawValue: WinSDK.D3D12_MULTIPLE_FENCE_WAIT_FLAG_NONE.rawValue)
 
     /// Modifies behavior to indicate that the event should be signaled after any one of the fence values has been reached by its corresponding fence.
-    static let any = MultipleFenceWaitFlags(rawValue: WinSDK.D3D12_MULTIPLE_FENCE_WAIT_FLAG_ANY.rawValue)
+    public static let any = MultipleFenceWaitFlags(rawValue: WinSDK.D3D12_MULTIPLE_FENCE_WAIT_FLAG_ANY.rawValue)
 
     /// An alias for D3D12_MULTIPLE_FENCE_WAIT_FLAG_NONE, meaning to use the default behavior and wait for all fences.    
-    static let all = MultipleFenceWaitFlags(rawValue: WinSDK.D3D12_MULTIPLE_FENCE_WAIT_FLAG_ALL.rawValue)
+    public static let all = MultipleFenceWaitFlags(rawValue: WinSDK.D3D12_MULTIPLE_FENCE_WAIT_FLAG_ALL.rawValue)
 
     public init(rawValue: Int32) {
         self.rawValue = rawValue
