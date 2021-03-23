@@ -18,5 +18,3 @@ Notes:
 * Being written by hand, may contain typos or copy/paste errors.
 * Will not include the "DirectX 11 on DirectX 12" APIs.
 * Will not include any offically deprecated, redundant or "not intended for use" API.
-
-There's a Trello board [here](https://trello.com/b/tQoyHBVv/swift-direct3d-12) if you want to follow along.
