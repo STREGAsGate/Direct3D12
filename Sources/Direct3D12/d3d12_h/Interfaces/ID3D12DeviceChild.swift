@@ -19,8 +19,8 @@ public class D3DDeviceChild: D3DObject {
             var riid = D3DDevice.interfaceID
             var ppvDevice: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.GetDevice(pThis, &riid, &ppvDevice).checkResult()
-            guard let p = ppvDevice else {throw Error(.invalidArgument)}
-            return D3DDevice(win32Pointer: p)
+            guard let v = D3DDevice(win32Pointer: ppvDevice) else {throw Error(.invalidArgument)}
+            return v
         }
     }
 
@@ -29,9 +29,6 @@ public class D3DDeviceChild: D3DObject {
 
 extension D3DDeviceChild {
     typealias RawValue = WinSDK.ID3D12DeviceChild
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DDeviceChild.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12DeviceChild}

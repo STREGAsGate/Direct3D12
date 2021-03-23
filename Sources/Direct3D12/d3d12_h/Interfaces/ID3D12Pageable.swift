@@ -16,9 +16,6 @@ public class D3DPageable: D3DDeviceChild {
 
 extension D3DPageable {
     typealias RawValue = WinSDK.ID3D12Pageable
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DPageable.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12Pageable}

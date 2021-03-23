@@ -27,8 +27,9 @@ public class IUnknown {
         }
     }
 
-    init(win32Pointer: UnsafeMutableRawPointer) {
-        self.win32Pointer = win32Pointer
+    init?(win32Pointer pointer: UnsafeMutableRawPointer?) {
+        guard let pointer = pointer else {return nil}
+        self.win32Pointer = pointer
         let this = self.performFatally(as: WinSDK.IUnknown.self, body: {$0})
         _ = this.pointee.lpVtbl.pointee.AddRef(this)
     }
@@ -42,12 +43,9 @@ public class IUnknown {
     class var interfaceID: WinSDK.IID {preconditionFailure("Must override!")}
 }
 
-extension IUnknown {// Always use Factory1
+extension IUnknown {
     typealias RawValue = WinSDK.IUnknown
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
-extension IUnknown.RawValue {// Always use Factory1
+extension IUnknown.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_IUnknown}
 }

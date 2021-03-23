@@ -130,9 +130,6 @@ public class D3DCommandQueue: D3DPageable {
 
 extension D3DCommandQueue {
     typealias RawValue = WinSDK.ID3D12CommandQueue
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DCommandQueue.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12CommandQueue}

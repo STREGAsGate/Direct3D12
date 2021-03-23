@@ -22,9 +22,6 @@ public class D3DRootSignatureDeserializer: IUnknown {
 
 extension D3DRootSignatureDeserializer {
     public typealias RawValue = WinSDK.ID3D12RootSignatureDeserializer
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DRootSignatureDeserializer.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12RootSignatureDeserializer}

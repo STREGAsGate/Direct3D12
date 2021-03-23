@@ -15,9 +15,6 @@ public class D3DQueryHeap: D3DPageable {
 
 extension D3DQueryHeap {
     typealias RawValue = WinSDK.ID3D12QueryHeap
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DQueryHeap.RawValue {
     static var interfaceID: WinSDK.IID {

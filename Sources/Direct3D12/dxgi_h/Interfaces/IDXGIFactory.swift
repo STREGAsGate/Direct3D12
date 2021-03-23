@@ -15,9 +15,9 @@ public class DGIFactory: DGIObject {
         var ppFactory: UnsafeMutableRawPointer?
         try WinSDK.CreateDXGIFactory1(&riid, &ppFactory).checkResult()
         guard let p = ppFactory else {throw Error(.invalidArgument)}
-        super.init(win32Pointer: p)
+        super.init(win32Pointer: p)!
     }
-    override init(win32Pointer pointer: UnsafeMutableRawPointer) {
+    override init?(win32Pointer pointer: UnsafeMutableRawPointer?) {
         super.init(win32Pointer: pointer)
     }
 
@@ -26,9 +26,6 @@ public class DGIFactory: DGIObject {
 
 extension DGIFactory {// Always use Factory2
     typealias RawValue = WinSDK.IDXGIFactory2
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension DGIFactory.RawValue {// Always use Factory2
     static var interfaceID: WinSDK.IID {WinSDK.IID_IDXGIFactory2}

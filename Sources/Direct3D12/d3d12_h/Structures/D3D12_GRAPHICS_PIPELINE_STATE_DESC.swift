@@ -14,12 +14,12 @@ public struct D3DGraphicsPipelineStateDescription {
     internal var rawValue: RawValue
 
     /// A pointer to the ID3D12RootSignature object.
-    public var rootSignature: D3DRootSignature {
+    public var rootSignature: D3DRootSignature? {
         get {
             return D3DRootSignature(win32Pointer: rawValue.pRootSignature)
         }
         set {
-            rawValue.pRootSignature = newValue.performFatally(as: D3DRootSignature.RawValue.self){$0}
+            rawValue.pRootSignature = newValue?.performFatally(as: D3DRootSignature.RawValue.self){$0}
         }
     }
 

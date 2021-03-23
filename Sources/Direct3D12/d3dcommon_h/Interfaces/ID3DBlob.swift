@@ -30,9 +30,6 @@ public class D3DBlob: IUnknown {
 
 extension D3DBlob {
     typealias RawValue = WinSDK.ID3D10Blob
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DBlob.RawValue {
     static var interfaceID: WinSDK.IID {

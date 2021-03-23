@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -25,9 +25,6 @@ public class D3DObject: IUnknown {
 
 extension D3DObject {
     typealias RawValue = WinSDK.ID3D12Object
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DObject.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12Object}

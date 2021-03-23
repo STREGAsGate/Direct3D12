@@ -16,9 +16,6 @@ public class D3DRootSignature: D3DDeviceChild {
 
 extension D3DRootSignature {
     public typealias RawValue = WinSDK.ID3D12RootSignature
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DRootSignature.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12RootSignature}

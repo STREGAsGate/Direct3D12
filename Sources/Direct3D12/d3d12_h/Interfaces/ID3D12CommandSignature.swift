@@ -15,9 +15,6 @@ public class D3DCommandSignature: D3DPageable {
 
 extension D3DCommandSignature {
     typealias RawValue = WinSDK.ID3D12CommandSignature
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DCommandSignature.RawValue {
     static var interfaceID: IID {WinSDK.IID_ID3D12CommandSignature}

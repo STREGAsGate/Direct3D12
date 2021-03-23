@@ -23,9 +23,6 @@ public class D3DCommandAllocator: D3DPageable {
 
 extension D3DCommandAllocator {
     typealias RawValue = WinSDK.ID3D12CommandAllocator
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DCommandAllocator.RawValue {
     static var interfaceID: IID {WinSDK.IID_ID3D12CommandAllocator}

@@ -20,8 +20,8 @@ public class DGISwapChain: DGIDeviceSubObject {
             var riid = D3DResource.interfaceID
             var ppSurface: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.GetBuffer(pThis, Buffer, &riid, &ppSurface).checkResult()
-            guard let p = ppSurface else {throw Error(.invalidArgument)}
-            return D3DResource(win32Pointer: p)
+            guard let v = D3DResource(win32Pointer: ppSurface) else {throw Error(.invalidArgument)}
+            return v
         }
     }
 
@@ -48,9 +48,6 @@ public class DGISwapChain: DGIDeviceSubObject {
 
 extension DGISwapChain {
     typealias RawValue = WinSDK.IDXGISwapChain1
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension DGISwapChain.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_IDXGISwapChain1}

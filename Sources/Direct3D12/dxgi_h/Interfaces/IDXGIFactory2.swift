@@ -32,8 +32,8 @@ public extension DGIFactory {
             }else{
                 try pThis.pointee.lpVtbl.pointee.CreateSwapChainForHwnd(pThis, pDevice, hWnd, &pDesc, nil, nil, &ppSwapChain).checkResult()
             }
-            guard let p = ppSwapChain else {throw Error(.invalidArgument)}
-            return DGISwapChain(win32Pointer: p)
+            guard let v = DGISwapChain(win32Pointer: ppSwapChain) else {throw Error(.invalidArgument)}
+            return v
         }
     }
 }

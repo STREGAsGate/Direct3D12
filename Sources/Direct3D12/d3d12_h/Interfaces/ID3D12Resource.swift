@@ -116,9 +116,6 @@ public class D3DResource: D3DPageable {
 
 extension D3DResource {
     public typealias RawValue = WinSDK.ID3D12Resource
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DResource.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12Resource}

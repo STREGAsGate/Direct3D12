@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct ResourceUnorderedAccessViewBarrier {
-    internal var rawValue: WinSDK.D3D12_RESOURCE_UAV_BARRIER
+public struct D3DResourceTransitionBarrier {
+    public typealias RawValue = WinSDK.D3D12_RESOURCE_TRANSITION_BARRIER
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RESOURCE_UAV_BARRIER) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct ResourceUnorderedAccessViewBarrier {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ResourceUnorderedAccessViewBarrier")
-public typealias D3D12_RESOURCE_UAV_BARRIER = ResourceUnorderedAccessViewBarrier
+@available(*, deprecated, renamed: "D3DResourceTransitionBarrier")
+public typealias D3D12_RESOURCE_TRANSITION_BARRIER = D3DResourceTransitionBarrier
 
 #endif

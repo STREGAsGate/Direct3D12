@@ -18,8 +18,8 @@ public class DGIDeviceSubObject: DGIObject {
             var riid = DGIDevice.interfaceID
             var ppDevice: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.GetDevice(pThis, &riid, &ppDevice).checkResult()
-            guard let p = ppDevice else {throw Error(.invalidArgument)}
-            return DGIDevice(win32Pointer: p)
+            guard let v = DGIDevice(win32Pointer: ppDevice) else {throw Error(.invalidArgument)}
+            return v
         }
     }
 
@@ -28,9 +28,6 @@ public class DGIDeviceSubObject: DGIObject {
 
 extension DGIDeviceSubObject {
     typealias RawValue = WinSDK.IDXGIDeviceSubObject
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension DGIDeviceSubObject.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_IDXGIDeviceSubObject}

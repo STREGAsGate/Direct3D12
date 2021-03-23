@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -51,9 +51,6 @@ public class D3DFence: D3DPageable {
 
 extension D3DFence {
     typealias RawValue = WinSDK.ID3D12Fence
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DFence.RawValue {
     static var interfaceID: WinSDK.IID {

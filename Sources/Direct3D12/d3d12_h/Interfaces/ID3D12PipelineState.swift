@@ -16,8 +16,8 @@ public class D3DPipelineState: D3DPageable {
         return try perform(as: RawValue.self) {pThis in
             var ppBlob: UnsafeMutablePointer<D3DBlob.RawValue>?
             try pThis.pointee.lpVtbl.pointee.GetCachedBlob(pThis, &ppBlob).checkResult()
-            guard let p = ppBlob else {throw Error(.invalidArgument)}
-            return D3DBlob(win32Pointer: p)
+            guard let v = D3DBlob(win32Pointer: ppBlob) else {throw Error(.invalidArgument)}
+            return v
         }
     }
 
@@ -26,9 +26,6 @@ public class D3DPipelineState: D3DPageable {
 
 extension D3DPipelineState {
     typealias RawValue = WinSDK.ID3D12PipelineState
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DPipelineState.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12PipelineState}

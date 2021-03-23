@@ -21,9 +21,6 @@ public class D3DCommandList: D3DDeviceChild {
 
 extension D3DCommandList {
     typealias RawValue = WinSDK.ID3D12CommandList
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DCommandList.RawValue {
     static var interfaceID: IID {WinSDK.IID_ID3D12CommandList}

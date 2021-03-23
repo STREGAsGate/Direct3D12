@@ -15,9 +15,6 @@ public class DGIOutput: DGIObject {
 
 extension DGIOutput {
     typealias RawValue = WinSDK.IDXGIOutput
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension DGIOutput.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_IDXGIOutput}

@@ -739,9 +739,6 @@ public class D3DGraphicsCommandList: D3DCommandList {
 
 extension D3DGraphicsCommandList {
     typealias RawValue = WinSDK.ID3D12GraphicsCommandList
-    convenience init(_ rawValue: inout RawValue) {
-        self.init(win32Pointer: &rawValue)
-    }
 }
 extension D3DGraphicsCommandList.RawValue {
     static var interfaceID: WinSDK.IID {WinSDK.IID_ID3D12GraphicsCommandList}
