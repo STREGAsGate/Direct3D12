@@ -8,11 +8,13 @@
 
 import WinSDK
 
-public struct D3DStreamOutputDescriptor {
-    internal var rawValue: WinSDK.D3D12_STREAM_OUTPUT_DESC
+public struct D3DStreamOutputDescription {
+    public typealias RawValue =  WinSDK.D3D12_STREAM_OUTPUT_DESC
+    internal var rawValue: RawValue
 
+    
 
-    internal init(_ rawValue: WinSDK.D3D12_STREAM_OUTPUT_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +23,7 @@ public struct D3DStreamOutputDescriptor {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "D3DStreamOutputDescriptor")
-public typealias D3D12_STREAM_OUTPUT_DESC = D3DStreamOutputDescriptor
+@available(*, deprecated, renamed: "D3DStreamOutputDescription")
+public typealias D3D12_STREAM_OUTPUT_DESC = D3DStreamOutputDescription
 
 #endif

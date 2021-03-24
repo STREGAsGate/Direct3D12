@@ -74,9 +74,9 @@ public struct D3DGraphicsPipelineStateDescription {
     }
 
     /// A D3D12_STREAM_OUTPUT_DESC structure that describes a streaming output buffer.
-    public var streamOutput: D3DStreamOutputDescriptor {
+    public var streamOutput: D3DStreamOutputDescription {
         get {
-            return D3DStreamOutputDescriptor(rawValue.StreamOutput)
+            return D3DStreamOutputDescription(rawValue.StreamOutput)
         }
         set {
             rawValue.StreamOutput = newValue.rawValue
@@ -251,7 +251,7 @@ public struct D3DGraphicsPipelineStateDescription {
                 domainShader: D3DShaderBytecode,
                 hullShader: D3DShaderBytecode,
                 geometryShader: D3DShaderBytecode,
-                streamOutput: D3DStreamOutputDescriptor,
+                streamOutput: D3DStreamOutputDescription,
                 blendState: D3DBlendDescription,
                 sampleMask: UInt32,
                 rasterizerState: D3DRasterizerDescription,
