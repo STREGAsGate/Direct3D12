@@ -11,6 +11,32 @@ import WinSDK
 public struct D3DShaderResourceViewDescription {
     internal var rawValue: WinSDK.D3D12_SHADER_RESOURCE_VIEW_DESC
 
+    public var format: DGIFormat {
+        get {
+            return DGIFormat(rawValue.Format)
+        }
+        set {
+            rawValue.Format = newValue.rawValue
+        }
+    }
+
+    public var dimension: D3DShaderResourceViewDimension {
+        get {
+            return D3DShaderResourceViewDimension(rawValue.ViewDimension)
+        }
+        set {
+            rawValue.ViewDimension = newValue.rawValue
+        }
+    }
+
+    public var componentMapping: D3DShaderComponentMap {
+        get {
+            return D3DShaderComponentMap(D3DShaderComponentMap.RawValue(rawValue.Shader4ComponentMapping))
+        }
+        set {
+            rawValue.Shader4ComponentMapping = UInt32(newValue.rawValue)
+        }
+    }
 
     internal init(_ rawValue: WinSDK.D3D12_SHADER_RESOURCE_VIEW_DESC) {
         self.rawValue = rawValue
