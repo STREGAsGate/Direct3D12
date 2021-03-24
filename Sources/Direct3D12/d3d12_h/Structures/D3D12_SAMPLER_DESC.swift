@@ -136,6 +136,16 @@ public struct D3DSamplerDescription {
                 minLOD: Float = 0,
                 maxLOD: Float = 1000) {
         self.rawValue = RawValue()
+        self.filter = filter
+        self.addressU = addressU
+        self.addressV = addressV
+        self.addressW = addressW
+        self.mipLODBias = mipLODBias
+        self.maxAnisotropy = maxAnisotropy
+        self.comparisonFunction = comparisonFunction
+        self.borderColor = borderColor
+        self.minLOD = minLOD
+        self.maxLOD = maxLOD
     }
 
     internal init(_ rawValue: WinSDK.D3D12_SAMPLER_DESC) {
