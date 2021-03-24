@@ -539,7 +539,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter parameterIndex: The slot number for binding.
     - parameter gpuBufferLocation: Specifies the D3D12_GPU_VIRTUAL_ADDRESS of the constant buffer.
     */
-    public func setComputeRootConstantBufferView(parameterIndex: UInt32, gpuBufferLocation: UInt64) {
+    public func setComputeRootConstantBufferView(parameterIndex: UInt32, gpuBufferLocation: D3DGPUVirtualAddress) {
         performFatally(as: RawValue.self) {pThis in
             let RootParameterIndex = parameterIndex
             let BufferLocation = gpuBufferLocation
@@ -563,7 +563,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter parameterIndex: The slot number for binding.
     - parameter gpuBufferLocation: The GPU virtual address of the buffer. D3D12_GPU_VIRTUAL_ADDRESS is a typedef'd alias of UINT64.
     */
-    public func setComputeRootShaderResourceView(parameterIndex: UInt32, gpuBufferLocation: UInt64) {
+    public func setComputeRootShaderResourceView(parameterIndex: UInt32, gpuBufferLocation: D3DGPUVirtualAddress) {
         performFatally(as: RawValue.self) {pThis in
             let RootParameterIndex = parameterIndex
             let BufferLocation = gpuBufferLocation
@@ -585,7 +585,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter parameterIndex: The slot number for binding.
     - parameter gpuBufferLocation: The GPU virtual address of the buffer. D3D12_GPU_VIRTUAL_ADDRESS is a typedef'd alias of UINT64.
     */
-    public func setComputeRootUnorderedAccessView(parameterIndex: UInt32, gpuBufferLocation: UInt64) {
+    public func setComputeRootUnorderedAccessView(parameterIndex: UInt32, gpuBufferLocation: D3DGPUVirtualAddress) {
         performFatally(as: RawValue.self) {pThis in
             let RootParameterIndex = parameterIndex
             let BufferLocation = gpuBufferLocation
@@ -637,7 +637,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter parameterIndex: The slot number for binding.
     - parameter gpuBufferLocation: The GPU virtual address of the buffer. D3D12_GPU_VIRTUAL_ADDRESS is a typedef'd alias of UINT64.
     */
-    public func setGraphicsRootConstantBufferView(parameterIndex: UInt32, gpuBufferLocation: UInt64) {
+    public func setGraphicsRootConstantBufferView(parameterIndex: UInt32, gpuBufferLocation: D3DGPUVirtualAddress) {
         performFatally(as: RawValue.self) {pThis in
             let RootParameterIndex = parameterIndex
             let BufferLocation = gpuBufferLocation
@@ -661,7 +661,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter parameterIndex: The slot number for binding.
     - parameter gpuBufferLocation: The GPU virtual address of the buffer. D3D12_GPU_VIRTUAL_ADDRESS is a typedef'd alias of UINT64.
     */
-    public func setGraphicsRootShaderResourceView(parameterIndex: UInt32, gpuBufferLocation: UInt64) {
+    public func setGraphicsRootShaderResourceView(parameterIndex: UInt32, gpuBufferLocation: D3DGPUVirtualAddress) {
         performFatally(as: RawValue.self) {pThis in
             let RootParameterIndex = parameterIndex
             let BufferLocation = gpuBufferLocation
@@ -683,7 +683,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter parameterIndex: The slot number for binding.
     - parameter gpuBufferLocation: The GPU virtual address of the buffer. D3D12_GPU_VIRTUAL_ADDRESS is a typedef'd alias of UINT64.
     */
-    public func setGraphicsRootUnorderedAccessView(parameterIndex: UInt32, gpuBufferLocation: UInt64) {
+    public func setGraphicsRootUnorderedAccessView(parameterIndex: UInt32, gpuBufferLocation: D3DGPUVirtualAddress) {
         performFatally(as: RawValue.self) {pThis in
             let RootParameterIndex = parameterIndex
             let BufferLocation = gpuBufferLocation

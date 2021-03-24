@@ -14,7 +14,7 @@ public struct D3DIndexBufferView {
     internal var rawValue: RawValue
 
     /// The GPU virtual address of the index buffer. D3D12_GPU_VIRTUAL_ADDRESS is a typedef'd synonym of UINT64.
-    public var bufferLocation: UInt64 {
+    public var bufferLocation: D3DGPUVirtualAddress {
         get {
             return rawValue.BufferLocation
         }
@@ -48,7 +48,7 @@ public struct D3DIndexBufferView {
     - parameter byteCount: The size in bytes of the index buffer.
     - parameter format: A DXGI_FORMAT-typed value for the index-buffer format.
     */
-    public init(bufferLocation: UInt64, byteCount: UInt32, format: DGIFormat) {
+    public init(bufferLocation: D3DGPUVirtualAddress, byteCount: UInt32, format: DGIFormat) {
         self.rawValue = RawValue()
         self.bufferLocation = bufferLocation
         self.byteCount = byteCount
