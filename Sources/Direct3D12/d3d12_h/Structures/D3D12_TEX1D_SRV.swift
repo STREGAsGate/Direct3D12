@@ -8,11 +8,11 @@
 
 import WinSDK
 
-public struct Texture1DShaderResourceView {
-    internal var rawValue: WinSDK.D3D12_TEX1D_SRV
+public struct D3DTexture1DShaderResourceView {
+    public typealias RawValue = WinSDK.D3D12_TEX1D_SRV
+    internal var rawValue: RawValue
 
-
-    internal init(_ rawValue: WinSDK.D3D12_TEX1D_SRV) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +21,7 @@ public struct Texture1DShaderResourceView {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Texture1DShaderResourceView")
-public typealias D3D12_TEX1D_SRV = Texture1DShaderResourceView
+@available(*, deprecated, renamed: "D3DTexture1DShaderResourceView")
+public typealias D3D12_TEX1D_SRV = D3DTexture1DShaderResourceView
 
 #endif

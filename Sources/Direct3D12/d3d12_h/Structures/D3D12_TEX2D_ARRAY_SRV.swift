@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct Texture3DShaderResourceView {
-    internal var rawValue: WinSDK.D3D12_TEX3D_SRV
+public struct D3DTexture2DArrayShaderResourceView {
+    public typealias RawValue = WinSDK.D3D12_TEX2D_ARRAY_SRV
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_TEX3D_SRV) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct Texture3DShaderResourceView {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "Texture3DShaderResourceView")
-public typealias D3D12_TEX3D_SRV = Texture3DShaderResourceView
+@available(*, deprecated, renamed: "D3DTexture2DArrayShaderResourceView")
+public typealias D3D12_TEX2D_ARRAY_SRV = D3DTexture2DArrayShaderResourceView
 
 #endif
