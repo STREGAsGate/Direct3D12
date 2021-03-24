@@ -25,7 +25,7 @@ public enum D3DRootParameterType {
 
     case _unimplemented(RawValue)
 
-    internal var rawValue: RawValue {
+    public var rawValue: RawValue {
         switch self {
         case .descriptorTable:
             return WinSDK.D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE
