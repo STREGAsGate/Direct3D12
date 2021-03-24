@@ -8,10 +8,27 @@
 
 import WinSDK
 
+/// Describes the subresource from a 1D texture that is accessible to a depth-stencil view.
 public struct D3DTexture1DDepthStencilView {
     public typealias RawValue = WinSDK.D3D12_TEX1D_DSV
     internal var rawValue: RawValue
 
+    /// The index of the first mipmap level to use.
+    public var mipIndex: UInt32 {
+        get {
+            return rawValue.MipSlice
+        }
+        set {
+            rawValue.MipSlice = newValue
+        }
+    }
+
+    /** Describes the subresource from a 1D texture that is accessible to a depth-stencil view.
+    - parameter mipIndex: The index of the first mipmap level to use.
+    */
+    public init(mipIndex: UInt32) {
+        self.rawValue = RawValue(MipSlice: mipIndex)
+    }
 
     internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
