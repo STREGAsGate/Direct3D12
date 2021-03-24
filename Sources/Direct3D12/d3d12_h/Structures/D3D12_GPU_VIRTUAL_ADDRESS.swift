@@ -6,6 +6,8 @@
  * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
+import WinSDK
+
 public typealias D3DGPUVirtualAddress = WinSDK.D3D12_GPU_VIRTUAL_ADDRESS
 
 //MARK: - Original Style API
