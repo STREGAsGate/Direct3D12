@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct TextureCubeShaderResourceView {
-    internal var rawValue: WinSDK.D3D12_TEXCUBE_SRV
+public struct D3DTextureCubeShaderResourceView {
+    public typealias RawValue = WinSDK.D3D12_TEXCUBE_SRV
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_TEXCUBE_SRV) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct TextureCubeShaderResourceView {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "TextureCubeShaderResourceView")
-public typealias D3D12_TEXCUBE_SRV = TextureCubeShaderResourceView
+@available(*, deprecated, renamed: "D3DTextureCubeShaderResourceView")
+public typealias D3D12_TEXCUBE_SRV = D3DTextureCubeShaderResourceView
 
 #endif
