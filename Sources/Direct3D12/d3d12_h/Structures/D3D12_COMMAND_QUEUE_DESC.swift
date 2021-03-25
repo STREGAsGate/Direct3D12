@@ -59,7 +59,7 @@ public struct D3DCommandQueueDescription {
     - parameter flags: Specifies any flags from the D3D12_COMMAND_QUEUE_FLAGS enumeration.
     - parameter multipleAdapterNodeMask: For single GPU operation, set this to zero. If there are multiple GPU nodes, set a bit to identify the node (the device's physical adapter) to which the command queue applies. Each bit in the mask corresponds to a single node. Only 1 bit must be set. Refer to Multi-adapter systems.
     */
-    public init(type: D3DCommandListType, priority: D3DCommandQueuePriority, flags: D3DCommandQueueFlags = [], multipleAdapterNodeMask: UInt32 = 0) {
+    public init(type: D3DCommandListType, priority: D3DCommandQueuePriority = .normal, flags: D3DCommandQueueFlags = [], multipleAdapterNodeMask: UInt32 = 0) {
         self.rawValue = RawValue()
         self.type = type
         self.priority = priority

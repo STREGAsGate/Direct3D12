@@ -21,7 +21,7 @@ public struct DirectX {
     internal init() {
         do {
             self.factory = try DGIFactory()
-            self.device = try D3DDevice(minimumFeatureLevel: .v11)
+            self.device = try D3DDevice.createDefaultDevice()
         }catch{
             print(error)
             fatalError("A DGIFactory and D3DDevice are required but one could not be created.")

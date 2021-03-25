@@ -121,6 +121,17 @@ public class D3DDevice: D3DObject {
             return v
         }
     }
+    
+    /** Creates a command queue.
+    - parameter type: Specifies one member of D3D12_COMMAND_LIST_TYPE.
+    - parameter priority: The priority for the command queue, as a D3D12_COMMAND_QUEUE_PRIORITYenumeration constant to select normal or high priority.
+    - parameter flags: Specifies any flags from the D3D12_COMMAND_QUEUE_FLAGS enumeration.
+    - parameter multipleAdapterNodeMask: For single GPU operation, set this to zero. If there are multiple GPU nodes, set a bit to identify the node (the device's physical adapter) to which the command queue applies. Each bit in the mask corresponds to a single node. Only 1 bit must be set. Refer to Multi-adapter systems.
+    */
+    public func createCommandQueue(type: D3DCommandListType, priority: D3DCommandQueuePriority = .normal, flags: D3DCommandQueueFlags = [], multipleAdapterNodeMask: UInt32 = 0)  throws -> D3DCommandQueue {
+        let queueDescription = D3DCommandQueueDescription(type: type, priority: priority, flags: flags, multipleAdapterNodeMask: multipleAdapterNodeMask)
+        return try createCommandQueue(description: queueDescription)
+    } 
 
     /** This method creates a command signature.
     - parameter description: Describes the command signature to be created with the D3D12_COMMAND_SIGNATURE_DESC structure.
@@ -220,7 +231,7 @@ public class D3DDevice: D3DObject {
     - parameter initialValue: The initial value for the fence.
     - parameter flags: A combination of D3D12_FENCE_FLAGS-typed values that are combined by using a bitwise OR operation. The resulting value specifies options for the fence.
     */
-    public func createFence(initialValue: UInt64, flags: D3DFenceFlags) throws -> D3DFence {
+    public func createFence(initialValue: UInt64 = 0, flags: D3DFenceFlags = []) throws -> D3DFence {
         return try perform(as: RawValue.self) {pThis in
             let InitialValue = initialValue
             let Flags = D3DFenceFlags.RawType(flags.rawValue)
@@ -586,6 +597,38 @@ public class D3DDevice: D3DObject {
         try WinSDK.D3D12CreateDevice(pAdapter, MinimumFeatureLevel, &riid, &ppDevice).checkResult()
         guard let p = ppDevice else {throw Error(.invalidArgument)}
         super.init(win32Pointer: p)!
+    }
+
+    public class func createDefaultDevice() throws -> D3DDevice {
+        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v12_1) {
+            return device
+        }
+        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v12) {
+            return device
+        }
+        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v11_1) {
+            return device
+        }
+        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v11) {
+            return device
+        }
+        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v10_1) {
+            return device
+        }
+        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v10) {
+            return device
+        }
+        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v9_3) {
+            return device
+        }
+        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v9_2) {
+            return device
+        }
+        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v9_1) {
+            return device
+        }
+
+        throw Error("No supported devices found.")
     }
 
     override public init?(win32Pointer pointer: UnsafeMutableRawPointer?) {

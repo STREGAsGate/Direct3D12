@@ -10,6 +10,7 @@ import WinSDK
 
 @available(Windows, introduced: 10.0.19041)
 public extension Device {
+    
     /** Creates both a resource and an implicit heap (optionally for a protected session), such that the heap is big enough to contain the entire resource, and the resource is mapped to the heap.
     - parameter description: A pointer to a D3D12_RESOURCE_DESC1 structure that describes the resource, including a mip region.
     - parameter properties: A pointer to a D3D12_HEAP_PROPERTIES structure that provides properties for the resource's heap.

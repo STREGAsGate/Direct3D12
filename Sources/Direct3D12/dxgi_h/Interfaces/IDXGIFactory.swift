@@ -7,13 +7,19 @@
  */
 
 import WinSDK
+import WinSDK.DirectX
 
 public class DGIFactory: DGIObject {
     
     public init() throws {
         var riid = DGIFactory.interfaceID
         var ppFactory: UnsafeMutableRawPointer?
-        try WinSDK.CreateDXGIFactory1(&riid, &ppFactory).checkResult()
+        #if DEBUG
+        let flags = UInt32(DXGI_CREATE_FACTORY_DEBUG)
+        #else
+        let flags: UInt32 = 0
+        #endif
+        try WinSDK.CreateDXGIFactory2(flags, &riid, &ppFactory).checkResult()
         guard let p = ppFactory else {throw Error(.invalidArgument)}
         super.init(win32Pointer: p)!
     }
