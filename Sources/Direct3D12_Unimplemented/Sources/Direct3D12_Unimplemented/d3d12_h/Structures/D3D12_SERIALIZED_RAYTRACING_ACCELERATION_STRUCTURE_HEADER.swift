@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct SerializedRaytracingAccelerationStructureHeader {
-    internal var rawValue: WinSDK.D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER
+public struct D3DSerializedRaytracingAccelerationStructureHeader {
+    public typealias RawValue = WinSDK.D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct SerializedRaytracingAccelerationStructureHeader {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "SerializedRaytracingAccelerationStructureHeader")
+@available(*, deprecated, renamed: "D3DSerializedRaytracingAccelerationStructureHeader")
 public typealias D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER = RenderTargetFormatArray
 
 #endif

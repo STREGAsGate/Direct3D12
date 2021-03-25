@@ -21,6 +21,7 @@ public enum D3DDescriptorRangeType {
     ///	Specifies a range of samplers.
     case sampler
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

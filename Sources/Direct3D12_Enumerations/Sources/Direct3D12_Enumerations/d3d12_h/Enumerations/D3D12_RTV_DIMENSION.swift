@@ -31,6 +31,7 @@ public enum D3DRenderTargetViewDiemension {
     ///	The resource will be accessed as a 3D texture.
     case texture3D
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

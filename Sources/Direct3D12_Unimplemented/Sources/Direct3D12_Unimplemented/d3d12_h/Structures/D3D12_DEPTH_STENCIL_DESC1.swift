@@ -8,11 +8,11 @@
 
 import WinSDK
 
-public struct DepthStencilDescription1 {
-    internal var rawValue: WinSDK.D3D12_DEPTH_STENCIL_DESC1
+public struct D3DDepthStencilDescription1 {
+    public typealias RawValue = WinSDK.D3D12_DEPTH_STENCIL_DESC1
+    internal var rawValue: RawValue
 
-
-    internal init(_ rawValue: WinSDK.D3D12_DEPTH_STENCIL_DESC1) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +21,7 @@ public struct DepthStencilDescription1 {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DepthStencilDescription1")
-public typealias D3D12_DEPTH_STENCIL_DESC1 = DepthStencilDescription1
+@available(*, deprecated, renamed: "D3DDepthStencilDescription1")
+public typealias D3D12_DEPTH_STENCIL_DESC1 = D3DDepthStencilDescription1
 
 #endif

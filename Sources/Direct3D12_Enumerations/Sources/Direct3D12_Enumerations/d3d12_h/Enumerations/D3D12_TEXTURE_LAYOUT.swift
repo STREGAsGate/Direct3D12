@@ -144,6 +144,7 @@ public enum D3DTextureLayout {
     */
     case standardSwizzle64kb
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

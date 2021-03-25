@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataD3d12Options5 {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_D3D12_OPTIONS5
+public struct D3DFeatureDataD3d12Options5 {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_D3D12_OPTIONS5
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_D3D12_OPTIONS5) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataD3d12Options5 {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataD3d12Options5")
-public typealias D3D12_FEATURE_DATAWinSDK_OPTIONS5 = FeatureDataD3d12Options5
+@available(*, deprecated, renamed: "D3DFeatureDataD3d12Options5")
+public typealias D3D12_FEATURE_DATAWinSDK_OPTIONS5 = D3DFeatureDataD3d12Options5
 
 #endif

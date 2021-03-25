@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct DrawArguments {
-    internal var rawValue: WinSDK.D3D12_DRAW_ARGUMENTS
+public struct D3DDrawArguments {
+    public typealias RawValue = WinSDK.D3D12_DRAW_ARGUMENTS
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_DRAW_ARGUMENTS) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct DrawArguments {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DrawArguments")
-public typealias D3D12_DRAW_ARGUMENTS = DrawArguments
+@available(*, deprecated, renamed: "D3DDrawArguments")
+public typealias D3D12_DRAW_ARGUMENTS = D3DDrawArguments
 
 #endif

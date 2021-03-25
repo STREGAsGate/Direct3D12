@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct StateSubobject {
-    internal var rawValue: WinSDK.D3D12_STATE_SUBOBJECT
+public struct D3DStateSubobject {
+    public typealias RawValue = WinSDK.D3D12_STATE_SUBOBJECT
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_STATE_SUBOBJECT) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct StateSubobject {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "StateSubobject")
+@available(*, deprecated, renamed: "D3DStateSubobject")
 public typealias D3D12_STATE_SUBOBJECT = RenderTargetFormatArray
 
 #endif

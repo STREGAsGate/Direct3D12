@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataGpuVirtualAddressSupport {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT
+public struct D3DFeatureDataGpuVirtualAddressSupport {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataGpuVirtualAddressSupport {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataGpuVirtualAddressSupport")
-public typealias D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT = FeatureDataGpuVirtualAddressSupport
+@available(*, deprecated, renamed: "D3DFeatureDataGpuVirtualAddressSupport")
+public typealias D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT = D3DFeatureDataGpuVirtualAddressSupport
 
 #endif

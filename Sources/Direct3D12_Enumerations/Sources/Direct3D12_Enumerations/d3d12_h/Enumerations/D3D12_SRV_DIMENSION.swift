@@ -37,6 +37,7 @@ public enum D3DShaderResourceViewDimension {
     ///	The resource is a raytracing acceleration structure.
     case raytracingAccelerationStructure
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

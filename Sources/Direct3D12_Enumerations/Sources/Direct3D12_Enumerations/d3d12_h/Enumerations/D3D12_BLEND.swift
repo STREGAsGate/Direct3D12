@@ -47,6 +47,7 @@ public enum D3DBlendFactor {
     ///	The blend factor is data sources as alpha data output by a pixel shader. The pre-blend operation inverts the data, generating 1 - A. This blend factor supports dual-source color blending.
     case inverseSource1Alpha
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

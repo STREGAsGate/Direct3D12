@@ -148,7 +148,7 @@ public struct D3DSamplerDescription {
         self.maxLOD = maxLOD
     }
 
-    internal init(_ rawValue: WinSDK.D3D12_SAMPLER_DESC) {
+    internal init(_ rawValue:RawValue) {
         self.rawValue = rawValue
     }
 }

@@ -28,6 +28,7 @@ public enum D3DComparisonFunction {
     ///	Always pass the comparison.
     case alwaysSuccees
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

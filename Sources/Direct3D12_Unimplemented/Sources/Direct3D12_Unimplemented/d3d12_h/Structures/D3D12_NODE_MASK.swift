@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct NodeMask {
-    internal var rawValue: WinSDK.D3D12_NODE_MASK
+public struct D3DNodeMask {
+    public typealias RawValue = WinSDK.D3D12_NODE_MASK
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_NODE_MASK) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct NodeMask {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "NodeMask")
-public typealias D3D12_NODE_MASK = NodeMask
+@available(*, deprecated, renamed: "D3DNodeMask")
+public typealias D3D12_NODE_MASK = D3DNodeMask
 
 #endif

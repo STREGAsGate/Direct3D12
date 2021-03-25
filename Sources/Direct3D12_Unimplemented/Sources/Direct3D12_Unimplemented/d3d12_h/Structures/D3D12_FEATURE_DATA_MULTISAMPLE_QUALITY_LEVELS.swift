@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataMultisampleQualityLevels {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS
+public struct D3DFeatureDataMultisampleQualityLevels {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataMultisampleQualityLevels {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataMultisampleQualityLevels")
-public typealias D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS = FeatureDataMultisampleQualityLevels
+@available(*, deprecated, renamed: "D3DFeatureDataMultisampleQualityLevels")
+public typealias D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS = D3DFeatureDataMultisampleQualityLevels
 
 #endif

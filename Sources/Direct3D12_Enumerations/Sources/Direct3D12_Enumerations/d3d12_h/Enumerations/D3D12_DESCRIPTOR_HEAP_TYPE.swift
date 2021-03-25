@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -22,6 +22,7 @@ public enum D3DDescriptorHeapType {
     ///	The number of types of descriptor heaps.
     case numberOfTypes
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

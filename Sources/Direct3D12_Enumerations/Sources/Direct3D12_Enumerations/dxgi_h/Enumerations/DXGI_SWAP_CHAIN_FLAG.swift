@@ -10,6 +10,7 @@ import WinSDK
 
 public struct DGISwapChainFlags: OptionSet {
     public typealias RawType = WinSDK.DXGI_SWAP_CHAIN_FLAG
+    public var rawType: RawType {RawType(rawValue)}
     public typealias RawValue = WinSDK.DXGI_SWAP_CHAIN_FLAG.RawValue
     public let rawValue: RawValue
 
@@ -22,6 +23,9 @@ public struct DGISwapChainFlags: OptionSet {
 
     public init(rawValue: RawValue) {
         self.rawValue = rawValue
+    }
+    public init(_ rawType: RawType) {
+        self.rawValue = rawType.rawValue
     }
     public init() {
         self.rawValue = 0

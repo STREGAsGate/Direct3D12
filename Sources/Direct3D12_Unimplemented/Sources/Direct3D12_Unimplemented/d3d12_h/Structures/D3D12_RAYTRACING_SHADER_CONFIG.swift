@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RaytracingShaderConfiguration {
-    internal var rawValue: WinSDK.D3D12_RAYTRACING_SHADER_CONFIG
+public struct D3DRaytracingShaderConfiguration {
+    public typealias RawValue = WinSDK.D3D12_RAYTRACING_SHADER_CONFIG
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RAYTRACING_SHADER_CONFIG) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RaytracingShaderConfiguration {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RaytracingShaderConfiguration")
-public typealias D3D12_RAYTRACING_SHADER_CONFIG = RaytracingShaderConfiguration
+@available(*, deprecated, renamed: "D3DRaytracingShaderConfiguration")
+public typealias D3D12_RAYTRACING_SHADER_CONFIG = D3DRaytracingShaderConfiguration
 
 #endif

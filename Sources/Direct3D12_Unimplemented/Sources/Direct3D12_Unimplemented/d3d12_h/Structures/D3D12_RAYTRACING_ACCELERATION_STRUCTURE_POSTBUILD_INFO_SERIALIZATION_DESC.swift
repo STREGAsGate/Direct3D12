@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RaytracingAccelerationStructurePostbuildInfoSerializationDescription {
-    internal var rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC
+public struct D3DRaytracingAccelerationStructurePostbuildInfoSerializationDescription {
+    public typealias RawValue = WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RaytracingAccelerationStructurePostbuildInfoSerializationDescripti
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RaytracingAccelerationStructurePostbuildInfoSerializationDescription")
-public typealias D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC = RaytracingAccelerationStructurePostbuildInfoSerializationDescription
+@available(*, deprecated, renamed: "D3DRaytracingAccelerationStructurePostbuildInfoSerializationDescription")
+public typealias D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC = D3DRaytracingAccelerationStructurePostbuildInfoSerializationDescription
 
 #endif

@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct VersionedRootSignatureDescriptor {
-    internal var rawValue: WinSDK.D3D12_VERSIONED_ROOT_SIGNATURE_DESC
+public struct D3DVersionedRootSignatureDescriptor {
+    public typealias RawValue = WinSDK.D3D12_VERSIONED_ROOT_SIGNATURE_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_VERSIONED_ROOT_SIGNATURE_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct VersionedRootSignatureDescriptor {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "VersionedRootSignatureDescriptor")
-public typealias D3D12_VERSIONED_ROOT_SIGNATURE_DESC = VersionedRootSignatureDescriptor
+@available(*, deprecated, renamed: "D3DVersionedRootSignatureDescriptor")
+public typealias D3D12_VERSIONED_ROOT_SIGNATURE_DESC = D3DVersionedRootSignatureDescriptor
 
 #endif

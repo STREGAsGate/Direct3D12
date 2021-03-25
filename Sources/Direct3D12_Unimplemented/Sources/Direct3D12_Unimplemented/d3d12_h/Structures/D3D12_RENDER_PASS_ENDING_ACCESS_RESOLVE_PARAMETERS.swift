@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RenderPassEndingAccessResolveParameters {
-    internal var rawValue: WinSDK.D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS
+public struct D3DRenderPassEndingAccessResolveParameters {
+    public typealias RawValue = WinSDK.D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RenderPassEndingAccessResolveParameters {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RenderPassEndingAccessResolveParameters")
-public typealias D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS = RenderPassEndingAccessResolveParameters
+@available(*, deprecated, renamed: "D3DRenderPassEndingAccessResolveParameters")
+public typealias D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS = D3DRenderPassEndingAccessResolveParameters
 
 #endif

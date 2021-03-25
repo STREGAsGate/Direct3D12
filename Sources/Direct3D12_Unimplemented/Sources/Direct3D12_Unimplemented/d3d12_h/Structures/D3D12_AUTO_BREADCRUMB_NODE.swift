@@ -41,7 +41,7 @@ public struct AutoBreadcrumbNode {
         return AutoBreadcrumbNode(p)
     }
     
-    public init(_ rawValue: WinSDK.D3D12_AUTO_BREADCRUMB_NODE) {
+    public init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

@@ -27,6 +27,7 @@ public enum D3DDSVDimension {
     ///	The resource will be accessed as an array of 2D textures with multi sampling.
     case texture2DMuiliSamplingArray
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct SamplePosition {
-    internal var rawValue: WinSDK.D3D12_SAMPLE_POSITION
+public struct D3DSamplePosition {
+    public typealias RawValue = WinSDK.D3D12_SAMPLE_POSITION
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_SAMPLE_POSITION) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct SamplePosition {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "SamplePosition")
+@available(*, deprecated, renamed: "D3DSamplePosition")
 public typealias D3D12_SAMPLE_POSITION = RenderTargetFormatArray
 
 #endif

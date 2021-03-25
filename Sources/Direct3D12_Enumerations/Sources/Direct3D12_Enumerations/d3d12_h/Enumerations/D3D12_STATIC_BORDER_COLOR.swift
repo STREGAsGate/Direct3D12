@@ -19,6 +19,7 @@ public enum D3DStaticBorderColor {
     ///	Indicates white, with the alpha component as fully opaque.
     case opaqueWhite
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RaytracingPipelineConfiguration {
-    internal var rawValue: WinSDK.D3D12_RAYTRACING_PIPELINE_CONFIG
+public struct D3DRaytracingPipelineConfiguration {
+    public typealias RawValue = WinSDK.D3D12_RAYTRACING_PIPELINE_CONFIG
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RAYTRACING_PIPELINE_CONFIG) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RaytracingPipelineConfiguration {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RaytracingPipelineConfiguration")
-public typealias D3D12_RAYTRACING_PIPELINE_CONFIG = RaytracingPipelineConfiguration
+@available(*, deprecated, renamed: "D3DRaytracingPipelineConfiguration")
+public typealias D3D12_RAYTRACING_PIPELINE_CONFIG = D3DRaytracingPipelineConfiguration
 
 #endif

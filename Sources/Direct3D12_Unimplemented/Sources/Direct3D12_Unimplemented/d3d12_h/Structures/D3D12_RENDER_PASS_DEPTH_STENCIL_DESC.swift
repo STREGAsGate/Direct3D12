@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RenderPassDepthStencilDescription {
-    internal var rawValue: WinSDK.D3D12_RENDER_PASS_DEPTH_STENCIL_DESC
+public struct D3DRenderPassDepthStencilDescription {
+    public typealias RawValue = WinSDK.D3D12_RENDER_PASS_DEPTH_STENCIL_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RENDER_PASS_DEPTH_STENCIL_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RenderPassDepthStencilDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RenderPassDepthStencilDescription")
-public typealias D3D12_RENDER_PASS_DEPTH_STENCIL_DESC = RenderPassDepthStencilDescription
+@available(*, deprecated, renamed: "D3DRenderPassDepthStencilDescription")
+public typealias D3D12_RENDER_PASS_DEPTH_STENCIL_DESC = D3DRenderPassDepthStencilDescription
 
 #endif

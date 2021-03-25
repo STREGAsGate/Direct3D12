@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RaytracingAABB {
-    internal var rawValue: WinSDK.D3D12_RAYTRACING_AABB
+public struct D3DRaytracingAABB {
+    public typealias RawValue = WinSDK.D3D12_RAYTRACING_AABB
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RAYTRACING_AABB) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RaytracingAABB {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RaytracingAABB")
-public typealias D3D12_RAYTRACING_AABB = RaytracingAABB
+@available(*, deprecated, renamed: "D3DRaytracingAABB")
+public typealias D3D12_RAYTRACING_AABB = D3DRaytracingAABB
 
 #endif

@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataFormatInfo {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_FORMAT_INFO
+public struct D3DFeatureDataFormatInfo {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_FORMAT_INFO
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_FORMAT_INFO) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataFormatInfo {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataFormatInfo")
-public typealias D3D12_FEATURE_DATA_FORMAT_INFO = FeatureDataFormatInfo
+@available(*, deprecated, renamed: "D3DFeatureDataFormatInfo")
+public typealias D3D12_FEATURE_DATA_FORMAT_INFO = D3DFeatureDataFormatInfo
 
 #endif

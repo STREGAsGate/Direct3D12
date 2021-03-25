@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct ViewInstancingDescriptor {
-    internal var rawValue: WinSDK.D3D12_VIEW_INSTANCING_DESC
+public struct D3DViewInstancingDescriptor {
+    public typealias RawValue = WinSDK.D3D12_VIEW_INSTANCING_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_VIEW_INSTANCING_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct ViewInstancingDescriptor {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ViewInstancingDescriptor")
-public typealias D3D12_VIEW_INSTANCING_DESC = ViewInstancingDescriptor
+@available(*, deprecated, renamed: "D3DViewInstancingDescriptor")
+public typealias D3D12_VIEW_INSTANCING_DESC = D3DViewInstancingDescriptor
 
 #endif

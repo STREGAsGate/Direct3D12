@@ -17,6 +17,7 @@ public enum D3DFillMode {
     ///	Fill the triangles formed by the vertices. Adjacent vertices are not drawn.
     case solid
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

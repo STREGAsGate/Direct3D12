@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct DXILSubobjectsToExportsAssociation {
-    internal var rawValue: WinSDK.D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION
+public struct D3DDXILSubobjectsToExportsAssociation {
+    public typealias RawValue = WinSDK.D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct DXILSubobjectsToExportsAssociation {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DXILSubobjectsToExportsAssociation")
-public typealias D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION = DXILSubobjectsToExportsAssociation
+@available(*, deprecated, renamed: "D3DDXILSubobjectsToExportsAssociation")
+public typealias D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION = D3DDXILSubobjectsToExportsAssociation
 
 #endif

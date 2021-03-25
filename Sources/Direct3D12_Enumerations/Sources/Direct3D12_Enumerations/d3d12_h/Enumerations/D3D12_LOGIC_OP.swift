@@ -45,6 +45,7 @@ public enum D3DLogicOperation {
     ///	Performs a logical OR and invert operation on the render target (~s	d).
     case logicalOrInverse
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct MipRegion {
-    internal var rawValue: WinSDK.D3D12_MIP_REGION
+public struct D3DMipRegion {
+    public typealias RawValue = WinSDK.D3D12_MIP_REGION
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_MIP_REGION) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct MipRegion {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "MipRegion")
-public typealias D3D12_MIP_REGION = MipRegion
+@available(*, deprecated, renamed: "D3DMipRegion")
+public typealias D3D12_MIP_REGION = D3DMipRegion
 
 #endif

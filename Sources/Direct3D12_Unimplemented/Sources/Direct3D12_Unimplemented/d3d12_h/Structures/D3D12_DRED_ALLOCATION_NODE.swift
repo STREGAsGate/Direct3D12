@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct DREDAllocationNode {
-    internal var rawValue: WinSDK.D3D12_DRED_ALLOCATION_NODE
+public struct D3DDREDAllocationNode {
+    public typealias RawValue = WinSDK.D3D12_DRED_ALLOCATION_NODE
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_DRED_ALLOCATION_NODE) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct DREDAllocationNode {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DREDAllocationNode")
-public typealias D3D12_DRED_ALLOCATION_NODE = DREDAllocationNode
+@available(*, deprecated, renamed: "D3DDREDAllocationNode")
+public typealias D3D12_DRED_ALLOCATION_NODE = D3DDREDAllocationNode
 
 #endif

@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RaytracingAccelerationStructurePostbuildCompactSizeDescription {
-    internal var rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC
+public struct D3DRaytracingAccelerationStructurePostbuildCompactSizeDescription {
+    public typealias RawValue = WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RaytracingAccelerationStructurePostbuildCompactSizeDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RaytracingAccelerationStructurePostbuildCompactSizeDescription")
-public typealias D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC = RaytracingAccelerationStructurePostbuildCompactSizeDescription
+@available(*, deprecated, renamed: "D3DRaytracingAccelerationStructurePostbuildCompactSizeDescription")
+public typealias D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC = D3DRaytracingAccelerationStructurePostbuildCompactSizeDescription
 
 #endif

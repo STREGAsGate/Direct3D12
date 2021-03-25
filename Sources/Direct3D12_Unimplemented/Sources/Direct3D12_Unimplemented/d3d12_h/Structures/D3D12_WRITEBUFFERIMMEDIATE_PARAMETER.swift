@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct WriteBufferImmediateParameter {
-    internal var rawValue: WinSDK.D3D12_WRITEBUFFERIMMEDIATE_PARAMETER
+public struct D3DWriteBufferImmediateParameter {
+    public typealias RawValue = WinSDK.D3D12_WRITEBUFFERIMMEDIATE_PARAMETER
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_WRITEBUFFERIMMEDIATE_PARAMETER) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct WriteBufferImmediateParameter {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "WriteBufferImmediateParameter")
-public typealias D3D12_WRITEBUFFERIMMEDIATE_PARAMETER = WriteBufferImmediateParameter
+@available(*, deprecated, renamed: "D3DWriteBufferImmediateParameter")
+public typealias D3D12_WRITEBUFFERIMMEDIATE_PARAMETER = D3DWriteBufferImmediateParameter
 
 #endif

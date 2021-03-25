@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RenderPassBeginningAccess {
-    internal var rawValue: WinSDK.D3D12_RENDER_PASS_BEGINNING_ACCESS
+public struct D3DRenderPassBeginningAccess {
+    public typealias RawValue = WinSDK.D3D12_RENDER_PASS_BEGINNING_ACCESS
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RENDER_PASS_BEGINNING_ACCESS) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RenderPassBeginningAccess {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RenderPassBeginningAccess")
-public typealias D3D12_RENDER_PASS_BEGINNING_ACCESS = RenderPassBeginningAccess
+@available(*, deprecated, renamed: "D3DRenderPassBeginningAccess")
+public typealias D3D12_RENDER_PASS_BEGINNING_ACCESS = D3DRenderPassBeginningAccess
 
 #endif

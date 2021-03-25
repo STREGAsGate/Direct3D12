@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RootDescriptorTable1 {
-    internal var rawValue: WinSDK.D3D12_ROOT_DESCRIPTOR_TABLE1
+public struct D3DRootDescriptorTable1 {
+    public typealias RawValue = WinSDK.D3D12_ROOT_DESCRIPTOR_TABLE1
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_ROOT_DESCRIPTOR_TABLE1) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RootDescriptorTable1 {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RootDescriptorTable1")
-public typealias D3D12_ROOT_DESCRIPTOR_TABLE1 = RootDescriptorTable1
+@available(*, deprecated, renamed: "D3DRootDescriptorTable1")
+public typealias D3D12_ROOT_DESCRIPTOR_TABLE1 = D3DRootDescriptorTable1
 
 #endif

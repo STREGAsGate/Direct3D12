@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataShaderCache {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_SHADER_CACHE
+public struct D3DFeatureDataShaderCache {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_SHADER_CACHE
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_SHADER_CACHE) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataShaderCache {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataShaderCache")
-public typealias D3D12_FEATURE_DATA_SHADER_CACHE = FeatureDataShaderCache
+@available(*, deprecated, renamed: "D3DFeatureDataShaderCache")
+public typealias D3D12_FEATURE_DATA_SHADER_CACHE = D3DFeatureDataShaderCache
 
 #endif

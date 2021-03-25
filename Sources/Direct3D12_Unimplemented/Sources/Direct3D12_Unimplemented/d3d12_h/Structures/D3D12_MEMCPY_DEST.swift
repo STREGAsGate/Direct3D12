@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct MemoryCopyDestination {
-    internal var rawValue: WinSDK.D3D12_MEMCPY_DEST
+public struct D3DMemoryCopyDestination {
+    public typealias RawValue = WinSDK.D3D12_MEMCPY_DEST
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_MEMCPY_DEST) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct MemoryCopyDestination {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "MemoryCopyDestination")
-public typealias D3D12_MEMCPY_DEST = MemoryCopyDestination
+@available(*, deprecated, renamed: "D3DMemoryCopyDestination")
+public typealias D3D12_MEMCPY_DEST = D3DMemoryCopyDestination
 
 #endif

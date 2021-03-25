@@ -25,6 +25,7 @@ public enum D3DMemoryPool {
     /// When the adapter is UMA, this pool is not available.
     case dedicated
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

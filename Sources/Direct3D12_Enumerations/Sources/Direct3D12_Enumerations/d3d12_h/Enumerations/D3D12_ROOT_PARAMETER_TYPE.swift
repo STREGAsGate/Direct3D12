@@ -23,6 +23,7 @@ public enum D3DRootParameterType {
     ///	The slot is for a unordered-access view (UAV).
     case unorderedAccessView
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

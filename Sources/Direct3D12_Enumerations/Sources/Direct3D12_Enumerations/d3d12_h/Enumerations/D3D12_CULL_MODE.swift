@@ -19,6 +19,7 @@ public enum D3DCullMode {
     ///	Do not draw triangles that are back-facing.
     case back
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

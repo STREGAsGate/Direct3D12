@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataExistingHeaps {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_EXISTING_HEAPS
+public struct D3DFeatureDataExistingHeaps {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_EXISTING_HEAPS
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_EXISTING_HEAPS) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataExistingHeaps {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataExistingHeaps")
-public typealias D3D12_FEATURE_DATA_EXISTING_HEAPS = FeatureDataExistingHeaps
+@available(*, deprecated, renamed: "D3DFeatureDataExistingHeaps")
+public typealias D3D12_FEATURE_DATA_EXISTING_HEAPS = D3DFeatureDataExistingHeaps
 
 #endif

@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataFeatureLevels {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_FEATURE_LEVELS
+public struct D3DFeatureDataFeatureLevels {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_FEATURE_LEVELS
+     internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_FEATURE_LEVELS) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataFeatureLevels {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataFeatureLevels")
-public typealias D3D12_FEATURE_DATA_FEATURE_LEVELS = FeatureDataFeatureLevels
+@available(*, deprecated, renamed: "D3DFeatureDataFeatureLevels")
+public typealias D3D12_FEATURE_DATA_FEATURE_LEVELS = D3DFeatureDataFeatureLevels
 
 #endif

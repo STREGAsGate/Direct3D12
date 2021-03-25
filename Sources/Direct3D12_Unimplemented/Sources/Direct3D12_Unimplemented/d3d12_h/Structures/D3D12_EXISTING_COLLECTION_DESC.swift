@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct ExistingCollectionDescription {
-    internal var rawValue: WinSDK.D3D12_EXISTING_COLLECTION_DESC
+public struct D3DExistingCollectionDescription {
+    public typealias RawValue = WinSDK.D3D12_EXISTING_COLLECTION_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_EXISTING_COLLECTION_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct ExistingCollectionDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ExistingCollectionDescription")
-public typealias D3D12_EXISTING_COLLECTION_DESC = ExistingCollectionDescription
+@available(*, deprecated, renamed: "D3DExistingCollectionDescription")
+public typealias D3D12_EXISTING_COLLECTION_DESC = D3DExistingCollectionDescription
 
 #endif

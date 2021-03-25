@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RenderPassRenderTargetDescription {
-    internal var rawValue: WinSDK.D3D12_RENDER_PASS_RENDER_TARGET_DESC
+public struct D3DRenderPassRenderTargetDescription {
+    public typealias RawValue = WinSDK.D3D12_RENDER_PASS_RENDER_TARGET_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RENDER_PASS_RENDER_TARGET_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RenderPassRenderTargetDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RenderPassRenderTargetDescription")
-public typealias D3D12_RENDER_PASS_RENDER_TARGET_DESC = RenderPassRenderTargetDescription
+@available(*, deprecated, renamed: "D3DRenderPassRenderTargetDescription")
+public typealias D3D12_RENDER_PASS_RENDER_TARGET_DESC = D3DRenderPassRenderTargetDescription
 
 #endif

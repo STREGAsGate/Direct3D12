@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct ExportDescription {
-    internal var rawValue: WinSDK.D3D12_EXPORT_DESC
+public struct D3DExportDescription {
+    public typealias RawValue = WinSDK.D3D12_EXPORT_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_EXPORT_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct ExportDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ExportDescription")
-public typealias D3D12_EXPORT_DESC = ExportDescription
+@available(*, deprecated, renamed: "D3DExportDescription")
+public typealias D3D12_EXPORT_DESC = D3DExportDescription
 
 #endif

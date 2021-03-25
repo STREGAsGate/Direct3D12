@@ -9,12 +9,13 @@
 import WinSDK
 
 //TODO: This struct shares a name with a class, making it a member for now
-extension DeviceRemovedExtendedData {//<-The Class
-    public struct DeviceRemovedExtendedData {
-        internal var rawValue: WinSDK.D3D12_DEVICE_REMOVED_EXTENDED_DATA
+extension D3DDeviceRemovedExtendedData {//<-The Class
+    public struct D3DDeviceRemovedExtendedData {
+        public typealias RawValue = WinSDK.D3D12_DEVICE_REMOVED_EXTENDED_DATA
+        internal var rawValue: RawValue
 
 
-        internal init(_ rawValue: WinSDK.D3D12_DEVICE_REMOVED_EXTENDED_DATA) {
+        internal init(_ rawValue: RawValue) {
             self.rawValue = rawValue
         }
     }
@@ -23,7 +24,7 @@ extension DeviceRemovedExtendedData {//<-The Class
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DeviceRemovedExtendedData.DeviceRemovedExtendedData")
-public typealias D3D12_DEVICE_REMOVED_EXTENDED_DATA = DeviceRemovedExtendedData.DeviceRemovedExtendedData
+@available(*, deprecated, renamed: "D3DDeviceRemovedExtendedData.D3DDeviceRemovedExtendedData")
+public typealias D3D12_DEVICE_REMOVED_EXTENDED_DATA = D3DDeviceRemovedExtendedData.D3DDeviceRemovedExtendedData
 
 #endif

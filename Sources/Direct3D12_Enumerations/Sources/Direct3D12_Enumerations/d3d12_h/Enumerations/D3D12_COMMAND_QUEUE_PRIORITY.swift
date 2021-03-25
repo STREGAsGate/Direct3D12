@@ -19,6 +19,7 @@ public enum D3DCommandQueuePriority {
     ///	Global realtime priority.
     case globalRealtime
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: WinSDK.D3D12_COMMAND_QUEUE_PRIORITY {

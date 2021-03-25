@@ -40,7 +40,7 @@ public struct D3DInputLayoutDesription {
         self.rawValue = RawValue()
     }
 
-    internal init(_ rawValue: WinSDK.D3D12_INPUT_LAYOUT_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

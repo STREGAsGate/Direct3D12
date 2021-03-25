@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct DXILLibraryDescription {
-    internal var rawValue: WinSDK.D3D12_DXIL_LIBRARY_DESC
+public struct D3DDXILLibraryDescription {
+    public typealias RawValue = WinSDK.D3D12_DXIL_LIBRARY_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_DXIL_LIBRARY_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct DXILLibraryDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DXILLibraryDescription")
-public typealias D3D12_DXIL_LIBRARY_DESC = DXILLibraryDescription
+@available(*, deprecated, renamed: "D3DDXILLibraryDescription")
+public typealias D3D12_DXIL_LIBRARY_DESC = D3DDXILLibraryDescription
 
 #endif

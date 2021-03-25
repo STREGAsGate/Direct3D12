@@ -153,7 +153,7 @@ public struct D3DRenderTargetViewDescription {
         self.rawValue = RawValue()
     }
 
-    internal init(_ rawValue: WinSDK.D3D12_RENDER_TARGET_VIEW_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RenderTargetFormatArray {
-    internal var rawValue: WinSDK.D3D12_RT_FORMAT_ARRAY
+public struct D3DRenderTargetFormatArray {
+    public typealias RawValue = WinSDK.D3D12_RT_FORMAT_ARRAY
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RT_FORMAT_ARRAY) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RenderTargetFormatArray {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RenderTargetFormatArray")
-public typealias D3D12_RT_FORMAT_ARRAY = RenderTargetFormatArray
+@available(*, deprecated, renamed: "D3DRenderTargetFormatArray")
+public typealias D3D12_RT_FORMAT_ARRAY = D3DRenderTargetFormatArray
 
 #endif

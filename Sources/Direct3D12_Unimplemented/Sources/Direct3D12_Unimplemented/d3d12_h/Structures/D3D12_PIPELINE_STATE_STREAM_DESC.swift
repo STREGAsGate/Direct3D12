@@ -9,11 +9,12 @@
 import WinSDK
 
 @available(Windows, introduced: 10.0.15063)
-public struct PipelineStateStreamDescription {
-    internal var rawValue: WinSDK.D3D12_PIPELINE_STATE_STREAM_DESC
+public struct D3DPipelineStateStreamDescription {
+    public typealias RawValue = WinSDK.D3D12_PIPELINE_STATE_STREAM_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_PIPELINE_STATE_STREAM_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -23,11 +24,11 @@ public struct PipelineStateStreamDescription {
 #if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(Windows, introduced: 10.0.15063)
-@available(*, deprecated, renamed: "PipelineStateStreamDescription")
-public typealias D3D12_PIPELINE_STATE_STREAM_DESC = PipelineStateStreamDescription
+@available(*, deprecated, renamed: "D3DPipelineStateStreamDescription")
+public typealias D3D12_PIPELINE_STATE_STREAM_DESC = D3DPipelineStateStreamDescription
 
 @available(Windows, introduced: 10.0.15063)
-public extension PipelineStateStreamDescription {
+public extension D3DPipelineStateStreamDescription {
 
 }
 

@@ -8,11 +8,11 @@
 
 import WinSDK
 
-public struct BuildRaytracingAccelerationStructureToolsVisualizationHeader {
-    internal var rawValue: WinSDK.D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER
+public struct D3DBuildRaytracingAccelerationStructureToolsVisualizationHeader {
+    public typealias RawValue = WinSDK.D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER
+    internal var rawValue: RawValue
 
-
-    internal init(_ rawValue: WinSDK.D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +21,7 @@ public struct BuildRaytracingAccelerationStructureToolsVisualizationHeader {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "BuildRaytracingAccelerationStructureToolsVisualizationHeader")
-public typealias D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER = BuildRaytracingAccelerationStructureToolsVisualizationHeader 
+@available(*, deprecated, renamed: "D3DBuildRaytracingAccelerationStructureToolsVisualizationHeader")
+public typealias D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER = D3DBuildRaytracingAccelerationStructureToolsVisualizationHeader 
 
 #endif

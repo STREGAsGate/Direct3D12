@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RaytracingGeometryTrianglesDescription {
-    internal var rawValue: WinSDK.D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC
+public struct D3DRaytracingGeometryTrianglesDescription {
+    public typealias RawValue = WinSDK.D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RaytracingGeometryTrianglesDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RaytracingGeometryTrianglesDescription")
-public typealias D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC = RaytracingGeometryTrianglesDescription
+@available(*, deprecated, renamed: "D3DRaytracingGeometryTrianglesDescription")
+public typealias D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC = D3DRaytracingGeometryTrianglesDescription
 
 #endif

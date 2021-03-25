@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct SubresourceData {
-    internal var rawValue: WinSDK.D3D12_SUBRESOURCE_DATA
+public struct D3DSubresourceData {
+    public typealias RawValue = WinSDK.D3D12_SUBRESOURCE_DATA
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_SUBRESOURCE_DATA) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct SubresourceData {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "SubresourceData")
+@available(*, deprecated, renamed: "D3DSubresourceData")
 public typealias D3D12_SUBRESOURCE_DATA = RenderTargetFormatArray
 
 #endif

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -24,8 +24,8 @@ public enum D3DCommandListType {
     case videoProcess
     ///	Specifies a command buffer for video encoding.
     case videoEncode
-    /// This only occurse if there was no implementation for the wrapped rawValue.
-    /// This can happen if d3d12 is expanded but this Swift package is not yet updated.
+
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 }
 

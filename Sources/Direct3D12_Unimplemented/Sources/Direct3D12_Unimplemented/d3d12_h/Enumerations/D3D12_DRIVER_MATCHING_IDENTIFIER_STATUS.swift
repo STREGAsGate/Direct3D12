@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -21,7 +21,8 @@ public enum DriverMatchingIdentifierStatus {
     case incompatibleVersion
     ///	[D3D12_SERIALIZED_DATA_TYPE](https://docs.microsoft.com/en-us/windows/desktop/api/d3d12/ne-d3d12-d3d12_serialized_data_type) specifies a data type that is not compatible with the type of serialized data. As long as there is only a single defined serialized data type this error cannot not be produced.
     case incompatibleType
-    /// Used when Swift has no case defined. This could happen if new values are added to the Windows SDK
+
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
     
     public var rawValue: RawValue {

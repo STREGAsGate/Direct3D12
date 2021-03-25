@@ -23,6 +23,7 @@ public enum D3DPrimitiveTopologyType {
     ///	Interpret the input primitive as a control point patch.
     case patch
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataQueryMetaCommand {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_QUERY_META_COMMAND
+public struct D3DFeatureDataQueryMetaCommand {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_QUERY_META_COMMAND
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_QUERY_META_COMMAND) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataQueryMetaCommand {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataQueryMetaCommand")
-public typealias D3D12_FEATURE_DATA_QUERY_META_COMMAND = FeatureDataQueryMetaCommand
+@available(*, deprecated, renamed: "D3DFeatureDataQueryMetaCommand")
+public typealias D3D12_FEATURE_DATA_QUERY_META_COMMAND = D3DFeatureDataQueryMetaCommand
 
 #endif

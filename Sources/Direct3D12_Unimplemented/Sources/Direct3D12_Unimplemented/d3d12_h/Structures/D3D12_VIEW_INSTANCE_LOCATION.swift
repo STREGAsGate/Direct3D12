@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct ViewInstanceLocation {
-    internal var rawValue: WinSDK.D3D12_VIEW_INSTANCE_LOCATION
+public struct D3DViewInstanceLocation {
+    public typealias RawValue = WinSDK.D3D12_VERSIONED_ROOT_SIGNATURE_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_VIEW_INSTANCE_LOCATION) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct ViewInstanceLocation {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "ViewInstanceLocation")
-public typealias D3D12_VIEW_INSTANCE_LOCATION = ViewInstanceLocation
+@available(*, deprecated, renamed: "D3DViewInstanceLocation")
+public typealias D3D12_VIEW_INSTANCE_LOCATION = D3DViewInstanceLocation
 
 #endif

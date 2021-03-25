@@ -20,6 +20,7 @@ public enum D3DCPUPageProperty {
     ///	The CPU-page property is write-back.
     case writeBack
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

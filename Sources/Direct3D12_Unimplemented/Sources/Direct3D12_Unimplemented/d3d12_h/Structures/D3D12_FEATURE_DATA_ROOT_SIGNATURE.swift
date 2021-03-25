@@ -8,11 +8,11 @@
 
 import WinSDK
 
-public struct FeatureRootSignature {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_ROOT_SIGNATURE
+public struct D3DFeatureRootSignature {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_ROOT_SIGNATURE
+    internal var rawValue: RawValue
 
-
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_ROOT_SIGNATURE) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +21,7 @@ public struct FeatureRootSignature {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureRootSignature")
-public typealias D3D12_FEATURE_DATA_ROOT_SIGNATURE = FeatureRootSignature
+@available(*, deprecated, renamed: "D3DFeatureRootSignature")
+public typealias D3D12_FEATURE_DATA_ROOT_SIGNATURE = D3DFeatureRootSignature
 
 #endif

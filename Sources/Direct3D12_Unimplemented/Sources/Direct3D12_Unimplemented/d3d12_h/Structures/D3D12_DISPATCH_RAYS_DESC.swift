@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct DispatchRaysDescription {
-    internal var rawValue: WinSDK.D3D12_DISPATCH_RAYS_DESC
+public struct D3DDispatchRaysDescription {
+    public typealias RawValue = WinSDK.D3D12_DISPATCH_RAYS_DESC
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_DISPATCH_RAYS_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct DispatchRaysDescription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DispatchRaysDescription")
-public typealias D3D12_DISPATCH_RAYS_DESC = DispatchRaysDescription
+@available(*, deprecated, renamed: "D3DDispatchRaysDescription")
+public typealias D3D12_DISPATCH_RAYS_DESC = D3DDispatchRaysDescription
 
 #endif

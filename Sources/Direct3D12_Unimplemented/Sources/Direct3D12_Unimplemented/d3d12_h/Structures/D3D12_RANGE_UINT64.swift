@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct RangeUInt64 {
-    internal var rawValue: WinSDK.D3D12_RANGE_UINT64
+public struct D3DRangeUInt64 {
+    public typealias RawValue = WinSDK.D3D12_RANGE_UINT64
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_RANGE_UINT64) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct RangeUInt64 {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "RangeUInt64")
-public typealias D3D12_RANGE_UINT64 = RangeUInt64
+@available(*, deprecated, renamed: "D3DRangeUInt64")
+public typealias D3D12_RANGE_UINT64 = D3DRangeUInt64
 
 #endif

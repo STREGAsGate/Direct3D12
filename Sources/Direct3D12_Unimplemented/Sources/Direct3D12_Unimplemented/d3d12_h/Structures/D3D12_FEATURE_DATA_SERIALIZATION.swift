@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataSerialization {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_SERIALIZATION
+public struct D3DFeatureDataSerialization {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_SERIALIZATION
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_SERIALIZATION) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataSerialization {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataSerialization")
-public typealias D3D12_FEATURE_DATA_SERIALIZATION = FeatureDataSerialization
+@available(*, deprecated, renamed: "D3DFeatureDataSerialization")
+public typealias D3D12_FEATURE_DATA_SERIALIZATION = D3DFeatureDataSerialization
 
 #endif

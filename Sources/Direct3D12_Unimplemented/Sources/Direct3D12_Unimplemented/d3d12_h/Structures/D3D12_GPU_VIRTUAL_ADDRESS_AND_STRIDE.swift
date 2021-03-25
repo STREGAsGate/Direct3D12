@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct GpuVirtualAddressAndStride {
-    internal var rawValue: WinSDK.D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE
+public struct D3DGPUVirtualAddressAndStride {
+    public typealias RawValue = WinSDK.D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct GpuVirtualAddressAndStride {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "GpuVirtualAddressAndStride")
-public typealias D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE = GpuVirtualAddressAndStride
+@available(*, deprecated, renamed: "D3DGPUVirtualAddressAndStride")
+public typealias D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE = D3DGPUVirtualAddressAndStride
 
 #endif

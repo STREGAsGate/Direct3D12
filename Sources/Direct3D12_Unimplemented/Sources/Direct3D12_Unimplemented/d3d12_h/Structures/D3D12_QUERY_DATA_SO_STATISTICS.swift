@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct QueryDataStreamOutputStatistics {
-    internal var rawValue: WinSDK.D3D12_QUERY_DATA_SO_STATISTICS
+public struct D3DQueryDataStreamOutputStatistics {
+    public typealias RawValue = WinSDK.D3D12_QUERY_DATA_SO_STATISTICS
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_QUERY_DATA_SO_STATISTICS) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct QueryDataStreamOutputStatistics {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "QueryDataStreamOutputStatistics")
-public typealias D3D12_QUERY_DATA_SO_STATISTICS = QueryDataStreamOutputStatistics
+@available(*, deprecated, renamed: "D3DQueryDataStreamOutputStatistics")
+public typealias D3D12_QUERY_DATA_SO_STATISTICS = D3DQueryDataStreamOutputStatistics
 
 #endif

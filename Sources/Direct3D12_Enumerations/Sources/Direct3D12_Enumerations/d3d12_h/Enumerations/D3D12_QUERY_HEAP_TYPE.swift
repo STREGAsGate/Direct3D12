@@ -33,6 +33,7 @@ public enum D3DQueryHeapType {
     */
     case copyQueueTimestamps
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

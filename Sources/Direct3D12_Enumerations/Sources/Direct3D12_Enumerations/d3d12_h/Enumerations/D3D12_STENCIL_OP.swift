@@ -28,6 +28,7 @@ public enum D3DStencilOperation {
     ///	Decrement the stencil value by 1, and wrap the result if necessary.
     case decrementWrap
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

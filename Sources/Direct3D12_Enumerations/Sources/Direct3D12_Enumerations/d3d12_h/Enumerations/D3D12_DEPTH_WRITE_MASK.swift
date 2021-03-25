@@ -16,6 +16,7 @@ public enum D3DDepthWriteMask {
     ///	Turn on writes to the depth-stencil buffer.
     case all
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

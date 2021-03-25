@@ -23,6 +23,7 @@ public enum D3DBlendOperation {
     ///	Find the maximum of source 1 and source 2.
     case maximum
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

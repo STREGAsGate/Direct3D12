@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataCrossNode {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_CROSS_NODE
+public struct D3DFeatureDataCrossNode {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_CROSS_NODE
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_CROSS_NODE) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataCrossNode {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataCrossNode")
-public typealias D3D12_FEATURE_DATA_CROSS_NODE = FeatureDataCrossNode
+@available(*, deprecated, renamed: "D3DFeatureDataCrossNode")
+public typealias D3D12_FEATURE_DATA_CROSS_NODE = D3DFeatureDataCrossNode
 
 #endif

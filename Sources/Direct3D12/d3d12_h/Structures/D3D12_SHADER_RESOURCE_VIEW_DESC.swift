@@ -200,7 +200,7 @@ public struct D3DShaderResourceViewDescription {
         self.raytracingAccelerationStructure = raytracingAccelerationStructure
     }
 
-    internal init(_ rawValue: WinSDK.D3D12_SHADER_RESOURCE_VIEW_DESC) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }

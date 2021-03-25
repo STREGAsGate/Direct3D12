@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct FeatureDataCommandQueuePriority {
-    internal var rawValue: WinSDK.D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY
+public struct D3DFeatureDataCommandQueuePriority {
+    public typealias RawValue = WinSDK.D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct FeatureDataCommandQueuePriority {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "FeatureDataCommandQueuePriority")
-public typealias D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY = FeatureDataCommandQueuePriority
+@available(*, deprecated, renamed: "D3DFeatureDataCommandQueuePriority")
+public typealias D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY = D3DFeatureDataCommandQueuePriority
 
 #endif

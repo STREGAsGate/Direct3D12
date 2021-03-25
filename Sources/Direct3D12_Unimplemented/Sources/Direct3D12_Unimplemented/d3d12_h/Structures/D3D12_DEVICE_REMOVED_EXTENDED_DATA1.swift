@@ -8,11 +8,12 @@
 
 import WinSDK
 
-public struct DeviceRemovedExtendedData1 {
-    internal var rawValue: WinSDK.D3D12_DEVICE_REMOVED_EXTENDED_DATA1
+public struct D3DDeviceRemovedExtendedData1 {
+    public typealias RawValue = WinSDK.D3D12_DEVICE_REMOVED_EXTENDED_DATA1
+    internal var rawValue: RawValue
 
 
-    internal init(_ rawValue: WinSDK.D3D12_DEVICE_REMOVED_EXTENDED_DATA1) {
+    internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
@@ -21,7 +22,7 @@ public struct DeviceRemovedExtendedData1 {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "DeviceRemovedExtendedData1")
-public typealias D3D12_DEVICE_REMOVED_EXTENDED_DATA1 = DeviceRemovedExtendedData1
+@available(*, deprecated, renamed: "D3DDeviceRemovedExtendedData1")
+public typealias D3D12_DEVICE_REMOVED_EXTENDED_DATA1 = D3DDeviceRemovedExtendedData1
 
 #endif

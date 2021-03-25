@@ -26,6 +26,7 @@ public enum D3DTextureAddressMode {
     /// Takes the absolute value of the texture coordinate (thus, mirroring around 0), and then clamps to the maximum value.
     case mirrorOnce
 
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
 
     public var rawValue: RawValue {

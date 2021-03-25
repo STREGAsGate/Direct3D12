@@ -14,6 +14,7 @@ import WinSDK.DirectX
 /// Values that indicate how the pipeline interprets vertex data that is bound to the input-assembler stage. These primitive topology values determine how the vertex data is rendered on screen.
 public enum D3DPrimitiveTopology {
     public typealias RawValue = WinSDK.D3D_PRIMITIVE_TOPOLOGY
+
     /// The IA stage has not been initialized with a primitive topology. The IA stage will not function properly unless a primitive topology is defined.
     case undefined
     /// Interpret the vertex data as a list of points.
@@ -98,6 +99,9 @@ public enum D3DPrimitiveTopology {
     case controlPointPatchList31
     /// Interpret the vertex data as a patch list.
     case controlPointPatchList32
+
+    /// This Swift Package had no implementation, this can happen if the Base API is expanded.
+    case _unimplemented(RawValue)
     
     public var rawValue: RawValue {
         switch self {
@@ -185,6 +189,100 @@ public enum D3DPrimitiveTopology {
             return WinSDK.D3D_PRIMITIVE_TOPOLOGY_31_CONTROL_POINT_PATCHLIST
         case .controlPointPatchList32:
             return WinSDK.D3D_PRIMITIVE_TOPOLOGY_32_CONTROL_POINT_PATCHLIST
+        case let ._unimplemented(rawValue):
+            return rawValue
+        }
+    }
+
+
+    public init(_ rawValue: RawValue) {
+        switch rawValue {
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_UNDEFINED:
+            self = .undefined
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_POINTLIST:
+            self = .pointList
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_LINELIST:
+            self = .lineList
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_LINESTRIP:
+            self = .lineStrip
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST:
+            self = .triangleList
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP:
+            self = .triangleStrip
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_LINELIST_ADJ:
+            self = .lineListAdjacent
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_LINESTRIP_ADJ:
+            self = .lineStripAdjacent
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST_ADJ:
+            self = .triangleListAdjacent
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP_ADJ:
+            self = .triangleStripAdjacent
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_1_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList1
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_2_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList2
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_3_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList3
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_4_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList4
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_5_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList5
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_6_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList6
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_7_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList7
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_8_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList8
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_9_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList9
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_10_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList10
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_11_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList11
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_12_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList12
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_13_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList13
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_14_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList14
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_15_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList15
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_16_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList16
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_17_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList17
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_18_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList18
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_19_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList19
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_20_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList20
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_21_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList21
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_22_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList22
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_23_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList23
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_24_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList24
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_25_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList25
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_26_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList26
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_27_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList27
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_28_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList28
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_29_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList29
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_30_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList30
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_31_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList31
+        case WinSDK.D3D_PRIMITIVE_TOPOLOGY_32_CONTROL_POINT_PATCHLIST:
+            self = .controlPointPatchList32
+        default:
+            self = ._unimplemented(rawValue)
         }
     }
 }
@@ -194,7 +292,8 @@ public enum D3DPrimitiveTopology {
 #if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "D3DPrimitiveTopology")
-public typealias D3D_PRIMITIVE_TOPOLOGY  = D3DPrimitiveTopology
+public typealias D3D_PRIMITIVE_TOPOLOGY = D3DPrimitiveTopology
+
 
 @available(*, deprecated, renamed: "D3DPrimitiveTopology.undefined")
 public let D3D_PRIMITIVE_TOPOLOGY_UNDEFINED = D3DPrimitiveTopology.undefined
