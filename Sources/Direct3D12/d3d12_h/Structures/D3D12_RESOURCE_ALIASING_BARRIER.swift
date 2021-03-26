@@ -16,7 +16,7 @@ public struct D3DResourceAliasingBarrier {
     /// A pointer to the ID3D12Resource object that represents the before resource used in the transition.
     public var before: D3DResource? {
         get {
-            return D3DResource(win32Pointer: rawValue.pResourceBefore)
+            return D3DResource(winSDKPointer: rawValue.pResourceBefore)
         }
         set {
             rawValue.pResourceBefore = newValue?.performFatally(as: D3DResource.RawValue.self) {$0}
@@ -26,7 +26,7 @@ public struct D3DResourceAliasingBarrier {
     /// A pointer to the ID3D12Resource object that represents the after resource used in the transition.
     public var after: D3DResource? {
         get {
-            return D3DResource(win32Pointer: rawValue.pResourceAfter)
+            return D3DResource(winSDKPointer: rawValue.pResourceAfter)
         }
         set {
             rawValue.pResourceAfter = newValue?.performFatally(as: D3DResource.RawValue.self) {$0}

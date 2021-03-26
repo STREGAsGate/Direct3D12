@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes the descriptor heap.
 public struct D3DDescriptorHeapDescription {

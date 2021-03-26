@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes full-screen mode for a swap chain.
 public struct DGISwapChainFullscreenDescription {
@@ -44,7 +45,7 @@ public struct DGISwapChainFullscreenDescription {
     }
 
     /// A Boolean value that specifies whether the swap chain is in windowed mode. TRUE if the swap chain is in windowed mode; otherwise, FALSE.
-    public var isSwapchanCurrentlyWindowed: Bool {
+    public var isWindowed: Bool {
         get {
             return rawValue.Windowed.boolValue
         }
@@ -57,17 +58,17 @@ public struct DGISwapChainFullscreenDescription {
     - parameter refreshRate: A DXGI_RATIONAL structure that describes the refresh rate in hertz.
     - parameter scanlineOrdering: A member of the DXGI_MODE_SCANLINE_ORDER enumerated type that describes the scan-line drawing mode.
     - parameter scaling: A member of the DXGI_MODE_SCALING enumerated type that describes the scaling mode.
-    - parameter isSwapchanCurrentlyWindowed: A Boolean value that specifies whether the swap chain is in windowed mode. TRUE if the swap chain is in windowed mode; otherwise, FALSE.
+    - parameter isWindowed: A Boolean value that specifies whether the swap chain is in windowed mode. TRUE if the swap chain is in windowed mode; otherwise, FALSE.
     */
     public init(refreshRate: DGIRational, 
-                scanlineOrdering: DGIModeScanlineOrder = .progressive,
-                scaling: DGIModeScaling = .stretched,
-                isSwapchanCurrentlyWindowed: Bool = false) {
+                scanlineOrdering: DGIModeScanlineOrder = .unspecified,
+                scaling: DGIModeScaling = .unspecified,
+                isWindowed: Bool = true) {
         self.rawValue = RawValue()
         self.refreshRate = refreshRate
         self.scanlineOrdering = scanlineOrdering
         self.scaling = scaling
-        self.isSwapchanCurrentlyWindowed = isSwapchanCurrentlyWindowed
+        self.isWindowed = isWindowed
     }
 
     internal init(_ rawValue: RawValue) {

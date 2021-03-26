@@ -10,7 +10,7 @@ import Foundation
 import WinSDK
 
 public protocol MSApplicationDelegate: AnyObject {
-    func application(_ application: MSApplication, didFinishLaunchingWithOption options: Dictionary<String,Any>)
+    func application(_ application: MSApplication, didFinishLaunchingWithOptions options: Dictionary<MSApplication.LaunchOption,Any>)
     func applicationWillQuit(_ application: MSApplication)
 }
 
@@ -20,8 +20,12 @@ public struct DirectX {
 
     internal init() {
         do {
+            #if DEBUG
+            try D3DDebug().enableDebugLayer()
+            #endif
+
             self.factory = try DGIFactory()
-            self.device = try D3DDevice.createDefaultDevice()
+            self.device = try factory.createDefaultDevice()
         }catch{
             print(error)
             fatalError("A DGIFactory and D3DDevice are required but one could not be created.")
@@ -30,6 +34,10 @@ public struct DirectX {
 }
 
 public final class MSApplication {
+    public enum LaunchOption: Int, Hashable, Equatable {
+        /// Nothing. This won't ever be in the options dictionary. Delete once there is an option
+        case none = 0
+    }
     public private(set) var delegate: MSApplicationDelegate? = nil
 
     public var quitOnLastWindowClosed: Bool = true
@@ -55,11 +63,9 @@ public final class MSApplication {
         DispatchQueue.main.async {
             if self.quitOnLastWindowClosed && self.windowCount == 0 {
                 PostQuitMessage(0)
-                
                 DispatchQueue.main.async {
                     self.delegate?.applicationWillQuit(self)
-                    
-                    //Give everything a moment to respond to quit
+                    //Give everything an extra loop to respond to the quit message
                     DispatchQueue.main.async {
                         exit(0)
                     }
@@ -70,11 +76,12 @@ public final class MSApplication {
         }
     }
 
-    public private(set) static var shared: MSApplication = MSApplication()
+    public static let shared: MSApplication = MSApplication()
     public class func run(withDelegate delegate: MSApplicationDelegate) -> Never {
-        MSApplication.shared.delegate = delegate
         DispatchQueue.main.async {
-            MSApplication.shared.delegate?.application(MSApplication.shared, didFinishLaunchingWithOption: [:])
+            _ = SetThreadDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)
+            MSApplication.shared.delegate = delegate
+            MSApplication.shared.delegate?.application(MSApplication.shared, didFinishLaunchingWithOptions: [:])
             MSApplication.shared.run()
         }
         return dispatchMain()

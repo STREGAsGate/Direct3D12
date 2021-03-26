@@ -8,6 +8,7 @@
 
 import WinSDK
 import WinSDK.DirectX
+import Direct3D12_Enumerations
 
 public extension DGIFactory {
     
@@ -23,7 +24,7 @@ public extension DGIFactory {
                          fullScreen: DGISwapChainFullscreenDescription?, 
                          commandQueue: D3DCommandQueue) throws -> DGISwapChain {
         return try perform(as: RawValue.self) {pThis in 
-            let pDevice = try commandQueue.perform(as: IUnknown.RawValue.self) {$0}
+            let pDevice = commandQueue.perform(as: IUnknown.RawValue.self) {$0}
             let hWnd = window
             var pDesc = description.rawValue
             
@@ -33,7 +34,7 @@ public extension DGIFactory {
             }else{
                 try pThis.pointee.lpVtbl.pointee.CreateSwapChainForHwnd(pThis, pDevice, hWnd, &pDesc, nil, nil, &ppSwapChain).checkResult()
             }
-            guard let v = DGISwapChain(win32Pointer: ppSwapChain) else {throw Error(.invalidArgument)}
+            guard let v = DGISwapChain(winSDKPointer: ppSwapChain) else {throw Error(.invalidArgument)}
             return v
         }
     }

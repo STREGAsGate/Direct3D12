@@ -26,7 +26,6 @@ let package = Package(
             dependencies: ["Direct3D12_Enumerations"],
             swiftSettings: [
                 .define("Direct3D12ExcludeOriginalStyleAPI", .when(configuration: .release)),
-                .unsafeFlags(["-parse-as-library"])
             ],
             linkerSettings: [
                 .linkedLibrary("User32"),

@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 public class DGISwapChain: DGIDeviceSubObject {
 
@@ -20,7 +21,7 @@ public class DGISwapChain: DGIDeviceSubObject {
             var riid = D3DResource.interfaceID
             var ppSurface: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.GetBuffer(pThis, Buffer, &riid, &ppSurface).checkResult()
-            guard let v = D3DResource(win32Pointer: ppSurface) else {throw Error(.invalidArgument)}
+            guard let v = D3DResource(winSDKPointer: ppSurface) else {throw Error(.invalidArgument)}
             return v
         }
     }

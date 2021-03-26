@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes the transition of subresources between different usages.
 public struct D3DResourceTransitionBarrier {
@@ -16,7 +17,7 @@ public struct D3DResourceTransitionBarrier {
     /// A pointer to the ID3D12Resource object that represents the resource used in the transition.
     public var resource: D3DResource? {
         get {
-            return D3DResource(win32Pointer: rawValue.pResource)
+            return D3DResource(winSDKPointer: rawValue.pResource)
         }
         set {
             rawValue.pResource = newValue?.performFatally(as: D3DResource.RawValue.self) {$0}

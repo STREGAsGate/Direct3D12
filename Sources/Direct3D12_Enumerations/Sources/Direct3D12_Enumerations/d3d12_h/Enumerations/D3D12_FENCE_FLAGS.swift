@@ -11,11 +11,13 @@ import WinSDK
 /// Specifies fence options.
 public struct D3DFenceFlags: OptionSet {
     public typealias RawType = WinSDK.D3D12_FENCE_FLAGS
+    public var rawType: RawType {RawType(rawValue)}
     public typealias RawValue = WinSDK.D3D12_FENCE_FLAGS.RawValue
     public let rawValue: RawValue
+    
     //Use an empty collection `[]` to represent none in Swift.
     ///// 	No options are specified.
-    //public static let none = FenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NONE.rawValue)
+    // public static let none = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_NONE.rawValue)
 
     /// The fence is shared.
     public static let shared = D3DFenceFlags(rawValue: WinSDK.D3D12_FENCE_FLAG_SHARED.rawValue)

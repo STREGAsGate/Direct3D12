@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -8,6 +8,7 @@
 
 import WinSDK
 import WinSDK.DirectX
+import Direct3D12_Enumerations
 
 public class D3DCommandQueue: D3DPageable {
 
@@ -28,7 +29,7 @@ public class D3DCommandQueue: D3DPageable {
             let srcResource = srcResource.performFatally(as: D3DResource.RawValue.self) {$0}
             var srcCoord = sourceRegionStartCoord.rawValue
             var regionSize = regionSize.rawValue
-            let flags = D3DTileMappingFlags.RawType(rawValue: flags.rawValue)
+            let flags = flags.rawType
             pThis.pointee.lpVtbl.pointee.CopyTileMappings(pThis, dstResource, &dstCoord, srcResource, &srcCoord, &regionSize,  flags)
         }
     }
@@ -76,7 +77,7 @@ public class D3DCommandQueue: D3DPageable {
     */
     public func signal(fence: D3DFence, value: UInt64) throws {
         try perform(as: RawValue.self) {pThis in
-            let pFence = try fence.perform(as: D3DFence.RawValue.self) {$0}
+            let pFence = fence.perform(as: D3DFence.RawValue.self) {$0}
             try pThis.pointee.lpVtbl.pointee.Signal(pThis, pFence, value).checkResult()
         }
     }
@@ -109,7 +110,7 @@ public class D3DCommandQueue: D3DPageable {
             let pRangeFlags = rangeFlags?.map({D3DTileRangeFlags.RawType($0.rawValue)})
             let pHeapRangeStartOffsets = heapRangeStartOffsets
             let pRangeTileCounts = rangeTileCounts
-            let flags = D3DTileMappingFlags.RawType(rawValue: flags.rawValue)
+            let flags = flags.rawType
             pThis.pointee.lpVtbl.pointee.UpdateTileMappings(pThis, resource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags)
         }
     }
@@ -120,7 +121,7 @@ public class D3DCommandQueue: D3DPageable {
     */
     public func wait(fence: D3DFence, value: UInt64) throws {
         try perform(as: RawValue.self) {pThis in
-            let pFence = try fence.perform(as: D3DFence.RawValue.self) {$0}
+            let pFence = fence.perform(as: D3DFence.RawValue.self) {$0}
             try pThis.pointee.lpVtbl.pointee.Wait(pThis, pFence, value).checkResult()
         }
     }

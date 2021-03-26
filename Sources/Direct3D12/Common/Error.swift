@@ -115,6 +115,6 @@ internal extension DWORD {
     }
 }
 
-fileprivate extension HRESULT {
+internal extension HRESULT {
     var string: String {DWORD(bitPattern: self).errorMessage}
 }

@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes the index buffer to view.
 public struct D3DIndexBufferView {

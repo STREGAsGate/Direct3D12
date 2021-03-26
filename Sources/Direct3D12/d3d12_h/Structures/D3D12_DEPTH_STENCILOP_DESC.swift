@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes stencil operations that can be performed based on the results of stencil test.
 public struct D3DDepthStencilOperationDescription {

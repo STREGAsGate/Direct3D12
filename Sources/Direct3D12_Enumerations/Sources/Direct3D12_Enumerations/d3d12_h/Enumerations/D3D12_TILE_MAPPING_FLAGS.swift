@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -11,8 +11,10 @@ import WinSDK
 /// Specifies how to perform a tile-mapping operation.
 public struct D3DTileMappingFlags: OptionSet {
     public typealias RawType = WinSDK.D3D12_TILE_MAPPING_FLAGS
+    public var rawType: RawType {RawType(rawValue)}
     public typealias RawValue = WinSDK.D3D12_TILE_MAPPING_FLAGS.RawValue
     public let rawValue: RawValue
+    
     //Use an empty collection `[]` to represent none in Swift.
     ///// No tile-mapping flags are specified.
     //public static let none = TileMappingFlags(rawValue: WinSDK.D3D12_TILE_MAPPING_FLAG_NONE.rawValue)

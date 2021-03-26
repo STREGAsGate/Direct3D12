@@ -16,7 +16,7 @@ public struct D3DResourceUnorderedAccessViewBarrier {
     /// The resource used in the transition, as a pointer to ID3D12Resource.
     public var resource: D3DResource? {
         get {
-            return D3DResource(win32Pointer: rawValue.pResource)
+            return D3DResource(winSDKPointer: rawValue.pResource)
         }
         set {
             rawValue.pResource = newValue?.performFatally(as: D3DResource.RawValue.self) {$0}

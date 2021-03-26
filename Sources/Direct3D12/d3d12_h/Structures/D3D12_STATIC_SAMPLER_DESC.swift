@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes a static sampler.
 public struct D3DStaticSamplerDecsription {

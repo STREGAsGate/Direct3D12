@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes a single element for the input-assembler stage of the graphics pipeline.
 public struct D3DInputElementDescription {

@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes a shader-resource view (SRV).
 public struct D3DShaderResourceViewDescription {

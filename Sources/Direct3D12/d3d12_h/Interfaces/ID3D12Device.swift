@@ -7,8 +7,16 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 public class D3DDevice: D3DObject {
+
+    /// Gets the reason that the device was removed.
+    public func checkDeviceRemovedReason() throws {
+        try perform(as: RawValue.self) {pThis in
+            try pThis.pointee.lpVtbl.pointee.GetDeviceRemovedReason(pThis).checkResult()
+        }
+    }
     
     /** Gets information about the features that are supported by the current graphics driver.
     - parameter feature: A constant from the D3D12_FEATURE enumeration describing the feature(s) that you want to query for support.
@@ -80,7 +88,7 @@ public class D3DDevice: D3DObject {
             var ppCommandAllocator: UnsafeMutableRawPointer?
             var riid = D3DCommandAllocator.interfaceID
             try pThis.pointee.lpVtbl.pointee.CreateCommandAllocator(pThis, type.rawValue, &riid, &ppCommandAllocator).checkResult()
-            guard let v = D3DCommandAllocator(win32Pointer: ppCommandAllocator) else {throw Error(.invalidArgument)}
+            guard let v = D3DCommandAllocator(winSDKPointer: ppCommandAllocator) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -98,12 +106,12 @@ public class D3DDevice: D3DObject {
         return try perform(as: RawValue.self) {pThis in
             let nodeMask = multipleAdapterNodeMask
             let type = type.rawValue
-            let pCommandAllocator = try commandAllocator.perform(as: D3DCommandAllocator.RawValue.self){$0}
+            let pCommandAllocator = commandAllocator.perform(as: D3DCommandAllocator.RawValue.self){$0}
             var ppCommandList: UnsafeMutableRawPointer?
-            let pInitialState = try initialState?.perform(as: D3DPipelineState.RawValue.self){$0}
+            let pInitialState = initialState?.perform(as: D3DPipelineState.RawValue.self){$0}
             var riid = D3DCommandList.interfaceID
             try pThis.pointee.lpVtbl.pointee.CreateCommandList(pThis, nodeMask, type, pCommandAllocator, pInitialState, &riid, &ppCommandList).checkResult()
-            guard let v = D3DCommandList(win32Pointer: ppCommandList) else {throw Error(.invalidArgument)}
+            guard let v = D3DCommandList(winSDKPointer: ppCommandList) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -117,7 +125,7 @@ public class D3DDevice: D3DObject {
             var riid = D3DCommandQueue.interfaceID
             var ppCommandQueue: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateCommandQueue(pThis, &pDesc, &riid, &ppCommandQueue).checkResult()
-            guard let v = D3DCommandQueue(win32Pointer: ppCommandQueue) else {throw Error(.invalidArgument)}
+            guard let v = D3DCommandQueue(winSDKPointer: ppCommandQueue) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -140,11 +148,11 @@ public class D3DDevice: D3DObject {
     public func createCommandSignature(description: D3DCommandSignatureDescription, rootSignature: D3DRootSignature?) throws -> D3DCommandSignature {
         return try perform(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
-            let pRootSignature = try rootSignature?.perform(as: D3DRootSignature.RawValue.self) {$0}
+            let pRootSignature = rootSignature?.perform(as: D3DRootSignature.RawValue.self) {$0}
             var riid = D3DCommandSignature.interfaceID
             var ppCommandSignature: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateCommandSignature(pThis, &pDesc, pRootSignature, &riid, &ppCommandSignature).checkResult()
-            guard let v = D3DCommandSignature(win32Pointer: ppCommandSignature) else {throw Error(.invalidArgument)}
+            guard let v = D3DCommandSignature(winSDKPointer: ppCommandSignature) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -163,14 +171,14 @@ public class D3DDevice: D3DObject {
                                         clearValue: D3DClearValue) throws -> D3DResource {
         return try perform(as: RawValue.self) {pThis in
             var pHeapProperties = properties.rawValue
-            let HeapFlags = D3DHeapFlags.RawType(flags.rawValue)
+            let HeapFlags = flags.rawType
             var pDesc = description.rawValue
             let InitialResourceState = D3DResourceStates.RawType(state.rawValue)
             var pOptimizedClearValue = clearValue.rawValue
             var riidResource = D3DResource.interfaceID
             var ppvResource: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateCommittedResource(pThis, &pHeapProperties, HeapFlags, &pDesc, InitialResourceState, &pOptimizedClearValue, &riidResource, &ppvResource).checkResult()
-            guard let v = D3DResource(win32Pointer: ppvResource) else {throw Error(.invalidArgument)}
+            guard let v = D3DResource(winSDKPointer: ppvResource) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -184,7 +192,7 @@ public class D3DDevice: D3DObject {
             var riid = D3DPipelineState.interfaceID
             var ppComputePipelineState: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateComputePipelineState(pThis, &pDesc, &riid, &ppComputePipelineState).checkResult()
-            guard let v = D3DPipelineState(win32Pointer: ppComputePipelineState) else {throw Error(.invalidArgument)}
+            guard let v = D3DPipelineState(winSDKPointer: ppComputePipelineState) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -222,7 +230,7 @@ public class D3DDevice: D3DObject {
             var riid = D3DDescriptorHeap.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateDescriptorHeap(pThis, &pDesc, &riid, &pp).checkResult()
-            guard let v = D3DDescriptorHeap(win32Pointer: pp) else {throw Error(.invalidArgument)}
+            guard let v = D3DDescriptorHeap(winSDKPointer: pp) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -234,11 +242,11 @@ public class D3DDevice: D3DObject {
     public func createFence(initialValue: UInt64 = 0, flags: D3DFenceFlags = []) throws -> D3DFence {
         return try perform(as: RawValue.self) {pThis in
             let InitialValue = initialValue
-            let Flags = D3DFenceFlags.RawType(flags.rawValue)
+            let Flags = flags.rawType
             var riid = D3DFence.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateFence(pThis, InitialValue, Flags, &riid, &pp).checkResult()
-            guard let v = D3DFence(win32Pointer: pp) else {throw Error(.invalidArgument)}
+            guard let v = D3DFence(winSDKPointer: pp) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -252,7 +260,7 @@ public class D3DDevice: D3DObject {
             var riid = D3DPipelineState.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateGraphicsPipelineState(pThis, &pDesc, &riid, &pp).checkResult()
-            guard let v = D3DPipelineState(win32Pointer: pp) else {throw Error(.invalidArgument)}
+            guard let v = D3DPipelineState(winSDKPointer: pp) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -266,7 +274,7 @@ public class D3DDevice: D3DObject {
             var riid = D3DHeap.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateHeap(pThis, &pDesc, &riid, &pp).checkResult()
-            guard let v = D3DHeap(win32Pointer: pp) else {throw Error(.invalidArgument)}
+            guard let v = D3DHeap(winSDKPointer: pp) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -285,7 +293,7 @@ public class D3DDevice: D3DObject {
                                      initialState: D3DResourceStates,
                                      clearValue: D3DClearValue) throws -> D3DResource {
         return try perform(as: RawValue.self) {pThis in
-            let pHeap = try heap.perform(as: D3DHeap.RawValue.self) {$0}
+            let pHeap = heap.perform(as: D3DHeap.RawValue.self) {$0}
             let HeapOffset = offset
             var pDesc = description.rawValue
             let InitialState = D3DResourceStates.RawType(initialState.rawValue)
@@ -293,7 +301,7 @@ public class D3DDevice: D3DObject {
             var riid = D3DResource.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreatePlacedResource(pThis, pHeap, HeapOffset, &pDesc, InitialState, &pOptimizedClearValue, &riid, &pp).checkResult()
-            guard let v = D3DResource(win32Pointer: pp) else {throw Error(.invalidArgument)}
+            guard let v = D3DResource(winSDKPointer: pp) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -307,7 +315,7 @@ public class D3DDevice: D3DObject {
             var riid = D3DQueryHeap.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateQueryHeap(pThis, &pDesc, &riid, &pp).checkResult()
-            guard let v = D3DQueryHeap(win32Pointer: pp) else {throw Error(.invalidArgument)}
+            guard let v = D3DQueryHeap(winSDKPointer: pp) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -340,7 +348,7 @@ public class D3DDevice: D3DObject {
             var riid = D3DResource.interfaceID
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateReservedResource(pThis, &pDesc, InitialState, &pOptimizedClearValue, &riid, &pp).checkResult()
-            guard let v = D3DResource(win32Pointer: pp) else {throw Error(.invalidArgument)}
+            guard let v = D3DResource(winSDKPointer: pp) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -363,7 +371,7 @@ public class D3DDevice: D3DObject {
             var riid = D3DRootSignature.interfaceID
             var ppCommandSignature: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateRootSignature(pThis, multipleAdapterNodeMask, buffer, bufferSize, &riid, &ppCommandSignature).checkResult()
-            guard let v = D3DRootSignature(win32Pointer: ppCommandSignature) else {throw Error(.invalidArgument)}
+            guard let v = D3DRootSignature(winSDKPointer: ppCommandSignature) else {throw Error(.invalidArgument)}
             return v
         }
     }
@@ -399,7 +407,7 @@ public class D3DDevice: D3DObject {
     */
     public func createSharedHandle(object: D3DDeviceChild, name: String) throws -> UnsafeMutableRawPointer {
         return try perform(as: RawValue.self) {pThis in
-            let pObject = try object.perform(as: D3DDeviceChild.RawValue.self) {$0}
+            let pObject = object.perform(as: D3DDeviceChild.RawValue.self) {$0}
             let pAttributes: UnsafeMutablePointer<SECURITY_ATTRIBUTES>? = nil
             let ACCESS = DWORD(WinSDK.GENERIC_ALL)
             let Name = name.windowsUTF16
@@ -431,7 +439,7 @@ public class D3DDevice: D3DObject {
     public func evict(_ objects: [D3DPageable]) throws {
         try perform(as: RawValue.self) {pThis in 
             let NumObjects = UInt32(objects.count)
-            var ppObjects = try objects.map({try $0.perform(as: D3DPageable.RawValue.self) {Optional($0)}})
+            var ppObjects = objects.map({$0.perform(as: D3DPageable.RawValue.self) {Optional($0)}})
             try pThis.pointee.lpVtbl.pointee.Evict(pThis, NumObjects, &ppObjects).checkResult()
         }
     }
@@ -504,7 +512,7 @@ public class D3DDevice: D3DObject {
     public func makeResident(_ objects: [D3DPageable]) throws {
         try perform(as: RawValue.self) {pThis in 
             let NumObjects = UInt32(objects.count)
-            var ppObjects = try objects.map({try $0.perform(as: D3DPageable.RawValue.self) {Optional($0)}})
+            var ppObjects = objects.map({$0.perform(as: D3DPageable.RawValue.self) {Optional($0)}})
             try pThis.pointee.lpVtbl.pointee.MakeResident(pThis, NumObjects, &ppObjects).checkResult()
         }
     }
@@ -531,11 +539,11 @@ public class D3DDevice: D3DObject {
             try pThis.pointee.lpVtbl.pointee.OpenSharedHandle(pThis, handle, &riid, &p).checkResult()
             guard let p = p else {throw Error(.invalidArgument)}
             if type == D3DHeap.self {
-                return D3DHeap(win32Pointer: p) as! T
+                return D3DHeap(winSDKPointer: p) as! T
             }else if type == D3DResource.self {
-                return D3DResource(win32Pointer: p) as! T
+                return D3DResource(winSDKPointer: p) as! T
             }else if type == D3DFence.self {
-                return D3DFence(win32Pointer: p) as! T
+                return D3DFence(winSDKPointer: p) as! T
             }else{
                 throw Error(.invalidArgument)
             }
@@ -589,50 +597,18 @@ public class D3DDevice: D3DObject {
         // }
     }
 
-    public init(minimumFeatureLevel featureLevel: D3DFeatureLevel) throws {
-        let pAdapter: UnsafeMutablePointer<WinSDK.IUnknown>? = nil
+    public init(adapter: DGIAdapter? = nil, minimumFeatureLevel featureLevel: D3DFeatureLevel = .v11) throws {
+        let pAdapter = adapter?.perform(as: IUnknown.RawValue.self) {$0}
         let MinimumFeatureLevel = featureLevel.rawValue
         var riid = D3DDevice.interfaceID
         var ppDevice: UnsafeMutableRawPointer?
         try WinSDK.D3D12CreateDevice(pAdapter, MinimumFeatureLevel, &riid, &ppDevice).checkResult()
         guard let p = ppDevice else {throw Error(.invalidArgument)}
-        super.init(win32Pointer: p)!
+        super.init(winSDKPointer: p)!
     }
 
-    public class func createDefaultDevice() throws -> D3DDevice {
-        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v12_1) {
-            return device
-        }
-        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v12) {
-            return device
-        }
-        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v11_1) {
-            return device
-        }
-        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v11) {
-            return device
-        }
-        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v10_1) {
-            return device
-        }
-        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v10) {
-            return device
-        }
-        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v9_3) {
-            return device
-        }
-        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v9_2) {
-            return device
-        }
-        if let device: D3DDevice = try? D3DDevice(minimumFeatureLevel: .v9_1) {
-            return device
-        }
-
-        throw Error("No supported devices found.")
-    }
-
-    override public init?(win32Pointer pointer: UnsafeMutableRawPointer?) {
-        super.init(win32Pointer: pointer)
+    override public init?(winSDKPointer pointer: UnsafeMutableRawPointer?) {
+        super.init(winSDKPointer: pointer)
     }
 }
 

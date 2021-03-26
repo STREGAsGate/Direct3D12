@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes an indirect argument (an indirect parameter), for use with a command signature.
 public struct D3DIndirectArgumentDescription {

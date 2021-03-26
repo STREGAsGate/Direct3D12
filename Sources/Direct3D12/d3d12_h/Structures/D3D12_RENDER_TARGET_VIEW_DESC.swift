@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes the subresources from a resource that are accessible by using a render-target view.
 public struct D3DRenderTargetViewDescription {

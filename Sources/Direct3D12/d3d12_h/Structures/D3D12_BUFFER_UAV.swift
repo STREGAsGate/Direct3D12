@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes the elements in a buffer to use in a unordered-access view.
 public struct D3DUnorderedAccessViewBuffer {

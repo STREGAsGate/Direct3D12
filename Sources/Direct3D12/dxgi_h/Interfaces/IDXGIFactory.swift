@@ -8,33 +8,63 @@
 
 import WinSDK
 import WinSDK.DirectX
+import Direct3D12_Enumerations
 
 public class DGIFactory: DGIObject {
     
+    /** Enumerates the adapters (video cards).
+    - parameter index: The index of the adapter to enumerate.
+    */
+    public func enumAdapter(at index: UInt32) throws -> DGIAdapter {
+        return try perform(as: RawValue.self) {pThis in 
+            let Adapter = index
+            var ppAdapter: UnsafeMutablePointer<DGIAdapter.RawValue>?
+            try pThis.pointee.lpVtbl.pointee.EnumAdapters(pThis, Adapter, &ppAdapter).checkResult()
+            guard let v = DGIAdapter(winSDKPointer: ppAdapter) else {throw Error(.invalidArgument)}
+            v.release()
+            return v
+        }
+    }
+
+    /// Creates an appropriate D3DDevice
+    public func createDefaultDevice() throws -> D3DDevice {
+        do {
+            return try D3DDevice(minimumFeatureLevel: .v11)
+        }catch{
+            do {
+                print("Failed to create hardware device: \(error)")
+                print("Trying to create WARP (software) device...")
+                let warpAdapter = try self.enumWarpAdapter() // A software adapter fallback
+                let device = try D3DDevice(adapter: warpAdapter, minimumFeatureLevel: .v11)
+                print("Successfully created WARP device.")
+                return device
+            }catch{
+                throw Error("No supported devices found.")
+            }
+        }
+    }
+
     public init() throws {
-        var riid = DGIFactory.interfaceID
-        var ppFactory: UnsafeMutableRawPointer?
         #if DEBUG
         let flags = UInt32(DXGI_CREATE_FACTORY_DEBUG)
         #else
         let flags: UInt32 = 0
         #endif
+        var riid = DGIFactory.interfaceID
+        var ppFactory: UnsafeMutableRawPointer?
         try WinSDK.CreateDXGIFactory2(flags, &riid, &ppFactory).checkResult()
         guard let p = ppFactory else {throw Error(.invalidArgument)}
-        super.init(win32Pointer: p)!
-    }
-    override init?(win32Pointer pointer: UnsafeMutableRawPointer?) {
-        super.init(win32Pointer: pointer)
+        super.init(winSDKPointer: p)!
     }
 
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
-extension DGIFactory {// Always use Factory2
-    typealias RawValue = WinSDK.IDXGIFactory2
+extension DGIFactory {// Always use Factory4
+    typealias RawValue = WinSDK.IDXGIFactory4
 }
-extension DGIFactory.RawValue {// Always use Factory2
-    static var interfaceID: WinSDK.IID {WinSDK.IID_IDXGIFactory2}
+extension DGIFactory.RawValue {// Always use Factory4
+    static var interfaceID: WinSDK.IID {WinSDK.IID_IDXGIFactory4}
 }
 
 //MARK: - Original Style API
@@ -44,6 +74,11 @@ extension DGIFactory.RawValue {// Always use Factory2
 public typealias IDXGIFactory = DGIFactory
 
 public extension DGIFactory {
+    @available(*, unavailable, renamed: "enumAdapter(at:)")
+    func EnumAdapters(_ Adapter: Any,
+                      _ ppAdapter: Any) -> HRESULT {
+        fatalError("This API is here to make migration easier. There is no implementation.")
+    }
     @available(*, unavailable, renamed: "createSwapChain(destiption:window:fullScreen:commandQueue:)")
     func CreateSwapChain(_ pDevice: Any,
                          _ pDesc: Any,

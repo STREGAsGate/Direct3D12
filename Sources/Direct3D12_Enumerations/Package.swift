@@ -1,6 +1,6 @@
 // swift-tools-version:5.4
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -22,6 +22,7 @@ let package = Package(
             targets: ["Direct3D12_Enumerations"]),
     ],
     targets: [
-        .target(name: "Direct3D12_Enumerations"),
+        .target(name: "Direct3D12_Enumerations", 
+                linkerSettings: [.linkedLibrary("User32"), .linkedLibrary("Ole32")]),
     ]
 )

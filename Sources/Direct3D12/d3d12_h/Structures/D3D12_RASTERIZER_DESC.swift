@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes rasterizer state.
 public struct D3DRasterizerDescription {

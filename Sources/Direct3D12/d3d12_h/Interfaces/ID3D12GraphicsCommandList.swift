@@ -8,6 +8,7 @@
 
 import WinSDK
 import WinSDK.DirectX
+import Direct3D12_Enumerations
 
 /// Encapsulates a list of graphics commands for rendering. Includes APIs for instrumenting the command list execution, and for setting and clearing the pipeline state.
 public class D3DGraphicsCommandList: D3DCommandList {
@@ -429,8 +430,8 @@ public class D3DGraphicsCommandList: D3DCommandList {
     */
     public func reset(usingOriginalAllocator commandAllocator: D3DCommandAllocator, withInitialState state: D3DPipelineState?) throws {
         try perform(as: RawValue.self) {pThis in
-            let pAllocator = try commandAllocator.perform(as: D3DCommandAllocator.RawValue.self) {$0}
-            let pInitialState = try state?.perform(as: D3DPipelineState.RawValue.self, body: {$0})
+            let pAllocator = commandAllocator.perform(as: D3DCommandAllocator.RawValue.self) {$0}
+            let pInitialState = state?.perform(as: D3DPipelineState.RawValue.self, body: {$0})
             try pThis.pointee.lpVtbl.pointee.Reset(pThis, pAllocator, pInitialState).checkResult()
         }
     }

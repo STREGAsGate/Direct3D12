@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes a portion of a texture for the purpose of texture copies.
 public struct D3DTextureCopyLocation {
@@ -19,7 +20,7 @@ public struct D3DTextureCopyLocation {
     */
     public var resource: D3DResource? {
         get {
-            return D3DResource(win32Pointer: rawValue.pResource)
+            return D3DResource(winSDKPointer: rawValue.pResource)
         }
         set {
             rawValue.pResource = newValue?.performFatally(as: D3DResource.RawValue.self) {$0}

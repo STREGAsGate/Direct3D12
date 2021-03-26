@@ -9,17 +9,17 @@
 import WinSDK
 
 public class IUnknown {
-    private var win32Pointer: UnsafeMutableRawPointer?
+    private let pUnk: UnsafeMutableRawPointer
 
-    func perform<Type, ResultType>(as type: Type.Type, body: (_ pThis: UnsafeMutablePointer<Type>) throws -> ResultType) throws -> ResultType {
-        guard let p = win32Pointer else {throw Error(.invalidArgument)}
-        return try body(p.bindMemory(to: type, capacity: 1))
+    func perform<Type, ResultType>(as type: Type.Type, body: (_ pThis: UnsafeMutablePointer<Type>) throws -> ResultType) rethrows -> ResultType {
+        let pThis = pUnk.bindMemory(to: Type.self, capacity: 1)
+        return try body(pThis)
     }
 
     func performFatally<Type, ResultType>(as type: Type.Type, body: (_ pThis: UnsafeMutablePointer<Type>) throws -> ResultType) -> ResultType {
         do {
-            guard let p = win32Pointer else {throw Error(.invalidArgument)}
-            return try body(p.bindMemory(to: type, capacity: 1))
+            let pThis = pUnk.bindMemory(to: Type.self, capacity: 1)
+            return try body(pThis)
         }catch let error as Direct3D12.Error {
             fatalError(error.description)
         }catch{
@@ -27,17 +27,26 @@ public class IUnknown {
         }
     }
 
-    init?(win32Pointer pointer: UnsafeMutableRawPointer?) {
+    internal init?(winSDKPointer pointer: UnsafeMutableRawPointer?) {
         guard let pointer = pointer else {return nil}
-        self.win32Pointer = pointer
-        let this = self.performFatally(as: WinSDK.IUnknown.self, body: {$0})
-        _ = this.pointee.lpVtbl.pointee.AddRef(this)
+        self.pUnk = pointer
+        self.retain()
+    }
+
+    internal func retain() {
+        self.performFatally(as: WinSDK.IUnknown.self) {pThis in
+            _ = pThis.pointee.lpVtbl.pointee.AddRef(pThis)
+        }
+    }
+
+    internal func release() {
+        self.performFatally(as: WinSDK.IUnknown.self) {pThis in
+            _ = pThis.pointee.lpVtbl.pointee.Release(pThis)
+        }
     }
 
     deinit {
-        if let this = try? self.perform(as: WinSDK.IUnknown.self, body: {$0}) {
-            _ = this.pointee.lpVtbl.pointee.Release(this)
-        }
+        self.release()
     }
     
     class var interfaceID: WinSDK.IID {preconditionFailure("Must override!")}

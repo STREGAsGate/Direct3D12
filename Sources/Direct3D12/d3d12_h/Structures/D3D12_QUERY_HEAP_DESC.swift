@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes the purpose of a query heap. A query heap contains an array of individual queries.
 public struct D3DQueryHeapDescription {

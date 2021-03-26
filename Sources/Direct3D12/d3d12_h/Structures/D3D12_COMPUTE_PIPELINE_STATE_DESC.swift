@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes a compute pipeline state object.
 public struct D3DComputePipelineStateDescription {
@@ -16,7 +17,7 @@ public struct D3DComputePipelineStateDescription {
     /// A pointer to the ID3D12RootSignature object.
     public var rootSignature: D3DRootSignature? {
         get {
-            return D3DRootSignature(win32Pointer: self.rawValue.pRootSignature)
+            return D3DRootSignature(winSDKPointer: self.rawValue.pRootSignature)
         }
         set {
             self.rawValue.pRootSignature = newValue?.performFatally(as: D3DRootSignature.RawValue.self) {$0}

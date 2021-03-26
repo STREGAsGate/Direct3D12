@@ -7,6 +7,7 @@
  */
 
 import WinSDK
+import Direct3D12_Enumerations
 
 /// Describes the layout of a root signature version 1.0.
 public struct D3DRootSignatureDescription {
