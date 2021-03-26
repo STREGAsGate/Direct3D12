@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes a sampler state.
 public struct D3DSamplerDescription {

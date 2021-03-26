@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes the transition of subresources between different usages.
 public struct D3DResourceTransitionBarrier {

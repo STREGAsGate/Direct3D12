@@ -14,6 +14,7 @@ let package = Package(
     products: [
         .library(
             name: "Direct3D12_Unimplemented",
+            type: .dynamic,
             targets: ["Direct3D12_Unimplemented"]),
     ],
     targets: [

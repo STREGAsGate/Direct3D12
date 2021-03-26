@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes the elements in a buffer resource to use in a shader-resource view.
 public struct D3DShaderResourceViewBuffer {

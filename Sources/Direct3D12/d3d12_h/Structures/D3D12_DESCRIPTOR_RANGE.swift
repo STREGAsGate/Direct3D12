@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes a descriptor range.
 public struct D3DDescriptorRange {

@@ -9,8 +9,13 @@
 import Foundation
 import WinSDK
 
+public enum LaunchOption: Int, Hashable, Equatable {
+    /// Nothing. This won't ever be in the options dictionary. Delete once there is an option
+    case none = 0
+}
+
 public protocol MSApplicationDelegate: AnyObject {
-    func application(_ application: MSApplication, didFinishLaunchingWithOptions options: Dictionary<MSApplication.LaunchOption,Any>)
+    func application(_ application: MSApplication, didFinishLaunchingWithOptions options: Dictionary<LaunchOption, Any>)
     func applicationWillQuit(_ application: MSApplication)
 }
 
@@ -34,15 +39,11 @@ public struct DirectX {
 }
 
 public final class MSApplication {
-    public enum LaunchOption: Int, Hashable, Equatable {
-        /// Nothing. This won't ever be in the options dictionary. Delete once there is an option
-        case none = 0
-    }
     public private(set) var delegate: MSApplicationDelegate? = nil
 
     public var quitOnLastWindowClosed: Bool = true
 
-    public let directX = DirectX()
+    public lazy var directX = DirectX()
 
     private init() {}
 

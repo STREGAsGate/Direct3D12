@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes a portion of a texture for the purpose of texture copies.
 public struct D3DTextureCopyLocation {

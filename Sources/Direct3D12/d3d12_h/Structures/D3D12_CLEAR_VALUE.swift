@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes a value used to optimize clear operations for a particular resource.
 public struct D3DClearValue {

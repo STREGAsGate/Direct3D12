@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes a command queue.
 public struct D3DCommandQueueDescription {

@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 public class DGISwapChain: DGIDeviceSubObject {
 

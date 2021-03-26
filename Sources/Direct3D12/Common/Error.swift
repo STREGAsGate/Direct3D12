@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
 
 extension Error {
     public enum Kind {

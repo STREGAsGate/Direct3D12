@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes the format, width, height, depth, and row-pitch of the subresource into the parent resource.
 public struct D3DSubresourceFootprint {

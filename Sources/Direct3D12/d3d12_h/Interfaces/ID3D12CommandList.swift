@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 public class D3DCommandList: D3DDeviceChild {
     /// Gets the type of the command list, such as direct, bundle, compute, or copy.

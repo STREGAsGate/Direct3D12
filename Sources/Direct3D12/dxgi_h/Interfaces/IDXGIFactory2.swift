@@ -7,8 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
-import Direct3D12_Enumerations
 
 public extension DGIFactory {
     
@@ -65,7 +63,7 @@ public extension DGIFactory {
                                                    alphaMode: .straight,
                                                    flags: .allowModeSwitch)
         let fullScreen = DGISwapChainFullscreenDescription(refreshRate: refreshRate)
-        return try createSwapChain(description: description, window: window, fullScreen: fullScreen, commandQueue: commandQueue)
+        return try createSwapChain(description: description, window: window, fullScreen: nil, commandQueue: commandQueue)
     }
 }
 

@@ -7,7 +7,7 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
+import WinSDK.DirectX
 
 public class D3DDevice: D3DObject {
 

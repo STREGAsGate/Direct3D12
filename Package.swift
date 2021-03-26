@@ -15,21 +15,25 @@ let package = Package(
     products: [
         .library(
             name: "Direct3D12",
+            type: .dynamic,
             targets: ["Direct3D12"]),
     ],
     dependencies: [
-        .package(name: "Direct3D12_Enumerations", path: "./Sources/Direct3D12_Enumerations"),
+        // .package(name: "Direct3D12_Enumerations", path: "./Sources/Direct3D12_Enumerations"),
     ],
     targets: [
         .target(
             name: "Direct3D12",
-            dependencies: ["Direct3D12_Enumerations"],
+            // dependencies: ["Direct3D12_Enumerations"],
             swiftSettings: [
                 .define("Direct3D12ExcludeOriginalStyleAPI", .when(configuration: .release)),
             ],
             linkerSettings: [
                 .linkedLibrary("User32"),
                 .linkedLibrary("Ole32"),
+                .linkedLibrary("PortableDeviceGuids"),
+                .linkedLibrary("DXGI"),
+                .linkedLibrary("D3D12"),
             ]
         ),
     ]

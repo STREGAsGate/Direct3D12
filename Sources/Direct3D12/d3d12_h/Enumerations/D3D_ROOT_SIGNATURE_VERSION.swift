@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
 
 /// Specifies the version of root signature layout.
 public enum D3DRootSignatureVersion {

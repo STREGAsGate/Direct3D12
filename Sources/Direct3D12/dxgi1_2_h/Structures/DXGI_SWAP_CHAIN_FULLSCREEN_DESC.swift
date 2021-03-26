@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes full-screen mode for a swap chain.
 public struct DGISwapChainFullscreenDescription {

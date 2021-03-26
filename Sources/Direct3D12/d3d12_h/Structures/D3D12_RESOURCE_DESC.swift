@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 // @available(Windows, deprecated: 10.0.19041, renamed: "ResourceDescription1")
 /// Describes a resource, such as a texture. This structure is used extensively.

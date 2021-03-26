@@ -22,7 +22,6 @@ let package = Package(
             targets: ["Direct3D12_Enumerations"]),
     ],
     targets: [
-        .target(name: "Direct3D12_Enumerations", 
-                linkerSettings: [.linkedLibrary("User32"), .linkedLibrary("Ole32")]),
+        .target(name: "Direct3D12_Enumerations"),
     ]
 )

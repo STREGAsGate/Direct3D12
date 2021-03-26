@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 public struct AutoBreadcrumbNode {
     public let rawValue: WinSDK.D3D12_AUTO_BREADCRUMB_NODE

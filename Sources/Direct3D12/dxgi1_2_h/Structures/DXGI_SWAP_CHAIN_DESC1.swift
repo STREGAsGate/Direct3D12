@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes a swap chain.
 public struct DGISwapChainDescription1 {

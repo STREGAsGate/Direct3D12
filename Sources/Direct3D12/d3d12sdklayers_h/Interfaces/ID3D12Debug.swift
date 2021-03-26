@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
 
 /// An interface used to turn on the debug layer. See EnableDebugLayer for more information.
 public class D3DDebug: IUnknown {
@@ -23,7 +22,7 @@ public class D3DDebug: IUnknown {
     public init() throws {
         var riid = Self.interfaceID
         var ppvDebug: UnsafeMutableRawPointer?
-        try D3D12GetDebugInterface(&riid, &ppvDebug).checkResult()
+        try WinSDK.D3D12GetDebugInterface(&riid, &ppvDebug).checkResult()
         super.init(winSDKPointer: ppvDebug!)!
     }
 

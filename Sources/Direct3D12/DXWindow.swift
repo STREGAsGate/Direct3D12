@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 public protocol DXWindowDelegate: MSWindowDelegate {
     
@@ -17,7 +16,6 @@ open class DXWindow: MSWindow {
     public var device: D3DDevice {
         return MSApplication.shared.directX.device
     }
-    internal var fence: D3DFence! = nil
     internal var commandQueue: D3DCommandQueue! = nil
     internal var commandAllocator: D3DCommandAllocator! = nil
     internal var commandList: D3DCommandList! = nil
@@ -39,7 +37,6 @@ open class DXWindow: MSWindow {
     }
 
     private func prepareDirectX() throws {
-        self.fence = try device.createFence()
         self.commandQueue = try device.createCommandQueue(type: .direct, priority: .normal)
         self.commandAllocator = try device.createCommandAllocator(type: .direct)
         self.commandList = try device.createCommandList(type: .direct, commandAllocator: self.commandAllocator)

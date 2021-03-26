@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes the subresources from a resource that are accessible by using an unordered-access view.
 public struct D3DUnorderedAccessViewDescription {

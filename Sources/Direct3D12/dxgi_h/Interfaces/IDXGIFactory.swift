@@ -7,8 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
-import Direct3D12_Enumerations
 
 public class DGIFactory: DGIObject {
     
@@ -29,7 +27,8 @@ public class DGIFactory: DGIObject {
     /// Creates an appropriate D3DDevice
     public func createDefaultDevice() throws -> D3DDevice {
         do {
-            return try D3DDevice(minimumFeatureLevel: .v11)
+            let adapter = try enumAdapter(at: 0)
+            return try D3DDevice(adapter: adapter, minimumFeatureLevel: .v11)
         }catch{
             do {
                 print("Failed to create hardware device: \(error)")

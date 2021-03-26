@@ -7,8 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
-import Direct3D12_Enumerations
 
 public class D3DCommandQueue: D3DPageable {
 

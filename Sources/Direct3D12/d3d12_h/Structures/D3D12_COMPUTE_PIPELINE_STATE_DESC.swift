@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes a compute pipeline state object.
 public struct D3DComputePipelineStateDescription {

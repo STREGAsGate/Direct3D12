@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
 
 @available(Windows, introduced: 10.0.17763)
 public extension Device {

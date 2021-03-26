@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes a resource barrier (transition in resource use).
 public struct D3DResourceBarrier {

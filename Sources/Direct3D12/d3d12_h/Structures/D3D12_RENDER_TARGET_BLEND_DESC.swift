@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes the blend state for a render target.
 public struct D3DRenderTargetBlendDescription {

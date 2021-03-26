@@ -7,7 +7,6 @@
  */
 
 import WinSDK
-import Direct3D12_Enumerations
 
 /// Describes the subresources of a texture that are accessible from a depth-stencil view.
 public struct D3DDepthStencilViewDescription {

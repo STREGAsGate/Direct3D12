@@ -7,8 +7,6 @@
  */
 
 import WinSDK
-import WinSDK.DirectX
-import Direct3D12_Enumerations
 
 /// Encapsulates a list of graphics commands for rendering. Includes APIs for instrumenting the command list execution, and for setting and clearing the pipeline state.
 public class D3DGraphicsCommandList: D3DCommandList {
