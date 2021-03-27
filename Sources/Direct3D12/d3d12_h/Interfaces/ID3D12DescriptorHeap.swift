@@ -13,9 +13,13 @@ public class D3DDescriptorHeap: D3DPageable {
 
     /// Gets the CPU descriptor handle that represents the start of the heap.
     public var cpuDescriptorHandleForHeapStart: D3DCPUDescriptorHandle {
-        return performFatally(as: RawValue.self) {pThis in
-            let v = pThis.pointee.lpVtbl.pointee.GetCPUDescriptorHandleForHeapStart(pThis)
-            return D3DCPUDescriptorHandle(v)
+        return performFatally(as: RawValue.self) {pThis in            
+            //fix from @compnerd's SwiftCOM package
+            var hDescriptor: D3DCPUDescriptorHandle.RawValue = D3DCPUDescriptorHandle.RawValue()
+            typealias GetCPUDescriptorHandleForHeapStartABI = @convention(c) (UnsafeMutablePointer<WinSDK.ID3D12DescriptorHeap>?, UnsafeMutablePointer<D3DCPUDescriptorHandle.RawValue >?) -> Void
+            let pGetCPUDescriptorHandleForHeapStart: GetCPUDescriptorHandleForHeapStartABI = unsafeBitCast(pThis.pointee.lpVtbl.pointee.GetCPUDescriptorHandleForHeapStart, to: GetCPUDescriptorHandleForHeapStartABI.self)
+            pGetCPUDescriptorHandleForHeapStart(pThis, &hDescriptor)
+            return D3DCPUDescriptorHandle(hDescriptor)
         }
     }
 
@@ -30,8 +34,12 @@ public class D3DDescriptorHeap: D3DPageable {
     /// Gets the GPU descriptor handle that represents the start of the heap.
     public var gpuDescriptorHandleForHeapStart: D3DGPUDescriptorHandle {
         return performFatally(as: RawValue.self) {pThis in
-            let v = pThis.pointee.lpVtbl.pointee.GetGPUDescriptorHandleForHeapStart(pThis)
-            return D3DGPUDescriptorHandle(v)
+            //fix from @compnerd's SwiftCOM package
+            var hDescriptor: D3DGPUDescriptorHandle.RawValue = D3DGPUDescriptorHandle.RawValue()
+            typealias GetGPUDescriptorHandleForHeapStartABI = @convention(c) (UnsafeMutablePointer<WinSDK.ID3D12DescriptorHeap>?, UnsafeMutablePointer<D3DGPUDescriptorHandle.RawValue >?) -> Void
+            let pGetGPUDescriptorHandleForHeapStart: GetGPUDescriptorHandleForHeapStartABI = unsafeBitCast(pThis.pointee.lpVtbl.pointee.GetGPUDescriptorHandleForHeapStart, to: GetGPUDescriptorHandleForHeapStartABI.self)
+            pGetGPUDescriptorHandleForHeapStart(pThis, &hDescriptor)
+            return D3DGPUDescriptorHandle(hDescriptor)
         }
     }
 

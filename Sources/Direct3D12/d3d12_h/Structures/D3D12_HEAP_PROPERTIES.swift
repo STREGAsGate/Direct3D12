@@ -83,10 +83,10 @@ public struct D3DHeapProperties {
     - parameter visibleNodeMask: Passing zero is equivalent to passing one, in order to simplify the usage of single-GPU adapters.
     */
     public init(type: D3DHeapType,
-                cpuPageProperty: D3DCPUPageProperty,
-                memoryPoolPreference: D3DMemoryPool,
-                multiAdapterCreationNodeMask: UInt32 = 0,
-                visibleNodeMask: UInt32 = 0) {
+                cpuPageProperty: D3DCPUPageProperty = .unknown,
+                memoryPoolPreference: D3DMemoryPool = .unknown,
+                multiAdapterCreationNodeMask: UInt32 = 1,
+                visibleNodeMask: UInt32 = 1) {
         self.rawValue = RawValue()
         self.type = type
         self.cpuPageProperty = cpuPageProperty

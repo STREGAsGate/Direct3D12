@@ -33,7 +33,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter regions: An array of D3D12_RECT structures for the rectangles in the resource view to clear. If NULL, ClearDepthStencilView clears the entire resource view.
     */
     public func clearDepthStencilView(_ view: D3DCPUDescriptorHandle,
-                                      flags: D3DClearFlags,
+                                      flags: D3DClearFlags = [.depth, .stencil],
                                       depthValue: Float = 0,
                                       stencilValue: UInt8 = 0,
                                       regions: [D3DRect]? = nil) {
@@ -55,7 +55,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     */
     public func clearRenderTargetView(_ view: D3DCPUDescriptorHandle,
                                       withColor clearColor: D3DColor,
-                                      regions: [D3DRect]? = nil) throws {
+                                      regions: [D3DRect]? = nil) {
         performFatally(as: RawValue.self) {pThis in
             let RenderTargetView = view.rawValue
             let ColorRGBA = clearColor.rawValue
@@ -397,14 +397,14 @@ public class D3DGraphicsCommandList: D3DCommandList {
 
     /** Sets CPU descriptor handles for the render targets and depth stencil.
     - parameter renderTargets: Specifies an array of D3D12_CPU_DESCRIPTOR_HANDLE structures that describe the CPU descriptor handles that represents the start of the heap of render target descriptors. If this parameter is NULL and NumRenderTargetDescriptors is 0, no render targets are bound.
-    - parameter depthStencilDescriptor: A pointer to a D3D12_CPU_DESCRIPTOR_HANDLE structure that describes the CPU descriptor handle that represents the start of the heap that holds the depth stencil descriptor. If this parameter is NULL, no depth stencil descriptor is bound.
+    - parameter depthStencil: A pointer to a D3D12_CPU_DESCRIPTOR_HANDLE structure that describes the CPU descriptor handle that represents the start of the heap that holds the depth stencil descriptor. If this parameter is NULL, no depth stencil descriptor is bound.
     */
-    public func setRenderTargets(_ renderTargets: [D3DCPUDescriptorHandle], depthStencilDescriptor: D3DCPUDescriptorHandle? = nil) {
+    public func setRenderTargets(_ renderTargets: [D3DCPUDescriptorHandle], depthStencil: D3DCPUDescriptorHandle? = nil) {
         performFatally(as: RawValue.self) {pThis in
             let NumRenderTargetDescriptors = UInt32(renderTargets.count)
             let pRenderTargetDescriptors = renderTargets.map({$0.rawValue})
             let RTsSingleHandleToDescriptorRange = WindowsBool(booleanLiteral: true) //We just made sure they are contiguous
-            if var pDepthStencilDescriptor = depthStencilDescriptor?.rawValue {
+            if var pDepthStencilDescriptor = depthStencil?.rawValue {
                 pThis.pointee.lpVtbl.pointee.OMSetRenderTargets(pThis, NumRenderTargetDescriptors, pRenderTargetDescriptors, RTsSingleHandleToDescriptorRange, &pDepthStencilDescriptor)
             }else{
                 pThis.pointee.lpVtbl.pointee.OMSetRenderTargets(pThis, NumRenderTargetDescriptors, pRenderTargetDescriptors, RTsSingleHandleToDescriptorRange, nil)
@@ -429,8 +429,11 @@ public class D3DGraphicsCommandList: D3DCommandList {
     public func reset(usingOriginalAllocator commandAllocator: D3DCommandAllocator, withInitialState state: D3DPipelineState?) throws {
         try perform(as: RawValue.self) {pThis in
             let pAllocator = commandAllocator.perform(as: D3DCommandAllocator.RawValue.self) {$0}
-            let pInitialState = state?.perform(as: D3DPipelineState.RawValue.self, body: {$0})
-            try pThis.pointee.lpVtbl.pointee.Reset(pThis, pAllocator, pInitialState).checkResult()
+            if let pInitialState = state?.perform(as: D3DPipelineState.RawValue.self, body: {$0}) {
+                try pThis.pointee.lpVtbl.pointee.Reset(pThis, pAllocator, pInitialState).checkResult()
+            }else{
+                try pThis.pointee.lpVtbl.pointee.Reset(pThis, pAllocator, nil).checkResult()
+            }
         }
     }
 

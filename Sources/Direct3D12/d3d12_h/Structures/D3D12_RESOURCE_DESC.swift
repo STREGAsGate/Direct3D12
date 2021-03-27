@@ -45,12 +45,12 @@ public struct D3DResourceDescription {
     }
 
     /// Specifies the height of the resource.
-    public var height: UInt64 {
+    public var height: UInt32 {
         get {
-            return rawValue.Width
+            return rawValue.Height
         }
         set {
-            rawValue.Width = newValue
+            rawValue.Height = newValue
         }
     }
 

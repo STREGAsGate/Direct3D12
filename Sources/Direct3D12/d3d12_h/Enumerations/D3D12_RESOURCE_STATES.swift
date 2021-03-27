@@ -31,7 +31,7 @@ public struct D3DResourceStates: OptionSet {
     public static let indexBuffer = D3DResourceStates(rawValue: WinSDK.D3D12_RESOURCE_STATE_INDEX_BUFFER.rawValue)
     /// The resource is used as a render target. A subresource must be in this state when it is rendered to or when it is cleared with ID3D12GraphicsCommandList::ClearRenderTargetView.
     /// This is a write-only state. To read from a render target as a shader resource the resource must be in either D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE or D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE.
-    public static let rendertarget = D3DResourceStates(rawValue: WinSDK.D3D12_RESOURCE_STATE_RENDER_TARGET.rawValue)
+    public static let renderTarget = D3DResourceStates(rawValue: WinSDK.D3D12_RESOURCE_STATE_RENDER_TARGET.rawValue)
     ///	The resource is used for unordered access. A subresource must be in this state when it is accessed by the GPU via an unordered access view. A subresource must also be in this state when it is cleared with ID3D12GraphicsCommandList::ClearUnorderedAccessViewInt or ID3D12GraphicsCommandList::ClearUnorderedAccessViewFloat. This is a read/write state.
     public static let unorderedAccess = D3DResourceStates(rawValue: WinSDK.D3D12_RESOURCE_STATE_UNORDERED_ACCESS.rawValue)
     ///	D3D12_RESOURCE_STATE_DEPTH_WRITE is a state that is mutually exclusive with other states. You should use it for ID3D12GraphicsCommandList::ClearDepthStencilView when the flags (see D3D12_CLEAR_FLAGS) indicate a given subresource should be cleared (otherwise the subresource state doesn't matter), or when using it in a writable depth stencil view (see D3D12_DSV_FLAGS) when the PSO has depth write enabled (see D3D12_DEPTH_STENCIL_DESC).
@@ -111,8 +111,8 @@ public let D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER = D3DResourceStates.v
 @available(*, deprecated, renamed: "D3DResourceStates.indexBuffer")
 public let D3D12_RESOURCE_STATE_INDEX_BUFFER = D3DResourceStates.indexBuffer
 
-@available(*, deprecated, renamed: "D3DResourceStates.rendertarget")
-public let D3D12_RESOURCE_STATE_RENDER_TARGET = D3DResourceStates.rendertarget
+@available(*, deprecated, renamed: "D3DResourceStates.renderTarget")
+public let D3D12_RESOURCE_STATE_RENDER_TARGET = D3DResourceStates.renderTarget
 
 @available(*, deprecated, renamed: "D3DResourceStates.unorderedAccess")
 public let D3D12_RESOURCE_STATE_UNORDERED_ACCESS = D3DResourceStates.unorderedAccess
