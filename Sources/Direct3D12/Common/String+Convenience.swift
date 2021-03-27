@@ -8,7 +8,7 @@
 
 import WinSDK
 
-extension String {
+public extension String {
     init(windowsUTF8 lpcstr: LPCSTR) {
         self = withUnsafePointer(to: lpcstr) {
             return $0.withMemoryRebound(to: UInt8.self, capacity: MemoryLayout.size(ofValue: $0)) {

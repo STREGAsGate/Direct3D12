@@ -35,7 +35,7 @@ extension Error: CustomStringConvertible {
     public var description: String {
         switch kind {
         case let .hresult(hr):
-            return hr.string
+            return hr.errorMessage
         case let .text(text):
             return text
         default:
@@ -96,7 +96,7 @@ public extension HRESULT {
     }
 }
 
-internal extension DWORD {
+public extension DWORD {
     var errorMessage: String {
         let dwFlags: DWORD = DWORD(FORMAT_MESSAGE_ALLOCATE_BUFFER) | DWORD(FORMAT_MESSAGE_FROM_SYSTEM) | DWORD(FORMAT_MESSAGE_IGNORE_INSERTS)
 
@@ -114,6 +114,6 @@ internal extension DWORD {
     }
 }
 
-internal extension HRESULT {
-    var string: String {DWORD(bitPattern: self).errorMessage}
+public extension HRESULT {
+    var errorMessage: String {DWORD(bitPattern: self).errorMessage}
 }

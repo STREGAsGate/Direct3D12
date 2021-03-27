@@ -14,7 +14,7 @@ public struct D3DClearValue {
     internal var rawValue: RawValue
 
     /// Specifies one member of the DXGI_FORMAT enum. The format of the commonly cleared color follows the same validation rules as a view/ descriptor creation. In general, the format of the clear color can be any format in the same typeless group that the resource format belongs to. This Format must match the format of the view used during the clear operation. It indicates whether the Color or the DepthStencil member is valid and how to convert the values for usage with the resource.
-    var format: DGIFormat {
+    public var format: DGIFormat {
         get {
             return DGIFormat(self.rawValue.Format)
         }

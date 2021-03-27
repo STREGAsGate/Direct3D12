@@ -116,6 +116,29 @@ public class D3DDevice: D3DObject {
         }
     }
 
+    /** Creates a command list.
+    - parameter multipleAdapterNodeMask: For single-GPU operation, set this to zero. If there are multiple GPU nodes, then set a bit to identify the node (the device's physical adapter) for which to create the command list. Each bit in the mask corresponds to a single node. Only one bit must be set. Also see Multi-adapter systems.
+    - parameter type: Specifies the type of command list to create.
+    - parameter commandAllocator: A pointer to the command allocator object from which the device creates command lists.
+    - parameter initialState: An optional pointer to the pipeline state object that contains the initial pipeline state for the command list. If it is nulltpr, then the runtime sets a dummy initial pipeline state, so that drivers don't have to deal with undefined state. The overhead for this is low, particularly for a command list, for which the overall cost of recording the command list likely dwarfs the cost of a single initial state setting. So there's little cost in not setting the initial pipeline state parameter, if doing so is inconvenient. For bundles, on the other hand, it might make more sense to try to set the initial state parameter (since bundles are likely smaller overall, and can be reused frequently).
+    */
+    public func createGraphicsCommandList(multipleAdapterNodeMask: UInt32 = 0, 
+                                          type: D3DCommandListType,
+                                          commandAllocator: D3DCommandAllocator,
+                                          initialState: D3DPipelineState? = nil) throws -> D3DGraphicsCommandList {
+        return try perform(as: RawValue.self) {pThis in
+            let nodeMask = multipleAdapterNodeMask
+            let type = type.rawValue
+            let pCommandAllocator = commandAllocator.perform(as: D3DCommandAllocator.RawValue.self){$0}
+            var ppCommandList: UnsafeMutableRawPointer?
+            let pInitialState = initialState?.perform(as: D3DPipelineState.RawValue.self){$0}
+            var riid = D3DGraphicsCommandList.interfaceID
+            try pThis.pointee.lpVtbl.pointee.CreateCommandList(pThis, nodeMask, type, pCommandAllocator, pInitialState, &riid, &ppCommandList).checkResult()
+            guard let v = D3DGraphicsCommandList(winSDKPointer: ppCommandList) else {throw Error(.invalidArgument)}
+            return v
+        }
+    }
+
     /** Creates a command queue.
     - parameter description: Specifies a D3D12_COMMAND_QUEUE_DESC that describes the command queue.
     */
@@ -503,6 +526,15 @@ public class D3DDevice: D3DObject {
             var pTotalBytes: UInt64 = 0
             pThis.pointee.lpVtbl.pointee.GetCopyableFootprints(pThis, &pResourceDesc, FirstSubresource, NumSubresources, BaseOffset, &pLayouts, &pNumRows, &pRowSizeInBytes, &pTotalBytes)
             return (pNumRows, pRowSizeInBytes, pTotalBytes)
+        }
+    }
+
+    /** Gets the size of the handle increment for the given type of descriptor heap. This value is typically used to increment a handle into a descriptor array by the correct amount.
+    - parameter type: The D3D12_DESCRIPTOR_HEAP_TYPE-typed value that specifies the type of descriptor heap to get the size of the handle increment for.
+    */
+    public func descriptorHandleIncrementSize(for type: D3DDescriptorHeapType) -> UInt32 {
+        return performFatally(as: RawValue.self) {pThis in 
+            return pThis.pointee.lpVtbl.pointee.GetDescriptorHandleIncrementSize(pThis, type.rawValue)
         }
     }
 
