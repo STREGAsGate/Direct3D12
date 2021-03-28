@@ -59,9 +59,9 @@ public extension DGIFactory {
                                                    bufferUsage: .renderTargetOutput,
                                                    bufferCount: bufferCount,
                                                    scaling: .stretch,
-                                                   swapEffect: .flipSequential,
+                                                   swapEffect: .flipDiscard,
                                                    alphaMode: .unspecified,
-                                                   flags: [])
+                                                   flags: [.allowModeSwitch, .allowTearing])
         let fullScreen = DGISwapChainFullscreenDescription(refreshRate: refreshRate)
         return try createSwapChain(description: description, window: window, fullScreen: fullScreen, commandQueue: commandQueue)
     }

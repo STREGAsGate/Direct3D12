@@ -10,7 +10,6 @@ import WinSDK
 
 public class IUnknown {
     private let pUnk: UnsafeMutableRawPointer
-    private let retained: Bool
 
     func perform<Type, ResultType>(as type: Type.Type, body: (_ pThis: UnsafeMutablePointer<Type>) throws -> ResultType) rethrows -> ResultType {
         let pThis = pUnk.bindMemory(to: Type.self, capacity: 1)
@@ -28,11 +27,15 @@ public class IUnknown {
         }
     }
 
-    internal init?(winSDKPointer pointer: UnsafeMutableRawPointer?, retained: Bool = false) {
+    internal enum MemoryManagment {
+        case alreadyRetained
+        case retain
+    }
+
+    internal init?(winSDKPointer pointer: UnsafeMutableRawPointer?, memoryManagment: MemoryManagment = .alreadyRetained) {
         guard let pointer = pointer else {return nil}
         self.pUnk = pointer
-        self.retained = retained
-        if retained {
+        if memoryManagment == .retain {
             self.retain()
         }
     }
@@ -56,9 +59,7 @@ public class IUnknown {
     }
 
     deinit {
-        if retained {
-            self.release()
-        }
+        self.release()
     }
     
     class var interfaceID: WinSDK.IID {preconditionFailure("Must override!")}

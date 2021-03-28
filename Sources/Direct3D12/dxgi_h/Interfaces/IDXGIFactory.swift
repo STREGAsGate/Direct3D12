@@ -18,8 +18,7 @@ public class DGIFactory: DGIObject {
             let Adapter = index
             var ppAdapter: UnsafeMutablePointer<DGIAdapter.RawValue>?
             try pThis.pointee.lpVtbl.pointee.EnumAdapters(pThis, Adapter, &ppAdapter).checkResult()
-            guard let v = DGIAdapter(winSDKPointer: ppAdapter, retained: true) else {throw Error(.invalidArgument)}
-            v.release()
+            guard let v = DGIAdapter(winSDKPointer: ppAdapter) else {throw Error(.invalidArgument)}
             return v
         }
     }

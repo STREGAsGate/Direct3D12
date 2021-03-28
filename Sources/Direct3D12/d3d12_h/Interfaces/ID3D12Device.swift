@@ -642,8 +642,8 @@ public class D3DDevice: D3DObject {
         super.init(winSDKPointer: p)!
     }
 
-    override public init?(winSDKPointer pointer: UnsafeMutableRawPointer?, retained: Bool = false) {
-        super.init(winSDKPointer: pointer, retained: retained)
+    override init?(winSDKPointer pointer: UnsafeMutableRawPointer?, memoryManagment: IUnknown.MemoryManagment = .alreadyRetained) {
+        super.init(winSDKPointer: pointer, memoryManagment: memoryManagment)
     }
 }
 

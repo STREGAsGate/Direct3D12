@@ -32,7 +32,7 @@ public class DGISwapChain: DGIDeviceSubObject {
     - parameter format: A DXGI_FORMAT-typed value for the new format of the back buffer. Set this value to DXGI_FORMAT_UNKNOWN to preserve the existing format of the back buffer. The flip presentation model supports a more restricted set of formats than the bit-block transfer (bitblt) model.
     - parameter flags: A combination of DXGI_SWAP_CHAIN_FLAG-typed values that are combined by using a bitwise OR operation. The resulting value specifies options for swap-chain behavior.
     */
-    public func resizeBuffers(count: UInt32 = 0, width: UInt32 = 0, height: UInt32 = 0, format: DGIFormat = .unknown, flags: DGISwapChainFlags = []) throws {
+    public func resizeBuffers(count: UInt32 = 0, width: UInt32 = 0, height: UInt32 = 0, format: DGIFormat = .unknown, flags: DGISwapChainFlags = [.allowModeSwitch, .allowTearing]) throws {
         try perform(as: RawValue.self) {pThis in
             let BufferCount = count
             let Width = width
