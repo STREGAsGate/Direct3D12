@@ -348,11 +348,14 @@ public class D3DDevice: D3DObject {
     - parameter description: A pointer to a D3D12_RENDER_TARGET_VIEW_DESC structure that describes the render-target view.
     - parameter destination: Describes the CPU descriptor handle that represents the destination where the newly-created render target view will reside.
     */
-    public func createRenderTargetView(resource: D3DResource, description: D3DRenderTargetViewDescription, destination: D3DCPUDescriptorHandle) {
+    public func createRenderTargetView(resource: D3DResource, description: D3DRenderTargetViewDescription?, destination: D3DCPUDescriptorHandle) {
         performFatally(as: RawValue.self) {pThis in
             let pResource = resource.performFatally(as: D3DResource.RawValue.self) {$0}
-            var pDesc = description.rawValue
-            pThis.pointee.lpVtbl.pointee.CreateRenderTargetView(pThis, pResource, &pDesc, destination.rawValue)
+            if var pDesc = description?.rawValue {
+                pThis.pointee.lpVtbl.pointee.CreateRenderTargetView(pThis, pResource, &pDesc, destination.rawValue)
+            }else{
+                pThis.pointee.lpVtbl.pointee.CreateRenderTargetView(pThis, pResource, nil, destination.rawValue)
+            }
         }
     }
 
@@ -639,16 +642,16 @@ public class D3DDevice: D3DObject {
         super.init(winSDKPointer: p)!
     }
 
-    override public init?(winSDKPointer pointer: UnsafeMutableRawPointer?) {
-        super.init(winSDKPointer: pointer)
+    override public init?(winSDKPointer pointer: UnsafeMutableRawPointer?, retained: Bool = false) {
+        super.init(winSDKPointer: pointer, retained: retained)
     }
 }
 
 extension D3DDevice {
-    typealias RawValue = WinSDK.ID3D12Device
+    typealias RawValue = WinSDK.ID3D12Device5
 }
 extension D3DDevice.RawValue {
-    static var interfaceID: IID {WinSDK.IID_ID3D12Device}
+    static var interfaceID: IID {WinSDK.IID_ID3D12Device5}
 }
 
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Dustin Collins (Strega's Gate)
+ * Copyright (c) 2020 - 2021 Dustin Collins (Strega's Gate)
  * All Rights Reserved.
  * Licensed under Apache License v2.0
  * 
@@ -22,7 +22,7 @@ public class D3DFence: D3DPageable {
     - parameter handle: A handle to the event object.
     - parameter value: The fence value when the event is to be signaled.
     */
-    public func setCompletionEvent(_ handle: UnsafeMutableRawPointer, whenValueIs value: UInt64) throws {
+    public func setCompletionEvent(_ handle: HANDLE?, whenValueIs value: UInt64) throws {
         try perform(as: RawValue.self) {pThis in
             let Value = value
             let hEvent = handle

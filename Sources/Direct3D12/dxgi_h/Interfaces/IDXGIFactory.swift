@@ -18,9 +18,18 @@ public class DGIFactory: DGIObject {
             let Adapter = index
             var ppAdapter: UnsafeMutablePointer<DGIAdapter.RawValue>?
             try pThis.pointee.lpVtbl.pointee.EnumAdapters(pThis, Adapter, &ppAdapter).checkResult()
-            guard let v = DGIAdapter(winSDKPointer: ppAdapter) else {throw Error(.invalidArgument)}
+            guard let v = DGIAdapter(winSDKPointer: ppAdapter, retained: true) else {throw Error(.invalidArgument)}
             v.release()
             return v
+        }
+    }
+
+    /** Allows DXGI to monitor an application's message queue for the alt-enter key sequence (which causes the application to switch from windowed to full screen or vice versa).
+    - parameter hWnd: The handle of the window that is to be monitored. This parameter can be NULL; but only if Flags is also 0.
+    */
+    public func makeWindowAssociation(_ hWnd: HWND, flags: UInt32) throws {
+        try perform(as: RawValue.self) {pThis in
+            try pThis.pointee.lpVtbl.pointee.MakeWindowAssociation(pThis, hWnd, flags).checkResult()
         }
     }
 
