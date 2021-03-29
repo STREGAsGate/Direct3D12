@@ -188,19 +188,22 @@ public class D3DDevice: D3DObject {
     - parameter clearValue: Specifies a D3D12_CLEAR_VALUE structure that describes the default value for a clear color.
     */
     public func createCommittedResource(description: D3DResourceDescription,
-                                        properties: D3DHeapProperties = D3DHeapProperties(type: .default),
+                                        properties: D3DHeapProperties,
                                         flags: D3DHeapFlags = [],
-                                        state: D3DResourceStates = .common,
-                                        clearValue: D3DClearValue) throws -> D3DResource {
+                                        state: D3DResourceStates,
+                                        clearValue: D3DClearValue? = nil) throws -> D3DResource {
         return try perform(as: RawValue.self) {pThis in
             var pHeapProperties = properties.rawValue
             let HeapFlags = flags.rawType
             var pDesc = description.rawValue
             let InitialResourceState = D3DResourceStates.RawType(state.rawValue)
-            var pOptimizedClearValue = clearValue.rawValue
             var riidResource = D3DResource.interfaceID
             var ppvResource: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateCommittedResource(pThis, &pHeapProperties, HeapFlags, &pDesc, InitialResourceState, &pOptimizedClearValue, &riidResource, &ppvResource).checkResult()
+            if var pOptimizedClearValue = clearValue?.rawValue {
+                try pThis.pointee.lpVtbl.pointee.CreateCommittedResource(pThis, &pHeapProperties, HeapFlags, &pDesc, InitialResourceState, &pOptimizedClearValue, &riidResource, &ppvResource).checkResult()
+            }else{
+                try pThis.pointee.lpVtbl.pointee.CreateCommittedResource(pThis, &pHeapProperties, HeapFlags, &pDesc, InitialResourceState, nil, &riidResource, &ppvResource).checkResult()
+            }
             guard let v = D3DResource(winSDKPointer: ppvResource) else {throw Error(.invalidArgument)}
             return v
         }

@@ -39,7 +39,7 @@ public class D3DResource: D3DPageable {
     - parameter index: Specifies the index number of the subresource.
     - parameter range: A pointer to a D3D12_RANGE structure that describes the range of memory to access. This indicates the region the CPU might read, and the coordinates are subresource-relative. A null pointer indicates the entire subresource might be read by the CPU. It is valid to specify the CPU won't read any data by passing a range where End is less than or equal to Begin.
     */
-    public func map(index: UInt32, range: D3DRange?) throws -> UnsafeMutableRawPointer? {
+    public func map(index: UInt32 = 0, range: D3DRange? = nil) throws -> UnsafeMutableRawPointer? {
         return try perform(as: RawValue.self) {pThis in
             let Subresource = index
             var ppData: UnsafeMutableRawPointer?
@@ -79,7 +79,7 @@ public class D3DResource: D3DPageable {
     - parameter index: Specifies the index of the subresource.
     - parameter range: A pointer to a D3D12_RANGE structure that describes the range of memory to unmap. This indicates the region the CPU might have modified, and the coordinates are subresource-relative. A null pointer indicates the entire subresource might have been modified by the CPU. It is valid to specify the CPU didn't write any data by passing a range where End is less than or equal to Begin.
     */
-    public func unmap(index: UInt32, range: D3DRange?) {
+    public func unmap(index: UInt32 = 0, range: D3DRange? = nil) {
         performFatally(as: RawValue.self) {pThis in
             let Subresource = index            
             if var pWrittenRange = range?.rawValue {

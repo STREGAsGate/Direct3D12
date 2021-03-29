@@ -98,6 +98,12 @@ public struct D3DHeapProperties {
     internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }
+
+    public static var forBuffer: D3DHeapProperties {
+        return D3DHeapProperties(type: .upload, cpuPageProperty: .unknown, memoryPoolPreference: .unknown)
+    }
+
+    public static var forTexture: D3DHeapProperties {D3DHeapProperties(type: .default)}
 }
 
 
