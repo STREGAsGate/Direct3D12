@@ -25,6 +25,11 @@ public class D3DBlob: IUnknown {
         }
     }
 
+    public var stringValue: String? {
+        guard let pointer = bufferPointer?.bindMemory(to: CChar.self, capacity: 1) else {return nil}
+        return String(windowsUTF8: pointer)
+    }
+
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}
 }
 
