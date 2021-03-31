@@ -19,8 +19,8 @@ public extension String {
 
     var windowsUTF8: Array<CHAR> {
         return self.withCString(encodedAs: UTF8.self) {
-            return $0.withMemoryRebound(to: CHAR.self, capacity: self.utf16.count + 1) {
-                return Array(UnsafeBufferPointer(start: $0, count: self.utf16.count + 1))
+            return $0.withMemoryRebound(to: CHAR.self, capacity: self.utf8.count + 1) {
+                return Array(UnsafeBufferPointer(start: $0, count: self.utf8.count + 1))
             }
         }
     }

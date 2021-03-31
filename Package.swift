@@ -34,6 +34,7 @@ let package = Package(
                 .linkedLibrary("PortableDeviceGuids"),
                 .linkedLibrary("DXGI"),
                 .linkedLibrary("D3D12"),
+                .linkedLibrary("D3DCompiler"),
             ]
         ),
     ]

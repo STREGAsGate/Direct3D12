@@ -26,8 +26,14 @@ public class D3DBlob: IUnknown {
     }
 
     public var stringValue: String? {
-        guard let pointer = bufferPointer?.bindMemory(to: CChar.self, capacity: 1) else {return nil}
+        guard bufferSize > 0, let bufferPointer = bufferPointer else {return nil}
+        let pointer = bufferPointer.bindMemory(to: CHAR.self, capacity: 1)
         return String(windowsUTF8: pointer)
+    }
+
+    func printAsError() {
+        guard bufferSize > 0, let bufferPointer = bufferPointer else {return}
+        WinSDK.OutputDebugStringA(bufferPointer.bindMemory(to: CHAR.self, capacity: 1))
     }
 
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}

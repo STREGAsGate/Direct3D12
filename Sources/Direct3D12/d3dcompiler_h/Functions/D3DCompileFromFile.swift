@@ -6,25 +6,26 @@
  * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
+import Foundation
 import WinSDK
 
-public func compileFromFile(_ path: String, functionName: String, shaderModel: String) throws -> D3DBlob {
-    let pFileName = path.windowsUTF16
-    let pDefines: [D3D_SHADER_MACRO] = []
+public func compileFromFile(_ url: URL, functionName: String, shaderModel: String = "vs_5_0") throws -> D3DBlob {
+    let pFileName = url.withUnsafeFileSystemRepresentation {
+        return String(cString: $0!).windowsUTF16
+    }
+    let pDefines: [D3D_SHADER_MACRO] = [D3D_SHADER_MACRO(Name: nil, Definition: nil)]
     let pInclude: UnsafeMutablePointer<WinSDK.ID3DInclude>? = nil
-    let pEntrypoint = path.windowsUTF8
+    let pEntrypoint = functionName.windowsUTF8
     let pTarget = shaderModel.windowsUTF8
     var ppCode: UnsafeMutablePointer<WinSDK.ID3DBlob>?
     var ppErrorMsgs: UnsafeMutablePointer<WinSDK.ID3DBlob>?
     let hresult = WinSDK.D3DCompileFromFile(pFileName, pDefines, pInclude, pEntrypoint, pTarget, 0, 0, &ppCode, &ppErrorMsgs)
     if hresult.isSuccess == false {
-        if let error = D3DBlob(winSDKPointer: ppErrorMsgs)?.stringValue {
-            throw Error("HLSL error: \(error)")
-        }else{
+        if let error = D3DBlob(winSDKPointer: ppErrorMsgs) {
+            error.printAsError()
             try hresult.checkResult()
         }
     }
-    try hresult.checkResult()
     guard let v = D3DBlob(winSDKPointer: ppCode) else {throw Error(.invalidArgument)}
     return v
 }
