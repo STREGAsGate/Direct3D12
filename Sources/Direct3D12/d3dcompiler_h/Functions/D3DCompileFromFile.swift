@@ -9,22 +9,24 @@
 import Foundation
 import WinSDK
 
-public func compileFromFile(_ url: URL, functionName: String, shaderModel: String = "vs_5_0") throws -> D3DBlob {
+public func compileFromFile(_ url: URL, functionName: String, target: String) throws -> D3DBlob {
     let pFileName = url.withUnsafeFileSystemRepresentation {
         return String(cString: $0!).windowsUTF16
     }
     let pDefines: [D3D_SHADER_MACRO] = [D3D_SHADER_MACRO(Name: nil, Definition: nil)]
     let pInclude: UnsafeMutablePointer<WinSDK.ID3DInclude>? = nil
     let pEntrypoint = functionName.windowsUTF8
-    let pTarget = shaderModel.windowsUTF8
+    let pTarget = target.windowsUTF8
     var ppCode: UnsafeMutablePointer<WinSDK.ID3DBlob>?
     var ppErrorMsgs: UnsafeMutablePointer<WinSDK.ID3DBlob>?
     let hresult = WinSDK.D3DCompileFromFile(pFileName, pDefines, pInclude, pEntrypoint, pTarget, 0, 0, &ppCode, &ppErrorMsgs)
     if hresult.isSuccess == false {
         if let error = D3DBlob(winSDKPointer: ppErrorMsgs) {
-            error.printAsError()
-            try hresult.checkResult()
+            if let string = error.stringValue {
+                print("HLSL Error: ", string)
+            }
         }
+        try hresult.checkResult()
     }
     guard let v = D3DBlob(winSDKPointer: ppCode) else {throw Error(.invalidArgument)}
     return v
