@@ -22,7 +22,7 @@ public class D3DDebug: IUnknown {
     public init() throws {
         var riid = Self.interfaceID
         var ppvDebug: UnsafeMutableRawPointer?
-        try WinSDK.D3D12GetDebugInterface(&riid, &ppvDebug).checkResult()
+        try WinSDK.D3D12GetDebugInterface(&riid, &ppvDebug).checkResult(Self.self, #function)
         super.init(winSDKPointer: ppvDebug!)!
     }
 

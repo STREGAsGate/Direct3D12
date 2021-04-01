@@ -26,7 +26,7 @@ public extension Device {
             let MeasurementsAction = action.rawValue
             let hEventToSignalUponCompletion = handle
             var pbFurtherMeasurementsDesired: WindowsBool = WindowsBool(false)
-            try pThis.pointee.lpVtbl.pointee.SetBackgroundProcessingMode(pThis, Mode, MeasurementsAction, hEventToSignalUponCompletion, &pbFurtherMeasurementsDesired).checkResult()
+            try pThis.pointee.lpVtbl.pointee.SetBackgroundProcessingMode(pThis, Mode, MeasurementsAction, hEventToSignalUponCompletion, &pbFurtherMeasurementsDesired).checkResult(self, #function)
             return pbFurtherMeasurementsDesired.boolValue
         }
     }

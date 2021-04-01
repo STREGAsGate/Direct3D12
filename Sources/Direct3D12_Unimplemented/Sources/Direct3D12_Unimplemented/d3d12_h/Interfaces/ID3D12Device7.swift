@@ -23,7 +23,7 @@ public extension Device {
             let pStateObjectToGrowFrom = try object.perform(as: StateObject.RawValue.self) {$0}
             var riid = StateObject.interfaceID
             var ppNewStateObject: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.AddToStateObject(pThis, &pAddition, pStateObjectToGrowFrom, &riid, &ppNewStateObject).checkResult()
+            try pThis.pointee.lpVtbl.pointee.AddToStateObject(pThis, &pAddition, pStateObjectToGrowFrom, &riid, &ppNewStateObject).checkResult(self, #function)
             guard let p = ppNewStateObject else {throw Error(.invalidArgument)}
             return StateObject(win32Pointer: p)
         }
@@ -38,7 +38,7 @@ public extension Device {
             var pDesc = description.rawValue
             var riid = ProtectedResourceSession.interfaceID
             var ppSession: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateProtectedResourceSession1(pThis, &pDesc, &riid, &ppSession).checkResult()
+            try pThis.pointee.lpVtbl.pointee.CreateProtectedResourceSession1(pThis, &pDesc, &riid, &ppSession).checkResult(self, #function)
             guard let p = ppSession else {throw Error(.invalidArgument)}
             return ProtectedResourceSession(win32Pointer: p)
         }

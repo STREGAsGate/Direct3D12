@@ -48,7 +48,7 @@ public struct D3DRootConstants {
     - parameter registerSpace: The register space.
     - parameter num32BitValues: The number of constants that occupy a single shader slot (these constants appear like a single constant buffer). All constants occupy a single root signature bind slot.
     */
-    public init(shaderRegister: UInt32, registerSpace: UInt32, num32BitValues: UInt32) {
+    public init(shaderRegister: UInt32 = 0, registerSpace: UInt32 = 0, num32BitValues: UInt32 = 0) {
         self.rawValue = RawValue(ShaderRegister: shaderRegister, RegisterSpace: registerSpace, Num32BitValues: num32BitValues)
     }
 

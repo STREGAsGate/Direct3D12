@@ -25,7 +25,7 @@ public extension Device {
             let flags = CommandListFlags.RawType(flags.rawValue)
             var riid = CommandList.interfaceID
             var ppCommandList: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateCommandList1(pThis, nodeMask, type, flags, &riid, &ppCommandList).checkResult()
+            try pThis.pointee.lpVtbl.pointee.CreateCommandList1(pThis, nodeMask, type, flags, &riid, &ppCommandList).checkResult(self, #function)
             guard let p = ppCommandList else {throw Error(.invalidArgument)}
             return CommandList(win32Pointer: p)
         }
@@ -54,7 +54,7 @@ public extension Device {
             let pProtectedSession = try session?.perform(as: ProtectedResourceSession.RawValue.self) {$0}
             var riidResource = Resource.interfaceID
             var ppvResource: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateCommittedResource1(pThis, &pHeapProperties, HeapFlags, &pDesc, InitialResourceState, &pOptimizedClearValue, pProtectedSession, &riidResource, &ppvResource).checkResult()
+            try pThis.pointee.lpVtbl.pointee.CreateCommittedResource1(pThis, &pHeapProperties, HeapFlags, &pDesc, InitialResourceState, &pOptimizedClearValue, pProtectedSession, &riidResource, &ppvResource).checkResult(self, #function)
             guard let p = ppvResource else {throw Error(.invalidArgument)}
             return Resource(win32Pointer: p)
         }
@@ -70,7 +70,7 @@ public extension Device {
             let pProtectedSession = try session?.perform(as: ProtectedResourceSession.RawValue.self) {$0}
             var riid = Resource.interfaceID
             var ppvResource: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateHeap1(pThis, &pDesc, pProtectedSession, &riid, &ppvResource).checkResult()
+            try pThis.pointee.lpVtbl.pointee.CreateHeap1(pThis, &pDesc, pProtectedSession, &riid, &ppvResource).checkResult(self, #function)
             guard let p = ppvResource else {throw Error(.invalidArgument)}
             return Heap(win32Pointer: p)
         }
@@ -85,7 +85,7 @@ public extension Device {
             var pDesc = description.rawValue
             var riid = ProtectedResourceSession.interfaceID
             var ppSession: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateProtectedResourceSession(pThis, &pDesc, &riid, &ppSession).checkResult()
+            try pThis.pointee.lpVtbl.pointee.CreateProtectedResourceSession(pThis, &pDesc, &riid, &ppSession).checkResult(self, #function)
             guard let p = ppSession else {throw Error(.invalidArgument)}
             return ProtectedResourceSession(win32Pointer: p)
         }
@@ -108,7 +108,7 @@ public extension Device {
             let pProtectedSession = try session?.perform(as: ProtectedResourceSession.RawValue.self){$0}
             var riid = Resource.interfaceID
             var ppvResource: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateReservedResource1(pThis, &pDesc, InitialState, &pOptimizedClearValue, pProtectedSession, &riid, &ppvResource).checkResult()
+            try pThis.pointee.lpVtbl.pointee.CreateReservedResource1(pThis, &pDesc, InitialState, &pOptimizedClearValue, pProtectedSession, &riid, &ppvResource).checkResult(self, #function)
             guard let p = ppvResource else {throw Error(.invalidArgument)}
             return Resource(win32Pointer: p)
         }

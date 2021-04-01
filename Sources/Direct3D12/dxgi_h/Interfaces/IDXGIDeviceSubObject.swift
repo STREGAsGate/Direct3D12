@@ -17,7 +17,7 @@ public class DGIDeviceSubObject: DGIObject {
         return try perform(as: RawValue.self) {pThis in
             var riid = DGIDevice.interfaceID
             var ppDevice: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.GetDevice(pThis, &riid, &ppDevice).checkResult()
+            try pThis.pointee.lpVtbl.pointee.GetDevice(pThis, &riid, &ppDevice).checkResult(self, #function)
             guard let v = DGIDevice(winSDKPointer: ppDevice) else {throw Error(.invalidArgument)}
             return v
         }

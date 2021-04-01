@@ -69,10 +69,10 @@ public struct D3DDescriptorRange {
     - parameter baseShaderRegister: The base shader register in the range. For example, for shader-resource views (SRVs), 3 maps to ": register(t3);" in HLSL.
     - parameter offsetInDescriptorsFromTableStart: The offset in descriptors, from the start of the descriptor table which was set as the root argument value for this parameter slot. This value can be D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND, which indicates this range should immediately follow the preceding range.
     */
-    public init(type: D3DDescriptorRangeType, 
+    public init(type: D3DDescriptorRangeType,
                 descriptorCount: UInt32,
                 baseShaderRegister: UInt32,
-                offsetInDescriptorsFromTableStart: UInt32) {
+                offsetInDescriptorsFromTableStart: UInt32 = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND) {
         self.rawValue = RawValue()
         self.descriptorCount = descriptorCount
         self.baseShaderRegister = baseShaderRegister

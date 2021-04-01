@@ -16,7 +16,7 @@ public class D3DObject: IUnknown {
     */
     public func setDebugName(_ string: String) throws {
         try perform(as: RawValue.self) {pThis in
-            try pThis.pointee.lpVtbl.pointee.SetName(pThis, string.windowsUTF16).checkResult()
+            try pThis.pointee.lpVtbl.pointee.SetName(pThis, string.windowsUTF16).checkResult(self, #function)
         }
     }
 

@@ -37,7 +37,7 @@ public struct D3DRootDescriptor {
     - parameter shaderRegister: The shader register.
     - parameter registerSpace: The register space.
     */
-    public init(shaderRegister: UInt32, registerSpace: UInt32) {
+    public init(shaderRegister: UInt32 = 0, registerSpace: UInt32 = 0) {
         self.rawValue = RawValue(ShaderRegister: shaderRegister, RegisterSpace: registerSpace)
     }
 

@@ -47,7 +47,7 @@ public class D3DCommandQueue: D3DPageable {
         return try perform(as: RawValue.self) {pThis in
             var gpuTimestamp: UInt64 = 0
             var cpuTimestamp: UInt64 = 0
-            try pThis.pointee.lpVtbl.pointee.GetClockCalibration(pThis, &gpuTimestamp, &cpuTimestamp).checkResult()
+            try pThis.pointee.lpVtbl.pointee.GetClockCalibration(pThis, &gpuTimestamp, &cpuTimestamp).checkResult(self, #function)
             return (gpuTimestamp, cpuTimestamp)
         }
     }
@@ -64,7 +64,7 @@ public class D3DCommandQueue: D3DPageable {
     public func timestampFrequency() throws -> UInt64 {
         return try perform(as: RawValue.self) {pThis in
             var frequency: UInt64 = 0
-            try pThis.pointee.lpVtbl.pointee.GetTimestampFrequency(pThis, &frequency).checkResult()
+            try pThis.pointee.lpVtbl.pointee.GetTimestampFrequency(pThis, &frequency).checkResult(self, #function)
             return frequency
         }
     }
@@ -76,7 +76,7 @@ public class D3DCommandQueue: D3DPageable {
     public func signal(fence: D3DFence, value: UInt64) throws {
         try perform(as: RawValue.self) {pThis in
             let pFence = fence.perform(as: D3DFence.RawValue.self) {$0}
-            try pThis.pointee.lpVtbl.pointee.Signal(pThis, pFence, value).checkResult()
+            try pThis.pointee.lpVtbl.pointee.Signal(pThis, pFence, value).checkResult(self, #function)
         }
     }
 
@@ -120,7 +120,7 @@ public class D3DCommandQueue: D3DPageable {
     public func wait(fence: D3DFence, value: UInt64) throws {
         try perform(as: RawValue.self) {pThis in
             let pFence = fence.perform(as: D3DFence.RawValue.self) {$0}
-            try pThis.pointee.lpVtbl.pointee.Wait(pThis, pFence, value).checkResult()
+            try pThis.pointee.lpVtbl.pointee.Wait(pThis, pFence, value).checkResult(self, #function)
         }
     }
 

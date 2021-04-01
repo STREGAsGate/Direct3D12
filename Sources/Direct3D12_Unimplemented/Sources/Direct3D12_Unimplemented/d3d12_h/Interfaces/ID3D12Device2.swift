@@ -18,7 +18,7 @@ public extension Device {
             var pDesc = description.rawValue
             var riid = PipelineState.interfaceID
             var ppPipelineState: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreatePipelineState(pThis, &pDesc, &riid, &ppPipelineState).checkResult()
+            try pThis.pointee.lpVtbl.pointee.CreatePipelineState(pThis, &pDesc, &riid, &ppPipelineState).checkResult(self, #function)
             guard let p = ppPipelineState else {throw Error(.invalidArgument)}
             return PipelineState(win32Pointer: p)
         }

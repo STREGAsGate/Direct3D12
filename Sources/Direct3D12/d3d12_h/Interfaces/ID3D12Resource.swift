@@ -30,7 +30,7 @@ public class D3DResource: D3DPageable {
         return try perform(as: RawValue.self) {pThis in
             var pHeapProperties = D3DHeapProperties.RawValue()
             var pHeapFlags = D3DHeapFlags.RawType(rawValue: 0)
-            try pThis.pointee.lpVtbl.pointee.GetHeapProperties(pThis, &pHeapProperties, &pHeapFlags).checkResult()
+            try pThis.pointee.lpVtbl.pointee.GetHeapProperties(pThis, &pHeapProperties, &pHeapFlags).checkResult(self, #function)
             return (D3DHeapProperties(pHeapProperties), D3DHeapFlags(pHeapFlags))
         }
     }
@@ -45,9 +45,9 @@ public class D3DResource: D3DPageable {
             var ppData: UnsafeMutableRawPointer?
             
             if var pReadRange = range?.rawValue {
-                try pThis.pointee.lpVtbl.pointee.Map(pThis, Subresource, &pReadRange, &ppData).checkResult()
+                try pThis.pointee.lpVtbl.pointee.Map(pThis, Subresource, &pReadRange, &ppData).checkResult(self, #function)
             }else{
-                try pThis.pointee.lpVtbl.pointee.Map(pThis, Subresource, nil, &ppData).checkResult()
+                try pThis.pointee.lpVtbl.pointee.Map(pThis, Subresource, nil, &ppData).checkResult(self, #function)
             }
 
             return ppData
@@ -68,9 +68,9 @@ public class D3DResource: D3DPageable {
             let DstDepthPitch = depthPitch
             let SrcSubresource = index
             if var pSrcBox = srcBox?.rawValue {
-                try pThis.pointee.lpVtbl.pointee.ReadFromSubresource(pThis, pDstData, DstRowPitch, DstDepthPitch, SrcSubresource, &pSrcBox).checkResult()
+                try pThis.pointee.lpVtbl.pointee.ReadFromSubresource(pThis, pDstData, DstRowPitch, DstDepthPitch, SrcSubresource, &pSrcBox).checkResult(self, #function)
             }else{
-                try pThis.pointee.lpVtbl.pointee.ReadFromSubresource(pThis, pDstData, DstRowPitch, DstDepthPitch, SrcSubresource, nil).checkResult()
+                try pThis.pointee.lpVtbl.pointee.ReadFromSubresource(pThis, pDstData, DstRowPitch, DstDepthPitch, SrcSubresource, nil).checkResult(self, #function)
             }
         }
     }
@@ -104,9 +104,9 @@ public class D3DResource: D3DPageable {
             let SrcRowPitch = rowPitch
             let SrcDepthPitch = depthPitch
             if var pDstBox = dstBox?.rawValue {
-                try pThis.pointee.lpVtbl.pointee.WriteToSubresource(pThis, DstSubresource, &pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch).checkResult()
+                try pThis.pointee.lpVtbl.pointee.WriteToSubresource(pThis, DstSubresource, &pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch).checkResult(self, #function)
             }else{
-                try pThis.pointee.lpVtbl.pointee.WriteToSubresource(pThis, DstSubresource, nil, pSrcData, SrcRowPitch, SrcDepthPitch).checkResult()
+                try pThis.pointee.lpVtbl.pointee.WriteToSubresource(pThis, DstSubresource, nil, pSrcData, SrcRowPitch, SrcDepthPitch).checkResult(self, #function)
             }
         }
     }

@@ -23,7 +23,7 @@ public extension Device {
                     let BlobLength = WinSDK.SIZE_T(pLibraryBlob.count)
                     var riid = PipelineLibrary.interfaceID
                     var p: UnsafeMutableRawPointer?
-                    try pThis.pointee.lpVtbl.pointee.CreatePipelineLibrary(pThis, pLibraryBlob.baseAddress, BlobLength, &riid, &p).checkResult()
+                    try pThis.pointee.lpVtbl.pointee.CreatePipelineLibrary(pThis, pLibraryBlob.baseAddress, BlobLength, &riid, &p).checkResult(self, #function)
                     guard let p = p else {throw Error(.invalidArgument)}
                     return PipelineLibrary(win32Pointer: p, data: data)
                 }
@@ -31,7 +31,7 @@ public extension Device {
                 let BlobLength: WinSDK.SIZE_T = 0
                 var riid = PipelineLibrary.interfaceID
                 var p: UnsafeMutableRawPointer?
-                try pThis.pointee.lpVtbl.pointee.CreatePipelineLibrary(pThis, nil, BlobLength, &riid, &p).checkResult()
+                try pThis.pointee.lpVtbl.pointee.CreatePipelineLibrary(pThis, nil, BlobLength, &riid, &p).checkResult(self, #function)
                 guard let p = p else {throw Error(.invalidArgument)}
                 return PipelineLibrary(win32Pointer: p, data: nil)
             }
@@ -51,7 +51,7 @@ public extension Device {
             let NumFences = UInt32(fences.count)
             let flags = MultipleFenceWaitFlags.RawType(flags.rawValue)
             let hEvent = event
-            try pThis.pointee.lpVtbl.pointee.SetEventOnMultipleFenceCompletion(pThis, ppFences, pFenceValues, NumFences, flags, hEvent).checkResult()
+            try pThis.pointee.lpVtbl.pointee.SetEventOnMultipleFenceCompletion(pThis, ppFences, pFenceValues, NumFences, flags, hEvent).checkResult(self, #function)
         }
     }
 
@@ -64,7 +64,7 @@ public extension Device {
             let NumObjects = UInt32(objects.count)
             let ppObjects = try objects.map{try $0.perform(as: Pageable.RawValue.self){Optional($0)}}
             let pPriorities = priorities.map({$0.rawValue})
-            try pThis.pointee.lpVtbl.pointee.SetResidencyPriority(pThis, NumObjects, ppObjects, pPriorities).checkResult()
+            try pThis.pointee.lpVtbl.pointee.SetResidencyPriority(pThis, NumObjects, ppObjects, pPriorities).checkResult(self, #function)
         }
     }
 }

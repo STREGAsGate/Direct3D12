@@ -14,7 +14,7 @@ public class D3DCommandAllocator: D3DPageable {
     /// This method returns E_FAIL if there is an actively recording command list referencing the command allocator. The debug layer will also issue an error in this case.
     public func reset() throws {
         try perform(as: RawValue.self) {(pThis) in
-            try pThis.pointee.lpVtbl.pointee.Reset(pThis).checkResult()
+            try pThis.pointee.lpVtbl.pointee.Reset(pThis).checkResult(self, #function)
         }
     }
     

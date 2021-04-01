@@ -17,16 +17,21 @@ public func compileFromFile(_ url: URL, functionName: String, target: String) th
     let pInclude: UnsafeMutablePointer<WinSDK.ID3DInclude>? = nil
     let pEntrypoint = functionName.windowsUTF8
     let pTarget = target.windowsUTF8
+    #if DEBUG
+    let Flags: UINT = UINT(D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION)
+    #else
+    let Flags: UINT = 0
+    #endif    
     var ppCode: UnsafeMutablePointer<WinSDK.ID3DBlob>?
     var ppErrorMsgs: UnsafeMutablePointer<WinSDK.ID3DBlob>?
-    let hresult = WinSDK.D3DCompileFromFile(pFileName, pDefines, pInclude, pEntrypoint, pTarget, 0, 0, &ppCode, &ppErrorMsgs)
+    let hresult = WinSDK.D3DCompileFromFile(pFileName, pDefines, pInclude, pEntrypoint, pTarget, Flags, 0, &ppCode, &ppErrorMsgs)
     if hresult.isSuccess == false {
         if let error = D3DBlob(winSDKPointer: ppErrorMsgs) {
             if let string = error.stringValue {
                 print("HLSL Error: ", string)
             }
         }
-        try hresult.checkResult()
+        try hresult.checkResult(nil, #function)
     }
     guard let v = D3DBlob(winSDKPointer: ppCode) else {throw Error(.invalidArgument)}
     return v

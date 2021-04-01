@@ -22,7 +22,7 @@ public extension DGISwapChain {
             let SyncInterval = syncInterval
             let PresentFlags = flags.rawValue
             var pPresentParameters = parameters.rawValue
-            try pThis.pointee.lpVtbl.pointee.Present1(pThis, SyncInterval, PresentFlags, &pPresentParameters).checkResult()
+            try pThis.pointee.lpVtbl.pointee.Present1(pThis, SyncInterval, PresentFlags, &pPresentParameters).checkResult(self, #function)
         }
     }
 }

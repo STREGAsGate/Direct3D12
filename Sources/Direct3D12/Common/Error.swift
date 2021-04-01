@@ -89,9 +89,13 @@ public extension HRESULT {
     }
 
     /// Throws Error(self) if isFailure is true
-    func checkResult() throws {
+    func checkResult(_ source: Any?, _ function: StaticString) throws {
         if isFailure {
-            throw Error(self)
+            if let source = source {
+                throw Error("\(type(of: source)) \(function) " + self.errorMessage)
+            }else{
+                throw Error("\(function) " + self.errorMessage)
+            }
         }
     }
 }

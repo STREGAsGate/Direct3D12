@@ -25,7 +25,7 @@ public extension Device {
             let ppObjects = try objects.map({try $0.perform(as: Pageable.RawValue.self){Optional($0)}})
             let pFenceToSignal = try fence.perform(as: Fence.RawValue.self) {$0}
             let FenceValueToSignal = value
-            try pThis.pointee.lpVtbl.pointee.EnqueueMakeResident(pThis, Flags, NumObjects, ppObjects, pFenceToSignal, FenceValueToSignal).checkResult()
+            try pThis.pointee.lpVtbl.pointee.EnqueueMakeResident(pThis, Flags, NumObjects, ppObjects, pFenceToSignal, FenceValueToSignal).checkResult(self, #function)
         }
     }
 
@@ -38,7 +38,7 @@ public extension Device {
             let pAddress = address
             var riid = Heap.interfaceID
             var ppvHeap: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.OpenExistingHeapFromAddress(pThis, pAddress, &riid, &ppvHeap).checkResult()
+            try pThis.pointee.lpVtbl.pointee.OpenExistingHeapFromAddress(pThis, pAddress, &riid, &ppvHeap).checkResult(self, #function)
             guard let p = ppvHeap else {throw Error(.invalidArgument)}
             return Heap(win32Pointer: p)
         }
@@ -53,7 +53,7 @@ public extension Device {
             let hFileMapping = fileMapping
             var riid = Heap.interfaceID
             var ppvHeap: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.OpenExistingHeapFromFileMapping(pThis, hFileMapping, &riid, &ppvHeap).checkResult()
+            try pThis.pointee.lpVtbl.pointee.OpenExistingHeapFromFileMapping(pThis, hFileMapping, &riid, &ppvHeap).checkResult(self, #function)
             guard let p = ppvHeap else {throw Error(.invalidArgument)}
             return Heap(win32Pointer: p)
         }

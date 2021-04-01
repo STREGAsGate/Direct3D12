@@ -15,7 +15,7 @@ public class D3DPipelineState: D3DPageable {
     public func cachedBlob() throws -> D3DBlob {
         return try perform(as: RawValue.self) {pThis in
             var ppBlob: UnsafeMutablePointer<D3DBlob.RawValue>?
-            try pThis.pointee.lpVtbl.pointee.GetCachedBlob(pThis, &ppBlob).checkResult()
+            try pThis.pointee.lpVtbl.pointee.GetCachedBlob(pThis, &ppBlob).checkResult(self, #function)
             guard let v = D3DBlob(winSDKPointer: ppBlob) else {throw Error(.invalidArgument)}
             return v
         }

@@ -17,7 +17,7 @@ public class DGIFactory: DGIObject {
         return try perform(as: RawValue.self) {pThis in 
             let Adapter = index
             var ppAdapter: UnsafeMutablePointer<DGIAdapter.RawValue>?
-            try pThis.pointee.lpVtbl.pointee.EnumAdapters(pThis, Adapter, &ppAdapter).checkResult()
+            try pThis.pointee.lpVtbl.pointee.EnumAdapters(pThis, Adapter, &ppAdapter).checkResult(self, #function)
             guard let v = DGIAdapter(winSDKPointer: ppAdapter) else {throw Error(.invalidArgument)}
             return v
         }
@@ -28,7 +28,7 @@ public class DGIFactory: DGIObject {
     */
     public func makeWindowAssociation(_ hWnd: HWND, flags: UInt32) throws {
         try perform(as: RawValue.self) {pThis in
-            try pThis.pointee.lpVtbl.pointee.MakeWindowAssociation(pThis, hWnd, flags).checkResult()
+            try pThis.pointee.lpVtbl.pointee.MakeWindowAssociation(pThis, hWnd, flags).checkResult(self, #function)
         }
     }
 
@@ -59,7 +59,7 @@ public class DGIFactory: DGIObject {
         #endif
         var riid = DGIFactory.interfaceID
         var ppFactory: UnsafeMutableRawPointer?
-        try WinSDK.CreateDXGIFactory2(flags, &riid, &ppFactory).checkResult()
+        try WinSDK.CreateDXGIFactory2(flags, &riid, &ppFactory).checkResult(Self.self, #function)
         guard let p = ppFactory else {throw Error(.invalidArgument)}
         super.init(winSDKPointer: p)!
     }

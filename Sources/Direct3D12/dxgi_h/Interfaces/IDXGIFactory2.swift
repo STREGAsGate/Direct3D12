@@ -28,9 +28,9 @@ public extension DGIFactory {
             
             var ppSwapChain: UnsafeMutablePointer<DGISwapChain.RawValue>?
             if var pFullscreenDesc = fullScreen?.rawValue {
-                try pThis.pointee.lpVtbl.pointee.CreateSwapChainForHwnd(pThis, pDevice, hWnd, &pDesc, &pFullscreenDesc, nil, &ppSwapChain).checkResult()
+                try pThis.pointee.lpVtbl.pointee.CreateSwapChainForHwnd(pThis, pDevice, hWnd, &pDesc, &pFullscreenDesc, nil, &ppSwapChain).checkResult(self, #function)
             }else{
-                try pThis.pointee.lpVtbl.pointee.CreateSwapChainForHwnd(pThis, pDevice, hWnd, &pDesc, nil, nil, &ppSwapChain).checkResult()
+                try pThis.pointee.lpVtbl.pointee.CreateSwapChainForHwnd(pThis, pDevice, hWnd, &pDesc, nil, nil, &ppSwapChain).checkResult(self, #function)
             }
             guard let v = DGISwapChain(winSDKPointer: ppSwapChain) else {throw Error(.invalidArgument)}
             return v

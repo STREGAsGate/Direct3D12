@@ -72,8 +72,8 @@ public struct D3DRootParameter {
     */
     public init(type: D3DRootParameterType,
                 descriptorTable: D3DRootDescriptorTable,
-                constants: D3DRootConstants,
-                descriptor: D3DRootDescriptor,
+                constants: D3DRootConstants = D3DRootConstants(),
+                descriptor: D3DRootDescriptor = D3DRootDescriptor(),
                 shaderVisibility: D3DShaderVisibility) {
         self.rawValue = RawValue()
         self.type = type

@@ -6,6 +6,7 @@
  * Find me on https://www.YouTube.com/STREGAsGate, or social media @STREGAsGate
  */
 
+import Foundation
 import WinSDK
 
 /// This interface is used to return arbitrary-length data.
@@ -25,10 +26,17 @@ public class D3DBlob: IUnknown {
         }
     }
 
+    public var data: Data? {
+        guard bufferPointer != nil && bufferSize > 0 else {return nil}
+        return withUnsafeBytes(of: bufferPointer) {
+            return Data($0)
+        }
+    }
+
     public var stringValue: String? {
         guard bufferSize > 0, let bufferPointer = bufferPointer else {return nil}
-        let pointer = bufferPointer.bindMemory(to: CHAR.self, capacity: 1)
-        return String(cString: pointer)
+        let pointer = bufferPointer.bindMemory(to: CHAR.self, capacity: Int(bufferSize))
+        return String(cString: pointer).trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     override class var interfaceID: WinSDK.IID {RawValue.interfaceID}

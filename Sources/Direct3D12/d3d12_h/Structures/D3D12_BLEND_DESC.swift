@@ -62,6 +62,106 @@ public struct D3DBlendDescription {
     }
 }
 
+public extension D3DBlendDescription {
+    static var `default`: D3DBlendDescription {
+        return D3DBlendDescription(WinSDK.D3D12_BLEND_DESC(
+            AlphaToCoverageEnable: false,
+            IndependentBlendEnable: false,
+            RenderTarget: (
+                WinSDK.D3D12_RENDER_TARGET_BLEND_DESC(
+                    BlendEnable: false,
+                    LogicOpEnable: false,
+                    SrcBlend: WinSDK.D3D12_BLEND_ONE,
+                    DestBlend: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOp: WinSDK.D3D12_BLEND_OP_ADD,
+                    SrcBlendAlpha: WinSDK.D3D12_BLEND_ONE,
+                    DestBlendAlpha: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOpAlpha: WinSDK.D3D12_BLEND_OP_ADD,
+                    LogicOp: WinSDK.D3D12_LOGIC_OP_NOOP,
+                    RenderTargetWriteMask: WinSDK.UINT8(WinSDK.D3D12_COLOR_WRITE_ENABLE_ALL.rawValue)),
+                WinSDK.D3D12_RENDER_TARGET_BLEND_DESC(
+                    BlendEnable: false,
+                    LogicOpEnable: false,
+                    SrcBlend: WinSDK.D3D12_BLEND_ONE,
+                    DestBlend: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOp: WinSDK.D3D12_BLEND_OP_ADD,
+                    SrcBlendAlpha: WinSDK.D3D12_BLEND_ONE,
+                    DestBlendAlpha: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOpAlpha: WinSDK.D3D12_BLEND_OP_ADD,
+                    LogicOp: WinSDK.D3D12_LOGIC_OP_NOOP,
+                    RenderTargetWriteMask: WinSDK.UINT8(WinSDK.D3D12_COLOR_WRITE_ENABLE_ALL.rawValue)),
+                WinSDK.D3D12_RENDER_TARGET_BLEND_DESC(
+                    BlendEnable: false,
+                    LogicOpEnable: false,
+                    SrcBlend: WinSDK.D3D12_BLEND_ONE,
+                    DestBlend: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOp: WinSDK.D3D12_BLEND_OP_ADD,
+                    SrcBlendAlpha: WinSDK.D3D12_BLEND_ONE,
+                    DestBlendAlpha: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOpAlpha: WinSDK.D3D12_BLEND_OP_ADD,
+                    LogicOp: WinSDK.D3D12_LOGIC_OP_NOOP,
+                    RenderTargetWriteMask: WinSDK.UINT8(WinSDK.D3D12_COLOR_WRITE_ENABLE_ALL.rawValue)),
+                WinSDK.D3D12_RENDER_TARGET_BLEND_DESC(
+                    BlendEnable: false,
+                    LogicOpEnable: false,
+                    SrcBlend: WinSDK.D3D12_BLEND_ONE,
+                    DestBlend: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOp: WinSDK.D3D12_BLEND_OP_ADD,
+                    SrcBlendAlpha: WinSDK.D3D12_BLEND_ONE,
+                    DestBlendAlpha: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOpAlpha: WinSDK.D3D12_BLEND_OP_ADD,
+                    LogicOp: WinSDK.D3D12_LOGIC_OP_NOOP,
+                    RenderTargetWriteMask: WinSDK.UINT8(WinSDK.D3D12_COLOR_WRITE_ENABLE_ALL.rawValue)),
+                WinSDK.D3D12_RENDER_TARGET_BLEND_DESC(
+                    BlendEnable: false,
+                    LogicOpEnable: false,
+                    SrcBlend: WinSDK.D3D12_BLEND_ONE,
+                    DestBlend: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOp: WinSDK.D3D12_BLEND_OP_ADD,
+                    SrcBlendAlpha: WinSDK.D3D12_BLEND_ONE,
+                    DestBlendAlpha: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOpAlpha: WinSDK.D3D12_BLEND_OP_ADD,
+                    LogicOp: WinSDK.D3D12_LOGIC_OP_NOOP,
+                    RenderTargetWriteMask: WinSDK.UINT8(WinSDK.D3D12_COLOR_WRITE_ENABLE_ALL.rawValue)),
+                WinSDK.D3D12_RENDER_TARGET_BLEND_DESC(
+                    BlendEnable: false,
+                    LogicOpEnable: false,
+                    SrcBlend: WinSDK.D3D12_BLEND_ONE,
+                    DestBlend: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOp: WinSDK.D3D12_BLEND_OP_ADD,
+                    SrcBlendAlpha: WinSDK.D3D12_BLEND_ONE,
+                    DestBlendAlpha: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOpAlpha: WinSDK.D3D12_BLEND_OP_ADD,
+                    LogicOp: WinSDK.D3D12_LOGIC_OP_NOOP,
+                    RenderTargetWriteMask: WinSDK.UINT8(WinSDK.D3D12_COLOR_WRITE_ENABLE_ALL.rawValue)),
+                WinSDK.D3D12_RENDER_TARGET_BLEND_DESC(
+                    BlendEnable: false,
+                    LogicOpEnable: false,
+                    SrcBlend: WinSDK.D3D12_BLEND_ONE,
+                    DestBlend: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOp: WinSDK.D3D12_BLEND_OP_ADD,
+                    SrcBlendAlpha: WinSDK.D3D12_BLEND_ONE,
+                    DestBlendAlpha: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOpAlpha: WinSDK.D3D12_BLEND_OP_ADD,
+                    LogicOp: WinSDK.D3D12_LOGIC_OP_NOOP,
+                    RenderTargetWriteMask: WinSDK.UINT8(WinSDK.D3D12_COLOR_WRITE_ENABLE_ALL.rawValue)),
+                WinSDK.D3D12_RENDER_TARGET_BLEND_DESC(
+                    BlendEnable: false,
+                    LogicOpEnable: false,
+                    SrcBlend: WinSDK.D3D12_BLEND_ONE,
+                    DestBlend: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOp: WinSDK.D3D12_BLEND_OP_ADD,
+                    SrcBlendAlpha: WinSDK.D3D12_BLEND_ONE,
+                    DestBlendAlpha: WinSDK.D3D12_BLEND_ZERO,
+                    BlendOpAlpha: WinSDK.D3D12_BLEND_OP_ADD,
+                    LogicOp: WinSDK.D3D12_LOGIC_OP_NOOP,
+                    RenderTargetWriteMask: WinSDK.UINT8(WinSDK.D3D12_COLOR_WRITE_ENABLE_ALL.rawValue))
+                )
+            )
+        )
+    }
+}
+
 
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI

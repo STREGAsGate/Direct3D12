@@ -17,7 +17,7 @@ public class DeviceRemovedExtendedData: IUnknown {
     public func autoBreadcrumbsOutput() throws -> DREDAutoBreadcrumbsOutput {
         try perform(as: RawValue.self) {pThis in
             var pOutput = DREDAutoBreadcrumbsOutput.RawValue()
-            try pThis.pointee.lpVtbl.pointee.GetAutoBreadcrumbsOutput(pThis, &pOutput).checkResult()
+            try pThis.pointee.lpVtbl.pointee.GetAutoBreadcrumbsOutput(pThis, &pOutput).checkResult(self, #function)
             return DREDAutoBreadcrumbsOutput(pOutput)
         }
     }
@@ -28,7 +28,7 @@ public class DeviceRemovedExtendedData: IUnknown {
     public func pageFaultAllocationOutput() throws -> DREDPageFaultOutput {
         try perform(as: RawValue.self) {pThis in
             var pOutput = DREDPageFaultOutput.RawValue()
-            try pThis.pointee.lpVtbl.pointee.GetPageFaultAllocationOutput(pThis, &pOutput).checkResult()
+            try pThis.pointee.lpVtbl.pointee.GetPageFaultAllocationOutput(pThis, &pOutput).checkResult(self, #function)
             return DREDPageFaultOutput(pOutput)
         }
     }

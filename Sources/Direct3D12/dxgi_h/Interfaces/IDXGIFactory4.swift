@@ -15,7 +15,7 @@ public extension DGIFactory {
         return try perform(as: RawValue.self) {pThis in
             var riid = DGIAdapter.interfaceID
             var ppvAdapter: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.EnumWarpAdapter(pThis, &riid, &ppvAdapter).checkResult()
+            try pThis.pointee.lpVtbl.pointee.EnumWarpAdapter(pThis, &riid, &ppvAdapter).checkResult(self, #function)
             guard let v = DGIAdapter(winSDKPointer: ppvAdapter) else {throw Error(.invalidArgument)}
             return v
         }

@@ -19,7 +19,7 @@ public class DGISwapChain: DGIDeviceSubObject {
             let Buffer = index
             var riid = D3DResource.interfaceID
             var ppSurface: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.GetBuffer(pThis, Buffer, &riid, &ppSurface).checkResult()
+            try pThis.pointee.lpVtbl.pointee.GetBuffer(pThis, Buffer, &riid, &ppSurface).checkResult(self, #function)
             guard let v = D3DResource(winSDKPointer: ppSurface) else {throw Error(.invalidArgument)}
             return v
         }
@@ -39,7 +39,7 @@ public class DGISwapChain: DGIDeviceSubObject {
             let Height = height
             let NewFormat = format.rawValue
             let SwapChainFlags = UInt32(flags.rawValue)
-            try pThis.pointee.lpVtbl.pointee.ResizeBuffers(pThis, BufferCount, Width, Height, NewFormat, SwapChainFlags).checkResult() 
+            try pThis.pointee.lpVtbl.pointee.ResizeBuffers(pThis, BufferCount, Width, Height, NewFormat, SwapChainFlags).checkResult(self, #function) 
         }
     }
 

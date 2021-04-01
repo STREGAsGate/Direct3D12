@@ -95,12 +95,12 @@ public struct D3DInputElementDescription {
     - parameter instanceDataStepRate: The number of instances to draw using the same per-instance data before advancing in the buffer by one element. This value must be 0 for an element that contains per-vertex data (the slot class is set to the D3D12_INPUT_PER_VERTEX_DATA member of D3D12_INPUT_CLASSIFICATION).
     */
     public init(semanticName: String, 
-                semanticIndex: UInt32,
+                semanticIndex: UInt32 = 0,
                 format: DGIFormat,
-                inputSlot: UInt32,
+                inputSlot: UInt32 = 0,
                 alignedByteOffset: UInt32,
                 inputSlotClassification: D3DInputClassification,
-                instanceDataStepRate: UInt32) {
+                instanceDataStepRate: UInt32 = 0) {
         self.rawValue = RawValue()
         self.semanticName = semanticName
         self.semanticIndex = semanticIndex

@@ -26,7 +26,7 @@ public class D3DFence: D3DPageable {
         try perform(as: RawValue.self) {pThis in
             let Value = value
             let hEvent = handle
-            try pThis.pointee.lpVtbl.pointee.SetEventOnCompletion(pThis, Value, hEvent).checkResult()
+            try pThis.pointee.lpVtbl.pointee.SetEventOnCompletion(pThis, Value, hEvent).checkResult(self, #function)
         }
     }
 
@@ -36,7 +36,7 @@ public class D3DFence: D3DPageable {
     public func signal(_ value: UInt64) throws {
         try perform(as: RawValue.self) {pThis in
             let Value = value
-            try pThis.pointee.lpVtbl.pointee.Signal(pThis, Value).checkResult()
+            try pThis.pointee.lpVtbl.pointee.Signal(pThis, Value).checkResult(self, #function)
         }
     }
 

@@ -18,7 +18,7 @@ public class D3DDeviceChild: D3DObject {
         return try perform(as: RawValue.self) {pThis in 
             var riid = D3DDevice.interfaceID
             var ppvDevice: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.GetDevice(pThis, &riid, &ppvDevice).checkResult()
+            try pThis.pointee.lpVtbl.pointee.GetDevice(pThis, &riid, &ppvDevice).checkResult(self, #function)
             guard let v = D3DDevice(winSDKPointer: ppvDevice) else {throw Error(.invalidArgument)}
             return v
         }

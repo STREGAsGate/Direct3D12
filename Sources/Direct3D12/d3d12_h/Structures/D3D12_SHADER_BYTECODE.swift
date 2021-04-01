@@ -36,11 +36,10 @@ public struct D3DShaderBytecode {
     }
 
     /** Describes shader data.
-    - parameter data: A pointer to a memory block that contains the shader data.
+    - parameter byteCodeBlob: A pointer to a memory block that contains the shader data.
     */
-    public init(data: Data?) {
-        self.rawValue = RawValue()
-        self.data = data
+    public init(byteCodeBlob blob: D3DBlob) {
+        self.rawValue = RawValue(pShaderBytecode: blob.bufferPointer, BytecodeLength: blob.bufferSize)
     }
 
     internal init(_ rawValue: RawValue) {

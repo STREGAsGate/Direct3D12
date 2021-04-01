@@ -33,7 +33,7 @@ public extension Device {
             let pOwner = try owner.perform(as: LifetimeOwner.RawValue.self) {$0}
             var riid = LifetimeTracker.interfaceID
             var ppvTracker: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateLifetimeTracker(pThis, pOwner, &riid, &ppvTracker).checkResult()
+            try pThis.pointee.lpVtbl.pointee.CreateLifetimeTracker(pThis, pOwner, &riid, &ppvTracker).checkResult(self, #function)
             guard let p = ppvTracker else {throw Error(.invalidArgument)}
             return LifetimeTracker(win32Pointer: p)
         }
@@ -53,7 +53,7 @@ public extension Device {
             let CreationParametersDataSizeInBytes = UInt64(MemoryLayout.size(ofValue: parameters))
             var riid = MetaCommand.interfaceID
             var ppMetaCommand: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateMetaCommand(pThis, &CommandId, NodeMask, &pCreationParametersData, CreationParametersDataSizeInBytes, &riid, &ppMetaCommand).checkResult()
+            try pThis.pointee.lpVtbl.pointee.CreateMetaCommand(pThis, &CommandId, NodeMask, &pCreationParametersData, CreationParametersDataSizeInBytes, &riid, &ppMetaCommand).checkResult(self, #function)
             guard let p = ppMetaCommand else {throw Error(.invalidArgument)}
             return MetaCommand(win32Pointer: p)
         }
@@ -67,7 +67,7 @@ public extension Device {
             var pDesc = description.rawValue
             var riid = StateObject.interfaceID
             var ppStateObject: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateStateObject(pThis, &pDesc, &riid, &ppStateObject).checkResult()
+            try pThis.pointee.lpVtbl.pointee.CreateStateObject(pThis, &pDesc, &riid, &ppStateObject).checkResult(self, #function)
             guard let p = ppStateObject else {throw Error(.invalidArgument)}
             return StateObject(win32Pointer: p)
         }
@@ -84,9 +84,9 @@ public extension Device {
             let Stage = stage.rawValue
             var pTotalStructureSizeInBytes = totalStructureSize ?? 0
             var pParameterCount: UInt32 = 0
-            try pThis.pointee.lpVtbl.pointee.EnumerateMetaCommandParameters(pThis, &CommandId, Stage, &pTotalStructureSizeInBytes, &pParameterCount, nil).checkResult()
+            try pThis.pointee.lpVtbl.pointee.EnumerateMetaCommandParameters(pThis, &CommandId, Stage, &pTotalStructureSizeInBytes, &pParameterCount, nil).checkResult(self, #function)
             let pParameterDescs = UnsafeMutableBufferPointer<MetaCommandParameterDescription.RawValue>(start: nil, count: Int(pParameterCount))
-            try pThis.pointee.lpVtbl.pointee.EnumerateMetaCommandParameters(pThis, &CommandId, Stage, &pTotalStructureSizeInBytes, &pParameterCount, pParameterDescs.baseAddress).checkResult()
+            try pThis.pointee.lpVtbl.pointee.EnumerateMetaCommandParameters(pThis, &CommandId, Stage, &pTotalStructureSizeInBytes, &pParameterCount, pParameterDescs.baseAddress).checkResult(self, #function)
             return pParameterDescs.map({MetaCommandParameterDescription($0)})
         }
     }

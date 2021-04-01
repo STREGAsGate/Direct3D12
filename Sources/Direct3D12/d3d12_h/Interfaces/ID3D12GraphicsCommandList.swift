@@ -131,7 +131,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     */
     public func close() throws {
         try perform(as: RawValue.self) {pThis in
-            try pThis.pointee.lpVtbl.pointee.Close(pThis).checkResult()
+            try pThis.pointee.lpVtbl.pointee.Close(pThis).checkResult(self, #function)
         }
     }
 
@@ -430,9 +430,9 @@ public class D3DGraphicsCommandList: D3DCommandList {
         try perform(as: RawValue.self) {pThis in
             let pAllocator = commandAllocator.perform(as: D3DCommandAllocator.RawValue.self) {$0}
             if let pInitialState = state?.perform(as: D3DPipelineState.RawValue.self, body: {$0}) {
-                try pThis.pointee.lpVtbl.pointee.Reset(pThis, pAllocator, pInitialState).checkResult()
+                try pThis.pointee.lpVtbl.pointee.Reset(pThis, pAllocator, pInitialState).checkResult(self, #function)
             }else{
-                try pThis.pointee.lpVtbl.pointee.Reset(pThis, pAllocator, nil).checkResult()
+                try pThis.pointee.lpVtbl.pointee.Reset(pThis, pAllocator, nil).checkResult(self, #function)
             }
         }
     }

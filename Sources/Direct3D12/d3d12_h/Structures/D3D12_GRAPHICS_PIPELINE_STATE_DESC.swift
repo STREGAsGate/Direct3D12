@@ -254,7 +254,7 @@ public struct D3DGraphicsPipelineStateDescription {
                 streamOutput: D3DStreamOutputDescription,
                 blendState: D3DBlendDescription,
                 sampleMask: UInt32,
-                rasterizerState: D3DRasterizerDescription,
+                rasterizerState: D3DRasterizerDescription = D3DRasterizerDescription(),
                 depthStencilState: D3DDepthStencilDescription,
                 inputLayout: D3DInputLayoutDesription,
                 indexBufferStripCutValue: D3DIndexBufferStripCutValue,
@@ -285,6 +285,56 @@ public struct D3DGraphicsPipelineStateDescription {
         self.sampleDescription = sampleDescription
         self.multipleAdapterNodeMask = multipleAdapterNodeMask
         self.cachedPipelineState = cachedPipelineState
+        self.flags = flags
+    }
+
+    /** Describes a graphics pipeline state object.
+    - parameter rootSignature: A pointer to the ID3D12RootSignature object.
+    - parameter vertexShader: A D3D12_SHADER_BYTECODE structure that describes the vertex shader.
+    - parameter pixelShader: A D3D12_SHADER_BYTECODE structure that describes the pixel shader.
+    - parameter blendState: A D3D12_BLEND_DESC structure that describes the blend state.
+    - parameter sampleMask: The sample mask for the blend state.
+    - parameter rasterizerState: A D3D12_RASTERIZER_DESC structure that describes the rasterizer state.
+    - parameter depthStencilState: A D3D12_DEPTH_STENCIL_DESC structure that describes the depth-stencil state.
+    - parameter inputElements: A D3D12_INPUT_LAYOUT_DESC structure that describes the input-buffer data for the input-assembler stage.
+    - parameter indexBufferStripCutValue: Specifies the properties of the index buffer in a D3D12_INDEX_BUFFER_STRIP_CUT_VALUE structure.
+    - parameter primitiveTopologyType: A D3D12_PRIMITIVE_TOPOLOGY_TYPE-typed value for the type of primitive, and ordering of the primitive data.
+    - parameter renderTargetFormats: An array of DXGI_FORMAT-typed values for the render target formats.
+    - parameter depthStencilFormat: A DXGI_FORMAT-typed value for the depth-stencil format.
+    - parameter sampleDescription: A DXGI_SAMPLE_DESC structure that specifies multisampling parameters.
+    - parameter multipleAdapterNodeMask: For single GPU operation, set this to zero. If there are multiple GPU nodes, set bits to identify the nodes (the device's physical adapters) for which the graphics pipeline state is to apply. Each bit in the mask corresponds to a single node. Refer to Multi-adapter systems.
+    - parameter flags: A D3D12_PIPELINE_STATE_FLAGS enumeration constant such as for "tool debug".
+    */
+    public init(rootSignature: D3DRootSignature,
+                vertexShader: D3DShaderBytecode,
+                pixelShader: D3DShaderBytecode,
+                blendState: D3DBlendDescription = .default,
+                sampleMask: UInt32 = .max,
+                rasterizerState: D3DRasterizerDescription = D3DRasterizerDescription(),
+                depthStencilState: D3DDepthStencilDescription = D3DDepthStencilDescription(),
+                inputElements: [D3DInputElementDescription],
+                indexBufferStripCutValue: D3DIndexBufferStripCutValue = .disabled,
+                primitiveTopologyType: D3DPrimitiveTopologyType,
+                renderTargetFormats: [DGIFormat],
+                depthStencilFormat: DGIFormat,
+                sampleDescription: DGISampleDescription = DGISampleDescription(count: 1, quality: 0),
+                multipleAdapterNodeMask: UInt32 = 0,
+                flags: D3DPipelineStateFlags = []) {
+        self.rawValue = RawValue()
+        self.rootSignature = rootSignature
+        self.vertexShader = vertexShader
+        self.pixelShader = pixelShader
+        self.blendState = blendState
+        self.sampleMask = sampleMask
+        self.rasterizerState = rasterizerState
+        self.depthStencilState = depthStencilState
+        self.inputLayout = D3DInputLayoutDesription(elementDescriptions: inputElements)
+        self.indexBufferStripCutValue = indexBufferStripCutValue
+        self.primitiveTopologyType = primitiveTopologyType
+        self.renderTargetFormats = renderTargetFormats
+        self.depthStencilFormat = depthStencilFormat
+        self.sampleDescription = sampleDescription
+        self.multipleAdapterNodeMask = multipleAdapterNodeMask
         self.flags = flags
     }
 

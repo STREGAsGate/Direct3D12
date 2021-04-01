@@ -20,7 +20,8 @@ public struct D3DRootDescriptorTable {
             return buffer.map({D3DDescriptorRange($0)})
         }
         set {
-            newValue.map({$0.rawValue}).withUnsafeBufferPointer {
+            let rawValues = newValue.map({$0.rawValue})
+            rawValues.withUnsafeBufferPointer {
                 rawValue.pDescriptorRanges = $0.baseAddress!
             }
             rawValue.NumDescriptorRanges = UInt32(newValue.count)
@@ -30,7 +31,7 @@ public struct D3DRootDescriptorTable {
     /** Describes the root signature 1.0 layout of a descriptor table as a collection of descriptor ranges that are all relative to a single base descriptor handle.
     - parameter descriptorRanges: An array of D3D12_DESCRIPTOR_RANGE structures that describe the descriptor ranges.
     */
-    public init(descriptoreRanges: [D3DDescriptorRange]) {
+    public init(descriptorRanges: [D3DDescriptorRange]) {
         self.rawValue = RawValue()
         self.descriptorRanges = descriptorRanges
     }
