@@ -11,73 +11,44 @@ import WinSDK
 /// Describes the layout of a root signature version 1.0.
 public struct D3DRootSignatureDescription {
     public typealias RawValue = WinSDK.D3D12_ROOT_SIGNATURE_DESC
-    internal var rawValue: RawValue
 
     /// An array of D3D12_ROOT_PARAMETER structures for the slots in the root signature.    
-    public var parameters: [D3DRootParameter] {
-        get {
-            guard rawValue.NumParameters > 0 else {return []}
-            let buffer = UnsafeBufferPointer(start: rawValue.pParameters, count: Int(rawValue.NumParameters))
-            return buffer.map({D3DRootParameter($0)})
-        }
-        set {
-            parametersRef = newValue.map({$0.rawValue})
-            parametersRef.withUnsafeBufferPointer {
-                rawValue.pParameters = $0.baseAddress
-            }
-            rawValue.NumParameters = UInt32(newValue.count)
-        }
-    }
-    #warning("Need to refactor all array setters like this...")
-    private var parametersRef: [D3DRootParameter.RawValue]! = nil 
+    public var parameters: [D3DRootParameter]
 
     /// Pointer to one or more D3D12_STATIC_SAMPLER_DESC structures.
-    public var staticSamplers: [D3DStaticSamplerDecsription]? {
-        get {
-            guard rawValue.NumStaticSamplers > 0 else {return nil}
-            return withUnsafePointer(to: rawValue.pStaticSamplers) {p in
-                let buffer = UnsafeBufferPointer(start: p, count: Int(rawValue.NumStaticSamplers))
-                return buffer.map({D3DStaticSamplerDecsription($0!.pointee)})
-            }
-        }
-        set {
-            if let newValue = newValue, newValue.isEmpty == false {
-                let rawValues = newValue.map({$0.rawValue})
-                rawValues.withUnsafeBufferPointer {
-                    rawValue.pStaticSamplers = $0.baseAddress!
-                }
-                rawValue.NumStaticSamplers = UInt32(newValue.count)
-            }else{
-                rawValue.pStaticSamplers = nil
-                rawValue.NumStaticSamplers = 0
-            }
-        }
-    }
+    public var staticSamplers: [D3DStaticSamplerDecsription]
 
     /// A combination of D3D12_ROOT_SIGNATURE_FLAGS-typed values that are combined by using a bitwise OR operation. The resulting value specifies options for the root signature layout.
-    public var flags: D3DRootSignatureFlags {
-        get {
-            return D3DRootSignatureFlags(rawValue.Flags)
-        }
-        set {
-            rawValue.Flags = newValue.rawType
-        }
-    }
+    public var flags: D3DRootSignatureFlags
 
     /** Describes the layout of a root signature version 1.0.
     - parameter parameters: An array of D3D12_ROOT_PARAMETER structures for the slots in the root signature.
     - parameter staticSamplers: Pointer to one or more D3D12_STATIC_SAMPLER_DESC structures.
     - parameter flags: A combination of D3D12_ROOT_SIGNATURE_FLAGS-typed values that are combined by using a bitwise OR operation. The resulting value specifies options for the root signature layout.
     */
-    public init(parameters: [D3DRootParameter], staticSamplers: [D3DStaticSamplerDecsription]?, flags: D3DRootSignatureFlags) {
-        self.rawValue = RawValue()
+    public init(parameters: [D3DRootParameter], staticSamplers: [D3DStaticSamplerDecsription], flags: D3DRootSignatureFlags) {
         self.parameters = parameters
         self.staticSamplers = staticSamplers
         self.flags = flags
     }
 
-    internal init(_ rawValue: RawValue) {
-        self.rawValue = rawValue
+    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue) throws -> ResultType) rethrows -> ResultType {
+        return try parameters.map({$0.withUnsafeRawValue({$0})}).withUnsafeBufferPointer {
+            let pParameters = $0.baseAddress
+            let NumParameters = UInt32(parameters.count)
+            return try staticSamplers.map({$0.rawValue}).withUnsafeBufferPointer {
+                let pStaticSamplers = $0.baseAddress
+                let NumStaticSamplers = UInt32(staticSamplers.count)
+                
+                let Flags = flags.rawType
+                let rawValue = RawValue(NumParameters: NumParameters,
+                                        pParameters: pParameters,
+                                        NumStaticSamplers: NumStaticSamplers,
+                                        pStaticSamplers: pStaticSamplers,
+                                        Flags: Flags)
+                return try body(rawValue)
+            }
+        }
     }
 }
 
