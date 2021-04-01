@@ -16,16 +16,21 @@ public struct D3DInputLayoutDesription {
     /// An array of D3D12_INPUT_ELEMENT_DESC structures that describe the data types of the input-assembler stage.
     public var elementDescriptions: [D3DInputElementDescription] {
         get {
-            let buffer = UnsafeBufferPointer(start: rawValue.pInputElementDescs, count: Int(rawValue.NumElements))
-            return buffer.map({D3DInputElementDescription($0)})
+            guard rawValue.NumElements > 0 else {return []}
+            return withUnsafePointer(to: rawValue.pInputElementDescs) {p in
+                let buffer = UnsafeBufferPointer(start: p, count: Int(rawValue.NumElements))
+                return buffer.map({D3DInputElementDescription($0!.pointee)})
+            }
         }
         set {
-            newValue.map({$0.rawValue}).withUnsafeBufferPointer {
+            _elementDescriptions = newValue.map({$0.rawValue})
+            _elementDescriptions.withUnsafeBufferPointer {
                 rawValue.pInputElementDescs = $0.baseAddress!
             }
             rawValue.NumElements = UInt32(newValue.count)
         }
     }
+    private var _elementDescriptions: [D3DInputElementDescription.RawValue]! = nil
 
     /** Describes the input-buffer data for the input-assembler stage.
     - parameter elementDescriptions: An array of D3D12_INPUT_ELEMENT_DESC structures that describe the data types of the input-assembler stage.

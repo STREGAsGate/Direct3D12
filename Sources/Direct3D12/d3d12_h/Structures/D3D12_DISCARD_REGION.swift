@@ -22,12 +22,14 @@ public struct D3DDiscardRegion {
             }
         }
         set {
-            newValue.map({$0.RECT()}).withUnsafeBufferPointer{p in
+            _regions = newValue.map({$0.RECT()})
+            _regions.withUnsafeBufferPointer{p in
                 rawValue.pRects = p.baseAddress!
             }
             rawValue.NumRects = UInt32(newValue.count)
         }
     }
+    private var _regions: [WinSDK.RECT]! = nil
 
     /// Index of the first subresource in the resource to discard.
     public var subresourceIndex: UInt32 {

@@ -15,17 +15,19 @@ import WinSDK
 - note: For Swift this step is folded directly into device.createRootSignature, so pass this functions variables directly into that function.
 */
 public func serializeRootSignature(_ description: D3DRootSignatureDescription, version: D3DRootSignatureVersion) throws -> D3DBlob {
-    var pRootSignature = description.rawValue
-    let Version = version.rawValue
-    var ppBlob: UnsafeMutablePointer<WinSDK.ID3DBlob>?
-    var ppErrorBlob: UnsafeMutablePointer<WinSDK.ID3DBlob>?
-    let hresult = WinSDK.D3D12SerializeRootSignature(&pRootSignature, Version, &ppBlob, &ppErrorBlob)
-    if hresult.isSuccess == false {
-        if let error = D3DBlob(winSDKPointer: ppErrorBlob) {
-            print("D3D12 Error:", error.stringValue!)
+    return try description.withUnsafeRawValue {pRootSignature in
+        var pRootSignature = pRootSignature
+        let Version = version.rawValue
+        var ppBlob: UnsafeMutablePointer<WinSDK.ID3DBlob>?
+        var ppErrorBlob: UnsafeMutablePointer<WinSDK.ID3DBlob>?
+        let hresult = WinSDK.D3D12SerializeRootSignature(&pRootSignature, Version, &ppBlob, &ppErrorBlob)
+        if hresult.isSuccess == false {
+            if let error = D3DBlob(winSDKPointer: ppErrorBlob) {
+                print("D3D12 Error:", error.stringValue!)
+            }
+            try hresult.checkResult(nil, #function)
         }
-        try hresult.checkResult(nil, #function)
+        guard let v = D3DBlob(winSDKPointer: ppBlob) else {throw Error(.invalidArgument)}
+        return v
     }
-    guard let v = D3DBlob(winSDKPointer: ppBlob) else {print("nil pointer"); throw Error(.invalidArgument)}
-    return v
 }

@@ -16,16 +16,21 @@ public struct D3DStreamOutputDescription {
     /// An array of D3D12_SO_DECLARATION_ENTRY structures. Can't be NULL if NumEntries > 0.
     public var declarationEntries: [D3DStreamOutputDeclarationEntry] {
         get {
-            let buffer = UnsafeBufferPointer(start: rawValue.pSODeclaration, count: Int(rawValue.NumEntries))
-            return buffer.map({D3DStreamOutputDeclarationEntry($0)})
+            guard rawValue.NumEntries > 0 else {return []}
+            return withUnsafePointer(to: rawValue.pSODeclaration) {p in
+                let buffer = UnsafeBufferPointer(start: p, count: Int(rawValue.NumEntries))
+                return buffer.map({D3DStreamOutputDeclarationEntry($0!.pointee)})
+            }
         }
         set {
-            newValue.map({$0.rawValue}).withUnsafeBufferPointer {
+            _declarationEntries = newValue.map({$0.rawValue})
+            _declarationEntries.withUnsafeBufferPointer {
                 rawValue.pSODeclaration = $0.baseAddress!
             }
             rawValue.NumEntries = UInt32(newValue.count)
         }
     }
+    private var _declarationEntries: [D3DStreamOutputDeclarationEntry.RawValue]! = nil
 
     /// An array of buffer strides; each stride is the size of an element for that buffer.
     public var bufferStrides: [UInt32] {
@@ -34,12 +39,14 @@ public struct D3DStreamOutputDescription {
             return Array(buffer)
         }
         set {
-            newValue.withUnsafeBufferPointer {
+            _bufferStrides = newValue
+            _bufferStrides.withUnsafeBufferPointer {
                 rawValue.pBufferStrides = $0.baseAddress!
             }
             rawValue.NumStrides = UInt32(newValue.count)
         }
     }
+    private var _bufferStrides: [UInt32]! = nil
 
     /// The index number of the stream to be sent to the rasterizer stage.
     public var rasterizedStream: UInt32 {

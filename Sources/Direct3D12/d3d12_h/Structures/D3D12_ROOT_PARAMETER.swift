@@ -11,57 +11,21 @@ import WinSDK
 /// Describes the slot of a root signature version 1.0.
 public struct D3DRootParameter {
     public typealias RawValue = WinSDK.D3D12_ROOT_PARAMETER
-    internal var rawValue: RawValue
 
     /// A D3D12_ROOT_PARAMETER_TYPE-typed value that specifies the type of root signature slot. This member determines which type to use in the union below.
-    public var `type`: D3DRootParameterType {
-        get {
-            return D3DRootParameterType(rawValue.ParameterType)
-        }
-        set {
-            rawValue.ParameterType = newValue.rawValue
-        }
-    }
+    public var `type`: D3DRootParameterType
 
     /// A D3D12_ROOT_DESCRIPTOR_TABLE structure that describes the layout of a descriptor table as a collection of descriptor ranges that appear one after the other in a descriptor heap.
-    public var descriptorTable: D3DRootDescriptorTable {
-        get {
-            return D3DRootDescriptorTable(rawValue.DescriptorTable)
-        }
-        set {
-            rawValue.DescriptorTable = newValue.rawValue
-        }
-    }
+    public var descriptorTable: D3DRootDescriptorTable
 
     /// A D3D12_ROOT_CONSTANTS structure that describes constants inline in the root signature that appear in shaders as one constant buffer.
-    public var constants: D3DRootConstants {
-        get {
-            return D3DRootConstants(rawValue.Constants)
-        }
-        set {
-            rawValue.Constants = newValue.rawValue
-        }
-    }
+    public var constants: D3DRootConstants
 
     /// A D3D12_ROOT_DESCRIPTOR structure that describes descriptors inline in the root signature that appear in shaders.
-    public var descriptor: D3DRootDescriptor {
-        get {
-            return D3DRootDescriptor(rawValue.Descriptor)
-        }
-        set {
-            rawValue.Descriptor = newValue.rawValue
-        }
-    }
+    public var descriptor: D3DRootDescriptor
 
     /// A D3D12_SHADER_VISIBILITY-typed value that specifies the shaders that can access the contents of the root signature slot.
-    public var shaderVisibility: D3DShaderVisibility {
-        get {
-            return D3DShaderVisibility(rawValue.ShaderVisibility)
-        }
-        set {
-            rawValue.ShaderVisibility = newValue.rawValue
-        }
-    }
+    public var shaderVisibility: D3DShaderVisibility
 
     /** Describes the slot of a root signature version 1.0.
     - parameter type: A D3D12_ROOT_PARAMETER_TYPE-typed value that specifies the type of root signature slot. This member determines which type to use in the union below.
@@ -75,7 +39,6 @@ public struct D3DRootParameter {
                 constants: D3DRootConstants = D3DRootConstants(),
                 descriptor: D3DRootDescriptor = D3DRootDescriptor(),
                 shaderVisibility: D3DShaderVisibility) {
-        self.rawValue = RawValue()
         self.type = type
         self.descriptorTable = descriptorTable
         self.constants = constants
@@ -83,8 +46,17 @@ public struct D3DRootParameter {
         self.shaderVisibility = shaderVisibility
     }
 
-    internal init(_ rawValue: RawValue) {
-        self.rawValue = rawValue
+    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue)->ResultType) -> ResultType {
+        descriptorTable.withUnsafeRawValue {DescriptorTable in
+            var rawValue = RawValue()
+            rawValue.ParameterType = type.rawValue
+            rawValue.Constants = constants.rawValue
+            rawValue.DescriptorTable = DescriptorTable
+            rawValue.Descriptor = descriptor.rawValue
+            rawValue.ShaderVisibility = shaderVisibility.rawValue
+            
+            return body(rawValue)
+        }
     }
 }
 

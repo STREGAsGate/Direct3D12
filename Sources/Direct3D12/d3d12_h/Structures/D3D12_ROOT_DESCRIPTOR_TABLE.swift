@@ -11,33 +11,22 @@ import WinSDK
 /// Describes the root signature 1.0 layout of a descriptor table as a collection of descriptor ranges that are all relative to a single base descriptor handle.
 public struct D3DRootDescriptorTable {
     public typealias RawValue = WinSDK.D3D12_ROOT_DESCRIPTOR_TABLE
-    internal var rawValue: RawValue
 
     /// An array of D3D12_DESCRIPTOR_RANGE structures that describe the descriptor ranges.
-    public var descriptorRanges: [D3DDescriptorRange] {
-        get {
-            let buffer = UnsafeBufferPointer(start: rawValue.pDescriptorRanges, count: Int(rawValue.NumDescriptorRanges))
-            return buffer.map({D3DDescriptorRange($0)})
-        }
-        set {
-            let rawValues = newValue.map({$0.rawValue})
-            rawValues.withUnsafeBufferPointer {
-                rawValue.pDescriptorRanges = $0.baseAddress!
-            }
-            rawValue.NumDescriptorRanges = UInt32(newValue.count)
-        }
-    }
+    public var descriptorRanges: [D3DDescriptorRange]
 
     /** Describes the root signature 1.0 layout of a descriptor table as a collection of descriptor ranges that are all relative to a single base descriptor handle.
     - parameter descriptorRanges: An array of D3D12_DESCRIPTOR_RANGE structures that describe the descriptor ranges.
     */
     public init(descriptorRanges: [D3DDescriptorRange]) {
-        self.rawValue = RawValue()
         self.descriptorRanges = descriptorRanges
     }
 
-    internal init(_ rawValue: RawValue) {
-        self.rawValue = rawValue
+    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue)->ResultType) -> ResultType {
+        descriptorRanges.map({$0.rawValue}).withUnsafeBufferPointer {
+            let rawValue = RawValue(NumDescriptorRanges: UInt32(descriptorRanges.count), pDescriptorRanges: $0.baseAddress)
+            return body(rawValue)
+        }
     }
 }
 

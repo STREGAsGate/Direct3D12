@@ -46,11 +46,13 @@ public struct D3DBlendDescription {
                                D3DRenderTargetBlendDescription.RawValue, D3DRenderTargetBlendDescription.RawValue,
                                D3DRenderTargetBlendDescription.RawValue, D3DRenderTargetBlendDescription.RawValue,
                                D3DRenderTargetBlendDescription.RawValue, D3DRenderTargetBlendDescription.RawValue)
-            newValue.map({$0.rawValue}).withUnsafeBytes {buf in
+            _renderTarget = newValue.map({$0.rawValue})
+            _renderTarget.withUnsafeBytes {buf in
                 rawValue.RenderTarget = buf.bindMemory(to: Tuple.self)[0]  
-            } 
+            }
         }
     }
+    private var _renderTarget: [D3DRenderTargetBlendDescription.RawValue]! = nil
 
     /// Describes the blend state.
     public init() {

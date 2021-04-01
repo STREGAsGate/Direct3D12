@@ -16,17 +16,22 @@ public struct D3DCommandSignatureDescription {
     /// An array of D3D12_INDIRECT_ARGUMENT_DESC structures, containing details of the arguments, including whether the argument is a vertex buffer, constant, constant buffer view, shader resource view, or unordered access view.
     public var argumentDescriptors: [D3DIndirectArgumentDescription] {
         get {
-            let buffer = UnsafeBufferPointer(start: self.rawValue.pArgumentDescs, count: Int(self.rawValue.NumArgumentDescs))
-            return buffer.map({D3DIndirectArgumentDescription($0)})
+            guard rawValue.NumArgumentDescs > 0 else {return []}
+            return withUnsafePointer(to: rawValue.pArgumentDescs) {p in
+                let buffer = UnsafeBufferPointer(start: p, count: Int(rawValue.NumArgumentDescs))
+                return buffer.map({D3DIndirectArgumentDescription($0!.pointee)})
+            }
         }
         set {
             self.rawValue.ByteStride = UInt32(MemoryLayout<D3DIndirectArgumentDescription.RawValue>.stride)
             self.rawValue.NumArgumentDescs = UInt32(newValue.count)
-            newValue.map({$0.rawValue}).withUnsafeBufferPointer {pArgumentDescs in
+            _argumentDescriptors = newValue.map({$0.rawValue})
+            _argumentDescriptors.withUnsafeBufferPointer {pArgumentDescs in
                 self.rawValue.pArgumentDescs = pArgumentDescs.baseAddress
             }
         }
     }
+    private var _argumentDescriptors: [D3DIndirectArgumentDescription.RawValue]! = nil
 
     /// For single GPU operation, set this to zero. If there are multiple GPU nodes, set a bit to identify the node (the device's physical adapter) to which the command queue applies. Each bit in the mask corresponds to a single node. Only 1 bit must be set. Refer to Multi-adapter systems.
     public var multipleAdapterNodeMask: UInt32 {

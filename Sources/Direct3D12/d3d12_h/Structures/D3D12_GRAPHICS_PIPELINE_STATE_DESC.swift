@@ -166,12 +166,14 @@ public struct D3DGraphicsPipelineStateDescription {
                                DGIFormat.RawValue, DGIFormat.RawValue,
                                DGIFormat.RawValue, DGIFormat.RawValue,
                                DGIFormat.RawValue, DGIFormat.RawValue)
-            newValue.map({$0.rawValue}).withUnsafeBytes {buf in
+            _renderTargetFormats = newValue.map({$0.rawValue})
+            _renderTargetFormats.withUnsafeBytes {buf in
                 rawValue.RTVFormats = buf.bindMemory(to: Tuple.self)[0]  
             }
             rawValue.NumRenderTargets = UInt32(newValue.count)
         }
     }
+    private var _renderTargetFormats: [DGIFormat.RawValue]! = nil
 
     /// A DXGI_FORMAT-typed value for the depth-stencil format.
     public var depthStencilFormat: DGIFormat {
