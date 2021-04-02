@@ -22,11 +22,26 @@ public struct D3DRootDescriptorTable {
         self.descriptorRanges = descriptorRanges
     }
 
-    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue)->ResultType) -> ResultType {
-        descriptorRanges.map({$0.rawValue}).withUnsafeBufferPointer {
-            let rawValue = RawValue(NumDescriptorRanges: UInt32(descriptorRanges.count), pDescriptorRanges: $0.baseAddress)
-            return body(rawValue)
+    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue) throws -> ResultType) rethrows -> ResultType {
+        func withUnsafeParameter(at index: Int, _ pDescriptorRanges: inout [D3DDescriptorRange.RawValue], _ body: (RawValue) throws -> ResultType) rethrows -> ResultType {
+            if descriptorRanges.indices.isEmpty || index == descriptorRanges.indices.last! + 1 {
+                return try pDescriptorRanges.withUnsafeBufferPointer {pDescriptorRanges in
+                    let NumDescriptorRanges = UInt32(descriptorRanges.count)
+                    let pDescriptorRanges = pDescriptorRanges.baseAddress!
+                    let rawValue = RawValue(NumDescriptorRanges: NumDescriptorRanges, pDescriptorRanges: pDescriptorRanges)
+                    return try body(rawValue)
+                }
+            }
+
+            return try descriptorRanges[index].withUnsafeRawValue {
+                pDescriptorRanges.insert($0, at: index)
+                return try withUnsafeParameter(at: index + 1, &pDescriptorRanges, body)
+            }
         }
+
+        var pDescriptorRanges: [D3DDescriptorRange.RawValue] = []
+        pDescriptorRanges.reserveCapacity(descriptorRanges.count)
+        return try withUnsafeParameter(at: 0, &pDescriptorRanges, body)
     }
 }
 

@@ -46,8 +46,8 @@ public struct D3DRootParameter {
         self.shaderVisibility = shaderVisibility
     }
 
-    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue)->ResultType) -> ResultType {
-        descriptorTable.withUnsafeRawValue {DescriptorTable in
+    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue) throws -> ResultType) rethrows -> ResultType {
+        return try descriptorTable.withUnsafeRawValue {DescriptorTable in
             var rawValue = RawValue()
             rawValue.ParameterType = type.rawValue
             rawValue.Constants = constants.rawValue
@@ -55,7 +55,7 @@ public struct D3DRootParameter {
             rawValue.Descriptor = descriptor.rawValue
             rawValue.ShaderVisibility = shaderVisibility.rawValue
             
-            return body(rawValue)
+            return try body(rawValue)
         }
     }
 }

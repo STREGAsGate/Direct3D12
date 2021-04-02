@@ -11,57 +11,21 @@ import WinSDK
 /// Describes a compute pipeline state object.
 public struct D3DComputePipelineStateDescription {
     public typealias RawValue = WinSDK.D3D12_COMPUTE_PIPELINE_STATE_DESC
-    internal var rawValue: RawValue
 
     /// A pointer to the ID3D12RootSignature object.
-    public var rootSignature: D3DRootSignature? {
-        get {
-            return D3DRootSignature(winSDKPointer: self.rawValue.pRootSignature)
-        }
-        set {
-            self.rawValue.pRootSignature = newValue?.performFatally(as: D3DRootSignature.RawValue.self) {$0}
-        }
-    }
+    public var rootSignature: D3DRootSignature?
 
     /// A D3D12_SHADER_BYTECODE structure that describes the compute shader.
-    public var shaderBytecode: D3DShaderBytecode {
-        get {
-            return D3DShaderBytecode(self.rawValue.CS)
-        }
-        set {
-            self.rawValue.CS = newValue.rawValue
-        }
-    }
+    public var shaderBytecode: D3DShaderBytecode
 
     /// For single GPU operation, set this to zero. If there are multiple GPU nodes, set a bit to identify the node (the device's physical adapter) to which the command queue applies. Each bit in the mask corresponds to a single node. Only 1 bit must be set. Refer to Multi-adapter systems.
-    public var multipleAdapterNodeMask: UInt32 {
-        get {
-            return self.rawValue.NodeMask
-        }
-        set {
-            self.rawValue.NodeMask = newValue
-        }
-    }
+    public var multipleAdapterNodeMask: UInt32
 
     /// A cached pipeline state object, as a D3D12_CACHED_PIPELINE_STATE structure. pCachedBlob and CachedBlobSizeInBytes may be set to NULL and 0 respectively.
-    public var cachedPipelineSate: D3DCachedPipelineState {
-        get {
-            return D3DCachedPipelineState(self.rawValue.CachedPSO)
-        }
-        set {
-            self.rawValue.CachedPSO = newValue.rawValue
-        }
-    }
+    public var cachedPipelineSate: D3DCachedPipelineState
 
     /// A D3D12_PIPELINE_STATE_FLAGS enumeration constant such as for "tool debug".
-    public var flags: D3DPipelineStateFlags {
-        get {
-            return D3DPipelineStateFlags(rawValue: self.rawValue.Flags.rawValue)
-        }
-        set {
-            self.rawValue.Flags = D3DPipelineStateFlags.RawType(newValue.rawValue)
-        }
-    }
+    public var flags: D3DPipelineStateFlags
 
     /** Describes a compute pipeline state object.
     - parameter rootSignature: A pointer to the ID3D12RootSignature object.
@@ -71,7 +35,6 @@ public struct D3DComputePipelineStateDescription {
     - parameter flags: A D3D12_PIPELINE_STATE_FLAGS enumeration constant such as for "tool debug".
     */
     public init(rootSignature: D3DRootSignature, shaderBytecode: D3DShaderBytecode, multipleAdapterNodeMask: UInt32 = 0, cachedPipelineSate: D3DCachedPipelineState = D3DCachedPipelineState(), flags: D3DPipelineStateFlags = []) {
-        self.rawValue = RawValue()
         self.rootSignature = rootSignature
         self.shaderBytecode = shaderBytecode
         self.multipleAdapterNodeMask = multipleAdapterNodeMask
@@ -79,8 +42,15 @@ public struct D3DComputePipelineStateDescription {
         self.flags = flags
     }
 
-    internal init(_ rawValue: RawValue) {
-        self.rawValue = rawValue
+    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue) throws -> ResultType) rethrows -> ResultType {
+        let pRootSignature = rootSignature?.performFatally(as: D3DRootSignature.RawValue.self){$0}
+        return try shaderBytecode.withUnsafeRawValue {CS in
+            let NodeMask = multipleAdapterNodeMask
+            let CachedPSO = cachedPipelineSate.rawValue
+            let Flags = flags.rawType
+            let rawValue = RawValue(pRootSignature: pRootSignature, CS: CS, NodeMask: NodeMask, CachedPSO: CachedPSO, Flags: Flags)
+            return try body(rawValue)
+        }
     }
 }
 

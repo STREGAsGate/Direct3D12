@@ -214,12 +214,14 @@ public class D3DDevice: D3DObject {
     */
     public func createComputePipelineState(description: D3DComputePipelineStateDescription) throws -> D3DPipelineState {
         return try perform(as: RawValue.self) {pThis in
-            var pDesc = description.rawValue
-            var riid = D3DPipelineState.interfaceID
-            var ppComputePipelineState: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateComputePipelineState(pThis, &pDesc, &riid, &ppComputePipelineState).checkResult(self, #function)
-            guard let v = D3DPipelineState(winSDKPointer: ppComputePipelineState) else {throw Error(.invalidArgument)}
-            return v
+            return try description.withUnsafeRawValue {pDesc in
+                var pDesc = pDesc
+                var riid = D3DPipelineState.interfaceID
+                var ppComputePipelineState: UnsafeMutableRawPointer?
+                try pThis.pointee.lpVtbl.pointee.CreateComputePipelineState(pThis, &pDesc, &riid, &ppComputePipelineState).checkResult(self, #function)
+                guard let v = D3DPipelineState(winSDKPointer: ppComputePipelineState) else {throw Error(.invalidArgument)}
+                return v
+            }
         }
     }
 
@@ -227,7 +229,7 @@ public class D3DDevice: D3DObject {
     - parameter description: A pointer to a D3D12_CONSTANT_BUFFER_VIEW_DESC structure that describes the constant-buffer view.
     - parameter destination: Describes the CPU descriptor handle that represents the start of the heap that holds the constant-buffer view.
     */
-    public func CreateConstantBufferView(description: D3DConstantBufferViewDescription, destination: D3DCPUDescriptorHandle) {
+    public func createConstantBufferView(description: D3DConstantBufferViewDescription, destination: D3DCPUDescriptorHandle) {
         performFatally(as: RawValue.self) {pThis in
             var pDesc = description.rawValue
             pThis.pointee.lpVtbl.pointee.CreateConstantBufferView(pThis, &pDesc, destination.rawValue)
@@ -282,12 +284,14 @@ public class D3DDevice: D3DObject {
     */
     public func createGraphicsPipelineState(description: D3DGraphicsPipelineStateDescription) throws -> D3DPipelineState {
         return try perform(as: RawValue.self) {pThis in
-            var pDesc = description.rawValue
-            var riid = D3DPipelineState.interfaceID
-            var pp: UnsafeMutableRawPointer?
-            try pThis.pointee.lpVtbl.pointee.CreateGraphicsPipelineState(pThis, &pDesc, &riid, &pp).checkResult(self, #function)
-            guard let v = D3DPipelineState(winSDKPointer: pp) else {throw Error(.invalidArgument)}
-            return v
+            return try description.withUnsafeRawValue {pDesc in
+                var pDesc = pDesc
+                var riid = D3DPipelineState.interfaceID
+                var pp: UnsafeMutableRawPointer?
+                try pThis.pointee.lpVtbl.pointee.CreateGraphicsPipelineState(pThis, &pDesc, &riid, &pp).checkResult(self, #function)
+                guard let v = D3DPipelineState(winSDKPointer: pp) else {throw Error(.invalidArgument)}
+                return v
+            }
         }
     }
 

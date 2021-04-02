@@ -9,7 +9,7 @@
 import WinSDK
 
 /// Describes a static sampler.
-public struct D3DStaticSamplerDecsription {
+public struct D3DStaticSamplerDescription {
     public typealias RawValue =  WinSDK.D3D12_STATIC_SAMPLER_DESC
     internal var rawValue: RawValue
 
@@ -171,18 +171,18 @@ public struct D3DStaticSamplerDecsription {
     - parameter shaderVisibility: Specifies the visibility of the sampler to the pipeline shaders, one member of D3D12_SHADER_VISIBILITY.
     */
     public init(filter: D3DFilter,
-                addressU: D3DTextureAddressMode,
-                addressV: D3DTextureAddressMode,
-                addressW: D3DTextureAddressMode,
+                addressU: D3DTextureAddressMode = .border,
+                addressV: D3DTextureAddressMode = .border,
+                addressW: D3DTextureAddressMode = .border,
                 mipLODBias: Float = 0,
                 maxAnisotropy: UInt32 = 0,
-                comparisonFunction: D3DComparisonFunction = .alwaysSuccees,
-                borderColor: D3DStaticBorderColor,
+                comparisonFunction: D3DComparisonFunction = .neverSucceed,
+                borderColor: D3DStaticBorderColor = .transparentBlack,
                 minLOD: Float = 0,
-                maxLOD: Float = 1000,
-                shaderRegister: UInt32,
-                registerSpace: UInt32,
-                shaderVisibility: D3DShaderVisibility) {
+                maxLOD: Float = .greatestFiniteMagnitude,
+                shaderRegister: UInt32 = 0,
+                registerSpace: UInt32 = 0,
+                shaderVisibility: D3DShaderVisibility = .pixel) {
         self.rawValue = RawValue()
         self.filter = filter
         self.addressU = addressU
@@ -207,7 +207,7 @@ public struct D3DStaticSamplerDecsription {
 //MARK: - Original Style API
 #if !Direct3D12ExcludeOriginalStyleAPI
 
-@available(*, deprecated, renamed: "D3DStaticSamplerDecsription")
-public typealias D3D12_STATIC_SAMPLER_DESC = D3DStaticSamplerDecsription
+@available(*, deprecated, renamed: "D3DStaticSamplerDescription")
+public typealias D3D12_STATIC_SAMPLER_DESC = D3DStaticSamplerDescription
 
 #endif

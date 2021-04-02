@@ -16,7 +16,7 @@ public struct D3DRootSignatureDescription {
     public var parameters: [D3DRootParameter]
 
     /// Pointer to one or more D3D12_STATIC_SAMPLER_DESC structures.
-    public var staticSamplers: [D3DStaticSamplerDecsription]
+    public var staticSamplers: [D3DStaticSamplerDescription]
 
     /// A combination of D3D12_ROOT_SIGNATURE_FLAGS-typed values that are combined by using a bitwise OR operation. The resulting value specifies options for the root signature layout.
     public var flags: D3DRootSignatureFlags
@@ -26,29 +26,41 @@ public struct D3DRootSignatureDescription {
     - parameter staticSamplers: Pointer to one or more D3D12_STATIC_SAMPLER_DESC structures.
     - parameter flags: A combination of D3D12_ROOT_SIGNATURE_FLAGS-typed values that are combined by using a bitwise OR operation. The resulting value specifies options for the root signature layout.
     */
-    public init(parameters: [D3DRootParameter], staticSamplers: [D3DStaticSamplerDecsription], flags: D3DRootSignatureFlags) {
+    public init(parameters: [D3DRootParameter], staticSamplers: [D3DStaticSamplerDescription], flags: D3DRootSignatureFlags) {
         self.parameters = parameters
         self.staticSamplers = staticSamplers
         self.flags = flags
     }
 
     internal func withUnsafeRawValue<ResultType>(_ body: (RawValue) throws -> ResultType) rethrows -> ResultType {
-        return try parameters.map({$0.withUnsafeRawValue({$0})}).withUnsafeBufferPointer {
-            let pParameters = $0.baseAddress
-            let NumParameters = UInt32(parameters.count)
-            return try staticSamplers.map({$0.rawValue}).withUnsafeBufferPointer {
-                let pStaticSamplers = $0.baseAddress
-                let NumStaticSamplers = UInt32(staticSamplers.count)
-                
-                let Flags = flags.rawType
-                let rawValue = RawValue(NumParameters: NumParameters,
-                                        pParameters: pParameters,
-                                        NumStaticSamplers: NumStaticSamplers,
-                                        pStaticSamplers: pStaticSamplers,
-                                        Flags: Flags)
-                return try body(rawValue)
+        func withUnsafeParameter(at index: Int, _ pParameters: inout [D3DRootParameter.RawValue], _ body: (RawValue) throws -> ResultType) rethrows -> ResultType {
+            if parameters.indices.isEmpty || index == parameters.indices.last! + 1 {
+                return try pParameters.withUnsafeBufferPointer {
+                    let pParameters = $0.baseAddress
+                    let NumParameters = UInt32(parameters.count)
+                    return try staticSamplers.map({$0.rawValue}).withUnsafeBufferPointer {
+                        let pStaticSamplers = $0.baseAddress
+                        let NumStaticSamplers = UInt32(staticSamplers.count)
+                        let Flags = flags.rawType
+                        let rawValue = RawValue(NumParameters: NumParameters,
+                                                pParameters: pParameters,
+                                                NumStaticSamplers: NumStaticSamplers,
+                                                pStaticSamplers: pStaticSamplers,
+                                                Flags: Flags)
+                        return try body(rawValue)
+                    }
+                }
+            }
+
+            return try parameters[index].withUnsafeRawValue {
+                pParameters.insert($0, at: index)
+                return try withUnsafeParameter(at: index + 1, &pParameters, body)
             }
         }
+
+        var pParameters: [D3DRootParameter.RawValue] = []
+        pParameters.reserveCapacity(parameters.count)
+        return try withUnsafeParameter(at: 0, &pParameters, body)
     }
 }
 

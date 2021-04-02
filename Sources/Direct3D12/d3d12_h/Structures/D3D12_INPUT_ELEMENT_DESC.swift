@@ -11,79 +11,27 @@ import WinSDK
 /// Describes a single element for the input-assembler stage of the graphics pipeline.
 public struct D3DInputElementDescription {
     public typealias RawValue = WinSDK.D3D12_INPUT_ELEMENT_DESC
-    internal var rawValue: RawValue
 
     /// The HLSL semantic associated with this element in a shader input-signature.
-    public var semanticName: String {
-        get {
-            return String(windowsUTF8: rawValue.SemanticName)
-        }
-        set {
-            newValue.windowsUTF8.withUnsafeBufferPointer {
-                rawValue.SemanticName = $0.baseAddress!
-            }
-        }
-    }
+    public var semanticName: String
 
     /// The semantic index for the element. A semantic index modifies a semantic, with an integer index number. A semantic index is only needed in a case where there is more than one element with the same semantic. For example, a 4x4 matrix would have four components each with the semantic name matrix, however each of the four component would have different semantic indices (0, 1, 2, and 3).
-    public var semanticIndex: UInt32 {
-        get {
-            return rawValue.SemanticIndex
-        }
-        set {
-            rawValue.SemanticIndex = newValue
-        }
-    }
+    public var semanticIndex: UInt32
 
     /// A DXGI_FORMAT-typed value that specifies the format of the element data.
-    public var format: DGIFormat {
-        get {
-            return DGIFormat(rawValue.Format)
-        }
-        set {
-            rawValue.Format = newValue.rawValue
-        }
-    }
+    public var format: DGIFormat
 
     /// An integer value that identifies the input-assembler. For more info, see Input Slots. Valid values are between 0 and 15.
-    public var inputSlot: UInt32 {
-        get {
-            return rawValue.InputSlot
-        }
-        set {
-            rawValue.InputSlot = newValue
-        }
-    }
+    public var inputSlot: UInt32
 
     /// Optional. Offset, in bytes, to this element from the start of the vertex. Use D3D12_APPEND_ALIGNED_ELEMENT (0xffffffff) for convenience to define the current element directly after the previous one, including any packing if necessary.
-    public var alignedByteOffset: UInt32 {
-        get {
-            return rawValue.AlignedByteOffset
-        }
-        set {
-            rawValue.AlignedByteOffset = newValue
-        }
-    }
+    public var alignedByteOffset: UInt32
 
     /// A value that identifies the input data class for a single input slot.
-    public var inputSlotClassification: D3DInputClassification {
-        get {
-            return D3DInputClassification(rawValue.InputSlotClass)
-        }
-        set {
-            rawValue.InputSlotClass = newValue.rawValue
-        }
-    }
+    public var inputSlotClassification: D3DInputClassification
 
     /// The number of instances to draw using the same per-instance data before advancing in the buffer by one element. This value must be 0 for an element that contains per-vertex data (the slot class is set to the D3D12_INPUT_PER_VERTEX_DATA member of D3D12_INPUT_CLASSIFICATION).
-    public var instanceDataStepRate: UInt32 {
-        get {
-            return rawValue.InstanceDataStepRate
-        }
-        set {
-            rawValue.InstanceDataStepRate = newValue
-        }
-    }
+    public var instanceDataStepRate: UInt32
 
     /** Describes a single element for the input-assembler stage of the graphics pipeline.
     - parameter semanticName: The HLSL semantic associated with this element in a shader input-signature.
@@ -101,7 +49,6 @@ public struct D3DInputElementDescription {
                 alignedByteOffset: UInt32,
                 inputSlotClassification: D3DInputClassification,
                 instanceDataStepRate: UInt32 = 0) {
-        self.rawValue = RawValue()
         self.semanticName = semanticName
         self.semanticIndex = semanticIndex
         self.format = format
@@ -111,13 +58,24 @@ public struct D3DInputElementDescription {
         self.instanceDataStepRate = instanceDataStepRate
     }
 
-    /// Describes a single element for the input-assembler stage of the graphics pipeline.
-    public init() {
-        self.rawValue = RawValue()
-    }
-
-    internal init(_ rawValue: RawValue) {
-        self.rawValue = rawValue
+    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue) throws -> ResultType) rethrows -> ResultType {
+        return try semanticName.windowsUTF8.withUnsafeBufferPointer {SemanticName in
+            let SemanticName = SemanticName.baseAddress!
+            let SemanticIndex = semanticIndex
+            let Format = format.rawValue
+            let InputSlot = inputSlot
+            let AlignedByteOffset = alignedByteOffset
+            let InputSlotClass = inputSlotClassification.rawValue
+            let InstanceDataStepRate = instanceDataStepRate
+            let rawValue = RawValue(SemanticName: SemanticName,
+                                    SemanticIndex: SemanticIndex,
+                                    Format: Format,
+                                    InputSlot: InputSlot,
+                                    AlignedByteOffset: AlignedByteOffset,
+                                    InputSlotClass: InputSlotClass,
+                                    InstanceDataStepRate: InstanceDataStepRate)
+            return try body(rawValue)
+        }
     }
 }
 

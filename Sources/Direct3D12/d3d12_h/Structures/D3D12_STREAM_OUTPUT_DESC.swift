@@ -11,67 +11,39 @@ import WinSDK
 /// Describes a streaming output buffer.
 public struct D3DStreamOutputDescription {
     public typealias RawValue =  WinSDK.D3D12_STREAM_OUTPUT_DESC
-    internal var rawValue: RawValue
 
     /// An array of D3D12_SO_DECLARATION_ENTRY structures. Can't be NULL if NumEntries > 0.
-    public var declarationEntries: [D3DStreamOutputDeclarationEntry] {
-        get {
-            guard rawValue.NumEntries > 0 else {return []}
-            return withUnsafePointer(to: rawValue.pSODeclaration) {p in
-                let buffer = UnsafeBufferPointer(start: p, count: Int(rawValue.NumEntries))
-                return buffer.map({D3DStreamOutputDeclarationEntry($0!.pointee)})
-            }
-        }
-        set {
-            _declarationEntries = newValue.map({$0.rawValue})
-            _declarationEntries.withUnsafeBufferPointer {
-                rawValue.pSODeclaration = $0.baseAddress!
-            }
-            rawValue.NumEntries = UInt32(newValue.count)
-        }
-    }
-    private var _declarationEntries: [D3DStreamOutputDeclarationEntry.RawValue]! = nil
+    public var declarationEntries: [D3DStreamOutputDeclarationEntry]?
 
     /// An array of buffer strides; each stride is the size of an element for that buffer.
-    public var bufferStrides: [UInt32] {
-        get {
-            let buffer = UnsafeBufferPointer(start: rawValue.pBufferStrides, count: Int(rawValue.NumStrides))
-            return Array(buffer)
-        }
-        set {
-            _bufferStrides = newValue
-            _bufferStrides.withUnsafeBufferPointer {
-                rawValue.pBufferStrides = $0.baseAddress!
-            }
-            rawValue.NumStrides = UInt32(newValue.count)
-        }
-    }
-    private var _bufferStrides: [UInt32]! = nil
+    public var bufferStrides: [UInt32]
 
     /// The index number of the stream to be sent to the rasterizer stage.
-    public var rasterizedStream: UInt32 {
-        get {
-            return rawValue.RasterizedStream
-        }
-        set {
-            rawValue.RasterizedStream = newValue
-        }
-    }
+    public var rasterizedStream: UInt32
 
     /** Describes a streaming output buffer.
     - parameter declarationEntries: An array of D3D12_SO_DECLARATION_ENTRY structures. Can't be NULL if NumEntries > 0.
     - parameter bufferStrides: An array of buffer strides; each stride is the size of an element for that buffer.
     - parameter rasterizedStream: The index number of the stream to be sent to the rasterizer stage.
     */
-    public init(declarationEntries: [D3DStreamOutputDeclarationEntry], bufferStrides: [UInt32], rasterizedStream: UInt32) {
-        self.rawValue = RawValue()
+    public init(declarationEntries: [D3DStreamOutputDeclarationEntry]? = nil, bufferStrides: [UInt32] = [], rasterizedStream: UInt32 = 0) {
         self.declarationEntries = declarationEntries
         self.bufferStrides = bufferStrides
         self.rasterizedStream = rasterizedStream
     }
 
-    internal init(_ rawValue: RawValue) {
-        self.rawValue = rawValue
+    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue) throws -> ResultType) rethrows -> ResultType {
+        return try (declarationEntries ?? []).map({$0.rawValue}).withUnsafeBufferPointer {pSODeclaration in
+            let NumEntries = UInt32(declarationEntries?.count ?? 0)
+            let pSODeclaration = pSODeclaration.baseAddress!
+            return try bufferStrides.withUnsafeBufferPointer {pBufferStrides in
+                let NumStrides = UInt32(bufferStrides.count)
+                let pBufferStrides = pBufferStrides.baseAddress!
+                let RasterizedStream = rasterizedStream
+                let rawValue = RawValue(pSODeclaration: pSODeclaration, NumEntries: NumEntries, pBufferStrides: pBufferStrides, NumStrides: NumStrides, RasterizedStream: RasterizedStream)
+                return try body(rawValue)
+            }
+        }
     }
 }
 

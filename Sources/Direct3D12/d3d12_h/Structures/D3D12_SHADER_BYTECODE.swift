@@ -12,38 +12,20 @@ import Foundation
 /// Describes shader data.
 public struct D3DShaderBytecode {
     public typealias RawValue = WinSDK.D3D12_SHADER_BYTECODE
-    internal var rawValue: RawValue
 
     /// A pointer to a memory block that contains the shader data.
-    public var data: Data? {
-        get {
-            guard rawValue.pShaderBytecode != nil else {return nil}
-            return withUnsafeBytes(of: rawValue.pShaderBytecode) {
-                return Data($0)
-            }
-        }
-        set {
-            if let newValue = newValue {
-                newValue.withUnsafeBytes {
-                    self.rawValue.pShaderBytecode = $0.baseAddress!
-                }
-                rawValue.BytecodeLength = SIZE_T(newValue.count)
-            }else{
-                rawValue.pShaderBytecode = nil
-                rawValue.BytecodeLength = 0
-            }
-        }
-    }
+    public var blob: D3DBlob?
 
     /** Describes shader data.
     - parameter byteCodeBlob: A pointer to a memory block that contains the shader data.
     */
-    public init(byteCodeBlob blob: D3DBlob) {
-        self.rawValue = RawValue(pShaderBytecode: blob.bufferPointer, BytecodeLength: blob.bufferSize)
+    public init(byteCodeBlob blob: D3DBlob?) {
+        self.blob = blob
     }
 
-    internal init(_ rawValue: RawValue) {
-        self.rawValue = rawValue
+    internal func withUnsafeRawValue<ResultType>(_ body: (RawValue) throws -> ResultType) rethrows -> ResultType {
+        let rawValue = RawValue(pShaderBytecode: blob?.bufferPointer, BytecodeLength: blob?.bufferSize ?? 0)
+        return try body(rawValue)
     }
 }
 

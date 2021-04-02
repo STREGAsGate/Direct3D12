@@ -59,7 +59,7 @@ public struct D3DDescriptorHeapDescription {
     - parameter flags: A combination of D3D12_DESCRIPTOR_HEAP_FLAGS-typed values that are combined by using a bitwise OR operation. The resulting value specifies options for the heap.
     - parameter multipleAdapterNodeMask: For single-adapter operation, set this to zero. If there are multiple adapter nodes, set a bit to identify the node (one of the device's physical adapters) to which the descriptor heap applies. Each bit in the mask corresponds to a single node. Only one bit must be set. See Multi-adapter systems.
     */
-    public init(type: D3DDescriptorHeapType, count: UInt32 = 1, flags: D3DDescriptorHeapFlags = [], multipleAdapterNodeMask: UInt32 = 0) {
+    public init(type: D3DDescriptorHeapType, count: UInt32 = 1, flags: D3DDescriptorHeapFlags, multipleAdapterNodeMask: UInt32 = 0) {
         self.rawValue = RawValue()
         self.type = type
         self.descriptorCount = count

@@ -54,15 +54,6 @@ public struct D3DIndexBufferView {
         self.byteCount = byteCount
         self.format = format
     }
-
-    /// Describes the index buffer to view.
-    public init() {
-        self.rawValue = RawValue()
-    }
-
-    internal init(_ rawValue: RawValue) {
-        self.rawValue = rawValue
-    }
 }
 
 
