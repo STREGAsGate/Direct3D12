@@ -362,7 +362,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter buffers: Specifies the vertex buffer views in an array of D3D12_VERTEX_BUFFER_VIEW structures.
     - parameter startSlot: Sets a CPU descriptor handle for the vertex buffers.
     */
-    public func setVertexBuffers(_ buffers: [D3DVertexBufferView], startingAt startSlot: UInt32 = 0) {
+    public func setVertexBuffers(_ buffers: [D3DVertexBufferView], startingAt startSlot: UInt32) {
        performFatally(as: RawValue.self) {pThis in
             let StartSlot = startSlot
             let NumViews = UInt32(buffers.count)

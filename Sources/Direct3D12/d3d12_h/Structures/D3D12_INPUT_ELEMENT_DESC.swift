@@ -45,7 +45,7 @@ public struct D3DInputElementDescription {
     public init(semanticName: String, 
                 semanticIndex: UInt32 = 0,
                 format: DGIFormat,
-                inputSlot: UInt32 = 0,
+                inputSlot: UInt32,
                 alignedByteOffset: UInt32,
                 inputSlotClassification: D3DInputClassification,
                 instanceDataStepRate: UInt32 = 0) {
