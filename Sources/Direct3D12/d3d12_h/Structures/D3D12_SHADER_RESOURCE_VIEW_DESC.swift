@@ -200,6 +200,10 @@ public struct D3DShaderResourceViewDescription {
         self.raytracingAccelerationStructure = raytracingAccelerationStructure
     }
 
+    public init() {
+        self.rawValue = RawValue()
+    }
+
     internal init(_ rawValue: RawValue) {
         self.rawValue = rawValue
     }

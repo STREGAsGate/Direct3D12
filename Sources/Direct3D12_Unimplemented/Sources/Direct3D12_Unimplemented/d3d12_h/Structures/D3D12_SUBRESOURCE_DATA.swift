@@ -23,6 +23,6 @@ public struct D3DSubresourceData {
 #if !Direct3D12ExcludeOriginalStyleAPI
 
 @available(*, deprecated, renamed: "D3DSubresourceData")
-public typealias D3D12_SUBRESOURCE_DATA = RenderTargetFormatArray
+public typealias D3D12_SUBRESOURCE_DATA = D3DSubresourceData
 
 #endif
