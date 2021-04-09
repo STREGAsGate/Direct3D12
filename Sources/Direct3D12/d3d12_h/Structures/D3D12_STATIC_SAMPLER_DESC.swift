@@ -171,15 +171,15 @@ public struct D3DStaticSamplerDescription {
     - parameter shaderVisibility: Specifies the visibility of the sampler to the pipeline shaders, one member of D3D12_SHADER_VISIBILITY.
     */
     public init(filter: D3DFilter,
-                addressU: D3DTextureAddressMode = .border,
-                addressV: D3DTextureAddressMode = .border,
-                addressW: D3DTextureAddressMode = .border,
+                addressU: D3DTextureAddressMode = .wrap,
+                addressV: D3DTextureAddressMode = .wrap,
+                addressW: D3DTextureAddressMode = .wrap,
                 mipLODBias: Float = 0,
                 maxAnisotropy: UInt32 = 0,
                 comparisonFunction: D3DComparisonFunction = .neverSucceed,
                 borderColor: D3DStaticBorderColor = .transparentBlack,
                 minLOD: Float = 0,
-                maxLOD: Float = .greatestFiniteMagnitude,
+                maxLOD: Float = D3D12_FLOAT32_MAX,
                 shaderRegister: UInt32 = 0,
                 registerSpace: UInt32 = 0,
                 shaderVisibility: D3DShaderVisibility = .pixel) {

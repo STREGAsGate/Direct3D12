@@ -157,7 +157,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter source: A pointer to the ID3D12Resourceinterface that represents the source resource.
     - parameter destination: A pointer to the ID3D12Resourceinterface that represents the destination resource.
     */
-    public func copyResource(from source: D3DResource, to destination: D3DResource) {
+    public func copyResource(_ source: D3DResource, to destination: D3DResource) {
         performFatally(as: RawValue.self) {pThis in
             let pDstBuffer = destination.performFatally(as: D3DResource.RawValue.self) {$0}
             let pSrcBuffer = source.performFatally(as: D3DResource.RawValue.self) {$0}
@@ -188,7 +188,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     public func copyTextureRegion(_ region: D3DBox, 
                                  from source: D3DTextureCopyLocation, 
                                  to destination: D3DTextureCopyLocation, 
-                                 atX x: UInt32, y: UInt32, z: UInt32 = 0) {
+                                 atX x: UInt32 = 0, y: UInt32 = 0, z: UInt32 = 0) {
         performFatally(as: RawValue.self) {pThis in
             var pDst = destination.rawValue
             let DstX = x
