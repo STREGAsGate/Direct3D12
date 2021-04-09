@@ -142,7 +142,7 @@ public class D3DGraphicsCommandList: D3DCommandList {
     - parameter dstOffset: Specifies a UINT64 offset (in bytes) into the destination resource.
     - parameter count: Specifies the number of bytes to copy.
     */
-    public func copyBufferRegion(from source: D3DResource, at srcOffset: UInt64, to destination: D3DResource, at dstOffset: UInt64, count: UInt64) {
+    public func copyBufferRegion(from source: D3DResource, at srcOffset: UInt64 = 0, to destination: D3DResource, at dstOffset: UInt64 = 0, count: UInt64) {
         performFatally(as: RawValue.self) {pThis in
             let pDstBuffer = destination.performFatally(as: D3DResource.RawValue.self) {$0}
             let DstOffset = dstOffset
