@@ -138,7 +138,7 @@ public struct D3DRasterizerDescription {
     */
     public init(fillMode: D3DFillMode = .solid,
                 cullMode: D3DCullMode = .back,
-                windingDirection: D3DWindingDirection = .clockwise,
+                windingDirection: D3DWindingDirection = .counterClockwise,
                 depthBias: Int32 = 0,
                 depthBiasClamp: Float = 0,
                 slopeScaledDepthBias: Float = 0,

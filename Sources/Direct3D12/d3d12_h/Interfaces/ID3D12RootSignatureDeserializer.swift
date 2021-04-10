@@ -14,7 +14,7 @@ public class D3DRootSignatureDeserializer: IUnknown {
         return performFatally(as: RawValue.self) {pThis in
             // let v = pThis.pointee.lpVtbl.pointee.GetRootSignatureDesc(pThis)
             // return D3DRootSignatureDescription(v!.pointee)
-            fatalError("Not implemented.")
+            fatalError("\(type(of: self)) \(#function) not implemented.")
         }
     }
 
