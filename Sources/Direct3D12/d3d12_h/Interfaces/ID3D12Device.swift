@@ -89,6 +89,9 @@ public class D3DDevice: D3DObject {
             var riid = D3DCommandAllocator.interfaceID
             try pThis.pointee.lpVtbl.pointee.CreateCommandAllocator(pThis, type.rawValue, &riid, &ppCommandAllocator).checkResult(self, #function)
             guard let v = D3DCommandAllocator(winSDKPointer: ppCommandAllocator) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -112,6 +115,9 @@ public class D3DDevice: D3DObject {
             var riid = D3DCommandList.interfaceID
             try pThis.pointee.lpVtbl.pointee.CreateCommandList(pThis, nodeMask, type, pCommandAllocator, pInitialState, &riid, &ppCommandList).checkResult(self, #function)
             guard let v = D3DCommandList(winSDKPointer: ppCommandList) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -135,6 +141,9 @@ public class D3DDevice: D3DObject {
             var riid = D3DGraphicsCommandList.interfaceID
             try pThis.pointee.lpVtbl.pointee.CreateCommandList(pThis, nodeMask, type, pCommandAllocator, pInitialState, &riid, &ppCommandList).checkResult(self, #function)
             guard let v = D3DGraphicsCommandList(winSDKPointer: ppCommandList) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -149,6 +158,9 @@ public class D3DDevice: D3DObject {
             var ppCommandQueue: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateCommandQueue(pThis, &pDesc, &riid, &ppCommandQueue).checkResult(self, #function)
             guard let v = D3DCommandQueue(winSDKPointer: ppCommandQueue) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -176,6 +188,9 @@ public class D3DDevice: D3DObject {
             var ppCommandSignature: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateCommandSignature(pThis, &pDesc, pRootSignature, &riid, &ppCommandSignature).checkResult(self, #function)
             guard let v = D3DCommandSignature(winSDKPointer: ppCommandSignature) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -205,6 +220,9 @@ public class D3DDevice: D3DObject {
                 try pThis.pointee.lpVtbl.pointee.CreateCommittedResource(pThis, &pHeapProperties, HeapFlags, &pDesc, InitialResourceState, nil, &riidResource, &ppvResource).checkResult(self, #function)
             }
             guard let v = D3DResource(winSDKPointer: ppvResource) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -220,6 +238,9 @@ public class D3DDevice: D3DObject {
                 var ppComputePipelineState: UnsafeMutableRawPointer?
                 try pThis.pointee.lpVtbl.pointee.CreateComputePipelineState(pThis, &pDesc, &riid, &ppComputePipelineState).checkResult(self, #function)
                 guard let v = D3DPipelineState(winSDKPointer: ppComputePipelineState) else {throw Error(.invalidArgument)}
+                #if DEBUG
+                try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+                #endif
                 return v
             }
         }
@@ -259,6 +280,9 @@ public class D3DDevice: D3DObject {
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateDescriptorHeap(pThis, &pDesc, &riid, &pp).checkResult(self, #function)
             guard let v = D3DDescriptorHeap(winSDKPointer: pp) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -275,6 +299,9 @@ public class D3DDevice: D3DObject {
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateFence(pThis, InitialValue, Flags, &riid, &pp).checkResult(self, #function)
             guard let v = D3DFence(winSDKPointer: pp) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -290,6 +317,9 @@ public class D3DDevice: D3DObject {
                 var pp: UnsafeMutableRawPointer?
                 try pThis.pointee.lpVtbl.pointee.CreateGraphicsPipelineState(pThis, &pDesc, &riid, &pp).checkResult(self, #function)
                 guard let v = D3DPipelineState(winSDKPointer: pp) else {throw Error(.invalidArgument)}
+                #if DEBUG
+                try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+                #endif
                 return v
             }
         }
@@ -305,6 +335,9 @@ public class D3DDevice: D3DObject {
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateHeap(pThis, &pDesc, &riid, &pp).checkResult(self, #function)
             guard let v = D3DHeap(winSDKPointer: pp) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -332,6 +365,9 @@ public class D3DDevice: D3DObject {
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreatePlacedResource(pThis, pHeap, HeapOffset, &pDesc, InitialState, &pOptimizedClearValue, &riid, &pp).checkResult(self, #function)
             guard let v = D3DResource(winSDKPointer: pp) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -346,6 +382,9 @@ public class D3DDevice: D3DObject {
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateQueryHeap(pThis, &pDesc, &riid, &pp).checkResult(self, #function)
             guard let v = D3DQueryHeap(winSDKPointer: pp) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -382,6 +421,9 @@ public class D3DDevice: D3DObject {
             var pp: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateReservedResource(pThis, &pDesc, InitialState, &pOptimizedClearValue, &riid, &pp).checkResult(self, #function)
             guard let v = D3DResource(winSDKPointer: pp) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
@@ -400,6 +442,9 @@ public class D3DDevice: D3DObject {
             var ppCommandSignature: UnsafeMutableRawPointer?
             try pThis.pointee.lpVtbl.pointee.CreateRootSignature(pThis, multipleAdapterNodeMask, ppBlob.bufferPointer, ppBlob.bufferSize, &riid, &ppCommandSignature).checkResult(self, #function)
             guard let v = D3DRootSignature(winSDKPointer: ppCommandSignature) else {throw Error(.invalidArgument)}
+            #if DEBUG
+            try v.setDebugName("\(Swift.type(of: self)).\(#function)")
+            #endif
             return v
         }
     }
