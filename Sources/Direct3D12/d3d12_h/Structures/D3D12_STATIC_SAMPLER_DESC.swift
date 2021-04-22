@@ -180,7 +180,7 @@ public struct D3DStaticSamplerDescription {
                 borderColor: D3DStaticBorderColor = .transparentBlack,
                 minLOD: Float = 0,
                 maxLOD: Float = D3D12_FLOAT32_MAX,
-                shaderRegister: UInt32 = 0,
+                shaderRegister: UInt32,
                 registerSpace: UInt32 = 0,
                 shaderVisibility: D3DShaderVisibility = .pixel) {
         self.rawValue = RawValue()
