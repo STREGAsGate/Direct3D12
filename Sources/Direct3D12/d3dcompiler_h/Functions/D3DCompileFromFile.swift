@@ -13,8 +13,10 @@ public func compileFromFile(_ url: URL, functionName: String, target: String) th
     let pFileName = url.withUnsafeFileSystemRepresentation {
         return String(cString: $0!).windowsUTF16
     }
+
     let pDefines: [D3D_SHADER_MACRO] = [D3D_SHADER_MACRO(Name: nil, Definition: nil)]
-    let pInclude: UnsafeMutablePointer<WinSDK.ID3DInclude>? = nil
+    let D3D_COMPILE_STANDARD_FILE_INCLUDE = UnsafeMutablePointer<WinSDK.ID3DInclude>(bitPattern: UInt(1))
+    let pInclude: UnsafeMutablePointer<WinSDK.ID3DInclude>? = D3D_COMPILE_STANDARD_FILE_INCLUDE
     let pEntrypoint = functionName.windowsUTF8
     let pTarget = target.windowsUTF8
     #if DEBUG
