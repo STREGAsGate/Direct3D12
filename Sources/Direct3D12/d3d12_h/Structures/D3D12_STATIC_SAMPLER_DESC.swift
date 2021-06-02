@@ -182,7 +182,7 @@ public struct D3DStaticSamplerDescription {
                 maxLOD: Float = D3D12_FLOAT32_MAX,
                 shaderRegister: UInt32,
                 registerSpace: UInt32 = 0,
-                shaderVisibility: D3DShaderVisibility = .pixel) {
+                shaderVisibility: D3DShaderVisibility = .all) {
         self.rawValue = RawValue()
         self.filter = filter
         self.addressU = addressU
