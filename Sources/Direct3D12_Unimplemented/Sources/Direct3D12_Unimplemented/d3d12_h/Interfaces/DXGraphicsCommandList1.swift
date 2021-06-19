@@ -10,8 +10,13 @@ import WinSDK
 
 @available(Windows, introduced: 10.0.15063)
 public extension GraphicsCommandList {
-    func atomicCopyBufferUINT(source:at:destination:at:dependencies:ranges:) {
-        
+    func atomicCopyBufferUINT(_ pDstBuffer: Any,
+                              _ DstOffset: Any,
+                              _ pSrcBuffer: Any.
+                              _ SrcOffset: Any,
+                              _ Dependencies: Any,
+                              _ ppDependentResources: Any,
+                              _ pDependentSubresourceRanges: Any) {        
     }
 }
 
