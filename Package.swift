@@ -14,9 +14,7 @@ let package = Package(
     name: "Direct3D12",
     products: [
         .library(
-            name: "Direct3D12",
-            type: .dynamic,
-            targets: ["Direct3D12"]),
+            name: "Direct3D12", targets: ["Direct3D12"]),
     ],
     dependencies: [
         // .package(name: "Direct3D12_Enumerations", path: "./Sources/Direct3D12_Enumerations"),
