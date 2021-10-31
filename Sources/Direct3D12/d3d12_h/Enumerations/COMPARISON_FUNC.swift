@@ -26,7 +26,7 @@ public enum D3DComparisonFunction {
     ///	If the source data is greater than or equal to the destination data, the comparison passes.
     case greaterThanOrEqualTo
     ///	Always pass the comparison.
-    case alwaysSuccees
+    case alwaysSucceed
 
     /// This Swift Package had no implementation, this can happen if the Base API is expanded.
     case _unimplemented(RawValue)
