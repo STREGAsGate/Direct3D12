@@ -47,7 +47,7 @@ public enum D3DComparisonFunction {
             return WinSDK.D3D12_COMPARISON_FUNC_NOT_EQUAL
         case .greaterThanOrEqualTo:
             return WinSDK.D3D12_COMPARISON_FUNC_GREATER_EQUAL
-        case .alwaysSuccees:
+        case .alwaysSucceed:
             return WinSDK.D3D12_COMPARISON_FUNC_ALWAYS
         case let ._unimplemented(rawValue):
             return rawValue
@@ -71,7 +71,7 @@ public enum D3DComparisonFunction {
         case WinSDK.D3D12_COMPARISON_FUNC_GREATER_EQUAL:
             self = .greaterThanOrEqualTo
         case WinSDK.D3D12_COMPARISON_FUNC_ALWAYS:
-            self = .alwaysSuccees
+            self = .alwaysSucceed
         default:
             self = ._unimplemented(rawValue)
         }
