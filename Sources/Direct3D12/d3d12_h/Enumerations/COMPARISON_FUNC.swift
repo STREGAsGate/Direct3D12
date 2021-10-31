@@ -107,7 +107,7 @@ public let D3D12_COMPARISON_FUNC_NOT_EQUAL = D3DComparisonFunction.notEqualTo
 @available(*, deprecated, renamed: "D3DComparisonFunction.greaterThanOrEqualTo")
 public let D3D12_COMPARISON_FUNC_GREATER_EQUAL = D3DComparisonFunction.greaterThanOrEqualTo
 
-@available(*, deprecated, renamed: "D3DComparisonFunction.alwaysSuccees")
-public let D3D12_COMPARISON_FUNC_ALWAYS = D3DComparisonFunction.alwaysSuccees
+@available(*, deprecated, renamed: "D3DComparisonFunction.alwaysSucceed")
+public let D3D12_COMPARISON_FUNC_ALWAYS = D3DComparisonFunction.alwaysSucceed
 
 #endif

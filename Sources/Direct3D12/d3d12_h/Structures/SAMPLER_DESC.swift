@@ -131,7 +131,7 @@ public struct D3DSamplerDescription {
                 addressW: D3DTextureAddressMode,
                 mipLODBias: Float = 0,
                 maxAnisotropy: UInt32 = 0,
-                comparisonFunction: D3DComparisonFunction = .alwaysSuccees,
+                comparisonFunction: D3DComparisonFunction = .alwaysSucceed,
                 borderColor: D3DColor = .clear,
                 minLOD: Float = 0,
                 maxLOD: Float = 1000) {
